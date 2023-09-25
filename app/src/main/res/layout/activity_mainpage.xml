@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/main_background"
+        android:layout_width="411dp"
+        android:layout_height="230dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="529dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/main_background" />
+
+    <ImageView
+        android:id="@+id/main_profile_background"
+        android:layout_width="370dp"
+        android:layout_height="190dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192"
+        app:srcCompat="@drawable/main_profile_background" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="Lv.2"
+        android:textColor="#8B8B8B"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toBottomOf="@+id/main_levelbar"
+        app:layout_constraintVertical_bias="0.066" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="Lv.3"
+        android:textColor="#8B8B8B"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toBottomOf="@+id/main_levelbar"
+        app:layout_constraintVertical_bias="0.066" />
+
+    <ImageView
+        android:id="@+id/main_game_one"
+        android:layout_width="370dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_game_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_profile_background"
+        app:srcCompat="@drawable/main_game_one" />
+
+    <ImageView
+        android:id="@+id/main_game_three"
+        android:layout_width="370dp"
+        android:layout_height="110dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_game_two"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/main_game_three" />
+
+    <ImageView
+        android:id="@+id/main_game_two"
+        android:layout_width="370dp"
+        android:layout_height="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_game_one"
+        app:srcCompat="@drawable/main_game_two" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="피아노, 드럼 등 악기를 선택해서 연주해요!"
+        android:textColor="#B6B6B6"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_game_three"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_three"
+        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintStart_toStartOf="@+id/main_game_three"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="박자에 맞춰 내려오는 이미지를 클릭해요!"
+        android:textColor="#B6B6B6"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_game_three"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_two"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="@+id/main_game_two"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <ImageView
+        android:id="@+id/main_menu_background"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/bottom_menu_background" />
+
+    <ImageView
+        android:id="@+id/main_logo"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_background"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/main_background"
+        app:layout_constraintTop_toTopOf="@+id/main_background"
+        app:layout_constraintVertical_bias="0.828"
+        app:srcCompat="@drawable/main_logo" />
+
+    <ImageView
+        android:id="@+id/main_alarm_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_background"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/main_background"
+        app:layout_constraintTop_toTopOf="@+id/main_background"
+        app:layout_constraintVertical_bias="0.828"
+        app:srcCompat="@drawable/main_alarm" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/main_game_one"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_one"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/main_game_one"
+        app:layout_constraintTop_toTopOf="@+id/main_game_one"
+        app:layout_constraintVertical_bias="0.7"
+        app:srcCompat="@drawable/main_game_button" />
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/main_game_three"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_two"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/main_game_two"
+        app:layout_constraintTop_toBottomOf="@+id/main_game_one"
+        app:layout_constraintVertical_bias="0.7"
+        app:srcCompat="@drawable/main_game_button" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="게임하기"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView26"
+        app:layout_constraintEnd_toEndOf="@+id/imageView26"
+        app:layout_constraintStart_toStartOf="@+id/imageView26"
+        app:layout_constraintTop_toTopOf="@+id/imageView26" />
+
+    <ImageView
+        android:id="@+id/imageView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/main_game_three"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_three"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/main_game_three"
+        app:layout_constraintTop_toTopOf="@+id/main_game_three"
+        app:layout_constraintVertical_bias="0.7"
+        app:srcCompat="@drawable/main_game_button" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="게임하기"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView27"
+        app:layout_constraintEnd_toEndOf="@+id/imageView27"
+        app:layout_constraintStart_toStartOf="@+id/imageView27"
+        app:layout_constraintTop_toTopOf="@+id/imageView27" />
+
+    <ImageButton
+        android:id="@+id/main_menu_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EAEEF1"
+        app:layout_constraintBottom_toBottomOf="@+id/main_menu_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_menu_background"
+        app:layout_constraintStart_toStartOf="@+id/main_menu_background"
+        app:layout_constraintTop_toTopOf="@+id/main_menu_background"
+        app:srcCompat="@drawable/bottom_menu_home" />
+
+    <ImageView
+        android:id="@+id/main_profile_pic"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toTopOf="@+id/main_profile_background"
+        app:layout_constraintVertical_bias="0.19999999"
+        app:srcCompat="@drawable/main_profile_pic" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="악보 읽기 게임"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_game_one"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_one"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="@+id/main_game_one"
+        app:layout_constraintTop_toTopOf="@+id/main_game_one"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="박자 읽기 게임"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_game_three"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_two"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="@+id/main_game_two"
+        app:layout_constraintTop_toBottomOf="@+id/main_game_one"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="악기 연주"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_game_three"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_three"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="@+id/main_game_three"
+        app:layout_constraintTop_toTopOf="@+id/main_game_three"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="그림을 보고 맞는 음계를 찾아 보아요!"
+        android:textColor="#B6B6B6"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_game_one"
+        app:layout_constraintEnd_toEndOf="@+id/main_game_one"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/main_game_one"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="게임하기"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView25"
+        app:layout_constraintEnd_toEndOf="@+id/imageView25"
+        app:layout_constraintStart_toStartOf="@+id/imageView25"
+        app:layout_constraintTop_toTopOf="@+id/imageView25" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="도도리님"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toTopOf="@+id/main_profile_background"
+        app:layout_constraintVertical_bias="0.431" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="10일차"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toTopOf="@+id/main_profile_background"
+        app:layout_constraintVertical_bias="0.242" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="D-Day"
+        android:textColor="#CACAD2"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toTopOf="@+id/main_profile_background"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/im_hyemin_regular"
+        android:text="오늘도 활기찬 하루 보내세요!"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toTopOf="@+id/main_profile_background"
+        app:layout_constraintVertical_bias="0.56" />
+
+    <ImageView
+        android:id="@+id/main_levelbar"
+        android:layout_width="315dp"
+        android:layout_height="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toTopOf="@+id/main_profile_background"
+        app:layout_constraintVertical_bias="0.75"
+        app:srcCompat="@drawable/main_levelbar" />
+
+    <ImageView
+        android:id="@+id/main_levelbar_fill"
+        android:layout_width="85dp"
+        android:layout_height="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_levelbar"
+        app:layout_constraintEnd_toEndOf="@+id/main_levelbar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/main_levelbar"
+        app:layout_constraintTop_toBottomOf="@+id/main_background"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/main_levelbar_fill" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="Lv.1"
+        android:textColor="#8B8B8B"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintEnd_toEndOf="@+id/main_profile_background"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="@+id/main_profile_background"
+        app:layout_constraintTop_toBottomOf="@+id/main_levelbar"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="게임하기"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_game_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintStart_toEndOf="@+id/main_game_minibar"
+        app:layout_constraintTop_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/main_game_minibar"
+        android:layout_width="6dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_game_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_profile_background"
+        app:layout_constraintVertical_bias="0.133"
+        app:srcCompat="@drawable/main_game_minibar" />
+
+    <ImageButton
+        android:id="@+id/main_menu_mypage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EAEEF1"
+        app:layout_constraintBottom_toBottomOf="@+id/main_menu_background"
+        app:layout_constraintEnd_toEndOf="@id/main_menu_background"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="@+id/main_menu_background"
+        app:layout_constraintTop_toTopOf="@+id/main_menu_background"
+        app:layout_constraintVertical_bias="0.6"
+        app:srcCompat="@drawable/bottom_menu_mypage" />
+
+    <ImageButton
+        android:id="@+id/main_menu_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EAEEF1"
+        app:layout_constraintBottom_toBottomOf="@id/main_menu_background"
+        app:layout_constraintEnd_toEndOf="@id/main_menu_background"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="@+id/main_menu_background"
+        app:layout_constraintTop_toTopOf="@+id/main_menu_background"
+        app:layout_constraintVertical_bias="0.6"
+        app:srcCompat="@drawable/bottom_menu_rank" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
