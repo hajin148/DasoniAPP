@@ -12,8 +12,10 @@
         android:fontFamily="@font/pretendard_regular"
         android:text="레벨업까지 80%!"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="286dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="0.3"
+        tools:layout_editor_absoluteX="163dp" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -43,56 +45,73 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#EAEEF1"
-        app:srcCompat="@drawable/bottom_menu_home"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="674dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:srcCompat="@drawable/bottom_menu_home" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/bottom_menu_mypage_selected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#EAEEF1"
-        app:srcCompat="@drawable/bottom_menu_mypage"
-        tools:layout_editor_absoluteX="264dp"
-        tools:layout_editor_absoluteY="674dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:srcCompat="@drawable/bottom_menu_mypage_selected" />
 
     <ImageButton
         android:id="@+id/imageButton9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#EAEEF1"
-        app:srcCompat="@drawable/bottom_menu_rank"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="674dp" />
+        app:layout_constraintBottom_toBottomOf="@id/imageView6"
+        app:layout_constraintEnd_toEndOf="@id/imageView6"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:srcCompat="@drawable/bottom_menu_rank" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        app:srcCompat="@drawable/main_profile_pic"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="67dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/main_profile_pic" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="님의 계정"
         android:textColor="#B5B5B5"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="208dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.55" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="도도리"
         android:textSize="19sp"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="203dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -103,15 +122,14 @@
         tools:layout_editor_absoluteY="312dp" />
 
     <TextView
-        android:id="@+id/textView40"
+        android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_regular"
-        android:text="15일 전"
-        android:textColor="#8B8B8B"
-        android:textSize="9sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="500dp" />
+        android:text="도도리님 회원가입 완료되었습니다!"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="389dp" />
 
     <TextView
         android:id="@+id/textView39"
@@ -121,33 +139,92 @@
         android:text="12일 전"
         android:textColor="#8B8B8B"
         android:textSize="9sp"
-        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="454dp" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_regular"
-        android:text="도도리님 회원가입 완료되었습니다!"
+        android:text="도도리님 환영합니다♥"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="389dp" />
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="481dp" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="5일 전"
+        android:textColor="#8B8B8B"
+        android:textSize="9sp"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="408dp" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="도도리님 레벨업 축하드립니다!"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="435dp" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="15일 전"
+        android:textColor="#8B8B8B"
+        android:textSize="9sp"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="500dp" />
 
     <ImageView
         android:id="@+id/imageView17"
         android:layout_width="32dp"
         android:layout_height="32dp"
         app:srcCompat="@drawable/mypage_alarm_icon"
-        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteX="52dp"
         tools:layout_editor_absoluteY="481dp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/mypage_alarm_icon"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="389dp" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/mypage_alarm_icon"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="435dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="알림"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="352dp" />
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="298dp"
         android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/main_levelbar"
-        tools:layout_editor_absoluteX="56dp"
         tools:layout_editor_absoluteY="246dp" />
 
     <ImageView
@@ -189,43 +266,6 @@
         tools:layout_editor_absoluteY="359dp" />
 
     <TextView
-        android:id="@+id/textView38"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/pretendard_regular"
-        android:text="5일 전"
-        android:textColor="#8B8B8B"
-        android:textSize="9sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="408dp" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        app:srcCompat="@drawable/mypage_alarm_icon"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="435dp" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        app:srcCompat="@drawable/mypage_alarm_icon"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="389dp" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/pretendard_medium"
-        android:text="알림"
-        android:textSize="17sp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="353dp" />
-
-    <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -233,8 +273,10 @@
         android:text="설정"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="603dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <TextView
         android:id="@+id/textView31"
@@ -244,27 +286,9 @@
         android:text="로그인"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="603dp" />
-
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/pretendard_regular"
-        android:text="도도리님 레벨업 축하드립니다!"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="435dp" />
-
-    <TextView
-        android:id="@+id/textView36"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/pretendard_regular"
-        android:text="도도리님 환영합니다♥"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="481dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

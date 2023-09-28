@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView103"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="휴대폰 번호를 입력해주세요"
+        android:textColor="#C4C4C4"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView23"
+        app:layout_constraintStart_toEndOf="@+id/imageView41"
+        app:layout_constraintTop_toBottomOf="@+id/imageView33" />
+
+    <ImageView
+        android:id="@+id/imageView33"
+        android:layout_width="330dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView24"
+        app:srcCompat="@drawable/login_line" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="330dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView35"
+        app:srcCompat="@drawable/login_line" />
+
+    <ImageView
+        android:id="@+id/imageView35"
+        android:layout_width="330dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login_line" />
+
+    <ImageView
+        android:id="@+id/signin_button2"
+        android:layout_width="330dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/signin_button"
+        tools:layout_editor_absoluteY="418dp" />
+
+    <TextView
+        android:id="@+id/textView96"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="회원가입"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/signin_button2"
+        app:layout_constraintEnd_toEndOf="@+id/signin_button2"
+        app:layout_constraintStart_toStartOf="@+id/signin_button2"
+        app:layout_constraintTop_toTopOf="@+id/signin_button2" />
+
+    <ImageButton
+        android:id="@+id/imageButton12"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:backgroundTint="#FEFAFD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06999999"
+        app:srcCompat="@drawable/exit_button" />
+
+    <TextView
+        android:id="@+id/textView67"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="130dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="회원가입"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="330dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView33"
+        app:srcCompat="@drawable/login_line" />
+
+    <TextView
+        android:id="@+id/textView97"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="email@gmail.com"
+        android:textColor="#C4C4C4"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView35"
+        app:layout_constraintStart_toEndOf="@+id/imageView36"
+        app:layout_constraintTop_toBottomOf="@+id/textView67"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView36"
+        android:layout_width="20dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView67"
+        app:srcCompat="@drawable/email_icon" />
+
+    <TextView
+        android:id="@+id/textView98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="비밀번호를 입력해주세요"
+        android:textColor="#C4C4C4"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView24"
+        app:layout_constraintStart_toEndOf="@+id/imageView39"
+        app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+
+    <ImageView
+        android:id="@+id/imageView39"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView35"
+        app:srcCompat="@drawable/lock_icon" />
+
+    <TextView
+        android:id="@+id/textView101"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="이름을 입력해주세요"
+        android:textColor="#C4C4C4"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView33"
+        app:layout_constraintStart_toEndOf="@+id/imageView40"
+        app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
+    <ImageView
+        android:id="@+id/imageView40"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/profile_icon"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <ImageView
+        android:id="@+id/imageView41"
+        android:layout_width="20dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/phone_icon"
+        tools:layout_editor_absoluteY="348dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
