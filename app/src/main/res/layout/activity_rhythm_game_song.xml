@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBEFF2">
+
+    <ImageView
+        android:id="@+id/imageView75"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="51dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView71"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageView
+        android:id="@+id/imageView73"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView71"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView72"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageView
+        android:id="@+id/imageView74"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton20"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageView
+        android:id="@+id/imageView72"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView74"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageButton
+        android:id="@+id/imageButton20"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:backgroundTint="#EBEFF2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063"
+        app:srcCompat="@drawable/back_button" />
+
+    <ImageView
+        android:id="@+id/imageView71"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/song_background"
+        tools:layout_editor_absoluteY="464dp" />
+
+    <ImageView
+        android:id="@+id/imageView76"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
+        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView74"
+        app:layout_constraintTop_toTopOf="@+id/imageView74"
+        app:srcCompat="@drawable/song_image_one" />
+
+    <TextView
+        android:id="@+id/song_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="Song Name 1"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
+        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView76"
+        app:layout_constraintTop_toTopOf="@+id/imageView74"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView77"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
+        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView74"
+        app:layout_constraintTop_toTopOf="@+id/imageView74"
+        app:srcCompat="@drawable/player_icon" />
+
+    <TextView
+        android:id="@+id/song_writer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="Song writer name 1"
+        android:textColor="#B6B6B6"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView76"
+        app:layout_constraintTop_toBottomOf="@+id/song_name_text" />
+
+    <ImageView
+        android:id="@+id/star_one"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
+        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView76"
+        app:layout_constraintTop_toBottomOf="@+id/song_writer_name"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/one_star" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
