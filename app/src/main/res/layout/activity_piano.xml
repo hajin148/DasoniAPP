@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#231F20">
+
+    <ImageView
+        android:id="@+id/imageView103"
+        android:layout_width="731dp"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_top_menu_background" />
+
+    <ImageButton
+        android:id="@+id/imageButton23"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#00707070"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/instrument_menu_exit_button" />
+
+    <ImageView
+        android:id="@+id/imageView104"
+        android:layout_width="238dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_fullview_center" />
+
+    <ImageView
+        android:id="@+id/imageView105"
+        android:layout_width="108dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_instrument_select_background" />
+
+    <ImageView
+        android:id="@+id/imageView106"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView107"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_c" />
+
+    <ImageView
+        android:id="@+id/imageView107"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView108"
+        app:layout_constraintStart_toEndOf="@+id/imageView106"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_d" />
+
+    <ImageView
+        android:id="@+id/imageView108"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView109"
+        app:layout_constraintStart_toEndOf="@+id/imageView107"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_e" />
+
+    <ImageView
+        android:id="@+id/imageView109"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView110"
+        app:layout_constraintStart_toEndOf="@+id/imageView108"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_f" />
+
+    <ImageView
+        android:id="@+id/imageView122"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView108"
+        app:layout_constraintStart_toEndOf="@+id/imageView106"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_deb" />
+
+    <ImageView
+        android:id="@+id/imageView110"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView111"
+        app:layout_constraintStart_toEndOf="@+id/imageView109"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_g" />
+
+    <ImageView
+        android:id="@+id/imageView111"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView112"
+        app:layout_constraintStart_toEndOf="@+id/imageView110"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_a" />
+
+    <ImageView
+        android:id="@+id/imageView112"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView113"
+        app:layout_constraintStart_toEndOf="@+id/imageView111"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_b" />
+
+    <ImageView
+        android:id="@+id/imageView113"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView114"
+        app:layout_constraintStart_toEndOf="@+id/imageView112"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_c" />
+
+    <ImageView
+        android:id="@+id/imageView114"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView115"
+        app:layout_constraintStart_toEndOf="@+id/imageView113"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_d" />
+
+    <ImageView
+        android:id="@+id/imageView115"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView116"
+        app:layout_constraintStart_toEndOf="@+id/imageView114"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_e" />
+
+    <ImageView
+        android:id="@+id/imageView116"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView117"
+        app:layout_constraintStart_toEndOf="@+id/imageView115"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_f" />
+
+    <ImageView
+        android:id="@+id/imageView117"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView118"
+        app:layout_constraintStart_toEndOf="@+id/imageView116"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_g" />
+
+    <ImageView
+        android:id="@+id/imageView118"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView119"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView117"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_a" />
+
+    <ImageView
+        android:id="@+id/imageView119"
+        android:layout_width="52dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView118"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/piano_key_b" />
+
+    <ImageView
+        android:id="@+id/imageView121"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView107"
+        app:layout_constraintStart_toStartOf="@+id/imageView106"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_cdb" />
+
+    <ImageView
+        android:id="@+id/imageView123"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView110"
+        app:layout_constraintStart_toEndOf="@+id/imageView108"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_fgb" />
+
+    <ImageView
+        android:id="@+id/imageView135"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView111"
+        app:layout_constraintStart_toEndOf="@+id/imageView109"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_gab" />
+
+    <ImageView
+        android:id="@+id/imageView138"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView112"
+        app:layout_constraintStart_toEndOf="@+id/imageView110"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_abb" />
+
+    <ImageView
+        android:id="@+id/imageView139"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView114"
+        app:layout_constraintStart_toEndOf="@+id/imageView112"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_cdb" />
+
+    <ImageView
+        android:id="@+id/imageView140"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView115"
+        app:layout_constraintStart_toEndOf="@+id/imageView113"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_deb" />
+
+    <ImageView
+        android:id="@+id/imageView141"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView117"
+        app:layout_constraintStart_toEndOf="@+id/imageView115"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_fgb" />
+
+    <ImageView
+        android:id="@+id/imageView142"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView118"
+        app:layout_constraintStart_toEndOf="@+id/imageView116"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_gab" />
+
+    <ImageView
+        android:id="@+id/imageView143"
+        android:layout_width="34dp"
+        android:layout_height="178dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView119"
+        app:layout_constraintStart_toEndOf="@+id/imageView117"
+        app:layout_constraintTop_toBottomOf="@+id/imageView103"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piano_key_abb" />
+
+    <TextView
+        android:id="@+id/textView133"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="악기선택"
+        android:textColor="#707070"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView105"
+        app:layout_constraintEnd_toEndOf="@+id/imageView105"
+        app:layout_constraintStart_toStartOf="@+id/imageView105"
+        app:layout_constraintTop_toTopOf="@+id/imageView105" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

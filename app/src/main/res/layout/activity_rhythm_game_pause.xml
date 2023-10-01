@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/game_pause_background" />
+        app:srcCompat="@drawable/rhythm_game_pause_background" />
 
     <ImageView
         android:id="@+id/imageView50"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageView49"
         app:layout_constraintTop_toTopOf="@+id/imageView49"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/game_start_button" />
+        app:srcCompat="@drawable/rhythm_game_keep_button" />
 
     <ImageView
         android:id="@+id/imageView51"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView52"
         app:layout_constraintEnd_toEndOf="@+id/imageView49"
         app:layout_constraintStart_toStartOf="@+id/imageView49"
-        app:srcCompat="@drawable/game_replay_button" />
+        app:srcCompat="@drawable/rhythm_game_replay_button" />
 
     <ImageView
         android:id="@+id/imageView52"
@@ -50,5 +50,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView49"
         app:layout_constraintEnd_toEndOf="@+id/imageView49"
         app:layout_constraintStart_toStartOf="@+id/imageView49"
-        app:srcCompat="@drawable/game_menu_button" />
+        app:srcCompat="@drawable/rhythm_game_menu_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
