@@ -15,8 +15,10 @@
         android:layout_marginBottom="21dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView32"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/alarm_background" />
 
     <ImageButton
@@ -54,9 +56,11 @@
         android:text="도도리님 레벨업 축하드립니다!"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/textView57"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView30"
         app:layout_constraintTop_toBottomOf="@+id/imageView31"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <TextView
         android:id="@+id/textView52"
@@ -67,9 +71,11 @@
         android:text="도도리님 회원가입 완료되었습니다!"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/textView56"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView31"
         app:layout_constraintTop_toTopOf="@+id/imageView28"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintVertical_bias="0.71" />
 
     <TextView
         android:id="@+id/textView50"
