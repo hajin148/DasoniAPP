@@ -9,19 +9,20 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/profile_edit_arrow_two"
             android:layout_width="10dp"
             android:layout_height="16dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView68"
+            app:layout_constraintBottom_toBottomOf="@+id/textView61"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView61"
+            app:layout_constraintHorizontal_bias="0.902"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView61"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/arrow_right" />
 
         <ImageButton
@@ -46,13 +47,15 @@
             android:fontFamily="@font/pretendard_medium"
             android:text="푸시 알림"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/push_alarm_text" />
+            app:layout_constraintTop_toBottomOf="@+id/alarm_setting_text"
+            app:layout_constraintVertical_bias="0.009" />
 
         <TextView
-            android:id="@+id/push_alarm_text"
+            android:id="@+id/alarm_setting_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -60,21 +63,24 @@
             android:fontFamily="@font/pretendard_bold"
             android:text="알림 설정"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+            app:layout_constraintTop_toBottomOf="@+id/imageButton5"
+            app:layout_constraintVertical_bias="0.012" />
 
         <ImageView
             android:id="@+id/imageView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="40dp"
+
+            app:layout_constraintBottom_toBottomOf="@+id/push_alarm_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/push_alarm_text"
-            app:layout_constraintTop_toBottomOf="@+id/push_alarm_text"
+            app:layout_constraintHorizontal_bias="0.894"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/push_alarm_text"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/switch_on" />
 
         <TextView
@@ -82,27 +88,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/pretendard_bold"
             android:text="계정"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/push_alarm_text"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView66"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/pretendard_medium"
             android:text="회원 탈퇴"
             android:textColor="#40CDD0"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.112"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView62" />
+            app:layout_constraintTop_toBottomOf="@+id/textView62"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView62"
@@ -113,10 +124,12 @@
             android:fontFamily="@font/pretendard_medium"
             android:text="버전 정보"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView61" />
+            app:layout_constraintTop_toBottomOf="@+id/textView61"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView61"
@@ -127,53 +140,55 @@
             android:fontFamily="@font/pretendard_medium"
             android:text="약관 및 정책"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView60" />
+            app:layout_constraintTop_toBottomOf="@+id/textView60"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView60"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/pretendard_medium"
             android:text="프로필 수정하기"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView49" />
+            app:layout_constraintTop_toBottomOf="@+id/textView49"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/profile_edit_arrow_one"
             android:layout_width="10dp"
             android:layout_height="16dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/profile_edit_arrow_two"
+            app:layout_constraintBottom_toBottomOf="@+id/textView60"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView60"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.902"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView60"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/arrow_right" />
 
         <TextView
             android:id="@+id/textView68"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="360dp"
             android:fontFamily="@font/pretendard_medium"
             android:text="v 1.1.2"
             android:textColor="#707070"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView62"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView62" />
+            app:layout_constraintHorizontal_bias="0.895"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView62"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

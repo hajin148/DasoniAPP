@@ -9,29 +9,27 @@
         android:id="@+id/imageView28"
         android:layout_width="400dp"
         android:layout_height="550dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="21dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView32"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.628"
         app:srcCompat="@drawable/alarm_background" />
 
     <ImageButton
         android:id="@+id/exit_button"
         android:layout_width="49dp"
         android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#FEFAFD"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView28"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.060000002"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/exit_button" />
 
     <ImageView
@@ -44,7 +42,7 @@
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="@+id/imageView28"
         app:layout_constraintTop_toBottomOf="@+id/imageView30"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.002"
         app:srcCompat="@drawable/mypage_alarm_icon" />
 
     <TextView
@@ -55,27 +53,28 @@
         android:fontFamily="@font/pretendard_regular"
         android:text="도도리님 레벨업 축하드립니다!"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView57"
+        app:layout_constraintBottom_toTopOf="@+id/imageView29"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView30"
         app:layout_constraintTop_toBottomOf="@+id/imageView31"
-        app:layout_constraintVertical_bias="0.409" />
+        app:layout_constraintVertical_bias="0.318" />
 
     <TextView
         android:id="@+id/textView52"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/pretendard_regular"
         android:text="도도리님 회원가입 완료되었습니다!"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView56"
+        app:layout_constraintBottom_toTopOf="@+id/imageView30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView31"
-        app:layout_constraintTop_toTopOf="@+id/imageView28"
-        app:layout_constraintVertical_bias="0.71" />
+        app:layout_constraintTop_toBottomOf="@+id/textView55"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView50"
@@ -129,10 +128,12 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView28"
         app:layout_constraintEnd_toEndOf="@+id/imageView28"
-        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="@+id/imageView28"
         app:layout_constraintTop_toBottomOf="@+id/textView55"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/mypage_alarm_icon" />
 
     <ImageView
@@ -140,10 +141,12 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView28"
         app:layout_constraintEnd_toEndOf="@+id/imageView28"
-        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="@+id/imageView28"
         app:layout_constraintTop_toBottomOf="@+id/imageView31"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/mypage_alarm_icon" />
 
     <TextView

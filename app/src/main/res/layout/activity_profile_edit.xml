@@ -9,23 +9,28 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-121dp"
-        tools:layout_editor_absoluteY="175dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/textView102"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
-            android:layout_marginBottom="392dp"
             android:fontFamily="@font/pretendard_medium"
             android:text="**********"
             android:textColor="#707070"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_pw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/profile_edit_pw" />
+            app:layout_constraintStart_toEndOf="@+id/profile_edit_pw"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_pw"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView100"
@@ -37,39 +42,44 @@
             android:text="honggildong@naver.com"
             android:textColor="#707070"
             android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView102"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/profile_edit_email" />
+            app:layout_constraintStart_toEndOf="@+id/profile_edit_email"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_email"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView99"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_medium"
             android:text="2000.1.1"
             android:textColor="#707070"
             android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView100"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_birthday"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/profile_edit_birthday" />
+            app:layout_constraintStart_toEndOf="@+id/profile_edit_birthday"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_birthday"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/profile_edit_pw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginBottom="390dp"
             android:fontFamily="@font/pretendard_medium"
             android:text="비밀번호"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.451" />
 
         <TextView
             android:id="@+id/profile_edit_email"
@@ -83,7 +93,9 @@
             app:layout_constraintBottom_toTopOf="@+id/profile_edit_pw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/profile_edit_birthday"
@@ -97,7 +109,9 @@
             app:layout_constraintBottom_toTopOf="@+id/profile_edit_email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageButton
             android:id="@+id/imageButton5"
@@ -113,10 +127,11 @@
             app:srcCompat="@drawable/back_button" />
 
         <TextView
-            android:id="@+id/push_alarm_text"
+            android:id="@+id/nick_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="17dp"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_medium"
             android:text="닉네임"
@@ -125,15 +140,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/push_alarm_text"
+            app:layout_constraintTop_toBottomOf="@+id/my_info_text"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/push_alarm_text"
+            android:id="@+id/my_info_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginBottom="17dp"
             android:fontFamily="@font/pretendard_bold"
             android:text="내 정보"
             android:textSize="17sp"
@@ -141,24 +156,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton5"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.192" />
 
         <TextView
             android:id="@+id/textView68"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
-            android:layout_marginBottom="16dp"
             android:fontFamily="@font/pretendard_medium"
             android:text="도도리"
             android:textColor="#707070"
             android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView44"
+            app:layout_constraintBottom_toBottomOf="@+id/nick_name_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/push_alarm_text"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nick_name_text"
+            app:layout_constraintTop_toTopOf="@+id/nick_name_text"
             app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
@@ -167,11 +181,12 @@
             android:layout_height="16dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="40dp"
-            android:layout_marginBottom="396dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_pw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView102"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_pw"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/arrow_right" />
 
         <ImageView
@@ -180,11 +195,11 @@
             android:layout_height="16dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView44"
+            app:layout_constraintBottom_toBottomOf="@+id/nick_name_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView68"
-            app:layout_constraintTop_toBottomOf="@+id/push_alarm_text"
+            app:layout_constraintTop_toTopOf="@+id/nick_name_text"
             app:srcCompat="@drawable/arrow_right" />
 
         <TextView
@@ -198,8 +213,10 @@
             android:textSize="17sp"
             app:layout_constraintBottom_toTopOf="@+id/profile_edit_birthday"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.002"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView44"
@@ -211,10 +228,12 @@
             android:text="홍길동"
             android:textColor="#707070"
             android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView99"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/profile_edit_name" />
+            app:layout_constraintStart_toEndOf="@+id/profile_edit_name"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_name"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
