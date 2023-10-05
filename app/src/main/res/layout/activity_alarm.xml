@@ -22,14 +22,13 @@
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:backgroundTint="#FEFAFD"
-        app:layout_constraintBottom_toTopOf="@+id/imageView28"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.043"
         app:srcCompat="@drawable/exit_button" />
 
     <ImageView

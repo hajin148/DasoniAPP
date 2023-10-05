@@ -11,15 +11,14 @@
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#00707070"
-        app:layout_constraintBottom_toTopOf="@+id/imageView98"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@drawable/instrument_menu_exit_button" />
 
     <ImageView
