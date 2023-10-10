@@ -10,13 +10,11 @@
         android:id="@+id/imageView61"
         android:layout_width="178dp"
         android:layout_height="74dp"
-        android:layout_marginStart="117dp"
-        android:layout_marginTop="443dp"
-        android:layout_marginEnd="117dp"
-        android:layout_marginBottom="214dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.797"
         app:srcCompat="@drawable/game_score_end_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

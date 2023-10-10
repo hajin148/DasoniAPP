@@ -131,7 +131,6 @@
         android:id="@+id/main_menu_background"
         android:layout_width="411dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -228,6 +227,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#EAEEF1"
+        android:contentDescription="@string/home_button"
         app:layout_constraintBottom_toBottomOf="@+id/main_menu_background"
         app:layout_constraintEnd_toEndOf="@+id/main_menu_background"
         app:layout_constraintStart_toStartOf="@+id/main_menu_background"
@@ -445,12 +445,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#EAEEF1"
+        android:contentDescription="@string/profile_button"
         app:layout_constraintBottom_toBottomOf="@+id/main_menu_background"
         app:layout_constraintEnd_toEndOf="@id/main_menu_background"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="@+id/main_menu_background"
         app:layout_constraintTop_toTopOf="@+id/main_menu_background"
-        app:layout_constraintVertical_bias="0.6"
         app:srcCompat="@drawable/bottom_menu_mypage" />
 
     <ImageButton
@@ -458,12 +458,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#EAEEF1"
+        android:contentDescription="@string/rank_button"
         app:layout_constraintBottom_toBottomOf="@id/main_menu_background"
         app:layout_constraintEnd_toEndOf="@id/main_menu_background"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/main_menu_background"
         app:layout_constraintTop_toTopOf="@+id/main_menu_background"
-        app:layout_constraintVertical_bias="0.6"
         app:srcCompat="@drawable/bottom_menu_rank" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

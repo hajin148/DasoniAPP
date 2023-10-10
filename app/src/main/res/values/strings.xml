@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">DasoniAPP</string>
+    <string name="home_button">toHome\n</string>
+    <string name="rank_button">toRank</string>
+    <string name="profile_button">toProfile</string>
 </resources>

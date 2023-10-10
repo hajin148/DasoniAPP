@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView49"
         app:layout_constraintStart_toStartOf="@+id/imageView49"
         app:layout_constraintTop_toTopOf="@+id/imageView49"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.939"
         app:srcCompat="@drawable/score_game_keep_button" />
 
     <ImageView
@@ -40,15 +40,19 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView52"
         app:layout_constraintEnd_toEndOf="@+id/imageView49"
         app:layout_constraintStart_toStartOf="@+id/imageView49"
+        app:layout_constraintTop_toTopOf="@+id/imageView49"
+        app:layout_constraintVertical_bias="0.979"
         app:srcCompat="@drawable/score_game_replay_button" />
 
     <ImageView
         android:id="@+id/imageView52"
         android:layout_width="300dp"
         android:layout_height="72dp"
-        android:layout_marginBottom="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView49"
         app:layout_constraintEnd_toEndOf="@+id/imageView49"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/imageView49"
+        app:layout_constraintTop_toTopOf="@+id/imageView49"
+        app:layout_constraintVertical_bias="0.82"
         app:srcCompat="@drawable/score_game_menu_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

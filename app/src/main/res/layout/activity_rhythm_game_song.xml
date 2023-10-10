@@ -41,9 +41,12 @@
         android:layout_marginStart="26dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton20"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/song_background" />
 
     <ImageView
@@ -76,12 +79,13 @@
         android:layout_width="360dp"
         android:layout_height="100dp"
         android:layout_marginStart="26dp"
+        android:layout_marginTop="136dp"
         android:layout_marginEnd="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/song_background"
-        tools:layout_editor_absoluteY="464dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView72"
+        app:srcCompat="@drawable/song_background" />
 
     <ImageView
         android:id="@+id/imageView76"
@@ -133,10 +137,12 @@
         android:text="Song writer name 1"
         android:textColor="#B6B6B6"
         android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
         app:layout_constraintEnd_toEndOf="@+id/imageView74"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView76"
-        app:layout_constraintTop_toBottomOf="@+id/song_name_text" />
+        app:layout_constraintTop_toBottomOf="@+id/song_name_text"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/star_one"

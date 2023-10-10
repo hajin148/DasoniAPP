@@ -14,9 +14,10 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.942" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -54,7 +55,7 @@
         app:srcCompat="@drawable/bottom_menu_background" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/main_menu_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#EAEEF1"
@@ -77,7 +78,7 @@
         app:srcCompat="@drawable/bottom_menu_mypage_selected" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/main_menu_rank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#EAEEF1"
@@ -109,29 +110,29 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toEndOf="@+id/textView23"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintVertical_bias="0.56" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
         android:fontFamily="@font/im_hyemin_bold"
         android:text="도도리"
         android:textSize="19sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.034" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="400dp"
         android:layout_height="250dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -245,7 +246,7 @@
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/imageView15"
         app:layout_constraintVertical_bias="0.0"
@@ -257,8 +258,12 @@
         android:layout_height="32dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/textView26"
+        app:layout_constraintVertical_bias="0.003"
         app:srcCompat="@drawable/mypage_alarm_icon" />
 
     <ImageView
@@ -269,10 +274,10 @@
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.01"
         app:srcCompat="@drawable/mypage_alarm_icon" />
 
     <TextView
