@@ -56,7 +56,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647"
+        app:layout_constraintVertical_bias="0.255"
         app:srcCompat="@drawable/hihat" />
 
     <ImageView
@@ -65,11 +65,23 @@
         android:layout_height="248dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/base_drum" />
+
+    <ImageView
+        android:id="@+id/imageView128"
+        android:layout_width="122dp"
+        android:layout_height="74dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageView126"
+        app:layout_constraintEnd_toEndOf="@+id/imageView126"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/imageView126"
+        app:layout_constraintTop_toTopOf="@+id/imageView126"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/base_drum_effect" />
 
     <ImageView
         android:id="@+id/imageView127"
@@ -82,17 +94,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32999998"
         app:srcCompat="@drawable/center_drum" />
-
-    <ImageView
-        android:id="@+id/imageView128"
-        android:layout_width="122dp"
-        android:layout_height="74dp"
-        app:layout_constraintBottom_toBottomOf="@id/imageView126"
-        app:layout_constraintEnd_toEndOf="@+id/imageView126"
-        app:layout_constraintStart_toStartOf="@+id/imageView126"
-        app:layout_constraintTop_toTopOf="@+id/imageView126"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/base_drum_effect" />
 
     <ImageView
         android:id="@+id/imageView129"
@@ -152,10 +153,10 @@
         android:layout_height="172dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647"
+        app:layout_constraintVertical_bias="0.255"
         app:srcCompat="@drawable/hihat_effect" />
 
     <ImageView

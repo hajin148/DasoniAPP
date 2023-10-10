@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun setOnboardingView() {
         when (onboardingStep) {
             1 -> setContentView(R.layout.activity_onboarding_1)
