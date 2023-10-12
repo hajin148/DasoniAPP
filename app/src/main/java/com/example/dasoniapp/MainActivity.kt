@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
@@ -57,8 +58,11 @@ class MainActivity : AppCompatActivity() {
 
     // ----------- move to other page ^
     private fun showGamePlayPage() {
-        setContentView(R.layout.activity_score_game_practice)
-        gamePlay()
+        //setContentView(R.layout.activity_score_game_practice)
+        //gamePlay()
+
+
+
     }
 
     private fun gamePlay() {
@@ -138,10 +142,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_mainpage)
 
         // --------- need to create activity ------------- ^ go to page
+        // val musicPracticeBtn: ImageView = findViewById(R.id.music_practice_btn)
+        //musicPracticeBtn.setOnClickListener {
+        //    showGamePlayPage()
+        //}
+
         val musicPracticeBtn: ImageView = findViewById(R.id.music_practice_btn)
         musicPracticeBtn.setOnClickListener {
-            showGamePlayPage()
+            val musicPractice = Intent(this, ReadNoteActivity::class.java)
+            startActivity(musicPractice)
         }
+
+        val musicPlayBtn: ImageView = findViewById(R.id.music_play_btn)
+        musicPlayBtn.setOnClickListener {
+            val musicPlay = Intent(this, PlayMusicActivity::class.java)
+            startActivity(musicPlay)
+        }
+
         // ---------------------------------------
 
         val homeButton: ImageButton = findViewById(R.id.main_menu_home_selected)
