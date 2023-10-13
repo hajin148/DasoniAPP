@@ -85,29 +85,6 @@ class ReadNoteActivity : AppCompatActivity() {
         noteBtnListner(::highCheckAnswer);
     }
 
-    private fun lowCheckAnswer(noteStr: String) {
-        val answerTxt: TextView = findViewById(R.id.answer_txt)
-        val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
-        answerNoteImg.visibility = View.VISIBLE
-
-        if(lowNoteList[currNoteIndex] == noteStr) {
-            answerTxt.setText("$noteStr, 정답입니다!")
-            moveNote(answerNoteImg, 0,noteMarginBottom[currNoteIndex])
-        }
-        else {
-            answerTxt.setText("$noteStr, 틀렸습니다!")
-            moveNote(answerNoteImg, 0, ansLowNoteMarginTop[noteStr] as Int)
-        }
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            // hide answer text
-            answerTxt.text = ""
-            answerNoteImg.visibility = View.INVISIBLE
-
-            gamePlay()
-        }, 1500)
-    }
-
     private fun noteBtnListner(checkAnswer: (String) -> Unit) {
         val cBtn: ImageView = findViewById(R.id.c_btn)
         val dBtn: ImageView = findViewById(R.id.d_btn)
@@ -183,6 +160,29 @@ class ReadNoteActivity : AppCompatActivity() {
                 noteLine.visibility = View.INVISIBLE
             }
             answerNoteLine.visibility = View.INVISIBLE
+
+            gamePlay()
+        }, 1500)
+    }
+
+    private fun lowCheckAnswer(noteStr: String) {
+        val answerTxt: TextView = findViewById(R.id.answer_txt)
+        val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
+        answerNoteImg.visibility = View.VISIBLE
+
+        if(lowNoteList[currNoteIndex] == noteStr) {
+            answerTxt.setText("$noteStr, 정답입니다!")
+            moveNote(answerNoteImg, 0,noteMarginBottom[currNoteIndex])
+        }
+        else {
+            answerTxt.setText("$noteStr, 틀렸습니다!")
+            moveNote(answerNoteImg, 0, ansLowNoteMarginTop[noteStr] as Int)
+        }
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            // hide answer text
+            answerTxt.text = ""
+            answerNoteImg.visibility = View.INVISIBLE
 
             gamePlay()
         }, 1500)
