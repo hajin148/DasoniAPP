@@ -3,13 +3,10 @@ package com.example.dasoniapp
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.TextView
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +15,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var onboardingStep = 1
-    private var currNoteIndex = -1 // ^
-    private val noteMarginTop = listOf<Int>(128, 82, 40, 0, -37, -75, -115, -155, -195, -230, -280)
-    private val noteList = listOf<String>("D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +24,6 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             setOnboardingView()
         }, SPLASH_TIME_OUT)
-
-        // else directly to the activity_mainpage
-        // setContentView(R.layout.activity_mainpage)
     }
 
     private fun setOnboardingView() {
@@ -56,96 +47,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // ----------- move to other page ^
-    private fun showGamePlayPage() {
-        //setContentView(R.layout.activity_score_game_practice)
-        //gamePlay()
-
-
-
-    }
-
-    private fun gamePlay() {
-        var randNoteIndex: Int
-        do {
-            randNoteIndex = Random.nextInt(11) // 0~10
-        } while (randNoteIndex == currNoteIndex)
-        currNoteIndex = randNoteIndex
-
-        val noteImg: ImageView = findViewById(R.id.note_img)
-        moveNote(noteImg, noteMarginTop[currNoteIndex])
-        noteBtnListner();
-    }
-
-    private fun moveNote(noteImg: ImageView, marginTop: Int) {
-        val layoutParams = noteImg.layoutParams as ViewGroup.MarginLayoutParams
-        layoutParams.setMargins(0, marginTop, 0, 0)
-
-        noteImg.layoutParams = layoutParams
-    }
-
-    private fun noteBtnListner() {
-        val cBtn: ImageView = findViewById(R.id.c_btn)
-        val dBtn: ImageView = findViewById(R.id.d_btn)
-        val eBtn: ImageView = findViewById(R.id.e_btn)
-        val fBtn: ImageView = findViewById(R.id.f_btn)
-        val gBtn: ImageView = findViewById(R.id.g_btn)
-        val aBtn: ImageView = findViewById(R.id.a_btn)
-        val bBtn: ImageView = findViewById(R.id.b_btn)
-
-        cBtn.setOnClickListener {
-            checkAnswer("C")
-        }
-
-        dBtn.setOnClickListener {
-            checkAnswer("D")
-        }
-
-        eBtn.setOnClickListener {
-            checkAnswer("E")
-        }
-
-        fBtn.setOnClickListener {
-            checkAnswer("F")
-        }
-
-        gBtn.setOnClickListener {
-            checkAnswer("G")
-        }
-
-        aBtn.setOnClickListener {
-            checkAnswer("A")
-        }
-
-        bBtn.setOnClickListener {
-            checkAnswer("B")
-        }
-    }
-
-    private fun checkAnswer(noteStr: String) {
-        val answerTxt: TextView = findViewById(R.id.answer_txt)
-
-        if(noteList[currNoteIndex] == noteStr) {
-            answerTxt.setText("$noteStr, 정답입니다!")
-        } else {
-            answerTxt.setText("$noteStr, 틀렸습니다!")
-        }
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            answerTxt.text = ""
-            gamePlay()
-        }, 1500)
-    }
-    //-------------------------
-
     private fun setupMainPage() {
         setContentView(R.layout.activity_mainpage)
-
-        // --------- need to create activity ------------- ^ go to page
-        // val musicPracticeBtn: ImageView = findViewById(R.id.music_practice_btn)
-        //musicPracticeBtn.setOnClickListener {
-        //    showGamePlayPage()
-        //}
 
         val musicPracticeBtn: ImageView = findViewById(R.id.music_practice_btn)
         musicPracticeBtn.setOnClickListener {
@@ -158,8 +61,6 @@ class MainActivity : AppCompatActivity() {
             val musicPlay = Intent(this, PlayMusicActivity::class.java)
             startActivity(musicPlay)
         }
-
-        // ---------------------------------------
 
         val homeButton: ImageButton = findViewById(R.id.main_menu_home_selected)
         homeButton.setOnClickListener {
