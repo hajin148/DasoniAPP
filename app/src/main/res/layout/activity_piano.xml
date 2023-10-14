@@ -387,7 +387,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_bold"
-        android:text="악기선택"
+        android:text="피아노"
         android:textColor="#707070"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView105"
