@@ -266,14 +266,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_medium"
-        android:text="박자 읽기 게임"
+        android:text="박자 맞추기 게임"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/main_game_three"
         app:layout_constraintEnd_toEndOf="@+id/main_game_two"
-        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="@+id/main_game_two"
         app:layout_constraintTop_toBottomOf="@+id/main_game_one"
-        app:layout_constraintVertical_bias="0.191" />
+        app:layout_constraintVertical_bias="0.224" />
 
     <TextView
         android:id="@+id/textView4"
