@@ -62,8 +62,7 @@ class ReadNoteActivity : AppCompatActivity() {
         currNoteIndex = randNoteIndex
 
         // random choose to play low note or high note
-        var lowHighRandIndex = Random.nextInt(2) //0~1
-        when(lowHighRandIndex) {
+        when(Random.nextInt(2)) { //0~1
             0 -> highGamePlay()
             1 -> lowGamePlay()
         }
@@ -72,7 +71,7 @@ class ReadNoteActivity : AppCompatActivity() {
     private fun lowGamePlay() {
         val noteImg: ImageView = findViewById(R.id.note_img)
         moveNote(noteImg, 0, noteMarginBottom[currNoteIndex])
-        noteBtnListner(::lowCheckAnswer);
+        noteBtnListner(::lowCheckAnswer)
     }
 
     private fun highGamePlay() {
@@ -82,7 +81,7 @@ class ReadNoteActivity : AppCompatActivity() {
         }
         val noteImg: ImageView = findViewById(R.id.note_img)
         moveNote(noteImg, noteMarginTop[currNoteIndex], 0)
-        noteBtnListner(::highCheckAnswer);
+        noteBtnListner(::highCheckAnswer)
     }
 
     private fun noteBtnListner(checkAnswer: (String) -> Unit) {
@@ -125,25 +124,28 @@ class ReadNoteActivity : AppCompatActivity() {
 
     private fun highCheckAnswer(noteStr: String) {
         val answerTxt: TextView = findViewById(R.id.answer_txt)
+        val answerNoteLine: TextView = findViewById(R.id.answer_note_line)
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
         answerNoteImg.visibility = View.VISIBLE
 
-        val answerNoteLine: TextView = findViewById(R.id.answer_note_line)
-
         if (noteList[currNoteIndex] == noteStr) {
-            answerTxt.setText("$noteStr, 정답입니다!")
+            answerNoteImg.setImageResource(R.drawable.note_right)
+            answerTxt.text = "$noteStr, 정답입니다!"
             moveNote(answerNoteImg, noteMarginTop[currNoteIndex],0)
 
             // if user pressed lower C note, then show line on answer note
             if(currNoteIndex == 0) {
+                answerNoteLine.setTextColor(0xFF30D5D8.toInt())
                 answerNoteLine.visibility = View.VISIBLE
             }
         } else {
-            answerTxt.setText("$noteStr, 틀렸습니다!")
+            answerNoteImg.setImageResource(R.drawable.note_wrong)
+            answerTxt.text = "$noteStr, 틀렸습니다!"
             moveNote(answerNoteImg, ansNoteMarginTop[noteStr] as Int, 0)
 
             // if user pressed C, then show line on answer note
             if(noteStr == "C") {
+                answerNoteLine.setTextColor(0xFFFF46A9.toInt())
                 answerNoteLine.visibility = View.VISIBLE
             }
         }
@@ -171,11 +173,13 @@ class ReadNoteActivity : AppCompatActivity() {
         answerNoteImg.visibility = View.VISIBLE
 
         if(lowNoteList[currNoteIndex] == noteStr) {
-            answerTxt.setText("$noteStr, 정답입니다!")
+            answerNoteImg.setImageResource(R.drawable.note_right)
+            answerTxt.text = "$noteStr, 정답입니다!"
             moveNote(answerNoteImg, 0,noteMarginBottom[currNoteIndex])
         }
         else {
-            answerTxt.setText("$noteStr, 틀렸습니다!")
+            answerNoteImg.setImageResource(R.drawable.note_wrong)
+            answerTxt.text = "$noteStr, 틀렸습니다!"
             moveNote(answerNoteImg, 0, ansLowNoteMarginTop[noteStr] as Int)
         }
 
