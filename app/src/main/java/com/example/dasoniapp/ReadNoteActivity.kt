@@ -1,5 +1,6 @@
 package com.example.dasoniapp
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -12,6 +13,7 @@ import kotlin.random.Random
 
 class ReadNoteActivity : AppCompatActivity() {
     private var currNoteIndex = -1
+    private var mediaPlayer = MediaPlayer()
 
     // for upper note
     private val noteMarginTop =
@@ -27,6 +29,29 @@ class ReadNoteActivity : AppCompatActivity() {
         "A" to noteMarginTop[5],
         "B" to noteMarginTop[6]
     )
+    private val noteSoundList = listOf(
+        R.raw.ptdo,
+        R.raw.ptre,
+        R.raw.ptmi,
+        R.raw.ptfa,
+        R.raw.ptsol,
+        R.raw.ptla,
+        R.raw.ptsi,
+        R.raw.ptdo2,
+        R.raw.ptre2,
+        R.raw.ptmi2,
+        R.raw.ptfa2,
+        R.raw.ptsol2
+    )
+    private val highAnsSoundMap = mapOf(
+        "C" to R.raw.ptdo,
+        "D" to R.raw.ptre,
+        "E" to R.raw.ptmi,
+        "F" to R.raw.ptfa,
+        "G" to R.raw.ptsol,
+        "A" to R.raw.ptla,
+        "B" to R.raw.ptsi
+    )
 
     // for lower note
     private val noteMarginBottom =
@@ -41,13 +66,29 @@ class ReadNoteActivity : AppCompatActivity() {
         "A" to noteMarginBottom[9],
         "B" to noteMarginBottom[10]
     )
-
+//    private val lowNoteSoundList = listOf(R.raw.pt)
+// missing 파,솔,라,시 in low
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_score_game_practice)
+        openGameMenu()
+    }
 
-        gamePlay()
+    private fun openGameMenu() {
+        setContentView(R.layout.activity_score_game_menu)
+
+        // practice game
+        val practiceGameView = findViewById<ImageView>(R.id.score_game_menu_one)
+        practiceGameView.setOnClickListener {
+            setContentView(R.layout.activity_score_game_practice)
+            gamePlay()
+        }
+
+        // speed game
+        val scoreGameView = findViewById<ImageView>(R.id.score_game_menu_two)
+        scoreGameView.setOnClickListener {
+            setContentView(R.layout.activity_score_game_practice)
+        }
     }
 
     private fun moveNote(img: ImageView, marginTop: Int, marginBottom: Int) {
@@ -84,7 +125,29 @@ class ReadNoteActivity : AppCompatActivity() {
         }
         val noteImg: ImageView = findViewById(R.id.note_img)
         moveNote(noteImg, noteMarginTop[currNoteIndex], 0)
+        playSound("high", null)
         noteBtnListner(::highCheckAnswer)
+    }
+
+    private fun playSound(notePlace: String, wrongNoteStr: String?) {
+        mediaPlayer.release()
+        // play for right answer
+        if(wrongNoteStr == null) {
+            if (notePlace == "high") {
+                mediaPlayer = MediaPlayer.create(this, noteSoundList[currNoteIndex])
+            }
+        }
+        // play for wrong answer
+        else {
+            if (notePlace == "high") {
+                val wrongSound = highAnsSoundMap[wrongNoteStr]
+                if (wrongSound != null) {
+                    mediaPlayer = MediaPlayer.create(this, wrongSound)
+                }
+            }
+        }
+
+        mediaPlayer.start()
     }
 
     private fun noteBtnListner(checkAnswer: (String) -> Unit) {
@@ -106,10 +169,10 @@ class ReadNoteActivity : AppCompatActivity() {
             "B" to bBtn
         )
 
-        for((btnStr, btnElem) in btnList) {
+        for ((btnStr, btnElem) in btnList) {
             btnElem.setOnClickListener {
                 checkAnswer(btnStr)
-                for(btnEntry in btnList) {
+                for (btnEntry in btnList) {
                     // disabling all buttons to be clickable
                     btnEntry.value.isClickable = false
                 }
@@ -124,6 +187,7 @@ class ReadNoteActivity : AppCompatActivity() {
         answerNoteImg.visibility = View.VISIBLE
 
         if (noteList[currNoteIndex] == noteStr) {
+            playSound("high", null)
             answerNoteImg.setImageResource(R.drawable.note_right)
             answerTxt.text = "$noteStr, 정답입니다!"
             moveNote(answerNoteImg, noteMarginTop[currNoteIndex], 0)
@@ -134,6 +198,7 @@ class ReadNoteActivity : AppCompatActivity() {
                 answerNoteLine.visibility = View.VISIBLE
             }
         } else {
+            playSound("high", noteStr)
             answerNoteImg.setImageResource(R.drawable.note_wrong)
             answerTxt.text = "$noteStr, 틀렸습니다!"
             moveNote(answerNoteImg, ansNoteMarginTop[noteStr] as Int, 0)
