@@ -14,8 +14,10 @@ class ReadNoteActivity : AppCompatActivity() {
     private var currNoteIndex = -1
 
     // for upper note
-    private val noteMarginTop = listOf<Int>(180, 128, 82, 40, 0, -37, -75, -115, -155, -195, -230, -280)
-    private val noteList = listOf<String>("C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G")
+    private val noteMarginTop =
+        listOf<Int>(180, 128, 82, 40, 0, -37, -75, -115, -155, -195, -230, -280)
+    private val noteList =
+        listOf<String>("C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G")
     private val ansNoteMarginTop = mutableMapOf<String, Int>(
         "C" to noteMarginTop[0],
         "D" to noteMarginTop[1],
@@ -27,7 +29,8 @@ class ReadNoteActivity : AppCompatActivity() {
     )
 
     // for lower note
-    private val noteMarginBottom = listOf<Int>(-2900, -2763, -2603, -2460, -2320, -2170, -2030, -1888, -1740, -1600, -1450)
+    private val noteMarginBottom =
+        listOf<Int>(-2900, -2763, -2603, -2460, -2320, -2170, -2030, -1888, -1740, -1600, -1450)
     private val lowNoteList = listOf<String>("F", "G", "A", "B", "C", "D", "E", "F", "G", "A", "B")
     private val ansLowNoteMarginTop = mutableMapOf<String, Int>(
         "C" to noteMarginBottom[4],
@@ -62,7 +65,7 @@ class ReadNoteActivity : AppCompatActivity() {
         currNoteIndex = randNoteIndex
 
         // random choose to play low note or high note
-        when(Random.nextInt(2)) { //0~1
+        when (Random.nextInt(2)) { //0~1
             0 -> highGamePlay()
             1 -> lowGamePlay()
         }
@@ -75,7 +78,7 @@ class ReadNoteActivity : AppCompatActivity() {
     }
 
     private fun highGamePlay() {
-        if(currNoteIndex == 0) {
+        if (currNoteIndex == 0) {
             val noteLine: TextView = findViewById(R.id.note_line)
             noteLine.visibility = View.VISIBLE
         }
@@ -93,32 +96,24 @@ class ReadNoteActivity : AppCompatActivity() {
         val aBtn: ImageView = findViewById(R.id.a_btn)
         val bBtn: ImageView = findViewById(R.id.b_btn)
 
-        cBtn.setOnClickListener {
-            checkAnswer("C")
-        }
+        val btnList = mapOf<String, ImageView>(
+            "C" to cBtn,
+            "D" to dBtn,
+            "E" to eBtn,
+            "F" to fBtn,
+            "G" to gBtn,
+            "A" to aBtn,
+            "B" to bBtn
+        )
 
-        dBtn.setOnClickListener {
-            checkAnswer("D")
-        }
-
-        eBtn.setOnClickListener {
-            checkAnswer("E")
-        }
-
-        fBtn.setOnClickListener {
-            checkAnswer("F")
-        }
-
-        gBtn.setOnClickListener {
-            checkAnswer("G")
-        }
-
-        aBtn.setOnClickListener {
-            checkAnswer("A")
-        }
-
-        bBtn.setOnClickListener {
-            checkAnswer("B")
+        for((btnStr, btnElem) in btnList) {
+            btnElem.setOnClickListener {
+                checkAnswer(btnStr)
+                for(btnEntry in btnList) {
+                    // disabling all buttons to be clickable
+                    btnEntry.value.isClickable = false
+                }
+            }
         }
     }
 
@@ -131,10 +126,10 @@ class ReadNoteActivity : AppCompatActivity() {
         if (noteList[currNoteIndex] == noteStr) {
             answerNoteImg.setImageResource(R.drawable.note_right)
             answerTxt.text = "$noteStr, 정답입니다!"
-            moveNote(answerNoteImg, noteMarginTop[currNoteIndex],0)
+            moveNote(answerNoteImg, noteMarginTop[currNoteIndex], 0)
 
             // if user pressed lower C note, then show line on answer note
-            if(currNoteIndex == 0) {
+            if (currNoteIndex == 0) {
                 answerNoteLine.setTextColor(0xFF30D5D8.toInt())
                 answerNoteLine.visibility = View.VISIBLE
             }
@@ -144,7 +139,7 @@ class ReadNoteActivity : AppCompatActivity() {
             moveNote(answerNoteImg, ansNoteMarginTop[noteStr] as Int, 0)
 
             // if user pressed C, then show line on answer note
-            if(noteStr == "C") {
+            if (noteStr == "C") {
                 answerNoteLine.setTextColor(0xFFFF46A9.toInt())
                 answerNoteLine.visibility = View.VISIBLE
             }
@@ -157,7 +152,7 @@ class ReadNoteActivity : AppCompatActivity() {
             answerNoteImg.visibility = View.INVISIBLE
 
             // hide all the lines on note
-            if(currNoteIndex == 0) {
+            if (currNoteIndex == 0) {
                 val noteLine: TextView = findViewById(R.id.note_line)
                 noteLine.visibility = View.INVISIBLE
             }
@@ -172,12 +167,11 @@ class ReadNoteActivity : AppCompatActivity() {
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
         answerNoteImg.visibility = View.VISIBLE
 
-        if(lowNoteList[currNoteIndex] == noteStr) {
+        if (lowNoteList[currNoteIndex] == noteStr) {
             answerNoteImg.setImageResource(R.drawable.note_right)
             answerTxt.text = "$noteStr, 정답입니다!"
-            moveNote(answerNoteImg, 0,noteMarginBottom[currNoteIndex])
-        }
-        else {
+            moveNote(answerNoteImg, 0, noteMarginBottom[currNoteIndex])
+        } else {
             answerNoteImg.setImageResource(R.drawable.note_wrong)
             answerTxt.text = "$noteStr, 틀렸습니다!"
             moveNote(answerNoteImg, 0, ansLowNoteMarginTop[noteStr] as Int)
