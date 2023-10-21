@@ -74,6 +74,8 @@ class PlayMusicActivity : AppCompatActivity() {
         val imageView105 = findViewById<ImageView>(R.id.imageView105)
         val textView133 = findViewById<TextView>(R.id.textView133)
 
+
+
         imageView105.setOnClickListener {
             textState = (textState + 1) % 4
             val text = when (textState) {
@@ -135,18 +137,33 @@ class PlayMusicActivity : AppCompatActivity() {
     }
 
     private fun handleImageViewTouch(v: View, event: MotionEvent) {
+        val textView170 = findViewById<TextView>(R.id.textView170)
+        val textView171 = findViewById<TextView>(R.id.textView171)
         if (event.x < v.width / 2) { // Left side clicked
+            textView170.text = "C0"
+            textView171.text = "C1"
             when (currentState) {
                 2 -> updateImageViewState(R.drawable.piano_fullview_center, 0)
                 else -> updateImageViewState(R.drawable.piano_fullview_left, 1)
             }
         } else { // Right side clicked
+            textView170.text = "C2"
+            textView171.text = "C3"
             when (currentState) {
                 1 -> updateImageViewState(R.drawable.piano_fullview_center, 0)
                 else -> updateImageViewState(R.drawable.piano_fullview_right, 2)
             }
         }
+        // Check for center state
+        if (currentState == 0) {
+            textView170.text = "C1"
+            textView171.text = "C2"
+        }
     }
+
+
+
+
 
     private fun updateImageViewState(drawableId: Int, state: Int) {
         findViewById<ImageView>(R.id.imageView104).setImageResource(drawableId)
@@ -294,7 +311,140 @@ class PlayMusicActivity : AppCompatActivity() {
         }
         // Case Handling for 첼로
         else if (textState == 1) {
-
+            when (currentState) {
+                0 -> {
+                    soundMap = mapOf(
+                        R.id.imageView106 to R.raw.cldo,
+                        R.id.imageView107 to R.raw.clre,
+                        R.id.imageView108 to R.raw.clmi,
+                        R.id.imageView109 to R.raw.clfa,
+                        R.id.imageView110 to R.raw.clsol,
+                        R.id.imageView111 to R.raw.clla,
+                        R.id.imageView112 to R.raw.clsi,
+                        R.id.imageView113 to R.raw.cldo2,
+                        R.id.imageView114 to R.raw.clre2,
+                        R.id.imageView115 to R.raw.clmi2,
+                        R.id.imageView116 to R.raw.clfa2,
+                        R.id.imageView117 to R.raw.clsol2,
+                        R.id.imageView118 to R.raw.clla2,
+                        R.id.imageView119 to R.raw.clsi2,
+                        R.id.imageView121 to R.raw.clreb,
+                        R.id.imageView122 to R.raw.clmib,
+                        R.id.imageView123 to R.raw.clsolb,
+                        R.id.imageView135 to R.raw.cllab,
+                        R.id.imageView138 to R.raw.clsib,
+                        R.id.imageView139 to R.raw.clreb2,
+                        R.id.imageView140 to R.raw.clmib2,
+                        R.id.imageView141 to R.raw.clsolb2,
+                        R.id.imageView142 to R.raw.cllab2,
+                        R.id.imageView143 to R.raw.clsib2
+                    )
+                    animationMap = mapOf(
+                        R.id.imageView106 to R.id.imageView144,
+                        R.id.imageView107 to R.id.imageView145,
+                        R.id.imageView108 to R.id.imageView146,
+                        R.id.imageView109 to R.id.imageView147,
+                        R.id.imageView110 to R.id.imageView148,
+                        R.id.imageView111 to R.id.imageView149,
+                        R.id.imageView112 to R.id.imageView150,
+                        R.id.imageView113 to R.id.imageView151,
+                        R.id.imageView114 to R.id.imageView152,
+                        R.id.imageView115 to R.id.imageView153,
+                        R.id.imageView116 to R.id.imageView154,
+                        R.id.imageView117 to R.id.imageView155,
+                        R.id.imageView118 to R.id.imageView156,
+                        R.id.imageView119 to R.id.imageView157
+                    )
+                }
+                1 -> {
+                    soundMap = mapOf(
+                        R.id.imageView106 to R.raw.cldo0,
+                        R.id.imageView107 to R.raw.clre0,
+                        R.id.imageView108 to R.raw.clmi0,
+                        R.id.imageView109 to R.raw.clfa0,
+                        R.id.imageView110 to R.raw.clsol0,
+                        R.id.imageView111 to R.raw.clla0,
+                        R.id.imageView112 to R.raw.clsi0,
+                        R.id.imageView113 to R.raw.cldo,
+                        R.id.imageView114 to R.raw.clre,
+                        R.id.imageView115 to R.raw.clmi,
+                        R.id.imageView116 to R.raw.clfa,
+                        R.id.imageView117 to R.raw.clsol,
+                        R.id.imageView118 to R.raw.clla,
+                        R.id.imageView119 to R.raw.clsi,
+                        R.id.imageView121 to R.raw.clreb0,
+                        R.id.imageView122 to R.raw.clmib0,
+                        R.id.imageView123 to R.raw.clsolb0,
+                        R.id.imageView135 to R.raw.cllab0,
+                        R.id.imageView138 to R.raw.clsib0,
+                        R.id.imageView139 to R.raw.clreb,
+                        R.id.imageView140 to R.raw.clmib,
+                        R.id.imageView141 to R.raw.clsolb,
+                        R.id.imageView142 to R.raw.cllab,
+                        R.id.imageView143 to R.raw.clsib
+                    )
+                    animationMap = mapOf(
+                        R.id.imageView106 to R.id.imageView144,
+                        R.id.imageView107 to R.id.imageView145,
+                        R.id.imageView108 to R.id.imageView146,
+                        R.id.imageView109 to R.id.imageView147,
+                        R.id.imageView110 to R.id.imageView148,
+                        R.id.imageView111 to R.id.imageView149,
+                        R.id.imageView112 to R.id.imageView150,
+                        R.id.imageView113 to R.id.imageView151,
+                        R.id.imageView114 to R.id.imageView152,
+                        R.id.imageView115 to R.id.imageView153,
+                        R.id.imageView116 to R.id.imageView154,
+                        R.id.imageView117 to R.id.imageView155,
+                        R.id.imageView118 to R.id.imageView156,
+                        R.id.imageView119 to R.id.imageView157
+                    )
+                }
+                2 -> {
+                    soundMap = mapOf(
+                        R.id.imageView106 to R.raw.cldo2,
+                        R.id.imageView107 to R.raw.clre2,
+                        R.id.imageView108 to R.raw.clmi2,
+                        R.id.imageView109 to R.raw.clfa2,
+                        R.id.imageView110 to R.raw.clsol2,
+                        R.id.imageView111 to R.raw.clla2,
+                        R.id.imageView112 to R.raw.clsi2,
+                        R.id.imageView113 to R.raw.cldo3,
+                        R.id.imageView114 to R.raw.clre3,
+                        R.id.imageView115 to R.raw.clmi3,
+                        R.id.imageView116 to R.raw.clfa3,
+                        R.id.imageView117 to R.raw.clsol3,
+                        R.id.imageView118 to R.raw.clla3,
+                        R.id.imageView119 to R.raw.clsi3,
+                        R.id.imageView121 to R.raw.clreb2,
+                        R.id.imageView122 to R.raw.clmib2,
+                        R.id.imageView123 to R.raw.clsolb2,
+                        R.id.imageView135 to R.raw.cllab2,
+                        R.id.imageView138 to R.raw.clsib2,
+                        R.id.imageView139 to R.raw.clreb3,
+                        R.id.imageView140 to R.raw.clmib3,
+                        R.id.imageView141 to R.raw.clsolb3,
+                        R.id.imageView142 to R.raw.cllab3,
+                        R.id.imageView143 to R.raw.clsib3
+                    )
+                    animationMap = mapOf(
+                        R.id.imageView106 to R.id.imageView144,
+                        R.id.imageView107 to R.id.imageView145,
+                        R.id.imageView108 to R.id.imageView146,
+                        R.id.imageView109 to R.id.imageView147,
+                        R.id.imageView110 to R.id.imageView148,
+                        R.id.imageView111 to R.id.imageView149,
+                        R.id.imageView112 to R.id.imageView150,
+                        R.id.imageView113 to R.id.imageView151,
+                        R.id.imageView114 to R.id.imageView152,
+                        R.id.imageView115 to R.id.imageView153,
+                        R.id.imageView116 to R.id.imageView154,
+                        R.id.imageView117 to R.id.imageView155,
+                        R.id.imageView118 to R.id.imageView156,
+                        R.id.imageView119 to R.id.imageView157
+                    )
+                }
+            }
         }
         // Case Handling for 바이올린
         else if (textState == 2) {
@@ -435,7 +585,140 @@ class PlayMusicActivity : AppCompatActivity() {
         }
         // Case Handling for 플룻
         else if (textState == 3) {
-
+            when (currentState) {
+                0 -> {
+                    soundMap = mapOf(
+                        R.id.imageView106 to R.raw.fldo,
+                        R.id.imageView107 to R.raw.flre,
+                        R.id.imageView108 to R.raw.flmi,
+                        R.id.imageView109 to R.raw.flfa,
+                        R.id.imageView110 to R.raw.flsol,
+                        R.id.imageView111 to R.raw.flla,
+                        R.id.imageView112 to R.raw.flsi,
+                        R.id.imageView113 to R.raw.fldo2,
+                        R.id.imageView114 to R.raw.flre2,
+                        R.id.imageView115 to R.raw.flmi2,
+                        R.id.imageView116 to R.raw.flfa2,
+                        R.id.imageView117 to R.raw.flsol2,
+                        R.id.imageView118 to R.raw.flla2,
+                        R.id.imageView119 to R.raw.flsi2,
+                        R.id.imageView121 to R.raw.flreb,
+                        R.id.imageView122 to R.raw.flmib,
+                        R.id.imageView123 to R.raw.flsolb,
+                        R.id.imageView135 to R.raw.fllab,
+                        R.id.imageView138 to R.raw.flsib,
+                        R.id.imageView139 to R.raw.flreb2,
+                        R.id.imageView140 to R.raw.flmib2,
+                        R.id.imageView141 to R.raw.flsolb2,
+                        R.id.imageView142 to R.raw.fllab2,
+                        R.id.imageView143 to R.raw.flsib2
+                    )
+                    animationMap = mapOf(
+                        R.id.imageView106 to R.id.imageView144,
+                        R.id.imageView107 to R.id.imageView145,
+                        R.id.imageView108 to R.id.imageView146,
+                        R.id.imageView109 to R.id.imageView147,
+                        R.id.imageView110 to R.id.imageView148,
+                        R.id.imageView111 to R.id.imageView149,
+                        R.id.imageView112 to R.id.imageView150,
+                        R.id.imageView113 to R.id.imageView151,
+                        R.id.imageView114 to R.id.imageView152,
+                        R.id.imageView115 to R.id.imageView153,
+                        R.id.imageView116 to R.id.imageView154,
+                        R.id.imageView117 to R.id.imageView155,
+                        R.id.imageView118 to R.id.imageView156,
+                        R.id.imageView119 to R.id.imageView157
+                    )
+                }
+                1 -> {
+                    soundMap = mapOf(
+                        R.id.imageView106 to R.raw.fldo0,
+                        R.id.imageView107 to R.raw.flre0,
+                        R.id.imageView108 to R.raw.flmi0,
+                        R.id.imageView109 to R.raw.flfa0,
+                        R.id.imageView110 to R.raw.flsol0,
+                        R.id.imageView111 to R.raw.flla0,
+                        R.id.imageView112 to R.raw.flsi0,
+                        R.id.imageView113 to R.raw.fldo,
+                        R.id.imageView114 to R.raw.flre,
+                        R.id.imageView115 to R.raw.flmi,
+                        R.id.imageView116 to R.raw.flfa,
+                        R.id.imageView117 to R.raw.flsol,
+                        R.id.imageView118 to R.raw.flla,
+                        R.id.imageView119 to R.raw.flsi,
+                        R.id.imageView121 to R.raw.flreb0,
+                        R.id.imageView122 to R.raw.flmib0,
+                        R.id.imageView123 to R.raw.flsolb0,
+                        R.id.imageView135 to R.raw.fllab0,
+                        R.id.imageView138 to R.raw.flsib0,
+                        R.id.imageView139 to R.raw.flreb,
+                        R.id.imageView140 to R.raw.flmib,
+                        R.id.imageView141 to R.raw.flsolb,
+                        R.id.imageView142 to R.raw.fllab,
+                        R.id.imageView143 to R.raw.flsib
+                    )
+                    animationMap = mapOf(
+                        R.id.imageView106 to R.id.imageView144,
+                        R.id.imageView107 to R.id.imageView145,
+                        R.id.imageView108 to R.id.imageView146,
+                        R.id.imageView109 to R.id.imageView147,
+                        R.id.imageView110 to R.id.imageView148,
+                        R.id.imageView111 to R.id.imageView149,
+                        R.id.imageView112 to R.id.imageView150,
+                        R.id.imageView113 to R.id.imageView151,
+                        R.id.imageView114 to R.id.imageView152,
+                        R.id.imageView115 to R.id.imageView153,
+                        R.id.imageView116 to R.id.imageView154,
+                        R.id.imageView117 to R.id.imageView155,
+                        R.id.imageView118 to R.id.imageView156,
+                        R.id.imageView119 to R.id.imageView157
+                    )
+                }
+                2 -> {
+                    soundMap = mapOf(
+                        R.id.imageView106 to R.raw.fldo2,
+                        R.id.imageView107 to R.raw.flre2,
+                        R.id.imageView108 to R.raw.flmi2,
+                        R.id.imageView109 to R.raw.flfa2,
+                        R.id.imageView110 to R.raw.flsol2,
+                        R.id.imageView111 to R.raw.flla2,
+                        R.id.imageView112 to R.raw.flsi2,
+                        R.id.imageView113 to R.raw.fldo3,
+                        R.id.imageView114 to R.raw.flre3,
+                        R.id.imageView115 to R.raw.flmi3,
+                        R.id.imageView116 to R.raw.flfa3,
+                        R.id.imageView117 to R.raw.flsol3,
+                        R.id.imageView118 to R.raw.flla3,
+                        R.id.imageView119 to R.raw.flsi3,
+                        R.id.imageView121 to R.raw.flreb2,
+                        R.id.imageView122 to R.raw.flmib2,
+                        R.id.imageView123 to R.raw.flsolb2,
+                        R.id.imageView135 to R.raw.fllab2,
+                        R.id.imageView138 to R.raw.flsib2,
+                        R.id.imageView139 to R.raw.flreb3,
+                        R.id.imageView140 to R.raw.flmib3,
+                        R.id.imageView141 to R.raw.flsolb3,
+                        R.id.imageView142 to R.raw.fllab3,
+                        R.id.imageView143 to R.raw.flsib3
+                    )
+                    animationMap = mapOf(
+                        R.id.imageView106 to R.id.imageView144,
+                        R.id.imageView107 to R.id.imageView145,
+                        R.id.imageView108 to R.id.imageView146,
+                        R.id.imageView109 to R.id.imageView147,
+                        R.id.imageView110 to R.id.imageView148,
+                        R.id.imageView111 to R.id.imageView149,
+                        R.id.imageView112 to R.id.imageView150,
+                        R.id.imageView113 to R.id.imageView151,
+                        R.id.imageView114 to R.id.imageView152,
+                        R.id.imageView115 to R.id.imageView153,
+                        R.id.imageView116 to R.id.imageView154,
+                        R.id.imageView117 to R.id.imageView155,
+                        R.id.imageView118 to R.id.imageView156,
+                        R.id.imageView119 to R.id.imageView157
+                    )
+                }
+            }
         }
 
         soundMap.forEach { (imageViewId, soundResourceId) ->
