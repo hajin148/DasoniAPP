@@ -21,11 +21,11 @@
         app:srcCompat="@drawable/score_game_pause_background" />
 
     <ImageView
-        android:id="@+id/imageView50"
+        android:id="@+id/continue_btn"
         android:layout_width="300dp"
         android:layout_height="72dp"
         android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView51"
+        app:layout_constraintBottom_toTopOf="@+id/replay_btn"
         app:layout_constraintEnd_toEndOf="@+id/imageView49"
         app:layout_constraintStart_toStartOf="@+id/imageView49"
         app:layout_constraintTop_toTopOf="@+id/imageView49"
@@ -33,11 +33,11 @@
         app:srcCompat="@drawable/score_game_keep_button" />
 
     <ImageView
-        android:id="@+id/imageView51"
+        android:id="@+id/replay_btn"
         android:layout_width="300dp"
         android:layout_height="72dp"
         android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView52"
+        app:layout_constraintBottom_toTopOf="@+id/main_menu_btn"
         app:layout_constraintEnd_toEndOf="@+id/imageView49"
         app:layout_constraintStart_toStartOf="@+id/imageView49"
         app:layout_constraintTop_toTopOf="@+id/imageView49"
@@ -45,7 +45,7 @@
         app:srcCompat="@drawable/score_game_replay_button" />
 
     <ImageView
-        android:id="@+id/imageView52"
+        android:id="@+id/main_menu_btn"
         android:layout_width="300dp"
         android:layout_height="72dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView49"

@@ -50,7 +50,7 @@
         app:srcCompat="@drawable/note" />
 
     <ImageButton
-        android:id="@+id/imageButton18"
+        android:id="@+id/pause_btn"
         android:layout_width="53dp"
         android:layout_height="53dp"
         android:layout_marginStart="25dp"
