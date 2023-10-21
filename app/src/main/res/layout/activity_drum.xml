@@ -7,8 +7,9 @@
 
     <ImageView
         android:id="@+id/imageView102"
-        android:layout_width="731dp"
-        android:layout_height="411dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.334"
@@ -21,8 +22,8 @@
         android:id="@+id/imageButton24"
         android:layout_width="49dp"
         android:layout_height="49dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#00707070"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,12 +152,12 @@
         android:id="@+id/imageView133"
         android:layout_width="172dp"
         android:layout_height="172dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView125"
+        app:layout_constraintEnd_toEndOf="@+id/imageView125"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/imageView125"
+        app:layout_constraintTop_toTopOf="@+id/imageView125"
+        app:layout_constraintVertical_bias="0.933"
         app:srcCompat="@drawable/hihat_effect" />
 
     <ImageView

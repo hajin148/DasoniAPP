@@ -15,6 +15,14 @@
         android:theme="@style/Theme.DasoniAPP"
         tools:targetApi="31">
         <activity
+            android:name=".PlayDrumActivity"
+            android:screenOrientation="landscape"
+            android:exported="false" />
+        <activity
+            android:name=".ScoreGameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".PlayMusicActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
@@ -30,6 +38,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

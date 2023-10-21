@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             setOnboardingView()
         }, SPLASH_TIME_OUT)
+
     }
 
     private fun setOnboardingView() {
@@ -58,8 +59,23 @@ class MainActivity : AppCompatActivity() {
 
         val musicPlayBtn: ImageView = findViewById(R.id.music_play_btn)
         musicPlayBtn.setOnClickListener {
-            val musicPlay = Intent(this, PlayMusicActivity::class.java)
-            startActivity(musicPlay)
+            setContentView(R.layout.activity_instrument_menu)
+            val pianoPlayBtn: ImageView = findViewById(R.id.imageView98)
+            pianoPlayBtn.setOnClickListener {
+                val musicPlay = Intent(this, PlayMusicActivity::class.java)
+                startActivity(musicPlay)
+            }
+
+            val drumPlayBtn: ImageView = findViewById(R.id.imageView101)
+            drumPlayBtn.setOnClickListener {
+                val drumPlay = Intent(this, PlayDrumActivity::class.java)
+                startActivity(drumPlay)
+            }
+
+            val exitButton = findViewById<ImageButton>(R.id.imageButton4)
+            exitButton.setOnClickListener {
+                setupMainPage()
+            }
         }
 
         val homeButton: ImageButton = findViewById(R.id.main_menu_home_selected)

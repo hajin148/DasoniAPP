@@ -3,6 +3,7 @@ package com.example.dasoniapp
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.MotionEvent
@@ -10,6 +11,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.ImageButton
 
 
 class PlayMusicActivity : AppCompatActivity() {
@@ -87,6 +89,11 @@ class PlayMusicActivity : AppCompatActivity() {
             }
             textView133.text = text
             resetKeys()
+        }
+
+        val exitButton = findViewById<ImageButton>(R.id.imageButton23)
+        exitButton.setOnClickListener {
+            finish()
         }
     }
 
