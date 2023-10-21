@@ -142,7 +142,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView111"
         app:layout_constraintStart_toEndOf="@+id/imageView109"
         app:layout_constraintTop_toBottomOf="@id/barrierBelowImageView103"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent="0.0714"
         app:srcCompat="@drawable/piano_key_g" />
 
@@ -382,6 +382,202 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/piano_key_abb" />
 
+    <ImageView
+        android:id="@+id/imageView144"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView106"
+        app:layout_constraintStart_toStartOf="@+id/imageView106"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView145"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.05"
+        android:visibility="gone"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView107"
+        app:layout_constraintStart_toEndOf="@+id/imageView106"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView146"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView108"
+        app:layout_constraintStart_toEndOf="@+id/imageView107"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView147"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView109"
+        app:layout_constraintStart_toEndOf="@+id/imageView108"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView148"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView110"
+        app:layout_constraintStart_toEndOf="@+id/imageView109"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView149"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView112"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toEndOf="@+id/imageView110"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView150"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView112"
+        app:layout_constraintStart_toEndOf="@+id/imageView111"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView151"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView113"
+        app:layout_constraintStart_toEndOf="@+id/imageView112"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView152"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView114"
+        app:layout_constraintStart_toEndOf="@+id/imageView113"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView153"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView115"
+        app:layout_constraintStart_toEndOf="@+id/imageView114"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView154"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView116"
+        app:layout_constraintStart_toEndOf="@+id/imageView115"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView155"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView117"
+        app:layout_constraintStart_toEndOf="@+id/imageView116"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView156"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView118"
+        app:layout_constraintStart_toEndOf="@+id/imageView117"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
+    <ImageView
+        android:id="@+id/imageView157"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView119"
+        app:layout_constraintStart_toEndOf="@+id/imageView118"
+        app:layout_constraintTop_toBottomOf="@+id/imageView104"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rhythm_target_circle_green" />
+
     <TextView
         android:id="@+id/textView133"
         android:layout_width="wrap_content"
@@ -394,5 +590,7 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView105"
         app:layout_constraintStart_toStartOf="@+id/imageView105"
         app:layout_constraintTop_toTopOf="@+id/imageView105" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
