@@ -77,7 +77,7 @@
         app:layout_constraintVertical_bias="0.214"
         app:srcCompat="@drawable/note_right" />
     <ImageButton
-        android:id="@+id/imageButton18"
+        android:id="@+id/score_pause_btn"
         android:layout_width="53dp"
         android:layout_height="53dp"
         android:layout_marginStart="25dp"

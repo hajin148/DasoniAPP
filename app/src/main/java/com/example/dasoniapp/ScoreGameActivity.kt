@@ -89,6 +89,43 @@ class ScoreGameActivity : AppCompatActivity() {
         gamePlay()
     }
 
+    private fun gamePause(notePlaceStr: String) {
+        pauseTimer()
+        setContentView(R.layout.activity_score_game_pause)
+
+        val continueBtn: ImageView = findViewById(R.id.continue_btn)
+        continueBtn.setOnClickListener {
+            resumeTimer()
+            setContentView(R.layout.activity_score_game_rank)
+            if(notePlaceStr == "high") {
+                val noteImg: ImageView = findViewById(R.id.note_img)
+                moveNote(noteImg, noteMarginTop[currNoteIndex], 0)
+                highGamePlayHelper()
+            }
+            else {
+                val noteImg: ImageView = findViewById(R.id.note_img)
+                moveNote(noteImg, 0, noteMarginBottom[currNoteIndex])
+                lowGamePlayHelper()
+            }
+        }
+
+        val replayBtn: ImageView = findViewById(R.id.replay_btn)
+        replayBtn.setOnClickListener {
+            setContentView(R.layout.activity_score_game_rank)
+            timeCount = 20000 // reset?
+            timeRemaining = timeCount
+            score = 0
+            gamePlay()
+        }
+
+        val menuBtn: ImageView = findViewById(R.id.main_menu_btn)
+        menuBtn.setOnClickListener {
+            val menu = Intent(this, MainActivity::class.java)
+            startActivity(menu)
+        }
+    }
+
+
     // ------- timer code start -------
     private fun initCountDownTimer() {
         countDownTimer = object : CountDownTimer(timeRemaining, 1000) {
@@ -195,6 +232,11 @@ class ScoreGameActivity : AppCompatActivity() {
     }
 
     private fun lowGamePlayHelper() {
+        val pauseBtn: ImageView = findViewById(R.id.score_pause_btn)
+        pauseBtn.setOnClickListener {
+            gamePause("low")
+        }
+
         playSound("low", null)
         noteBtnListner(::lowCheckAnswer)
     }
@@ -218,6 +260,11 @@ class ScoreGameActivity : AppCompatActivity() {
     }
 
     private fun highGamePlayHelper() {
+        val pauseBtn: ImageView = findViewById(R.id.score_pause_btn)
+        pauseBtn.setOnClickListener {
+            gamePause("high")
+        }
+
         playSound("high", null)
         noteBtnListner(::highCheckAnswer)
     }
@@ -313,6 +360,9 @@ class ScoreGameActivity : AppCompatActivity() {
     }
 
     private fun highCheckAnswer(noteStr: String) {
+        val pauseBtn: ImageView = findViewById(R.id.score_pause_btn)
+        pauseBtn.isClickable = false
+
         val answerTxt: TextView = findViewById(R.id.answer_text)
         val answerTxtLine: ImageView = findViewById(R.id.imageView48)
         val answerNoteLine: TextView = findViewById(R.id.answer_note_line)
@@ -351,6 +401,9 @@ class ScoreGameActivity : AppCompatActivity() {
     }
 
     private fun lowCheckAnswer(noteStr: String) {
+        val pauseBtn: ImageView = findViewById(R.id.score_pause_btn)
+        pauseBtn.isClickable = false
+
         val answerTxt: TextView = findViewById(R.id.answer_text)
         val answerTxtLine: ImageView = findViewById(R.id.imageView48)
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
