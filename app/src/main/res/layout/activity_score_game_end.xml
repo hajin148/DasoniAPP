@@ -7,7 +7,34 @@
     android:background="#40000000">
 
     <ImageView
-        android:id="@+id/imageView61"
+        android:id="@+id/imageView83"
+        android:layout_width="246dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginBottom="542dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/rhythm_game_text_background" />
+    <TextView
+        android:id="@+id/result_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="실수해도 괜찮아요!"
+        android:textColor="#489BFF"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView83"
+        app:layout_constraintEnd_toEndOf="@id/imageView83"
+        app:layout_constraintStart_toStartOf="@+id/imageView83"
+        app:layout_constraintTop_toTopOf="@+id/imageView83" />
+
+    <ImageView
+        android:id="@+id/go_back_btn"
         android:layout_width="178dp"
         android:layout_height="74dp"
         app:layout_constraintBottom_toBottomOf="parent"

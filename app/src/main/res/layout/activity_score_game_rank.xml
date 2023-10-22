@@ -19,19 +19,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/score" />
+    <TextView
+        android:id="@+id/note_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="───"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/note_img"
+        app:layout_constraintEnd_toEndOf="@+id/note_img"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="@+id/note_img"
+        app:layout_constraintTop_toTopOf="@+id/note_img"
+        app:layout_constraintVertical_bias="0.614" />
 
     <ImageView
-        android:id="@+id/imageView47"
+        android:id="@+id/note_img"
         android:layout_width="37dp"
         android:layout_height="28dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="162dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView46"
         app:layout_constraintEnd_toEndOf="@+id/imageView46"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView46"
         app:layout_constraintTop_toTopOf="@+id/imageView46"
-        app:layout_constraintVertical_bias="0.21"
+        app:layout_constraintVertical_bias="0.214"
         app:srcCompat="@drawable/note" />
-
+    <TextView
+        android:id="@+id/answer_note_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="───"
+        android:textColor="#30D5D8"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/answer_note_img"
+        app:layout_constraintEnd_toEndOf="@+id/answer_note_img"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="@+id/answer_note_img"
+        app:layout_constraintTop_toTopOf="@+id/answer_note_img"
+        app:layout_constraintVertical_bias="0.614" />
+    <ImageView
+        android:id="@+id/answer_note_img"
+        android:layout_width="37dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="162dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView46"
+        app:layout_constraintEnd_toEndOf="@+id/imageView46"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView46"
+        app:layout_constraintTop_toTopOf="@+id/imageView46"
+        app:layout_constraintVertical_bias="0.214"
+        app:srcCompat="@drawable/note_right" />
     <ImageButton
         android:id="@+id/imageButton18"
         android:layout_width="53dp"
@@ -101,21 +145,10 @@
         app:layout_constraintTop_toTopOf="@+id/game_time_icon" />
 
     <ImageView
-        android:id="@+id/imageView45"
-        android:layout_width="37dp"
-        android:layout_height="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView46"
-        app:layout_constraintEnd_toEndOf="@+id/imageView46"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/imageView46"
-        app:layout_constraintTop_toTopOf="@+id/imageView46"
-        app:layout_constraintVertical_bias="0.96"
-        app:srcCompat="@drawable/note_wrong" />
-
-    <ImageView
         android:id="@+id/imageView48"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="7dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -125,11 +158,11 @@
         app:srcCompat="@drawable/score_game_underline" />
 
     <TextView
-        android:id="@+id/textView121"
+        android:id="@+id/answer_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_semibold"
-        android:text="다시 한 번!"
+        android:text=""
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView48"
         app:layout_constraintEnd_toEndOf="parent"

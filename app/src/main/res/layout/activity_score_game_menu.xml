@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/score_game_menu_one" />
 
     <ImageButton
-        android:id="@+id/imageButton14"
+        android:id="@+id/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#DCEBFF"

@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import kotlin.random.Random
@@ -86,21 +87,26 @@ class ReadNoteActivity : AppCompatActivity() {
     private fun openGameMenu() {
         setContentView(R.layout.activity_score_game_menu)
 
+        val backBtn: ImageButton = findViewById(R.id.back_btn)
+        backBtn.setOnClickListener {
+            val menu = Intent(this, MainActivity::class.java)
+            startActivity(menu)
+        }
+
         // practice game
         val practiceGameView = findViewById<ImageView>(R.id.score_game_menu_one)
         practiceGameView.setOnClickListener {
             setContentView(R.layout.activity_score_game_practice)
-
             gamePlay()
         }
 
         // speed game
         val scoreGameView = findViewById<ImageView>(R.id.score_game_menu_two)
         scoreGameView.setOnClickListener {
-            setContentView(R.layout.activity_score_game_rank)
+            val scoreGame = Intent(this, ScoreGameActivity::class.java)
+            startActivity(scoreGame)
         }
     }
-
     private fun moveNote(img: ImageView, marginTop: Int, marginBottom: Int) {
         val layoutParams = img.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.setMargins(0, marginTop, 0, marginBottom)
