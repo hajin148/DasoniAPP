@@ -114,6 +114,35 @@ class ReadNoteActivity : AppCompatActivity() {
         img.layoutParams = layoutParams
     }
 
+    private fun playSoundHelper(rightSound: Int?, wrongSound: Int?, wrongNoteStr: String?) {
+        mediaPlayer.release()
+        if (wrongNoteStr == null) {
+            if (rightSound != null) {
+                mediaPlayer = MediaPlayer.create(this, rightSound)
+            }
+        }
+        else {
+            if(wrongSound != null) {
+                mediaPlayer = MediaPlayer.create(this, wrongSound)
+            }
+        }
+        mediaPlayer.start()
+    }
+
+    private fun playSound(notePlace: String, wrongNoteStr: String?) {
+        mediaPlayer.release()
+
+        if(notePlace == "high") {
+            playSoundHelper(noteSoundList[currNoteIndex], highAnsSoundMap[wrongNoteStr], wrongNoteStr)
+        }
+        else {
+            playSoundHelper(lowAnsSoundMap[lowNoteList[currNoteIndex]], lowAnsSoundMap[wrongNoteStr], wrongNoteStr)
+        }
+
+        mediaPlayer.start()
+    }
+
+
     private fun gamePlay() {
         // random choose to play low note or high note
         when (Random.nextInt(2)) { //0~1
@@ -153,25 +182,6 @@ class ReadNoteActivity : AppCompatActivity() {
         }
     }
 
-    private fun lowGamePlay() {
-        val pauseBtn: ImageView = findViewById(R.id.pause_btn)
-        pauseBtn.setOnClickListener {
-            gamePause("low")
-        }
-
-        var randNoteIndex: Int
-        do {
-            randNoteIndex = Random.nextInt(lowNoteList.size) // 0~6
-        } while (randNoteIndex == currNoteIndex)
-        currNoteIndex = randNoteIndex
-
-        val noteImg: ImageView = findViewById(R.id.note_img)
-        moveNote(noteImg, 0, noteMarginBottom[currNoteIndex])
-        playSound("low", null)
-
-        noteBtnListner(::lowCheckAnswer)
-    }
-
     private fun highGamePlay() {
         val pauseBtn: ImageView = findViewById(R.id.pause_btn)
         pauseBtn.setOnClickListener {
@@ -195,32 +205,23 @@ class ReadNoteActivity : AppCompatActivity() {
         noteBtnListner(::highCheckAnswer)
     }
 
-    private fun playSoundHelper(rightSound: Int?, wrongSound: Int?, wrongNoteStr: String?) {
-        mediaPlayer.release()
-        if (wrongNoteStr == null) {
-            if (rightSound != null) {
-                mediaPlayer = MediaPlayer.create(this, rightSound)
-            }
-        }
-        else {
-            if(wrongSound != null) {
-                mediaPlayer = MediaPlayer.create(this, wrongSound)
-            }
-        }
-        mediaPlayer.start()
-    }
-
-    private fun playSound(notePlace: String, wrongNoteStr: String?) {
-        mediaPlayer.release()
-
-        if(notePlace == "high") {
-            playSoundHelper(noteSoundList[currNoteIndex], highAnsSoundMap[wrongNoteStr], wrongNoteStr)
-        }
-        else {
-            playSoundHelper(lowAnsSoundMap[lowNoteList[currNoteIndex]], lowAnsSoundMap[wrongNoteStr], wrongNoteStr)
+    private fun lowGamePlay() {
+        val pauseBtn: ImageView = findViewById(R.id.pause_btn)
+        pauseBtn.setOnClickListener {
+            gamePause("low")
         }
 
-        mediaPlayer.start()
+        var randNoteIndex: Int
+        do {
+            randNoteIndex = Random.nextInt(lowNoteList.size) // 0~6
+        } while (randNoteIndex == currNoteIndex)
+        currNoteIndex = randNoteIndex
+
+        val noteImg: ImageView = findViewById(R.id.note_img)
+        moveNote(noteImg, 0, noteMarginBottom[currNoteIndex])
+        playSound("low", null)
+
+        noteBtnListner(::lowCheckAnswer)
     }
 
     private fun noteBtnListner(checkAnswer: (String) -> Unit) {

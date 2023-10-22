@@ -1,6 +1,7 @@
 package com.example.dasoniapp
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -13,8 +14,6 @@ import android.widget.TextView
 import kotlin.random.Random
 
 class ScoreGameActivity : AppCompatActivity() {
-    private var currNoteIndex = -1
-
     // for upper note
     private val noteMarginTop =
         listOf<Int>(180, 128, 82, 40, 0, -37, -75, -115, -155, -195, -230, -280)
@@ -28,6 +27,29 @@ class ScoreGameActivity : AppCompatActivity() {
         "G" to noteMarginTop[4],
         "A" to noteMarginTop[5],
         "B" to noteMarginTop[6]
+    )
+    private val noteSoundList = listOf(
+        R.raw.ptdo,
+        R.raw.ptre,
+        R.raw.ptmi,
+        R.raw.ptfa,
+        R.raw.ptsol,
+        R.raw.ptla,
+        R.raw.ptsi,
+        R.raw.ptdo2,
+        R.raw.ptre2,
+        R.raw.ptmi2,
+        R.raw.ptfa2,
+        R.raw.ptsol2
+    )
+    private val highAnsSoundMap = mapOf(
+        "C" to R.raw.ptdo,
+        "D" to R.raw.ptre,
+        "E" to R.raw.ptmi,
+        "F" to R.raw.ptfa,
+        "G" to R.raw.ptsol,
+        "A" to R.raw.ptla,
+        "B" to R.raw.ptsi
     )
 
     // for lower note
@@ -43,7 +65,19 @@ class ScoreGameActivity : AppCompatActivity() {
         "A" to noteMarginBottom[5],
         "B" to noteMarginBottom[6]
     )
+    private val lowAnsSoundMap = mapOf(
+        "C" to R.raw.ptdo0,
+        "D" to R.raw.ptre0,
+        "E" to R.raw.ptmi0,
+        "F" to R.raw.ptfa0,
+        "G" to R.raw.ptsol0,
+        "A" to R.raw.ptla0,
+        "B" to R.raw.ptsi0
+    )
 
+    // initialize other varibles
+    private var currNoteIndex = -1
+    private var mediaPlayer = MediaPlayer()
     private lateinit var countDownTimer: CountDownTimer
     private var timeCount: Long = 20000
     private var timeRemaining: Long = timeCount
@@ -110,6 +144,34 @@ class ScoreGameActivity : AppCompatActivity() {
         img.layoutParams = layoutParams
     }
 
+    private fun playSoundHelper(rightSound: Int?, wrongSound: Int?, wrongNoteStr: String?) {
+        mediaPlayer.release()
+        if (wrongNoteStr == null) {
+            if (rightSound != null) {
+                mediaPlayer = MediaPlayer.create(this, rightSound)
+            }
+        }
+        else {
+            if(wrongSound != null) {
+                mediaPlayer = MediaPlayer.create(this, wrongSound)
+            }
+        }
+        mediaPlayer.start()
+    }
+
+    private fun playSound(notePlace: String, wrongNoteStr: String?) {
+        mediaPlayer.release()
+
+        if(notePlace == "high") {
+            playSoundHelper(noteSoundList[currNoteIndex], highAnsSoundMap[wrongNoteStr], wrongNoteStr)
+        }
+        else {
+            playSoundHelper(lowAnsSoundMap[lowNoteList[currNoteIndex]], lowAnsSoundMap[wrongNoteStr], wrongNoteStr)
+        }
+
+        mediaPlayer.start()
+    }
+
     private fun gamePlay() {
         initCountDownTimer()
 
@@ -129,6 +191,11 @@ class ScoreGameActivity : AppCompatActivity() {
         val noteImg: ImageView = findViewById(R.id.note_img)
         moveNote(noteImg, 0, noteMarginBottom[currNoteIndex])
 
+        lowGamePlayHelper()
+    }
+
+    private fun lowGamePlayHelper() {
+        playSound("low", null)
         noteBtnListner(::lowCheckAnswer)
     }
 
@@ -147,8 +214,14 @@ class ScoreGameActivity : AppCompatActivity() {
         val noteImg: ImageView = findViewById(R.id.note_img)
         moveNote(noteImg, noteMarginTop[currNoteIndex], 0)
 
+        highGamePlayHelper()
+    }
+
+    private fun highGamePlayHelper() {
+        playSound("high", null)
         noteBtnListner(::highCheckAnswer)
     }
+
 
     private fun noteBtnListner(checkAnswer: (String) -> Unit) {
         val cBtn: ImageView = findViewById(R.id.c_btn)
@@ -230,15 +303,10 @@ class ScoreGameActivity : AppCompatActivity() {
             answerTxtLine.visibility = View.INVISIBLE
 
             if (notePlaceStr == "high") {
-                // hide all the lines on note
-                if (currNoteIndex == 0) {
-                    val noteLine: TextView = findViewById(R.id.note_line)
-                    noteLine.visibility = View.INVISIBLE
-                }
                 answerNoteLine.visibility = View.INVISIBLE
-                noteBtnListner(::highCheckAnswer)
+                highGamePlayHelper()
             } else {
-                noteBtnListner(::lowCheckAnswer)
+                lowGamePlayHelper()
             }
             resumeTimer()
         }, 1500)
@@ -254,6 +322,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
         // right answer
         if (noteList[currNoteIndex] == noteStr) {
+            playSound("high", null)
             answerNoteImg.setImageResource(R.drawable.note_right)
             answerTxt.text = "$noteStr, 정답입니다!"
             moveNote(answerNoteImg, noteMarginTop[currNoteIndex], 0)
@@ -266,6 +335,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
             correctAnswerTimer("high")
         } else {
+            playSound("high", noteStr)
             answerNoteImg.setImageResource(R.drawable.note_wrong)
             answerTxt.text = "$noteStr, 틀렸습니다!"
             moveNote(answerNoteImg, ansNoteMarginTop[noteStr] as Int, 0)
@@ -288,12 +358,14 @@ class ScoreGameActivity : AppCompatActivity() {
         answerTxtLine.visibility = View.VISIBLE
 
         if (lowNoteList[currNoteIndex] == noteStr) {
+            playSound("low", null)
             answerNoteImg.setImageResource(R.drawable.note_right)
             answerTxt.text = "$noteStr, 정답입니다!"
             moveNote(answerNoteImg, 0, noteMarginBottom[currNoteIndex])
 
             correctAnswerTimer("low")
         } else {
+            playSound("low", noteStr)
             answerNoteImg.setImageResource(R.drawable.note_wrong)
             answerTxt.text = "$noteStr, 틀렸습니다!"
             moveNote(answerNoteImg, 0, ansLowNoteMarginTop[noteStr] as Int)
