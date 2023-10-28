@@ -82,27 +82,64 @@ class ScoreGameActivity : AppCompatActivity() {
     private var timeCount: Long = 20000
     private var timeRemaining: Long = timeCount
     private var score = 0
+    private var countCorrect = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_score_game_rank)
-        gamePlay()
+        countDownGamePlay()
+    }
+
+    private fun countDownGamePlay() {
+        val noteImg: ImageView = findViewById(R.id.note_img)
+        noteImg.visibility = View.INVISIBLE
+        val answerText: TextView = findViewById(R.id.answer_text)
+
+        val startTimer = object : CountDownTimer(5000, 1000) {
+            override fun onTick(millisRemaining: Long) {
+                val secsRemaining = millisRemaining / 1000 - 1
+
+                if (secsRemaining > 0) {
+                    answerText.text = "$secsRemaining"
+                }
+                else {
+                    answerText.text = "시작!"
+                }
+            }
+
+            override fun onFinish() {
+                noteImg.visibility = View.VISIBLE
+                answerText.text = ""
+                gamePlay()
+            }
+        }
+
+        startTimer.start()
     }
 
     private fun gamePause(notePlaceStr: String) {
         pauseTimer()
         setContentView(R.layout.activity_score_game_pause)
 
+        // stop media player
+        mediaPlayer.let {
+            if (it.isPlaying) {
+                it.stop()
+            }
+            it.release()
+        }
+
         val continueBtn: ImageView = findViewById(R.id.continue_btn)
         continueBtn.setOnClickListener {
-            resumeTimer()
             setContentView(R.layout.activity_score_game_rank)
-            if(notePlaceStr == "high") {
+            resumeTimer()
+            val scoreText: TextView = findViewById(R.id.score_text)
+            scoreText.text = "Score: $score"
+            if (notePlaceStr == "high") {
                 val noteImg: ImageView = findViewById(R.id.note_img)
                 moveNote(noteImg, noteMarginTop[currNoteIndex], 0)
                 highGamePlayHelper()
-            }
-            else {
+            } else {
                 val noteImg: ImageView = findViewById(R.id.note_img)
                 moveNote(noteImg, 0, noteMarginBottom[currNoteIndex])
                 lowGamePlayHelper()
@@ -115,13 +152,12 @@ class ScoreGameActivity : AppCompatActivity() {
             timeCount = 20000 // reset?
             timeRemaining = timeCount
             score = 0
-            gamePlay()
+            countDownGamePlay()
         }
 
         val menuBtn: ImageView = findViewById(R.id.main_menu_btn)
         menuBtn.setOnClickListener {
-            val menu = Intent(this, MainActivity::class.java)
-            startActivity(menu)
+            finish()
         }
     }
 
@@ -187,9 +223,8 @@ class ScoreGameActivity : AppCompatActivity() {
             if (rightSound != null) {
                 mediaPlayer = MediaPlayer.create(this, rightSound)
             }
-        }
-        else {
-            if(wrongSound != null) {
+        } else {
+            if (wrongSound != null) {
                 mediaPlayer = MediaPlayer.create(this, wrongSound)
             }
         }
@@ -199,11 +234,18 @@ class ScoreGameActivity : AppCompatActivity() {
     private fun playSound(notePlace: String, wrongNoteStr: String?) {
         mediaPlayer.release()
 
-        if(notePlace == "high") {
-            playSoundHelper(noteSoundList[currNoteIndex], highAnsSoundMap[wrongNoteStr], wrongNoteStr)
-        }
-        else {
-            playSoundHelper(lowAnsSoundMap[lowNoteList[currNoteIndex]], lowAnsSoundMap[wrongNoteStr], wrongNoteStr)
+        if (notePlace == "high") {
+            playSoundHelper(
+                noteSoundList[currNoteIndex],
+                highAnsSoundMap[wrongNoteStr],
+                wrongNoteStr
+            )
+        } else {
+            playSoundHelper(
+                lowAnsSoundMap[lowNoteList[currNoteIndex]],
+                lowAnsSoundMap[wrongNoteStr],
+                wrongNoteStr
+            )
         }
 
         mediaPlayer.start()
@@ -305,10 +347,17 @@ class ScoreGameActivity : AppCompatActivity() {
         val answerTxtLine: ImageView = findViewById(R.id.imageView48)
         val answerNoteLine: TextView = findViewById(R.id.answer_note_line)
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
+        val scoreText: TextView = findViewById(R.id.score_text)
+        val veryGoodText: ImageView = findViewById(R.id.very_good_text)
+
         pauseTimer()
         score += 10
-        val scoreText: TextView = findViewById(R.id.score_text)
         scoreText.text = "Score: $score"
+        countCorrect += 1
+        if (countCorrect == 3) {
+            veryGoodText.visibility = View.VISIBLE
+            countCorrect = 0
+        }
 
         // wait for 1.5 seconds to run
         Handler(Looper.getMainLooper()).postDelayed({
@@ -316,6 +365,7 @@ class ScoreGameActivity : AppCompatActivity() {
             answerTxt.text = ""
             answerNoteImg.visibility = View.INVISIBLE
             answerTxtLine.visibility = View.INVISIBLE
+            veryGoodText.visibility = View.INVISIBLE
 
             // hide all the lines on note
             if (currNoteIndex == 0 && notePlaceStr == "high") {

@@ -89,8 +89,7 @@ class ReadNoteActivity : AppCompatActivity() {
 
         val backBtn: ImageButton = findViewById(R.id.back_btn)
         backBtn.setOnClickListener {
-            val menu = Intent(this, MainActivity::class.java)
-            startActivity(menu)
+            finish()
         }
 
         // practice game
@@ -110,6 +109,14 @@ class ReadNoteActivity : AppCompatActivity() {
 
     private fun gamePause(notePlaceStr: String) {
         setContentView(R.layout.activity_score_game_pause)
+
+        // stop mediaplayer
+        mediaPlayer.let {
+            if(it.isPlaying) {
+                it.stop()
+            }
+            it.release()
+        }
 
         val continueBtn: ImageView = findViewById(R.id.continue_btn)
         continueBtn.setOnClickListener {
@@ -134,8 +141,7 @@ class ReadNoteActivity : AppCompatActivity() {
 
         val menuBtn: ImageView = findViewById(R.id.main_menu_btn)
         menuBtn.setOnClickListener {
-            val menu = Intent(this, MainActivity::class.java)
-            startActivity(menu)
+            openGameMenu()
         }
     }
 
@@ -196,7 +202,6 @@ class ReadNoteActivity : AppCompatActivity() {
         }
         val noteImg: ImageView = findViewById(R.id.note_img)
         moveNote(noteImg, noteMarginTop[currNoteIndex], 0)
-        playSound("high", null)
 
         highGamePlayHelper()
     }
@@ -207,6 +212,7 @@ class ReadNoteActivity : AppCompatActivity() {
             gamePause("high")
         }
 
+        playSound("high", null)
         noteBtnListner(::highCheckAnswer)
     }
 
@@ -219,7 +225,6 @@ class ReadNoteActivity : AppCompatActivity() {
 
         val noteImg: ImageView = findViewById(R.id.note_img)
         moveNote(noteImg, 0, noteMarginBottom[currNoteIndex])
-        playSound("low", null)
 
         lowGamePlayHelper()
     }
@@ -230,6 +235,7 @@ class ReadNoteActivity : AppCompatActivity() {
             gamePause("low")
         }
 
+        playSound("low", null)
         noteBtnListner(::lowCheckAnswer)
     }
 
