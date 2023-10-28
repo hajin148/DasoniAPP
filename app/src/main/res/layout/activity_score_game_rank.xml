@@ -71,7 +71,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView46"
         app:layout_constraintEnd_toEndOf="@+id/imageView46"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView46"
         app:layout_constraintTop_toTopOf="@+id/imageView46"
         app:layout_constraintVertical_bias="0.214"
@@ -452,4 +452,54 @@
             app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <FrameLayout
+        android:id="@+id/blur_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="#DCEBFF"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/result_box"
+        android:layout_width="246dp"
+        android:layout_height="65dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/go_back_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.31"
+        app:srcCompat="@drawable/rhythm_game_text_background" />
+
+    <TextView
+        android:id="@+id/result_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:text="실수해도 괜찮아요!"
+        android:textColor="#489BFF"
+        android:textSize="21sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/result_box"
+        app:layout_constraintEnd_toEndOf="@id/result_box"
+        app:layout_constraintStart_toStartOf="@+id/result_box"
+        app:layout_constraintTop_toTopOf="@+id/result_box" />
+
+    <ImageView
+        android:id="@+id/go_back_btn"
+        android:layout_width="178dp"
+        android:layout_height="74dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65999997"
+        app:srcCompat="@drawable/game_score_end_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

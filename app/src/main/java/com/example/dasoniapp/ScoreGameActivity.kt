@@ -1,6 +1,5 @@
 package com.example.dasoniapp
 
-import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +8,9 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import kotlin.random.Random
@@ -79,7 +81,7 @@ class ScoreGameActivity : AppCompatActivity() {
     private var currNoteIndex = -1
     private var mediaPlayer = MediaPlayer()
     private lateinit var countDownTimer: CountDownTimer
-    private var timeCount: Long = 20000
+    private var timeCount: Long = 21000
     private var timeRemaining: Long = timeCount
     private var score = 0
     private var countCorrect = 0
@@ -101,8 +103,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
                 if (secsRemaining > 0) {
                     answerText.text = "$secsRemaining"
-                }
-                else {
+                } else {
                     answerText.text = "시작!"
                 }
             }
@@ -171,7 +172,6 @@ class ScoreGameActivity : AppCompatActivity() {
 
                 val timeText: TextView = findViewById(R.id.time_text)
                 timeText.text = "$secsRemaining"
-                // Update your UI with the remaining time, e.g., TextView.text = (millisUntilFinished / 1000).toString()
             }
 
             override fun onFinish() {
@@ -180,23 +180,6 @@ class ScoreGameActivity : AppCompatActivity() {
         }
         // Start the timer
         countDownTimer.start()
-    }
-
-    private fun endGame(resultStr: String) {
-        pauseTimer()
-        setContentView(R.layout.activity_score_game_end)
-        val resultText: TextView = findViewById(R.id.result_txt)
-        if (resultStr == "success") {
-            resultText.text = "정말 잘했어요!"
-        } else {
-            resultText.text = "실수해도 괜찮아요!"
-        }
-
-        val backBtn: ImageView = findViewById(R.id.go_back_btn)
-        backBtn.setOnClickListener {
-            val gameMenu = Intent(this, ReadNoteActivity::class.java)
-            startActivity(gameMenu)
-        }
     }
 
     private fun pauseTimer() {
@@ -209,6 +192,46 @@ class ScoreGameActivity : AppCompatActivity() {
     }
 
     // ------- timer code end -------
+    private fun endGame(resultStr: String) {
+        pauseTimer()
+
+        // disable buttons
+        val btnList = listOf<ImageView>(
+            findViewById(R.id.c_btn),
+            findViewById(R.id.d_btn),
+            findViewById(R.id.e_btn),
+            findViewById(R.id.f_btn),
+            findViewById(R.id.g_btn),
+            findViewById(R.id.a_btn),
+            findViewById(R.id.b_btn)
+        )
+        for (btn in btnList) {
+            btn.isClickable = false
+        }
+        val pauseBtn: ImageView = findViewById(R.id.score_pause_btn)
+        pauseBtn.isClickable = false
+
+        val blurLayout: FrameLayout = findViewById(R.id.blur_layout)
+        val resultBox: ImageView = findViewById(R.id.result_box)
+        blurLayout.visibility = View.VISIBLE
+        resultBox.visibility = View.VISIBLE
+
+
+        val resultText: TextView = findViewById(R.id.result_txt)
+        resultText.visibility = View.VISIBLE
+
+        if (resultStr == "success") {
+            resultText.text = "정말 잘했어요!"
+        } else {
+            resultText.text = "실수해도 괜찮아요!"
+        }
+
+        val backBtn: ImageView = findViewById(R.id.go_back_btn)
+        backBtn.visibility = View.VISIBLE
+        backBtn.setOnClickListener {
+            finish()
+        }
+    }
 
     private fun moveNote(img: ImageView, marginTop: Int, marginBottom: Int) {
         val layoutParams = img.layoutParams as ViewGroup.MarginLayoutParams
@@ -356,7 +379,23 @@ class ScoreGameActivity : AppCompatActivity() {
         countCorrect += 1
         if (countCorrect == 3) {
             veryGoodText.visibility = View.VISIBLE
-            countCorrect = 0
+            countCorrect = 0 // initialize again
+
+            val fadeOutAnimation = AlphaAnimation(1.0f, 0.0f)
+            fadeOutAnimation.duration = 1500 // 1.5 duration
+
+            fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation) {}
+
+                override fun onAnimationEnd(animation: Animation) {
+                    veryGoodText.visibility = View.GONE
+                }
+
+                override fun onAnimationRepeat(animation: Animation) {}
+            })
+
+            // Start animation
+            veryGoodText.startAnimation(fadeOutAnimation)
         }
 
         // wait for 1.5 seconds to run
@@ -365,7 +404,6 @@ class ScoreGameActivity : AppCompatActivity() {
             answerTxt.text = ""
             answerNoteImg.visibility = View.INVISIBLE
             answerTxtLine.visibility = View.INVISIBLE
-            veryGoodText.visibility = View.INVISIBLE
 
             // hide all the lines on note
             if (currNoteIndex == 0 && notePlaceStr == "high") {
@@ -376,7 +414,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
             // change time
             timeCount -= 1000
-            if (timeCount == 4000L) {
+            if (timeCount == 5000L) {
                 endGame("success")
             } else {
                 timeRemaining = timeCount
