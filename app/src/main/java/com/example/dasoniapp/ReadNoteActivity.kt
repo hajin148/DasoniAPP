@@ -23,7 +23,7 @@ class ReadNoteActivity : AppCompatActivity() {
 
     // for upper note
     private val noteMarginTop =
-        listOf<Int>(60, 45, 30, 15, 0, -13, -28, -43, -57, -71, -85, -100)
+        listOf<Int>(60, 45, 30, 15, 0, -14, -28, -42, -57, -71, -85, -100)
     private val noteList =
         listOf<String>("C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G")
     private val ansNoteMarginTop = mutableMapOf<String, Int>(
@@ -61,7 +61,7 @@ class ReadNoteActivity : AppCompatActivity() {
 
     // for lower note
     private val noteMarginBottom =
-        listOf<Int>(-840, -790, -735, -684, -631, -580, -520)
+        listOf<Int>(-842, -790, -736, -684, -632, -580, -520)
     private val lowNoteList = listOf<String>("C", "D", "E", "F", "G", "A", "B")
     private val ansLowNoteMarginTop = mutableMapOf<String, Int>(
         "C" to noteMarginBottom[0],

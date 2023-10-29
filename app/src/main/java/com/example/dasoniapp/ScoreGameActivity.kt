@@ -20,7 +20,7 @@ import kotlin.random.Random
 class ScoreGameActivity : AppCompatActivity() {
     // for upper note
     private val noteMarginTop =
-        listOf<Int>(60, 45, 30, 15, 0, -13, -28, -43, -57, -71, -85, -100)
+        listOf<Int>(60, 45, 30, 15, 0, -14, -28, -42, -57, -71, -85, -100)
     private val noteList =
         listOf<String>("C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G")
     private val ansNoteMarginTop = mutableMapOf<String, Int>(
@@ -58,7 +58,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
     // for lower note
     private val noteMarginBottom =
-        listOf<Int>(-840, -790, -735, -684, -631, -580, -520)
+        listOf<Int>(-842, -790, -736, -684, -632, -580, -520)
     private val lowNoteList = listOf<String>("C", "D", "E", "F", "G", "A", "B")
     private val ansLowNoteMarginTop = mutableMapOf<String, Int>(
         "C" to noteMarginBottom[0],
@@ -404,9 +404,9 @@ class ScoreGameActivity : AppCompatActivity() {
         score += 10
         scoreText.text = "Score: $score"
         countCorrect += 1
-        if (countCorrect == 3) {
+
+        if(countCorrect >= 3) {
             veryGoodText.visibility = View.VISIBLE
-            countCorrect = 0 // initialize again
 
             val fadeOutAnimation = AlphaAnimation(1.0f, 0.0f)
             fadeOutAnimation.duration = 1500 // 1.5 duration
@@ -422,7 +422,9 @@ class ScoreGameActivity : AppCompatActivity() {
             })
 
             // Start animation
-            veryGoodText.startAnimation(fadeOutAnimation)
+            Handler(Looper.getMainLooper()).postDelayed({
+                veryGoodText.startAnimation(fadeOutAnimation)
+            }, 100)
         }
 
         // wait for 1.5 seconds to run
@@ -457,6 +459,7 @@ class ScoreGameActivity : AppCompatActivity() {
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
 
         pauseTimer()
+        countCorrect = 0
         // wait for 1.5 seconds to run
         Handler(Looper.getMainLooper()).postDelayed({
             // hide answer text
