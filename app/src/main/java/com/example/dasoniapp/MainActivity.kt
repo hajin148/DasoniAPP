@@ -18,13 +18,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
 
-        // if this is initial play of an app from mobile (check the global check the global variable flag)
-        Handler(Looper.getMainLooper()).postDelayed({
-            setOnboardingView()
-        }, SPLASH_TIME_OUT)
+        if (isFirstLaunch()) {
+            setContentView(R.layout.activity_splash)
+            Handler(Looper.getMainLooper()).postDelayed({
+                setOnboardingView()
+            }, SPLASH_TIME_OUT)
+        } else {
+            setupMainPage()
+        }
+    }
 
+    private fun isFirstLaunch(): Boolean {
+        val prefs = getSharedPreferences("com.example.dasoniapp", MODE_PRIVATE)
+        val isFirstLaunch = prefs.getBoolean("isFirstLaunch", true)
+        if (isFirstLaunch) {
+            // If it's the first launch, update the flag
+            prefs.edit().putBoolean("isFirstLaunch", false).apply()
+        }
+        return isFirstLaunch
     }
 
     private fun setOnboardingView() {
