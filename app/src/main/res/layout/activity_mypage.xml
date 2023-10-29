@@ -305,8 +305,8 @@
 
     <ImageView
         android:id="@+id/imageView13"
-        android:layout_width="47dp"
-        android:layout_height="45dp"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
@@ -317,12 +317,12 @@
 
     <TextView
         android:id="@+id/textView22"
-        android:layout_width="26dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_bold"
         android:text="Lv.3"
         android:textColor="#FFFFFF"
-        android:textSize="13sp"
+        android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView13"
         app:layout_constraintEnd_toEndOf="@+id/imageView13"
         app:layout_constraintStart_toStartOf="@+id/imageView13"
