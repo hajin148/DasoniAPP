@@ -28,7 +28,7 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.086"
+        app:layout_constraintVertical_bias="0.101"
         app:srcCompat="@drawable/main_profile_background" />
 
     <TextView
@@ -106,8 +106,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/main_game_three"
         app:layout_constraintEnd_toEndOf="@+id/main_game_three"
-        app:layout_constraintHorizontal_bias="0.564"
-        app:layout_constraintStart_toStartOf="@+id/main_game_three"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.060000002" />
 
@@ -121,8 +121,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/main_game_three"
         app:layout_constraintEnd_toEndOf="@+id/main_game_two"
-        app:layout_constraintHorizontal_bias="0.551"
-        app:layout_constraintStart_toStartOf="@+id/main_game_two"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.060000002" />
 
@@ -298,8 +298,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/main_game_one"
         app:layout_constraintEnd_toEndOf="@+id/main_game_one"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="@+id/main_game_one"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.060000002" />
 
