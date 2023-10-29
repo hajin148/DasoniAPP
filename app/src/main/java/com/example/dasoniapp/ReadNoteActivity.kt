@@ -1,5 +1,7 @@
 package com.example.dasoniapp
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
@@ -21,7 +23,7 @@ class ReadNoteActivity : AppCompatActivity() {
 
     // for upper note
     private val noteMarginTop =
-        listOf<Int>(60, 45, 30, 15, 0, -14, -28, -43, -57, -71, -85, -100)
+        listOf<Int>(60, 45, 30, 15, 0, -13, -28, -43, -57, -71, -85, -100)
     private val noteList =
         listOf<String>("C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G")
     private val ansNoteMarginTop = mutableMapOf<String, Int>(
@@ -59,7 +61,7 @@ class ReadNoteActivity : AppCompatActivity() {
 
     // for lower note
     private val noteMarginBottom =
-        listOf<Int>(-837, -790, -733, -679, -629, -580, -520)
+        listOf<Int>(-840, -790, -735, -684, -631, -580, -520)
     private val lowNoteList = listOf<String>("C", "D", "E", "F", "G", "A", "B")
     private val ansLowNoteMarginTop = mutableMapOf<String, Int>(
         "C" to noteMarginBottom[0],
@@ -114,7 +116,7 @@ class ReadNoteActivity : AppCompatActivity() {
 
         // stop mediaplayer
         mediaPlayer.let {
-            if(it.isPlaying) {
+            if (it.isPlaying) {
                 it.stop()
             }
             it.release()
@@ -123,12 +125,11 @@ class ReadNoteActivity : AppCompatActivity() {
         val continueBtn: ImageView = findViewById(R.id.continue_btn)
         continueBtn.setOnClickListener {
             setContentView(R.layout.activity_score_game_practice)
-            if(notePlaceStr == "high") {
+            if (notePlaceStr == "high") {
                 val noteImg: ImageView = findViewById(R.id.note_img)
                 moveNote(noteImg, noteMarginTop[currNoteIndex], 0)
                 highGamePlayHelper()
-            }
-            else {
+            } else {
                 val noteImg: ImageView = findViewById(R.id.note_img)
                 moveNote(noteImg, 0, noteMarginBottom[currNoteIndex])
                 lowGamePlayHelper()
@@ -152,11 +153,12 @@ class ReadNoteActivity : AppCompatActivity() {
         val layoutParams = img.layoutParams as ViewGroup.MarginLayoutParams
         val marginTopPx = dpToPx(marginTop, this)
         val marginBottomPx = dpToPx(marginBottom, this)
+        img.visibility = View.INVISIBLE
 
         val parentViewTreeObserver = parent.viewTreeObserver
-        parentViewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        parentViewTreeObserver.addOnGlobalLayoutListener(object :
+            ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
-                // Remove the listener to ensure it's only called once
                 parent.viewTreeObserver.removeOnGlobalLayoutListener(this)
 
                 val parentHeight = parent.height
@@ -167,7 +169,11 @@ class ReadNoteActivity : AppCompatActivity() {
                 img.layoutParams = layoutParams
             }
         })
+        Handler(Looper.getMainLooper()).postDelayed({
+            img.visibility = View.VISIBLE
+        }, 100)
     }
+
 
     private fun dpToPx(dp: Int, context: Context): Int {
         val density = context.resources.displayMetrics.density
@@ -180,9 +186,8 @@ class ReadNoteActivity : AppCompatActivity() {
             if (rightSound != null) {
                 mediaPlayer = MediaPlayer.create(this, rightSound)
             }
-        }
-        else {
-            if(wrongSound != null) {
+        } else {
+            if (wrongSound != null) {
                 mediaPlayer = MediaPlayer.create(this, wrongSound)
             }
         }
@@ -192,11 +197,18 @@ class ReadNoteActivity : AppCompatActivity() {
     private fun playSound(notePlace: String, wrongNoteStr: String?) {
         mediaPlayer.release()
 
-        if(notePlace == "high") {
-            playSoundHelper(noteSoundList[currNoteIndex], highAnsSoundMap[wrongNoteStr], wrongNoteStr)
-        }
-        else {
-            playSoundHelper(lowAnsSoundMap[lowNoteList[currNoteIndex]], lowAnsSoundMap[wrongNoteStr], wrongNoteStr)
+        if (notePlace == "high") {
+            playSoundHelper(
+                noteSoundList[currNoteIndex],
+                highAnsSoundMap[wrongNoteStr],
+                wrongNoteStr
+            )
+        } else {
+            playSoundHelper(
+                lowAnsSoundMap[lowNoteList[currNoteIndex]],
+                lowAnsSoundMap[wrongNoteStr],
+                wrongNoteStr
+            )
         }
 
         mediaPlayer.start()
@@ -220,7 +232,9 @@ class ReadNoteActivity : AppCompatActivity() {
 
         if (currNoteIndex == 0) {
             val noteLine: TextView = findViewById(R.id.note_line)
-            noteLine.visibility = View.VISIBLE
+            Handler(Looper.getMainLooper()).postDelayed({
+                noteLine.visibility = View.VISIBLE
+            }, 100)
         }
         val noteImg: ImageView = findViewById(R.id.note_img)
         moveNote(noteImg, noteMarginTop[currNoteIndex], 0)
@@ -297,7 +311,6 @@ class ReadNoteActivity : AppCompatActivity() {
         val answerTxt: TextView = findViewById(R.id.answer_txt)
         val answerNoteLine: TextView = findViewById(R.id.answer_note_line)
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
-        answerNoteImg.visibility = View.VISIBLE
 
         if (noteList[currNoteIndex] == noteStr) {
             playSound("high", null)
@@ -308,7 +321,9 @@ class ReadNoteActivity : AppCompatActivity() {
             // if user pressed lower C note, then show line on answer note
             if (currNoteIndex == 0) {
                 answerNoteLine.setTextColor(0xFF30D5D8.toInt())
-                answerNoteLine.visibility = View.VISIBLE
+                Handler(Looper.getMainLooper()).postDelayed({
+                    answerNoteLine.visibility = View.VISIBLE
+                }, 100)
             }
         } else {
             playSound("high", noteStr)
@@ -319,7 +334,9 @@ class ReadNoteActivity : AppCompatActivity() {
             // if user pressed C, then show line on answer note
             if (noteStr == "C") {
                 answerNoteLine.setTextColor(0xFFFF46A9.toInt())
-                answerNoteLine.visibility = View.VISIBLE
+                Handler(Looper.getMainLooper()).postDelayed({
+                    answerNoteLine.visibility = View.VISIBLE
+                }, 100)
             }
         }
 
@@ -346,7 +363,6 @@ class ReadNoteActivity : AppCompatActivity() {
 
         val answerTxt: TextView = findViewById(R.id.answer_txt)
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
-        answerNoteImg.visibility = View.VISIBLE
 
         if (lowNoteList[currNoteIndex] == noteStr) {
             playSound("low", null)

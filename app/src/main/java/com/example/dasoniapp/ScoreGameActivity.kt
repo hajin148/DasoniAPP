@@ -20,7 +20,7 @@ import kotlin.random.Random
 class ScoreGameActivity : AppCompatActivity() {
     // for upper note
     private val noteMarginTop =
-        listOf<Int>(60, 45, 30, 15, 0, -14, -28, -43, -57, -71, -85, -100)
+        listOf<Int>(60, 45, 30, 15, 0, -13, -28, -43, -57, -71, -85, -100)
     private val noteList =
         listOf<String>("C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G")
     private val ansNoteMarginTop = mutableMapOf<String, Int>(
@@ -58,7 +58,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
     // for lower note
     private val noteMarginBottom =
-        listOf<Int>(-837, -790, -733, -679, -629, -580, -520)
+        listOf<Int>(-840, -790, -735, -684, -631, -580, -520)
     private val lowNoteList = listOf<String>("C", "D", "E", "F", "G", "A", "B")
     private val ansLowNoteMarginTop = mutableMapOf<String, Int>(
         "C" to noteMarginBottom[0],
@@ -111,7 +111,6 @@ class ScoreGameActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                noteImg.visibility = View.VISIBLE
                 answerText.text = ""
                 gamePlay()
             }
@@ -240,6 +239,7 @@ class ScoreGameActivity : AppCompatActivity() {
         val layoutParams = img.layoutParams as ViewGroup.MarginLayoutParams
         val marginTopPx = dpToPx(marginTop, this)
         val marginBottomPx = dpToPx(marginBottom, this)
+        img.visibility = View.INVISIBLE
 
         val parentViewTreeObserver = parent.viewTreeObserver
         parentViewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
@@ -255,6 +255,9 @@ class ScoreGameActivity : AppCompatActivity() {
                 img.layoutParams = layoutParams
             }
         })
+        Handler(Looper.getMainLooper()).postDelayed({
+            img.visibility = View.VISIBLE
+        }, 100)
     }
 
     private fun dpToPx(dp: Int, context: Context): Int {
@@ -337,7 +340,9 @@ class ScoreGameActivity : AppCompatActivity() {
 
         if (currNoteIndex == 0) {
             val noteLine: TextView = findViewById(R.id.note_line)
-            noteLine.visibility = View.VISIBLE
+            Handler(Looper.getMainLooper()).postDelayed({
+                noteLine.visibility = View.VISIBLE
+            }, 100)
         }
 
         val noteImg: ImageView = findViewById(R.id.note_img)
@@ -477,7 +482,6 @@ class ScoreGameActivity : AppCompatActivity() {
         val answerTxtLine: ImageView = findViewById(R.id.imageView48)
         val answerNoteLine: TextView = findViewById(R.id.answer_note_line)
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
-        answerNoteImg.visibility = View.VISIBLE
         answerTxtLine.visibility = View.VISIBLE
 
         // right answer
@@ -490,7 +494,9 @@ class ScoreGameActivity : AppCompatActivity() {
             // if user pressed lower C note, then show line on answer note
             if (currNoteIndex == 0) {
                 answerNoteLine.setTextColor(0xFF30D5D8.toInt())
-                answerNoteLine.visibility = View.VISIBLE
+                Handler(Looper.getMainLooper()).postDelayed({
+                    answerNoteLine.visibility = View.VISIBLE
+                }, 100)
             }
 
             correctAnswerTimer("high")
@@ -503,7 +509,9 @@ class ScoreGameActivity : AppCompatActivity() {
             // if user pressed C, then show line on answer note
             if (noteStr == "C") {
                 answerNoteLine.setTextColor(0xFFFF46A9.toInt())
-                answerNoteLine.visibility = View.VISIBLE
+                Handler(Looper.getMainLooper()).postDelayed({
+                    answerNoteLine.visibility = View.VISIBLE
+                }, 100)
             }
 
             wrongAnswerTimer("high")
@@ -517,7 +525,6 @@ class ScoreGameActivity : AppCompatActivity() {
         val answerTxt: TextView = findViewById(R.id.answer_text)
         val answerTxtLine: ImageView = findViewById(R.id.imageView48)
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
-        answerNoteImg.visibility = View.VISIBLE
         answerTxtLine.visibility = View.VISIBLE
 
         if (lowNoteList[currNoteIndex] == noteStr) {
