@@ -1,5 +1,6 @@
 package com.example.dasoniapp
 
+import android.content.Context
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.FrameLayout
@@ -18,7 +20,7 @@ import kotlin.random.Random
 class ScoreGameActivity : AppCompatActivity() {
     // for upper note
     private val noteMarginTop =
-        listOf<Int>(180, 128, 82, 40, 0, -37, -75, -115, -155, -195, -230, -280)
+        listOf<Int>(60, 45, 30, 15, 0, -14, -28, -43, -57, -71, -85, -100)
     private val noteList =
         listOf<String>("C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G")
     private val ansNoteMarginTop = mutableMapOf<String, Int>(
@@ -56,7 +58,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
     // for lower note
     private val noteMarginBottom =
-        listOf<Int>(-2320, -2170, -2030, -1888, -1740, -1600, -1450)
+        listOf<Int>(-837, -790, -733, -679, -629, -580, -520)
     private val lowNoteList = listOf<String>("C", "D", "E", "F", "G", "A", "B")
     private val ansLowNoteMarginTop = mutableMapOf<String, Int>(
         "C" to noteMarginBottom[0],
@@ -234,10 +236,30 @@ class ScoreGameActivity : AppCompatActivity() {
     }
 
     private fun moveNote(img: ImageView, marginTop: Int, marginBottom: Int) {
+        val parent: ImageView = findViewById(R.id.imageView46)
         val layoutParams = img.layoutParams as ViewGroup.MarginLayoutParams
-        layoutParams.setMargins(0, marginTop, 0, marginBottom)
+        val marginTopPx = dpToPx(marginTop, this)
+        val marginBottomPx = dpToPx(marginBottom, this)
 
-        img.layoutParams = layoutParams
+        val parentViewTreeObserver = parent.viewTreeObserver
+        parentViewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                // Remove the listener to ensure it's only called once
+                parent.viewTreeObserver.removeOnGlobalLayoutListener(this)
+
+                val parentHeight = parent.height
+                val calMarginTop = (parentHeight * marginTopPx / parentHeight).toInt()
+                val calMarginBottom = (parentHeight * marginBottomPx / parentHeight).toInt()
+
+                layoutParams.setMargins(0, calMarginTop, 0, calMarginBottom)
+                img.layoutParams = layoutParams
+            }
+        })
+    }
+
+    private fun dpToPx(dp: Int, context: Context): Int {
+        val density = context.resources.displayMetrics.density
+        return (dp * density).toInt()
     }
 
     private fun playSoundHelper(rightSound: Int?, wrongSound: Int?, wrongNoteStr: String?) {

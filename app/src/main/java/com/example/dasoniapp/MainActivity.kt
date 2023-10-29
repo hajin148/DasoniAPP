@@ -1,11 +1,14 @@
 package com.example.dasoniapp
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.content.Intent
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +30,56 @@ class MainActivity : AppCompatActivity() {
         } else {
             setupMainPage()
         }
+
+        // ---------------------
+//        // 60
+//        // 45
+//        // 30
+//        //fa:  15
+//        // 0
+//        // -14
+//        // -28
+//        // -43
+//        // -57
+//        // -71
+//        // -85
+//        // -100
+//
+//        setContentView(R.layout.activity_score_game_practice)
+//
+//        val img: ImageView = findViewById(R.id.note_img)
+//
+//        val parent: ImageView = findViewById(R.id.imageView46)
+//        val layoutParams = img.layoutParams as ViewGroup.MarginLayoutParams
+//
+//        val px = dpToPx(-520, this)
+//        // -837
+//        // - 790
+//        // -733
+//        // -676
+//        // -580
+//
+//
+//
+//        val parentViewTreeObserver = parent.viewTreeObserver
+//        parentViewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+//            override fun onGlobalLayout() {
+//                // Remove the listener to ensure it's only called once
+//                parent.viewTreeObserver.removeOnGlobalLayoutListener(this)
+//
+//                val parentHeight = parent.height
+//                val calculatedMargin = (parentHeight * px / parentHeight).toInt()
+//
+//                layoutParams.setMargins(0, 0, 0, calculatedMargin)
+//                img.layoutParams = layoutParams
+//            }
+//        })
+
+    }
+
+    fun dpToPx(dp: Int, context: Context): Int {
+        val density = context.resources.displayMetrics.density
+        return (dp * density).toInt()
     }
 
     private fun isFirstLaunch(): Boolean {
