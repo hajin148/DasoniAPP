@@ -154,7 +154,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView46"
-        app:layout_constraintVertical_bias="0.684"
+        app:layout_constraintVertical_bias="0.7"
         app:srcCompat="@drawable/score_game_underline" />
 
     <TextView
@@ -163,7 +163,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_semibold"
         android:text=""
-        android:textSize="18sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView48"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

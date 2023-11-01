@@ -106,7 +106,7 @@ class ScoreGameActivity : AppCompatActivity() {
                 if (secsRemaining > 0) {
                     answerText.text = "$secsRemaining"
                 } else {
-                    answerText.text = "시작!"
+                    answerText.text = "시작!!!"
                 }
             }
 
@@ -222,7 +222,7 @@ class ScoreGameActivity : AppCompatActivity() {
         resultText.visibility = View.VISIBLE
 
         if (resultStr == "success") {
-            resultText.text = "정말 잘했어요!"
+            resultText.text = "정말 대단해요!!"
         } else {
             resultText.text = "실수해도 괜찮아요!"
         }
@@ -242,7 +242,8 @@ class ScoreGameActivity : AppCompatActivity() {
         img.visibility = View.INVISIBLE
 
         val parentViewTreeObserver = parent.viewTreeObserver
-        parentViewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        parentViewTreeObserver.addOnGlobalLayoutListener(object :
+            ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 // Remove the listener to ensure it's only called once
                 parent.viewTreeObserver.removeOnGlobalLayoutListener(this)
@@ -403,9 +404,11 @@ class ScoreGameActivity : AppCompatActivity() {
         pauseTimer()
         score += 10
         scoreText.text = "Score: $score"
-        countCorrect += 1
+        if (countCorrect < 2) {
+            countCorrect += 1
+        }
 
-        if(countCorrect >= 3) {
+        if (countCorrect == 2) {
             veryGoodText.visibility = View.VISIBLE
 
             val fadeOutAnimation = AlphaAnimation(1.0f, 0.0f)
@@ -459,7 +462,6 @@ class ScoreGameActivity : AppCompatActivity() {
         val answerNoteImg: ImageView = findViewById(R.id.answer_note_img)
 
         pauseTimer()
-        countCorrect = 0
         // wait for 1.5 seconds to run
         Handler(Looper.getMainLooper()).postDelayed({
             // hide answer text
@@ -491,7 +493,7 @@ class ScoreGameActivity : AppCompatActivity() {
         if (noteList[currNoteIndex] == noteStr) {
             playSound("high", null)
             answerNoteImg.setImageResource(R.drawable.note_right)
-            answerTxt.text = "$noteStr, 정답입니다!"
+            answerTxt.text = "$noteStr, 정말 잘했어요!!"
             moveNote(answerNoteImg, noteMarginTop[currNoteIndex], 0)
 
             // if user pressed lower C note, then show line on answer note
@@ -506,7 +508,7 @@ class ScoreGameActivity : AppCompatActivity() {
         } else {
             playSound("high", noteStr)
             answerNoteImg.setImageResource(R.drawable.note_wrong)
-            answerTxt.text = "$noteStr, 틀렸습니다!"
+            answerTxt.text = "$noteStr, 다시 시도해보세요"
             moveNote(answerNoteImg, ansNoteMarginTop[noteStr] as Int, 0)
 
             // if user pressed C, then show line on answer note
@@ -533,14 +535,14 @@ class ScoreGameActivity : AppCompatActivity() {
         if (lowNoteList[currNoteIndex] == noteStr) {
             playSound("low", null)
             answerNoteImg.setImageResource(R.drawable.note_right)
-            answerTxt.text = "$noteStr, 정답입니다!"
+            answerTxt.text = "$noteStr, 정말 잘했어요!!"
             moveNote(answerNoteImg, 0, noteMarginBottom[currNoteIndex])
 
             correctAnswerTimer("low")
         } else {
             playSound("low", noteStr)
             answerNoteImg.setImageResource(R.drawable.note_wrong)
-            answerTxt.text = "$noteStr, 틀렸습니다!"
+            answerTxt.text = "$noteStr, 다시 시도해보세요"
             moveNote(answerNoteImg, 0, ansLowNoteMarginTop[noteStr] as Int)
 
             wrongAnswerTimer("low")
