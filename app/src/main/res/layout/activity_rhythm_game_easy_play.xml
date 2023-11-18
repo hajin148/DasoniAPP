@@ -223,19 +223,158 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.31" />
 
-    <!--    pressing animation commented for now -->
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView91"-->
-<!--        android:layout_width="66dp"-->
-<!--        android:layout_height="66dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView79"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.057"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/imageView82"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/imageView82"-->
-<!--        app:layout_constraintVertical_bias="0.49"-->
-<!--        app:srcCompat="@drawable/rhythm_single_touch_effect_green" />-->
+    <!-- animation for button one -->
+    <ImageView
+        android:id="@+id/ani_one_btn_one"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_one"
+        app:layout_constraintEnd_toEndOf="@+id/btn_one"
+        app:layout_constraintStart_toStartOf="@+id/btn_one"
+        app:layout_constraintTop_toTopOf="@+id/btn_one"
+        app:srcCompat="@drawable/rhythm_single_touch_effect_green" />
 
+    <ImageView
+        android:id="@+id/ani_two_btn_one"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/rhythm_touch_effect_green_one"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_one"
+        app:layout_constraintEnd_toEndOf="@+id/btn_one"
+        app:layout_constraintStart_toStartOf="@+id/btn_one"
+        app:layout_constraintTop_toTopOf="@+id/btn_one"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <ImageView
+        android:id="@+id/ani_three_btn_one"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/rhythm_touch_effect_green_two"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_one"
+        app:layout_constraintEnd_toEndOf="@+id/btn_one"
+        app:layout_constraintStart_toStartOf="@+id/btn_one"
+        app:layout_constraintTop_toTopOf="@+id/btn_one"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="628dp" />
+
+    <!-- animation for button two -->
+    <ImageView
+        android:id="@+id/ani_one_btn_two"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_two"
+        app:layout_constraintEnd_toEndOf="@+id/btn_two"
+        app:layout_constraintStart_toStartOf="@+id/btn_two"
+        app:layout_constraintTop_toTopOf="@+id/btn_two"
+        app:srcCompat="@drawable/rhythm_single_touch_effect_green" />
+
+    <ImageView
+        android:id="@+id/ani_two_btn_two"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/rhythm_touch_effect_green_one"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_two"
+        app:layout_constraintEnd_toEndOf="@+id/btn_two"
+        app:layout_constraintStart_toStartOf="@+id/btn_two"
+        app:layout_constraintTop_toTopOf="@+id/btn_two"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <ImageView
+        android:id="@+id/ani_three_btn_two"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/rhythm_touch_effect_green_two"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_two"
+        app:layout_constraintEnd_toEndOf="@+id/btn_two"
+        app:layout_constraintStart_toStartOf="@+id/btn_two"
+        app:layout_constraintTop_toTopOf="@+id/btn_two"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="628dp" />
+
+    <!-- animation for button three -->
+    <ImageView
+        android:id="@+id/ani_one_btn_three"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_three"
+        app:layout_constraintEnd_toEndOf="@+id/btn_three"
+        app:layout_constraintStart_toStartOf="@+id/btn_three"
+        app:layout_constraintTop_toTopOf="@+id/btn_three"
+        app:srcCompat="@drawable/rhythm_single_touch_effect_green" />
+
+    <ImageView
+        android:id="@+id/ani_two_btn_three"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/rhythm_touch_effect_green_one"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_three"
+        app:layout_constraintEnd_toEndOf="@+id/btn_three"
+        app:layout_constraintStart_toStartOf="@+id/btn_three"
+        app:layout_constraintTop_toTopOf="@+id/btn_three"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <ImageView
+        android:id="@+id/ani_three_btn_three"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/rhythm_touch_effect_green_two"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_three"
+        app:layout_constraintEnd_toEndOf="@+id/btn_three"
+        app:layout_constraintStart_toStartOf="@+id/btn_three"
+        app:layout_constraintTop_toTopOf="@+id/btn_three"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="628dp" />
+
+    <!-- animation for button four -->
+    <ImageView
+        android:id="@+id/ani_one_btn_four"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_four"
+        app:layout_constraintEnd_toEndOf="@+id/btn_four"
+        app:layout_constraintStart_toStartOf="@+id/btn_four"
+        app:layout_constraintTop_toTopOf="@+id/btn_four"
+        app:srcCompat="@drawable/rhythm_single_touch_effect_green" />
+
+    <ImageView
+        android:id="@+id/ani_two_btn_four"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/rhythm_touch_effect_green_one"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_four"
+        app:layout_constraintEnd_toEndOf="@+id/btn_four"
+        app:layout_constraintStart_toStartOf="@+id/btn_four"
+        app:layout_constraintTop_toTopOf="@+id/btn_four"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <ImageView
+        android:id="@+id/ani_three_btn_four"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/rhythm_touch_effect_green_two"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_four"
+        app:layout_constraintEnd_toEndOf="@+id/btn_four"
+        app:layout_constraintStart_toStartOf="@+id/btn_four"
+        app:layout_constraintTop_toTopOf="@+id/btn_four"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="628dp" />
+    <!--    pressing event-->
 <!--    <ImageView-->
 <!--        android:id="@+id/imageView92"-->
 <!--        android:layout_width="65dp"-->
@@ -261,30 +400,6 @@
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        app:layout_constraintVertical_bias="1.0"-->
 <!--        app:srcCompat="@drawable/rhythm_long_touch_effect_green" />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView99"-->
-<!--        android:layout_width="86dp"-->
-<!--        android:layout_height="86dp"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView79"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/imageView82"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/imageView82"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/imageView82"-->
-<!--        app:srcCompat="@drawable/rhythm_touch_effect_green_one" />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView100"-->
-<!--        android:layout_width="96dp"-->
-<!--        android:layout_height="96dp"-->
-<!--        android:layout_marginStart="5dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView79"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/imageView82"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/imageView82"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/imageView82"-->
-<!--        app:srcCompat="@drawable/rhythm_touch_effect_green_two" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

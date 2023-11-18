@@ -35,18 +35,22 @@ class RhythmGameActivity : AppCompatActivity() {
 
         btnOne.setOnClickListener {
             checkAnswer(answerOne, btnOne)
+            buttonAnimation("one")
         }
 
         btnTwo.setOnClickListener {
             checkAnswer(answerTwo, btnTwo)
+            buttonAnimation("two")
         }
 
         btnThree.setOnClickListener {
             checkAnswer(answerThree, btnThree)
+            buttonAnimation("three")
         }
 
         btnFour.setOnClickListener {
             checkAnswer(answerFour, btnFour)
+            buttonAnimation("four")
         }
     }
 
@@ -106,11 +110,10 @@ class RhythmGameActivity : AppCompatActivity() {
 
 
     private fun checkAnswer(answerNode: ImageView, btnNode: ImageView) {
-        if(isOverlapping(answerNode, btnNode)) {
-            veryGoodAnimation()
-        }
-        else {
-            wrongAnimation()
+        if (isOverlapping(answerNode, btnNode)) {
+            answerAnimation("correct", 1500)
+        } else {
+            answerAnimation("wrong", 1000)
         }
     }
 
@@ -138,41 +141,62 @@ class RhythmGameActivity : AppCompatActivity() {
         return answerRect.intersect(btnRect)
     }
 
-    private fun veryGoodAnimation() {
-        val veryGoodText: ImageView = findViewById(R.id.very_good_text)
-        veryGoodText.visibility = View.VISIBLE
-
+    private fun buttonAnimation(btnNumStr: String) {
         val fadeOutAnimation = AlphaAnimation(1.0f, 0.0f)
-        fadeOutAnimation.duration = 1500 // 1.5 duration
+        fadeOutAnimation.duration = 1000
+
+        // get resource id dynamically by btnNumStr
+        val ani_one_Id = "ani_one_btn_$btnNumStr"
+        val ani_two_Id = "ani_two_btn_$btnNumStr"
+        val ani_three_Id = "ani_three_btn_$btnNumStr"
+
+        val ani_one: ImageView = findViewById(resources.getIdentifier(ani_one_Id, "id", packageName))
+        val ani_two: ImageView = findViewById(resources.getIdentifier(ani_two_Id, "id", packageName))
+        val ani_three: ImageView = findViewById(resources.getIdentifier(ani_three_Id, "id", packageName))
 
         fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {}
 
             override fun onAnimationEnd(animation: Animation) {
-                veryGoodText.visibility = View.GONE
+                ani_one.visibility = View.GONE
+                ani_two.visibility = View.GONE
+                ani_three.visibility = View.GONE
             }
 
             override fun onAnimationRepeat(animation: Animation) {}
         })
 
-        // Start animation
+        ani_one.startAnimation(fadeOutAnimation)
+
         Handler(Looper.getMainLooper()).postDelayed({
-            veryGoodText.startAnimation(fadeOutAnimation)
-        }, 100)
+            ani_two.startAnimation(fadeOutAnimation)
+        }, 30)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            ani_three.startAnimation(fadeOutAnimation)
+        }, 60)
     }
 
-    private fun wrongAnimation() {
-        val wrontText: TextView = findViewById(R.id.wrong_text)
-        wrontText.visibility = View.VISIBLE
-
+    private fun answerAnimation(state: String, duration: Long) {
         val fadeOutAnimation = AlphaAnimation(1.0f, 0.0f)
-        fadeOutAnimation.duration = 1000 // 1 sec duration
+        fadeOutAnimation.duration = duration
+
+        val answerText: View?
+        // correct text animation
+        if (state == "correct") {
+            answerText = findViewById<ImageView>(R.id.very_good_text)
+        }
+        // wrong text animation
+        else {
+            answerText = findViewById<TextView>(R.id.wrong_text)
+        }
+        answerText?.visibility = View.VISIBLE
 
         fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {}
 
             override fun onAnimationEnd(animation: Animation) {
-                wrontText.visibility = View.GONE
+                answerText?.visibility = View.GONE
             }
 
             override fun onAnimationRepeat(animation: Animation) {}
@@ -180,7 +204,7 @@ class RhythmGameActivity : AppCompatActivity() {
 
         // Start animation
         Handler(Looper.getMainLooper()).postDelayed({
-            wrontText.startAnimation(fadeOutAnimation)
+            answerText?.startAnimation(fadeOutAnimation)
         }, 100)
     }
 
