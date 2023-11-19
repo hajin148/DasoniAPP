@@ -13,6 +13,9 @@ import android.widget.TextView
 
 class RhythmGameActivity : AppCompatActivity() {
 
+    private var score = 0
+    private var wrongCount = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rhythm_game_easy_play)
@@ -110,15 +113,32 @@ class RhythmGameActivity : AppCompatActivity() {
 
 
     private fun checkAnswer(answerNode: ImageView, btnNode: ImageView) {
+        val scoreText: TextView = findViewById(R.id.game_score)
+
         val overlapStr: String = getOverlapString(answerNode, btnNode)
         if (overlapStr == "correct") {
             answerAnimation("very good")
+            score += 10
+            scoreText.text = "$score"
         }
         else if (overlapStr == "semi correct"){
             answerAnimation("good")
+            score += 5
+            scoreText.text = "$score"
         }
         else {
             answerAnimation("wrong")
+            val heartLife: ImageView = findViewById(R.id.heart_life)
+            wrongCount += 1
+            if (wrongCount == 3) {
+                heartLife.setImageResource(R.drawable.heart_two)
+            }
+            else if(wrongCount == 6) {
+                heartLife.setImageResource(R.drawable.heart_one)
+            }
+            else if(wrongCount >= 9) {
+                finish()
+            }
         }
     }
 
