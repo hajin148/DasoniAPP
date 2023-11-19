@@ -110,14 +110,19 @@ class RhythmGameActivity : AppCompatActivity() {
 
 
     private fun checkAnswer(answerNode: ImageView, btnNode: ImageView) {
-        if (isOverlapping(answerNode, btnNode)) {
-            answerAnimation("correct", 1500)
-        } else {
-            answerAnimation("wrong", 1000)
+        val overlapStr: String = getOverlapString(answerNode, btnNode)
+        if (overlapStr == "correct") {
+            answerAnimation("very good")
+        }
+        else if (overlapStr == "semi correct"){
+            answerAnimation("good")
+        }
+        else {
+            answerAnimation("wrong")
         }
     }
 
-    private fun isOverlapping(answerNode: ImageView, btnNode: ImageView): Boolean {
+    private fun getOverlapString(answerNode: ImageView, btnNode: ImageView): String {
         val answerLoc = IntArray(2)
         answerNode.getLocationOnScreen(answerLoc)
 
@@ -138,7 +143,31 @@ class RhythmGameActivity : AppCompatActivity() {
             btnLoc[1] + btnNode.height
         )
 
-        return answerRect.intersect(btnRect)
+        val answerOffset = answerNode.height / 3
+        val answerRectForPerfect = Rect(
+            answerLoc[0],
+            answerLoc[1] + answerOffset,
+            answerLoc[0] + answerNode.width,
+            answerLoc[1] + 2*answerOffset
+        )
+
+        val btnOffset = btnNode.height / 7
+        val btnRectForPerfect = Rect(
+            btnLoc[0],
+            btnLoc[1] + 3*btnOffset,
+            btnLoc[0] + btnNode.width,
+            btnLoc[1] + 4*btnOffset
+        )
+
+        if(answerRectForPerfect.intersect(btnRectForPerfect)) {
+            return "correct"
+        }
+        else if(answerRect.intersect(btnRect)) {
+            return "semi correct"
+        }
+        else {
+            return "wrong"
+        }
     }
 
     private fun buttonAnimation(btnNumStr: String) {
@@ -177,18 +206,24 @@ class RhythmGameActivity : AppCompatActivity() {
         }, 60)
     }
 
-    private fun answerAnimation(state: String, duration: Long) {
+    private fun answerAnimation(state: String) {
         val fadeOutAnimation = AlphaAnimation(1.0f, 0.0f)
-        fadeOutAnimation.duration = duration
+        fadeOutAnimation.duration = 1500
 
         val answerText: View?
         // correct text animation
-        if (state == "correct") {
+        if (state == "very good") {
             answerText = findViewById<ImageView>(R.id.very_good_text)
         }
         // wrong text animation
         else {
-            answerText = findViewById<TextView>(R.id.wrong_text)
+            answerText = findViewById<TextView>(R.id.ans_text)
+            if (state == "good") {
+                answerText.text = "정말 잘했어요!!"
+            }
+            else {
+                answerText.text = "다시 시도해주세요"
+            }
         }
         answerText?.visibility = View.VISIBLE
 
@@ -205,7 +240,7 @@ class RhythmGameActivity : AppCompatActivity() {
         // Start animation
         Handler(Looper.getMainLooper()).postDelayed({
             answerText?.startAnimation(fadeOutAnimation)
-        }, 100)
+        }, 50)
     }
 
 }
