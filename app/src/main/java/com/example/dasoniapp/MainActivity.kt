@@ -129,6 +129,12 @@ class MainActivity : AppCompatActivity() {
         rankPageButton.setOnClickListener {
             setupRankPage()
         }
+
+        val LoginBtn: ImageView = findViewById(R.id.imageView10)
+        LoginBtn.setOnClickListener {
+            val LoginPage = Intent(this, LoginActivity::class.java)
+            startActivity(LoginPage)
+        }
     }
 
     private fun setupRankPage() {

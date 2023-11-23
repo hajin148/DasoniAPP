@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "56283139512",
+    "project_id": "dasoniapp",
+    "storage_bucket": "dasoniapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56283139512:android:47bc2da45d06b7c299534d",
+        "android_client_info": {
+          "package_name": "com.example.dasoniapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUwIK_uxBU4KNn8eDvoCNYhI5Kj2GoxiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

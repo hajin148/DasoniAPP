@@ -9,27 +9,26 @@
         android:id="@+id/textView59"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:fontFamily="@font/pretendard_medium"
         android:text="비밀번호 찾기"
         android:textColor="#A3A3A3"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView37"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toEndOf="@+id/imageView38"
-        app:layout_constraintTop_toBottomOf="@+id/imageView34" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView34"
+        app:layout_constraintVertical_bias="0.821" />
 
     <TextView
         android:id="@+id/textView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="156dp"
         android:fontFamily="@font/pretendard_medium"
         android:text="아이디 저장"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView34"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/login_typebox_pw"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/login_checkbox_selected"
         app:layout_constraintTop_toBottomOf="@+id/login_typebox_pw"
@@ -124,12 +123,9 @@
         android:id="@+id/login_typebox_id"
         android:layout_width="306dp"
         android:layout_height="45dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginEnd="53dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/login_typebox_pw"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
         app:layout_constraintVertical_bias="1.0"
@@ -139,11 +135,9 @@
         android:id="@+id/login_typebox_pw"
         android:layout_width="306dp"
         android:layout_height="45dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginEnd="53dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
         app:layout_constraintVertical_bias="0.19"
@@ -156,8 +150,8 @@
         android:backgroundTint="#FEFAFD"
         app:layout_constraintBottom_toTopOf="@+id/imageView34"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_typebox_pw"
         app:layout_constraintTop_toBottomOf="@+id/login_typebox_pw"
         app:layout_constraintVertical_bias="0.3"
         app:srcCompat="@drawable/login_checkbox" />
@@ -215,17 +209,30 @@
         app:layout_constraintVertical_bias="0.19999999"
         app:srcCompat="@drawable/login_button" />
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btn_google"
+        android:layout_width="306dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView34"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
         android:id="@+id/signin_button"
         android:layout_width="306dp"
         android:layout_height="45dp"
         android:layout_marginStart="53dp"
         android:layout_marginEnd="53dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView22"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82"
+        app:layout_constraintVertical_bias="0.961"
         app:srcCompat="@drawable/signin_button" />
 
     <TextView
@@ -259,9 +266,10 @@
         android:layout_height="1dp"
         app:layout_constraintBottom_toTopOf="@+id/signin_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView34"
-        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintVertical_bias="0.842"
         app:srcCompat="@drawable/login_line" />
 
     <ImageView
@@ -271,22 +279,23 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView37"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView34"
+        app:layout_constraintTop_toTopOf="@+id/textView59"
+        app:layout_constraintVertical_bias="0.110000014"
         app:srcCompat="@drawable/login_divider_line" />
 
     <TextView
         android:id="@+id/textView58"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:fontFamily="@font/pretendard_medium"
         android:text="아이디 찾기"
         android:textColor="#A3A3A3"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView37"
         app:layout_constraintEnd_toStartOf="@+id/imageView38"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView34" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView34"
+        app:layout_constraintVertical_bias="0.821" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,10 +15,15 @@
         android:theme="@style/Theme.DasoniAPP"
         tools:targetApi="31">
         <activity
+            android:name=".LoginResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".RhythmGameActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PlayDrumActivity"
             android:exported="false"

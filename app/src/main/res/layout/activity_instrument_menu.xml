@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#707070">
+    android:background="#EBEFF2">
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.217"
-        app:srcCompat="@drawable/instrument_menu_piano" />
+        app:srcCompat="@drawable/piano2" />
 
     <ImageView
         android:id="@+id/imageView101"
@@ -43,5 +43,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView98"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/instrument_menu_drum" />
+        app:srcCompat="@drawable/drum2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
