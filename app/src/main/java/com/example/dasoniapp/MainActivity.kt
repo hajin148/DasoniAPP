@@ -6,9 +6,27 @@ import android.os.Looper
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.content.Intent
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignInResult
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var mFirebaseAuth: FirebaseAuth
 
     private companion object {
         const val SPLASH_TIME_OUT: Long = 3000
@@ -26,6 +44,21 @@ class MainActivity : AppCompatActivity() {
             }, SPLASH_TIME_OUT)
         } else {
             setupMainPage()
+        }
+
+        val shouldSetupMyPage = intent.getBooleanExtra("shouldSetupMyPage", false)
+        if (shouldSetupMyPage) {
+            setupMyPage()  // Call setupMyPage directly
+        } else {
+            // Your existing logic for deciding the initial view
+            if (isFirstLaunch()) {
+                setContentView(R.layout.activity_splash)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    setOnboardingView()
+                }, SPLASH_TIME_OUT)
+            } else {
+                setupMainPage()
+            }
         }
     }
 
@@ -115,6 +148,30 @@ class MainActivity : AppCompatActivity() {
     private fun setupMyPage() {
         setContentView(R.layout.activity_mypage)
 
+        // Initialize FirebaseAuth instance
+        mFirebaseAuth = FirebaseAuth.getInstance()
+
+        // Get reference to the textView31
+        val logoutTextView: TextView = findViewById(R.id.textView31)
+
+        // Check if user is logged in
+        if (mFirebaseAuth.currentUser != null) {
+            // User is logged in, change text to "로그아웃"
+            logoutTextView.text = "로그아웃"
+
+            // Set OnClickListener to log out
+            logoutTextView.setOnClickListener {
+                // Log out the user
+                mFirebaseAuth.signOut()
+
+                // Update UI or go back to login page after logout
+                val LoginPage = Intent(this, LoginActivity::class.java)
+                startActivity(LoginPage)
+                finish()
+            }
+        }
+
+        // Other setup code for your MyPage
         val homeButton: ImageButton = findViewById(R.id.main_menu_home)
         homeButton.setOnClickListener {
             setupMainPage()
@@ -136,6 +193,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(LoginPage)
         }
     }
+
 
     private fun setupRankPage() {
         setContentView(R.layout.activity_rank_first)

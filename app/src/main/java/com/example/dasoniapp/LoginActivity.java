@@ -70,11 +70,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         if (task.isSuccessful()) {
                             // 로그인 성공시
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("shouldSetupMyPage", true);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                             finish();
-                        }
-                        else {
+                        } else {
                             // 로그인 실패시
                             Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
                         }
