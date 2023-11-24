@@ -51,6 +51,7 @@ dependencies {
 
     // Glide - updated to a version compatible with AndroidX
     implementation("com.github.bumptech.glide:glide:4.13.0")
+    implementation("com.google.firebase:firebase-database:20.3.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.13.0")
 
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

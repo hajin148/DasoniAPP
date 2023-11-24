@@ -15,6 +15,9 @@
         android:theme="@style/Theme.DasoniAPP"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginResultActivity"
             android:exported="false" />
         <activity
