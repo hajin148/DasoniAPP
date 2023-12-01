@@ -75,4 +75,18 @@ public class UserAccount {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+    public void updateBestRhythmScore(int newScore) {
+        if (newScore > this.bestRhythmScore) {
+            this.bestRhythmScore = newScore;
+        }
+    }
+
+    public void updateBestNoteScore(int newScore) {
+        if (newScore > this.bestNoteScore) {
+            this.bestNoteScore = newScore;
+        }
+    }
+
 }
