@@ -34,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private SignInButton btn_google;
+    private ImageView btn_home;
     private FirebaseAuth auth;
     private GoogleApiClient googleApiClient;
     private static final int REQ_SING_GOOGLE = 100;
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         if (task.isSuccessful()) {
                             // 로그인 성공시
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            intent.putExtra("shouldSetupMyPage", true);
+                            //intent.putExtra("shouldSetupMyPage", true);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                             finish();
@@ -116,6 +117,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
 
+        btn_home = findViewById(R.id.imageButton16);
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                // Starting the activity
+                startActivity(intent);
+            }
+        });
 
 
     }

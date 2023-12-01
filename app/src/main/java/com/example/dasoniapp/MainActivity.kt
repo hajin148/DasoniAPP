@@ -1,33 +1,23 @@
 package com.example.dasoniapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.content.Intent
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.Auth
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.auth.api.signin.GoogleSignInResult
-import com.google.android.gms.common.ConnectionResult
-import com.google.android.gms.common.SignInButton
-import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mFirebaseAuth: FirebaseAuth
-
+    private var currentUser: UserAccount? = null
     private companion object {
         const val SPLASH_TIME_OUT: Long = 3000
     }
@@ -35,18 +25,25 @@ class MainActivity : AppCompatActivity() {
     private var onboardingStep = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+
+        mFirebaseAuth = FirebaseAuth.getInstance()
+
+        // Initialize currentUser
+        initializeCurrentUser()
+
+
 
         if (isFirstLaunch()) {
             setContentView(R.layout.activity_splash)
-            Handler(Looper.getMainLooper()).postDelayed({
-                setOnboardingView()
-            }, SPLASH_TIME_OUT)
+            Handler(Looper.getMainLooper()).postDelayed({ setOnboardingView() }, SPLASH_TIME_OUT)
         } else {
             setupMainPage()
         }
-
+        /*
         val shouldSetupMyPage = intent.getBooleanExtra("shouldSetupMyPage", false)
+        currentUser = intent.getSerializableExtra("UserAccount") as UserAccount?
         if (shouldSetupMyPage) {
             setupMyPage()  // Call setupMyPage directly
         } else {
@@ -59,6 +56,23 @@ class MainActivity : AppCompatActivity() {
             } else {
                 setupMainPage()
             }
+        }
+         */
+    }
+    private fun initializeCurrentUser() {
+        val userId = mFirebaseAuth.currentUser?.uid
+        if (userId != null) {
+            val databaseReference = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
+            databaseReference.child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    currentUser = dataSnapshot.getValue(UserAccount::class.java)
+                    if (currentUser == null) {
+                    }
+                }
+                override fun onCancelled(databaseError: DatabaseError) {
+                }
+            })
+        } else {
         }
     }
 
@@ -96,16 +110,23 @@ class MainActivity : AppCompatActivity() {
     private fun setupMainPage() {
         setContentView(R.layout.activity_mainpage)
 
+        if(currentUser != null) {
+            val nameView: TextView = findViewById(R.id.textView16)
+            nameView.text = currentUser?.name.toString() + "님"
+        }
+
         val musicPracticeBtn: ImageView = findViewById(R.id.music_practice_btn)
         musicPracticeBtn.setOnClickListener {
-            val musicPractice = Intent(this, ReadNoteActivity::class.java)
-            startActivity(musicPractice)
+            val intent = Intent(this, ReadNoteActivity::class.java)
+            intent.putExtra("UserAccount", currentUser)
+            startActivity(intent)
         }
 
         val rhythmGameBtn: ImageView = findViewById(R.id.rhythm_game_btn)
         rhythmGameBtn.setOnClickListener {
-            val rhythmGame = Intent(this, RhythmGameActivity::class.java)
-            startActivity(rhythmGame)
+            val intent = Intent(this, RhythmGameActivity::class.java)
+            intent.putExtra("UserAccount", currentUser)
+            startActivity(intent)
         }
 
         val musicPlayBtn: ImageView = findViewById(R.id.music_play_btn)
@@ -113,14 +134,16 @@ class MainActivity : AppCompatActivity() {
             setContentView(R.layout.activity_instrument_menu)
             val pianoPlayBtn: ImageView = findViewById(R.id.imageView98)
             pianoPlayBtn.setOnClickListener {
-                val musicPlay = Intent(this, PlayMusicActivity::class.java)
-                startActivity(musicPlay)
+                val intent = Intent(this, PlayMusicActivity::class.java)
+                intent.putExtra("UserAccount", currentUser)
+                startActivity(intent)
             }
 
             val drumPlayBtn: ImageView = findViewById(R.id.imageView101)
             drumPlayBtn.setOnClickListener {
-                val drumPlay = Intent(this, PlayDrumActivity::class.java)
-                startActivity(drumPlay)
+                val intent = Intent(this, PlayDrumActivity::class.java)
+                intent.putExtra("UserAccount", currentUser)
+                startActivity(intent)
             }
 
             val exitButton = findViewById<ImageButton>(R.id.imageButton4)
@@ -137,6 +160,16 @@ class MainActivity : AppCompatActivity() {
         val myPageButton: ImageButton = findViewById(R.id.main_menu_mypage)
         myPageButton.setOnClickListener {
             setupMyPage()
+            val nameView: TextView = findViewById(R.id.textView23)
+            nameView.text = currentUser?.name.toString()
+
+            val nameView1: TextView = findViewById(R.id.textView33)
+            nameView1.text = currentUser?.name.toString() + " " + nameView1.text
+
+            val nameView2: TextView = findViewById(R.id.textView32)
+            nameView2.text = currentUser?.name.toString() + " " + nameView2.text
+            val nameView3: TextView = findViewById(R.id.textView36)
+            nameView3.text = currentUser?.name.toString() + " " + nameView3.text
         }
 
         val rankPageButton: ImageButton = findViewById(R.id.main_menu_rank)
@@ -196,8 +229,53 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setupRankPage() {
+        val userId = mFirebaseAuth.currentUser?.uid
+        if (userId != null) {
+            val databaseReference = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
+            databaseReference.child(userId).addListenerForSingleValueEvent(object :
+                ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val userAccount = dataSnapshot.getValue(UserAccount::class.java)
+                    if (userAccount != null) {
+                        updateRankPageUI(userAccount)
+                    } else {
+                        // Handle the case where user data is not found
+                        setupDefaultRankPage()
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Handle possible errors.
+                    setupDefaultRankPage()
+                }
+            })
+        } else {
+            // Handle case where user ID is null (user not logged in or other reasons)
+            setupDefaultRankPage()
+        }
+    }
+
+    private fun updateRankPageUI(userAccount: UserAccount) {
         setContentView(R.layout.activity_rank_first)
 
+        // Update UI elements with user data
+        val bestNoteScoreTextView: TextView = findViewById(R.id.textView65)
+        bestNoteScoreTextView.text = userAccount.bestNoteScore.toString()
+        val userNameTextView: TextView = findViewById(R.id.textView63)
+        userNameTextView.text = userAccount.name
+
+        setupRankPageListeners()
+    }
+
+    private fun setupDefaultRankPage() {
+        setContentView(R.layout.activity_rank_first)
+
+        // Setup default UI or show error message
+
+        setupRankPageListeners()
+    }
+
+    private fun setupRankPageListeners() {
         val homeButton: ImageButton = findViewById(R.id.main_menu_home)
         homeButton.setOnClickListener {
             setupMainPage()
@@ -213,5 +291,8 @@ class MainActivity : AppCompatActivity() {
             setupRankPage()
         }
     }
+
+
+
 
 }

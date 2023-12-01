@@ -2,11 +2,11 @@ package com.example.dasoniapp
 
 import android.content.Context
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
@@ -15,9 +15,14 @@ import android.view.animation.Animation
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlin.random.Random
 
+
 class ScoreGameActivity : AppCompatActivity() {
+
     // for upper note
     private val noteMarginTop =
         listOf<Int>(60, 45, 30, 15, 0, -14, -28, -42, -57, -71, -85, -100)
@@ -90,6 +95,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_score_game_rank)
         countDownGamePlay()
     }
@@ -233,6 +239,7 @@ class ScoreGameActivity : AppCompatActivity() {
             finish()
         }
     }
+
 
     private fun moveNote(img: ImageView, marginTop: Int, marginBottom: Int) {
         val parent: ImageView = findViewById(R.id.imageView46)

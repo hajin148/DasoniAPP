@@ -1,6 +1,7 @@
 package com.example.dasoniapp;
+import java.io.Serializable;
 
-public class UserAccount {
+public class UserAccount implements Serializable {
     private String email, phone, name, password, idToken;
     private int bestRhythmScore;
     private int bestNoteScore;
@@ -25,7 +26,7 @@ public class UserAccount {
         this.bestNoteScore = bestNoteScore;
     }
 
-    public UserAccount(String email, String phone, String name, String password) {
+    public UserAccount(String email, String phone, String name, String password)  {
         this.email = email;
         this.phone = phone;
         this.name = name;

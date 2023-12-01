@@ -15,6 +15,7 @@ import android.view.ViewTreeObserver
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
 import kotlin.random.Random
 
 class ReadNoteActivity : AppCompatActivity() {
@@ -82,11 +83,13 @@ class ReadNoteActivity : AppCompatActivity() {
         "A" to R.raw.ptla0,
         "B" to R.raw.ptsi0
     )
+    private lateinit var currentUser: UserAccount
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         openGameMenu()
+
+        currentUser = intent.getSerializableExtra("UserAccount") as UserAccount
     }
 
     private fun openGameMenu() {
@@ -107,8 +110,9 @@ class ReadNoteActivity : AppCompatActivity() {
         // speed game
         val scoreGameView = findViewById<ImageView>(R.id.score_game_menu_two)
         scoreGameView.setOnClickListener {
-            val scoreGame = Intent(this, ScoreGameActivity::class.java)
-            startActivity(scoreGame)
+            val scoreGameIntent = Intent(this, ScoreGameActivity::class.java)
+            scoreGameIntent.putExtra("UserAccount", currentUser)
+            startActivity(scoreGameIntent)
         }
     }
 
