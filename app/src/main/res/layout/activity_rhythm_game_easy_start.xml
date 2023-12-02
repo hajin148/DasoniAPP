@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/rhythm_easy_start_background" />
 
     <ImageButton
-        android:id="@+id/imageButton21"
+        android:id="@+id/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#D6F7DE"
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView70"
+        android:id="@+id/game_start_btn"
         android:layout_width="152dp"
         android:layout_height="64dp"
         android:layout_marginTop="5dp"

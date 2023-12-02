@@ -10,6 +10,7 @@ import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -18,15 +19,32 @@ class RhythmGameActivity : AppCompatActivity() {
     private var score = 0
     private var wrongCount = 0
     private var isScoredAdded = false
-    private var isWrong = false
     private var isButtonPressed = false
     private val handler = Handler(Looper.getMainLooper())
     private var isFadeAnimationRunning = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rhythm_game_easy_play)
+//        setContentView(R.layout.activity_rhythm_game_easy_start) ^
+//
+//        val backButton = findViewById<ImageButton>(R.id.back_btn)
+//        backButton.setOnClickListener {
+//            finish()
+//        }
+//
+//        val gameStartBtn = findViewById<ImageView>(R.id.game_start_btn)
+//
+//        gameStartBtn.setOnClickListener {
+//           gameStart()
+//        }
 
+        gameStart()
+    }
+
+
+
+    private fun gameStart() {
+        setContentView(R.layout.activity_rhythm_game_easy_play)
         playGame()
     }
 
@@ -102,22 +120,6 @@ class RhythmGameActivity : AppCompatActivity() {
                     // for removing button animation
                     for (btn in btnAnimationList) {
                         fadeOutAnimationHelper(btn, 250)
-                    }
-
-                    // life decrement when wrong
-                    if (isWrong) {
-                        val heartLife: ImageView = findViewById(R.id.heart_life)
-                        wrongCount += 1
-                        if (wrongCount == 3) {
-                            heartLife.setImageResource(R.drawable.heart_two)
-                        } else if (wrongCount == 6) {
-                            heartLife.setImageResource(R.drawable.heart_one)
-                        } else if (wrongCount >= 9) {
-                            finish()
-                        }
-
-                        // initialize isWrong again
-                        isWrong = false
                     }
                 }
             }
@@ -298,7 +300,21 @@ class RhythmGameActivity : AppCompatActivity() {
                     val answerText = findViewById<TextView>(R.id.ans_text)
                     answerText.text = "Miss"
                     answerText.visibility = View.VISIBLE
-                    fadeOutAnimationHelper(answerText, 1500)
+
+                    // life decrement when wrong
+                    val heartLife = findViewById<ImageView>(R.id.heart_life)
+                    wrongCount += 1
+                    if (wrongCount == 3) {
+                        heartLife.setImageResource(R.drawable.heart_two)
+                    }
+                    else if(wrongCount == 6) {
+                        heartLife.setImageResource(R.drawable.heart_one)
+                    }
+                    else if(wrongCount >= 9){
+//                        setContentView(R.layout.activity_rhythm_game_easy_start) ^
+                        finish()
+                    }
+                    fadeOutAnimationHelper(answerText, 2000)
                 }
             }
 
