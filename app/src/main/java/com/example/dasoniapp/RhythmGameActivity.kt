@@ -21,6 +21,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private var isWrong = false
     private var isButtonPressed = false
     private val handler = Handler(Looper.getMainLooper())
+    private var isFadeAnimationRunning = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,15 +85,18 @@ class RhythmGameActivity : AppCompatActivity() {
                 }
 
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    // initialize again
                     isButtonPressed = false
-                    isScoredAdded = false // initialize again
+                    isScoredAdded = false
+                    isFadeAnimationRunning = false
                     // initialize answerText for conditional expression used in other function
-                    answerText.text = ""
-                    if(veryGoodText.visibility == View.VISIBLE) {
-                        fadeOutAnimationHelper(veryGoodText, 1000)
-                    }
-                    if(answerText.visibility == View.VISIBLE) {
-                        fadeOutAnimationHelper(answerText, 1000)
+                    if (!isFadeAnimationRunning) {
+                        if (veryGoodText.visibility == View.VISIBLE) {
+                            fadeOutAnimationHelper(veryGoodText, 1000)
+                        }
+                        if (answerText.visibility == View.VISIBLE) {
+                            fadeOutAnimationHelper(answerText, 1000)
+                        }
                     }
 
                     // for removing button animation
@@ -101,10 +105,10 @@ class RhythmGameActivity : AppCompatActivity() {
                     }
 
                     // life decrement when wrong
-                    if(isWrong) {
+                    if (isWrong) {
                         val heartLife: ImageView = findViewById(R.id.heart_life)
                         wrongCount += 1
-                        if(wrongCount == 3) {
+                        if (wrongCount == 3) {
                             heartLife.setImageResource(R.drawable.heart_two)
                         } else if (wrongCount == 6) {
                             heartLife.setImageResource(R.drawable.heart_one)
@@ -120,6 +124,7 @@ class RhythmGameActivity : AppCompatActivity() {
             true
         }
     }
+
     // recursively check answer when button is being pressed
     private fun recursiveCheckAnswer(
         btnNode: ImageView,
@@ -134,19 +139,19 @@ class RhythmGameActivity : AppCompatActivity() {
             // if semi-correct with pressing answer node
             // this will be considered as perfect correct for long press node
             if (isOverlap(btnNode, ansPressNode)) {
-                answerText.visibility = View.GONE
+//                answerText.visibility = View.GONE
                 veryGoodText.visibility = View.VISIBLE
                 score += 1
                 scoreText.text = "$score"
             }
             // if perfect-correct with short answer node
-            else if(isClickPerfectOverlap(btnNode, ansRegNode)) {
+            else if (isClickPerfectOverlap(btnNode, ansRegNode)) {
                 // if for displaying only one for short node
-                if(answerText.text != "정말 잘했어요") {
+                if (answerText.visibility != View.VISIBLE) {
                     veryGoodText.visibility = View.VISIBLE
                 }
 
-                if(!isScoredAdded) {
+                if (!isScoredAdded) {
                     score += 10
                     scoreText.text = "$score"
                     isScoredAdded = true
@@ -155,28 +160,33 @@ class RhythmGameActivity : AppCompatActivity() {
             // if semi-correct with short answer node
             else if (isOverlap(btnNode, ansRegNode)) {
                 // if for displaying only one for short node
-                if(veryGoodText.visibility != View.VISIBLE) {
-                    answerText.text = "정말 잘했어요"
+                if (veryGoodText.visibility != View.VISIBLE) {
+                    answerText.text = "정말 잘했어요!!"
                     answerText.visibility = View.VISIBLE
                 }
 
-                if(!isScoredAdded) {
+                if (!isScoredAdded) {
                     score += 5
                     scoreText.text = "$score"
                     isScoredAdded = true
                 }
-            }
-            // if press but node not there
-            else {
-                veryGoodText.visibility = View.GONE
-                answerText.text = "다시 시도해주세요"
-                answerText.visibility = View.VISIBLE
-                isWrong = true
+            } else {
+                if (veryGoodText.visibility == View.VISIBLE) {
+                    isFadeAnimationRunning = true
+                    fadeOutAnimationHelper(veryGoodText, 300)
+                    return
+                }
+                if (answerText.visibility == View.VISIBLE) {
+                    isFadeAnimationRunning = true
+                    fadeOutAnimationHelper(answerText, 300)
+                }
             }
 
-            handler.postDelayed({
-                recursiveCheckAnswer(btnNode, ansRegNode, ansPressNode)
-            }, 40)
+            if(!isFadeAnimationRunning) {
+                handler.postDelayed({
+                    recursiveCheckAnswer(btnNode, ansRegNode, ansPressNode)
+                }, 100)
+            }
         }
     }
 
@@ -267,10 +277,10 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     // -------------- functions for node falling --------------------------
-    private fun fallAnimation(answerNode: ImageView) {
+    private fun fallAnimation(answerNode: ImageView, currentScore: Int?) {
         val animator = answerNode.animate()
-            .translationYBy(2700f) // 3000f
-            .setDuration(4000) // 4000
+            .translationYBy(2700f) // 3000f - y length screen
+            .setDuration(4000) // 4000 secs
 
         animator.interpolator = LinearInterpolator()
 
@@ -282,6 +292,14 @@ class RhythmGameActivity : AppCompatActivity() {
             override fun onAnimationEnd(animation: android.animation.Animator) {
                 answerNode.visibility = View.INVISIBLE
                 answerNode.translationY = 0f
+
+                // tracking for missed nodes
+                if(currentScore != null && currentScore == score) {
+                    val answerText = findViewById<TextView>(R.id.ans_text)
+                    answerText.text = "Miss"
+                    answerText.visibility = View.VISIBLE
+                    fadeOutAnimationHelper(answerText, 1500)
+                }
             }
 
             override fun onAnimationCancel(animation: android.animation.Animator) {
@@ -292,37 +310,17 @@ class RhythmGameActivity : AppCompatActivity() {
         })
     }
 
-    // function to check missed node
-    private fun recurCheckAnsBtnNotPressed(btnNode: ImageView, answerNode: ImageView) {
-        val answerText = findViewById<TextView>(R.id.ans_text)
-        if(!isButtonPressed) {
-            if(isOverlap(btnNode, answerNode)){
-                answerText.text = "Miss"
-                answerText.visibility = View.VISIBLE
-            }
-            else if(answerText.text == "Miss"){
-                fadeOutAnimationHelper(answerText, 1000)
-                // bug?? why this showing twice
-                return
-            }
-            handler.postDelayed({
-                recurCheckAnsBtnNotPressed(btnNode, answerNode)
-            }, 50)
-        }
-    }
-
     // -------------- press answer node fall functions ----------------------
     private fun pressAnswerOneFall() {
+        val currentScore = score
+
         val pressAnsOne = findViewById<ImageView>(R.id.press_answer_one)
         pressAnsOne.visibility = View.VISIBLE
-        fallAnimation(pressAnsOne)
+        fallAnimation(pressAnsOne, null)
 
         val pressAnsOneTop = findViewById<ImageView>(R.id.press_one_top)
         pressAnsOneTop.visibility = View.VISIBLE
-        fallAnimation(pressAnsOneTop)
-
-        val btnOne = findViewById<ImageView>(R.id.btn_one)
-        recurCheckAnsBtnNotPressed(btnOne, pressAnsOneTop)
+        fallAnimation(pressAnsOneTop, currentScore)
 
         handler.postDelayed({
             pressAnswerTwoFall()
@@ -330,15 +328,13 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     private fun pressAnswerTwoFall() {
+        val currentScore = score
         val pressAnsTwo = findViewById<ImageView>(R.id.press_answer_two)
-        fallAnimation(pressAnsTwo)
+        fallAnimation(pressAnsTwo, null)
 
         val pressAnsTwoTop = findViewById<ImageView>(R.id.press_two_top)
-        fallAnimation(pressAnsTwoTop)
+        fallAnimation(pressAnsTwoTop, currentScore)
 
-
-//        val btnTwo = findViewById<ImageView>(R.id.btn_two)
-//        recurCheckAnsBtnNotPressed(btnTwo, pressAnsTwoTop)
 
         handler.postDelayed({
             pressAnswerThreeFall()
@@ -346,15 +342,12 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     private fun pressAnswerThreeFall() {
+        val currentScore = score
         val pressAnsThree = findViewById<ImageView>(R.id.press_answer_three)
-        fallAnimation(pressAnsThree)
+        fallAnimation(pressAnsThree, null)
 
         val pressAnsThreeTop = findViewById<ImageView>(R.id.press_three_top)
-        fallAnimation(pressAnsThreeTop)
-
-        // recursion check for missing node
-        val btnThree = findViewById<ImageView>(R.id.btn_three)
-        recurCheckAnsBtnNotPressed(btnThree, pressAnsThreeTop)
+        fallAnimation(pressAnsThreeTop, currentScore)
 
         handler.postDelayed({
             pressAnswerFourFall()
@@ -362,15 +355,12 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     private fun pressAnswerFourFall() {
+        val currentScore = score
         val pressAnsFour = findViewById<ImageView>(R.id.press_answer_four)
-        fallAnimation(pressAnsFour)
+        fallAnimation(pressAnsFour, null)
 
         val pressAnsFourTop = findViewById<ImageView>(R.id.press_four_top)
-        fallAnimation(pressAnsFourTop)
-
-//        // recursion check for missing node
-//        val btnFour = findViewById<ImageView>(R.id.btn_four)
-//        recurCheckAnsBtnNotPressed(btnFour, pressAnsFourTop)
+        fallAnimation(pressAnsFourTop, currentScore)
 
         handler.postDelayed({
             answerOneFall()
@@ -380,8 +370,9 @@ class RhythmGameActivity : AppCompatActivity() {
     // ----------- regular answer node fall functions -----------------
 
     private fun answerOneFall() {
+        val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_one)
-        fallAnimation(answerOne)
+        fallAnimation(answerOne, currentScore)
 
         handler.postDelayed({
             answerTwoFall()
@@ -389,8 +380,9 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     private fun answerTwoFall() {
+        val currentScore = score
         val answerTwo = findViewById<ImageView>(R.id.answer_two)
-        fallAnimation(answerTwo)
+        fallAnimation(answerTwo, currentScore)
 
         handler.postDelayed({
             answerThreeFall()
@@ -398,8 +390,9 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     private fun answerThreeFall() {
+        val currentScore = score
         val answerThree = findViewById<ImageView>(R.id.answer_three)
-        fallAnimation(answerThree)
+        fallAnimation(answerThree, currentScore)
 
         handler.postDelayed({
             answerFourFall()
@@ -407,8 +400,9 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     private fun answerFourFall() {
+        val currentScore = score
         val answerFour = findViewById<ImageView>(R.id.answer_four)
-        fallAnimation(answerFour)
+        fallAnimation(answerFour, currentScore)
     }
 
 }
