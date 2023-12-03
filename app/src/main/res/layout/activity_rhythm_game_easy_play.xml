@@ -18,15 +18,17 @@
         app:srcCompat="@drawable/rhythm_easy_play_background" />
 
     <ImageButton
-        android:id="@+id/imageButton22"
+        android:id="@+id/pause_btn"
         android:layout_width="53dp"
         android:layout_height="53dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="332dp"
+        android:layout_marginBottom="537dp"
         android:backgroundTint="#00D6F7DE"
         android:scaleX="1"
         android:scaleY="1"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -331,8 +333,8 @@
         android:id="@+id/press_one_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-110dp"
         android:visibility="invisible"
+        android:layout_marginTop="-110dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/press_answer_one"
         app:layout_constraintHorizontal_bias="0.521"

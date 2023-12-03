@@ -1,5 +1,6 @@
 package com.example.dasoniapp
 
+import android.content.Context
 import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
@@ -21,31 +23,34 @@ class RhythmGameActivity : AppCompatActivity() {
     private var isScoredAdded = false
     private var isButtonPressed = false
     private val handler = Handler(Looper.getMainLooper())
-    private var isFadeAnimationRunning = false
 
+    private var scoreTracker = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_rhythm_game_easy_start) ^
-//
-//        val backButton = findViewById<ImageButton>(R.id.back_btn)
-//        backButton.setOnClickListener {
-//            finish()
-//        }
-//
-//        val gameStartBtn = findViewById<ImageView>(R.id.game_start_btn)
-//
-//        gameStartBtn.setOnClickListener {
-//           gameStart()
-//        }
+        setContentView(R.layout.activity_rhythm_game_easy_start)
 
-        gameStart()
+        val backButton = findViewById<ImageButton>(R.id.back_btn)
+        backButton.setOnClickListener {
+            finish()
+        }
+
+        val gameStartBtn = findViewById<ImageView>(R.id.game_start_btn)
+
+        gameStartBtn.setOnClickListener {
+           gameStart()
+        }
+
+        // remove this code^
+//        gameStart()
     }
-
 
 
     private fun gameStart() {
         setContentView(R.layout.activity_rhythm_game_easy_play)
         playGame()
+
+//        val pauseButton = findViewById<ImageView>(R.id.pause_btn)
+
     }
 
     private fun playGame() {
@@ -90,6 +95,7 @@ class RhythmGameActivity : AppCompatActivity() {
         btnNode.setOnTouchListener { _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
+                    scoreTracker = score
                     isButtonPressed = true
                     recursiveCheckAnswer(btnNode, ansClickNode, ansPressNode)
                     // making button Animation visible
@@ -106,9 +112,8 @@ class RhythmGameActivity : AppCompatActivity() {
                     // initialize again
                     isButtonPressed = false
                     isScoredAdded = false
-                    isFadeAnimationRunning = false
                     // initialize answerText for conditional expression used in other function
-                    if (!isFadeAnimationRunning) {
+                    if (scoreTracker != score) {
                         if (veryGoodText.visibility == View.VISIBLE) {
                             fadeOutAnimationHelper(veryGoodText, 1000)
                         }
@@ -141,7 +146,6 @@ class RhythmGameActivity : AppCompatActivity() {
             // if semi-correct with pressing answer node
             // this will be considered as perfect correct for long press node
             if (isOverlap(btnNode, ansPressNode)) {
-//                answerText.visibility = View.GONE
                 veryGoodText.visibility = View.VISIBLE
                 score += 1
                 scoreText.text = "$score"
@@ -172,23 +176,21 @@ class RhythmGameActivity : AppCompatActivity() {
                     scoreText.text = "$score"
                     isScoredAdded = true
                 }
-            } else {
+            } else if (scoreTracker != score) {
+                scoreTracker = score
                 if (veryGoodText.visibility == View.VISIBLE) {
-                    isFadeAnimationRunning = true
-                    fadeOutAnimationHelper(veryGoodText, 300)
+                    fadeOutAnimationHelper(veryGoodText, 500)
                     return
                 }
                 if (answerText.visibility == View.VISIBLE) {
-                    isFadeAnimationRunning = true
-                    fadeOutAnimationHelper(answerText, 300)
+                    fadeOutAnimationHelper(answerText, 500)
+                    return
                 }
             }
 
-            if(!isFadeAnimationRunning) {
-                handler.postDelayed({
-                    recursiveCheckAnswer(btnNode, ansRegNode, ansPressNode)
-                }, 100)
-            }
+            handler.postDelayed({
+                recursiveCheckAnswer(btnNode, ansRegNode, ansPressNode)
+            }, 100)
         }
     }
 
@@ -271,7 +273,8 @@ class RhythmGameActivity : AppCompatActivity() {
                 node.visibility = View.GONE
             }
 
-            override fun onAnimationRepeat(animation: Animation) {}
+            override fun onAnimationRepeat(animation: Animation) {
+            }
         })
 
         // making it visible
@@ -279,9 +282,15 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     // -------------- functions for node falling --------------------------
-    private fun fallAnimation(answerNode: ImageView, currentScore: Int?) {
+
+    private fun getWindowHeight(context: Context): Int {
+        val displayMetrics = context.resources.displayMetrics
+        return displayMetrics.heightPixels
+    }
+    private fun fallAnimation(answerNode: ImageView, fallHeight: Int, currentScore: Int?) {
+        val screenHeight = (getWindowHeight(this) + fallHeight).toFloat()
         val animator = answerNode.animate()
-            .translationYBy(2700f) // 3000f - y length screen
+            .translationYBy(screenHeight) // 3000f - y length screen
             .setDuration(4000) // 4000 secs
 
         animator.interpolator = LinearInterpolator()
@@ -296,7 +305,7 @@ class RhythmGameActivity : AppCompatActivity() {
                 answerNode.translationY = 0f
 
                 // tracking for missed nodes
-                if(currentScore != null && currentScore == score) {
+                if (currentScore != null && currentScore == score) {
                     val answerText = findViewById<TextView>(R.id.ans_text)
                     answerText.text = "Miss"
                     answerText.visibility = View.VISIBLE
@@ -306,15 +315,13 @@ class RhythmGameActivity : AppCompatActivity() {
                     wrongCount += 1
                     if (wrongCount == 3) {
                         heartLife.setImageResource(R.drawable.heart_two)
-                    }
-                    else if(wrongCount == 6) {
+                    } else if (wrongCount == 6) {
                         heartLife.setImageResource(R.drawable.heart_one)
-                    }
-                    else if(wrongCount >= 9){
+                    } else if (wrongCount >= 9) {
 //                        setContentView(R.layout.activity_rhythm_game_easy_start) ^
                         finish()
                     }
-                    fadeOutAnimationHelper(answerText, 2000)
+                    fadeOutAnimationHelper(answerText, 1500)
                 }
             }
 
@@ -326,17 +333,45 @@ class RhythmGameActivity : AppCompatActivity() {
         })
     }
 
+
     // -------------- press answer node fall functions ----------------------
+    private fun dpToPx(dp: Int, context: Context): Int {
+        val density = context.resources.displayMetrics.density
+        return (dp * density).toInt()
+    }
+
+    private fun moveNode(node: ImageView) {
+        val layoutParams = node.layoutParams as ViewGroup.MarginLayoutParams
+
+//        val parentViewTreeObserver = parent.viewTreeObserver
+//        parentViewTreeObserver.addOnGlobalLayoutListener(object :
+//            ViewTreeObserver.OnGlobalLayoutListener {
+//            override fun onGlobalLayout() {
+////                parent.viewTreeObserver.removeOnGlobalLayoutListener(this)
+////
+////                val parentHeight = getWindowHeight(this)
+////                val calMarginTop = (parentHeight * marginTopPx / parentHeight).toInt()
+////
+////                layoutParams.setMargins(0, calMarginTop, 0, 0)
+////                node.layoutParams = layoutParams
+//            }
+//        })
+//        val height = node.height // getting 0 wtf
+//        val marginTopPx = dpToPx(node.height, this)
+//        layoutParams.setMargins(0, -marginTopPx, 0, 0)
+    }
+
+
     private fun pressAnswerOneFall() {
         val currentScore = score
 
         val pressAnsOne = findViewById<ImageView>(R.id.press_answer_one)
-        pressAnsOne.visibility = View.VISIBLE
-        fallAnimation(pressAnsOne, null)
-
         val pressAnsOneTop = findViewById<ImageView>(R.id.press_one_top)
+
         pressAnsOneTop.visibility = View.VISIBLE
-        fallAnimation(pressAnsOneTop, currentScore)
+        moveNode(pressAnsOneTop)
+        fallAnimation(pressAnsOne, pressAnsOneTop.height,null)
+        fallAnimation(pressAnsOneTop, pressAnsOneTop.height, currentScore)
 
         handler.postDelayed({
             pressAnswerTwoFall()
@@ -346,10 +381,10 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun pressAnswerTwoFall() {
         val currentScore = score
         val pressAnsTwo = findViewById<ImageView>(R.id.press_answer_two)
-        fallAnimation(pressAnsTwo, null)
-
         val pressAnsTwoTop = findViewById<ImageView>(R.id.press_two_top)
-        fallAnimation(pressAnsTwoTop, currentScore)
+
+        fallAnimation(pressAnsTwo, pressAnsTwoTop.height,null)
+        fallAnimation(pressAnsTwoTop, pressAnsTwoTop.height, currentScore)
 
 
         handler.postDelayed({
@@ -360,10 +395,10 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun pressAnswerThreeFall() {
         val currentScore = score
         val pressAnsThree = findViewById<ImageView>(R.id.press_answer_three)
-        fallAnimation(pressAnsThree, null)
-
         val pressAnsThreeTop = findViewById<ImageView>(R.id.press_three_top)
-        fallAnimation(pressAnsThreeTop, currentScore)
+
+        fallAnimation(pressAnsThree, pressAnsThree.height,null)
+        fallAnimation(pressAnsThreeTop, pressAnsThree.height, currentScore)
 
         handler.postDelayed({
             pressAnswerFourFall()
@@ -373,10 +408,10 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun pressAnswerFourFall() {
         val currentScore = score
         val pressAnsFour = findViewById<ImageView>(R.id.press_answer_four)
-        fallAnimation(pressAnsFour, null)
-
         val pressAnsFourTop = findViewById<ImageView>(R.id.press_four_top)
-        fallAnimation(pressAnsFourTop, currentScore)
+
+        fallAnimation(pressAnsFour, pressAnsFour.height, null)
+        fallAnimation(pressAnsFourTop, pressAnsFour.height, currentScore)
 
         handler.postDelayed({
             answerOneFall()
@@ -388,7 +423,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun answerOneFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_one)
-        fallAnimation(answerOne, currentScore)
+        fallAnimation(answerOne, 0, currentScore)
 
         handler.postDelayed({
             answerTwoFall()
@@ -398,7 +433,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun answerTwoFall() {
         val currentScore = score
         val answerTwo = findViewById<ImageView>(R.id.answer_two)
-        fallAnimation(answerTwo, currentScore)
+        fallAnimation(answerTwo, 0, currentScore)
 
         handler.postDelayed({
             answerThreeFall()
@@ -408,7 +443,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun answerThreeFall() {
         val currentScore = score
         val answerThree = findViewById<ImageView>(R.id.answer_three)
-        fallAnimation(answerThree, currentScore)
+        fallAnimation(answerThree, 0, currentScore)
 
         handler.postDelayed({
             answerFourFall()
@@ -418,7 +453,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun answerFourFall() {
         val currentScore = score
         val answerFour = findViewById<ImageView>(R.id.answer_four)
-        fallAnimation(answerFour, currentScore)
+        fallAnimation(answerFour, 0, currentScore)
     }
 
 }
