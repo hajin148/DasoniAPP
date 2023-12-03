@@ -8,7 +8,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
@@ -333,34 +332,34 @@ class RhythmGameActivity : AppCompatActivity() {
         })
     }
 
+    // ------------ commented code for moving answer Top instead of setting margin ------
+//    private fun dpToPx(dp: Int, context: Context): Int {
+//        val density = context.resources.displayMetrics.density
+//        return (dp * density).toInt()
+//    }
+
+//    private fun moveNode(node: ImageView) {
+//        val layoutParams = node.layoutParams as ViewGroup.MarginLayoutParams
+//
+////        val parentViewTreeObserver = parent.viewTreeObserver
+////        parentViewTreeObserver.addOnGlobalLayoutListener(object :
+////            ViewTreeObserver.OnGlobalLayoutListener {
+////            override fun onGlobalLayout() {
+//////                parent.viewTreeObserver.removeOnGlobalLayoutListener(this)
+//////
+//////                val parentHeight = getWindowHeight(this)
+//////                val calMarginTop = (parentHeight * marginTopPx / parentHeight).toInt()
+//////
+//////                layoutParams.setMargins(0, calMarginTop, 0, 0)
+//////                node.layoutParams = layoutParams
+////            }
+////        })
+////        val height = node.height // getting 0 wtf
+////        val marginTopPx = dpToPx(node.height, this)
+////        layoutParams.setMargins(0, -marginTopPx, 0, 0)
+//    }
 
     // -------------- press answer node fall functions ----------------------
-    private fun dpToPx(dp: Int, context: Context): Int {
-        val density = context.resources.displayMetrics.density
-        return (dp * density).toInt()
-    }
-
-    private fun moveNode(node: ImageView) {
-        val layoutParams = node.layoutParams as ViewGroup.MarginLayoutParams
-
-//        val parentViewTreeObserver = parent.viewTreeObserver
-//        parentViewTreeObserver.addOnGlobalLayoutListener(object :
-//            ViewTreeObserver.OnGlobalLayoutListener {
-//            override fun onGlobalLayout() {
-////                parent.viewTreeObserver.removeOnGlobalLayoutListener(this)
-////
-////                val parentHeight = getWindowHeight(this)
-////                val calMarginTop = (parentHeight * marginTopPx / parentHeight).toInt()
-////
-////                layoutParams.setMargins(0, calMarginTop, 0, 0)
-////                node.layoutParams = layoutParams
-//            }
-//        })
-//        val height = node.height // getting 0 wtf
-//        val marginTopPx = dpToPx(node.height, this)
-//        layoutParams.setMargins(0, -marginTopPx, 0, 0)
-    }
-
 
     private fun pressAnswerOneFall() {
         val currentScore = score
@@ -369,7 +368,6 @@ class RhythmGameActivity : AppCompatActivity() {
         val pressAnsOneTop = findViewById<ImageView>(R.id.press_one_top)
 
         pressAnsOneTop.visibility = View.VISIBLE
-        moveNode(pressAnsOneTop)
         fallAnimation(pressAnsOne, pressAnsOneTop.height,null)
         fallAnimation(pressAnsOneTop, pressAnsOneTop.height, currentScore)
 
