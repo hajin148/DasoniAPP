@@ -70,7 +70,7 @@ class RhythmGameActivity : AppCompatActivity() {
         val btnFour = findViewById<ImageView>(R.id.btn_four)
 
         // answer dropping node starts
-        pressAnswerOneFall()
+        answerOneFall()
 
         // button pressing handler
         btnPressHelper(btnOne, answerOne, pressAnsOne, "one")
@@ -371,9 +371,9 @@ class RhythmGameActivity : AppCompatActivity() {
         fallAnimation(pressAnsOne, pressAnsOneTop.height,null)
         fallAnimation(pressAnsOneTop, pressAnsOneTop.height, currentScore)
 
-        handler.postDelayed({
-            pressAnswerTwoFall()
-        }, 3000)
+//        handler.postDelayed({
+//            answerOneFall()
+//        }, 3000)
     }
 
     private fun pressAnswerTwoFall() {
@@ -385,9 +385,9 @@ class RhythmGameActivity : AppCompatActivity() {
         fallAnimation(pressAnsTwoTop, pressAnsTwoTop.height, currentScore)
 
 
-        handler.postDelayed({
-            pressAnswerThreeFall()
-        }, 3000)
+//        handler.postDelayed({
+//            pressAnswerThreeFall()
+//        }, 3000)
     }
 
     private fun pressAnswerThreeFall() {
@@ -398,9 +398,9 @@ class RhythmGameActivity : AppCompatActivity() {
         fallAnimation(pressAnsThree, pressAnsThree.height,null)
         fallAnimation(pressAnsThreeTop, pressAnsThree.height, currentScore)
 
-        handler.postDelayed({
-            pressAnswerFourFall()
-        }, 3000)
+//        handler.postDelayed({
+//            pressAnswerFourFall()
+//        }, 3000)
     }
 
     private fun pressAnswerFourFall() {
@@ -411,9 +411,9 @@ class RhythmGameActivity : AppCompatActivity() {
         fallAnimation(pressAnsFour, pressAnsFour.height, null)
         fallAnimation(pressAnsFourTop, pressAnsFour.height, currentScore)
 
-        handler.postDelayed({
-            answerOneFall()
-        }, 4000)
+//        handler.postDelayed({
+//            answerOneFall()
+//        }, 4000)
     }
 
     // ----------- regular answer node fall functions -----------------
@@ -423,35 +423,99 @@ class RhythmGameActivity : AppCompatActivity() {
         val answerOne = findViewById<ImageView>(R.id.answer_one)
         fallAnimation(answerOne, 0, currentScore)
 
-        handler.postDelayed({
-            answerTwoFall()
-        }, 3000)
+//        handler.postDelayed({
+//            answerOneCopyOneFall()
+//        }, 3000)
+    }
+
+    private fun answerOneCopyOneFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_one_copy_one)
+        fallAnimation(answerOne, 0, currentScore)
+    }
+
+    private fun answerOneCopyTwoFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_one_copy_two)
+        fallAnimation(answerOne, 0, currentScore)
+    }
+
+    private fun answerOneCopyThreeFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_one_copy_three)
+        fallAnimation(answerOne, 0, currentScore)
     }
 
     private fun answerTwoFall() {
         val currentScore = score
         val answerTwo = findViewById<ImageView>(R.id.answer_two)
         fallAnimation(answerTwo, 0, currentScore)
+    }
 
-        handler.postDelayed({
-            answerThreeFall()
-        }, 3000)
+    private fun answerTwoCopyOneFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_two_copy_one)
+        fallAnimation(answerOne, 0, currentScore)
+    }
+
+    private fun answerTwoCopyTwoFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_two_copy_two)
+        fallAnimation(answerOne, 0, currentScore)
+    }
+
+    private fun answerTwoCopyThreeFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_two_copy_three)
+        fallAnimation(answerOne, 0, currentScore)
     }
 
     private fun answerThreeFall() {
         val currentScore = score
         val answerThree = findViewById<ImageView>(R.id.answer_three)
         fallAnimation(answerThree, 0, currentScore)
+    }
 
-        handler.postDelayed({
-            answerFourFall()
-        }, 3000)
+    private fun answerThreeCopyOneFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_three_copy_one)
+        fallAnimation(answerOne, 0, currentScore)
+    }
+
+    private fun answerThreeCopyTwoFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_three_copy_two)
+        fallAnimation(answerOne, 0, currentScore)
+    }
+
+    private fun answerThreeCopyThreeFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_three_copy_three)
+        fallAnimation(answerOne, 0, currentScore)
     }
 
     private fun answerFourFall() {
         val currentScore = score
         val answerFour = findViewById<ImageView>(R.id.answer_four)
         fallAnimation(answerFour, 0, currentScore)
+    }
+
+    private fun answerFourCopyOneFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_four_copy_one)
+        fallAnimation(answerOne, 0, currentScore)
+    }
+
+    private fun answerFourCopyTwoFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_four_copy_two)
+        fallAnimation(answerOne, 0, currentScore)
+    }
+
+    private fun answerFourCopyThreeFall() {
+        val currentScore = score
+        val answerOne = findViewById<ImageView>(R.id.answer_four_copy_three)
+        fallAnimation(answerOne, 0, currentScore)
     }
 
 }
