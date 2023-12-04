@@ -26,30 +26,120 @@ class RhythmGameActivity : AppCompatActivity() {
     private var scoreTracker = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rhythm_game_easy_start)
 
-        val backButton = findViewById<ImageButton>(R.id.back_btn)
+        showSongMenu()
+    }
+
+    private fun showSongMenu() {
+        setContentView(R.layout.activity_rhythm_game_song)
+
+        val backButton = findViewById<ImageView>(R.id.rhythm_back_btn)
+
         backButton.setOnClickListener {
             finish()
         }
 
-        val gameStartBtn = findViewById<ImageView>(R.id.game_start_btn)
+        val songOne = findViewById<ImageView>(R.id.song_one_box)
 
-        gameStartBtn.setOnClickListener {
-           gameStart()
+        songOne.setOnClickListener {
+            setContentView(R.layout.activity_rhythm_game_easy_start)
+
+            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
+            gameStartButton.setOnClickListener {
+                setContentView(R.layout.activity_rhythm_game_easy_play)
+                playGame()
+            }
+
+            val backButton = findViewById<ImageView>(R.id.back_btn)
+            backButton.setOnClickListener {
+                showSongMenu()
+            }
         }
 
-        // remove this code^
-//        gameStart()
-    }
+        val songTwo = findViewById<ImageView>(R.id.song_two_box)
 
+        songTwo.setOnClickListener {
+            setContentView(R.layout.activity_rhythm_game_easy_start)
 
-    private fun gameStart() {
-        setContentView(R.layout.activity_rhythm_game_easy_play)
-        playGame()
+            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
+            gameStartButton.setOnClickListener {
+                setContentView(R.layout.activity_rhythm_game_easy_play)
+                playGame()
+            }
 
-//        val pauseButton = findViewById<ImageView>(R.id.pause_btn)
+            val backButton = findViewById<ImageView>(R.id.back_btn)
+            backButton.setOnClickListener {
+                showSongMenu()
+            }
+        }
 
+        val songThree = findViewById<ImageView>(R.id.song_three_box)
+
+        songThree.setOnClickListener {
+            setContentView(R.layout.activity_rhythm_game_easy_start)
+
+            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
+            gameStartButton.setOnClickListener {
+                setContentView(R.layout.activity_rhythm_game_easy_play)
+                playGame()
+            }
+
+            val backButton = findViewById<ImageView>(R.id.back_btn)
+            backButton.setOnClickListener {
+                showSongMenu()
+            }
+        }
+
+        val songFour = findViewById<ImageView>(R.id.song_four_box)
+
+        songFour.setOnClickListener {
+            setContentView(R.layout.activity_rhythm_game_easy_start)
+
+            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
+            gameStartButton.setOnClickListener {
+                setContentView(R.layout.activity_rhythm_game_easy_play)
+                playGame()
+            }
+
+            val backButton = findViewById<ImageView>(R.id.back_btn)
+            backButton.setOnClickListener {
+                showSongMenu()
+            }
+        }
+
+        val songFive = findViewById<ImageView>(R.id.song_five_box)
+
+        songFive.setOnClickListener {
+            setContentView(R.layout.activity_rhythm_game_easy_start)
+
+            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
+            gameStartButton.setOnClickListener {
+                setContentView(R.layout.activity_rhythm_game_easy_play)
+                playGame()
+            }
+
+            val backButton = findViewById<ImageView>(R.id.back_btn)
+            backButton.setOnClickListener {
+                showSongMenu()
+            }
+        }
+
+        val songSix = findViewById<ImageView>(R.id.song_six_box)
+
+        songSix.setOnClickListener {
+            setContentView(R.layout.activity_rhythm_game_easy_start)
+
+            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
+            gameStartButton.setOnClickListener {
+                setContentView(R.layout.activity_rhythm_game_easy_play)
+                playGame()
+            }
+
+            val backButton = findViewById<ImageView>(R.id.back_btn)
+            backButton.setOnClickListener {
+                showSongMenu()
+            }
+        }
     }
 
     private fun playGame() {
@@ -68,9 +158,6 @@ class RhythmGameActivity : AppCompatActivity() {
         val btnTwo = findViewById<ImageView>(R.id.btn_two)
         val btnThree = findViewById<ImageView>(R.id.btn_three)
         val btnFour = findViewById<ImageView>(R.id.btn_four)
-
-        // answer dropping node starts
-        answerOneFall()
 
         // button pressing handler
         btnPressHelper(btnOne, answerOne, pressAnsOne, "one")
