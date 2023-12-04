@@ -6,63 +6,8 @@
     android:layout_height="match_parent"
     android:background="#EBEFF2">
 
-    <ImageView
-        android:id="@+id/imageView75"
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView71"
-        app:srcCompat="@drawable/song_background" />
-
-    <ImageView
-        android:id="@+id/imageView73"
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView71"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView72"
-        app:srcCompat="@drawable/song_background" />
-
-    <ImageView
-        android:id="@+id/imageView74"
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="26dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton20"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/song_background" />
-
-    <ImageView
-        android:id="@+id/imageView72"
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="26dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView74"
-        app:srcCompat="@drawable/song_background" />
-
     <ImageButton
-        android:id="@+id/imageButton20"
+        android:id="@+id/rhythm_back_btn"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:backgroundTint="#EBEFF2"
@@ -74,88 +19,515 @@
         app:layout_constraintVertical_bias="0.063"
         app:srcCompat="@drawable/back_button" />
 
+<!--    song one-->
+
     <ImageView
-        android:id="@+id/imageView71"
+        android:id="@+id/song_one_box"
         android:layout_width="360dp"
         android:layout_height="100dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="136dp"
-        android:layout_marginEnd="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView72"
+        app:layout_constraintTop_toBottomOf="@+id/rhythm_back_btn"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/song_background" />
 
     <ImageView
-        android:id="@+id/imageView76"
+        android:id="@+id/song_one_img"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
-        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintBottom_toBottomOf="@+id/song_one_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_one_box"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView74"
-        app:layout_constraintTop_toTopOf="@+id/imageView74"
+        app:layout_constraintStart_toStartOf="@+id/song_one_box"
+        app:layout_constraintTop_toTopOf="@+id/song_one_box"
         app:srcCompat="@drawable/song_image_one" />
 
     <TextView
-        android:id="@+id/song_name_text"
+        android:id="@+id/song_one_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="18dp"
         android:fontFamily="@font/pretendard_semibold"
-        android:text="Song Name 1"
+        android:text="Twinkle 1"
         android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
-        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintBottom_toBottomOf="@+id/song_one_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_one_box"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView76"
-        app:layout_constraintTop_toTopOf="@+id/imageView74"
+        app:layout_constraintStart_toEndOf="@+id/song_one_img"
+        app:layout_constraintTop_toTopOf="@+id/song_one_box"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView77"
+        android:id="@+id/song_one_play_btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
-        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintBottom_toBottomOf="@+id/song_one_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_one_box"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView74"
-        app:layout_constraintTop_toTopOf="@+id/imageView74"
+        app:layout_constraintStart_toStartOf="@+id/song_one_box"
+        app:layout_constraintTop_toTopOf="@+id/song_one_box"
         app:srcCompat="@drawable/player_icon" />
 
     <TextView
-        android:id="@+id/song_writer_name"
+        android:id="@+id/song_one_writer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/pretendard_regular"
-        android:text="Song writer name 1"
+        android:text="모짜르트"
         android:textColor="#B6B6B6"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
-        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintBottom_toBottomOf="@+id/song_one_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_one_box"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView76"
-        app:layout_constraintTop_toBottomOf="@+id/song_name_text"
+        app:layout_constraintStart_toEndOf="@+id/song_one_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_one_title"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/star_one"
+        android:id="@+id/song_one_star"
         android:layout_width="45dp"
         android:layout_height="15dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="6dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView74"
-        app:layout_constraintEnd_toEndOf="@+id/imageView74"
+        app:layout_constraintBottom_toBottomOf="@+id/song_one_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_one_box"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView76"
-        app:layout_constraintTop_toBottomOf="@+id/song_writer_name"
+        app:layout_constraintStart_toEndOf="@+id/song_one_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_one_writer"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/one_star" />
+
+<!--    song two-->
+
+    <ImageView
+        android:id="@+id/song_two_box"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/song_one_box"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageView
+        android:id="@+id/song_two_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_two_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_two_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/song_two_box"
+        app:layout_constraintTop_toTopOf="@+id/song_two_box"
+        app:srcCompat="@drawable/song_image_one" />
+
+    <TextView
+        android:id="@+id/song_two_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="Twinkle 1"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_two_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_two_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_two_img"
+        app:layout_constraintTop_toTopOf="@+id/song_two_box"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_two_play_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_two_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_two_box"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/song_two_box"
+        app:layout_constraintTop_toTopOf="@+id/song_two_box"
+        app:srcCompat="@drawable/player_icon" />
+
+    <TextView
+        android:id="@+id/song_two_writer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="모짜르트"
+        android:textColor="#B6B6B6"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_two_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_two_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_two_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_two_title"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_two_star"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_two_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_two_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_two_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_two_writer"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/one_star" />
+
+    <!--    song three-->
+
+    <ImageView
+        android:id="@+id/song_three_box"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/song_two_box"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageView
+        android:id="@+id/song_three_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_three_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_three_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/song_three_box"
+        app:layout_constraintTop_toTopOf="@+id/song_three_box"
+        app:srcCompat="@drawable/song_image_one" />
+
+    <TextView
+        android:id="@+id/song_three_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="Twinkle 1"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_three_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_three_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_three_img"
+        app:layout_constraintTop_toTopOf="@+id/song_three_box"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_three_play_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_three_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_three_box"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/song_three_box"
+        app:layout_constraintTop_toTopOf="@+id/song_three_box"
+        app:srcCompat="@drawable/player_icon" />
+
+    <TextView
+        android:id="@+id/song_three_writer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="모짜르트"
+        android:textColor="#B6B6B6"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_three_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_three_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_three_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_three_title"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_three_star"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_three_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_three_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_three_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_three_writer"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/one_star" />
+
+    <!--    song four-->
+
+    <ImageView
+        android:id="@+id/song_four_box"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/song_three_box"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageView
+        android:id="@+id/song_four_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_four_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_four_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/song_four_box"
+        app:layout_constraintTop_toTopOf="@+id/song_four_box"
+        app:srcCompat="@drawable/song_image_one" />
+
+    <TextView
+        android:id="@+id/song_four_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="Twinkle 1"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_four_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_four_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_four_img"
+        app:layout_constraintTop_toTopOf="@+id/song_four_box"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_four_play_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_four_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_four_box"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/song_four_box"
+        app:layout_constraintTop_toTopOf="@+id/song_four_box"
+        app:srcCompat="@drawable/player_icon" />
+
+    <TextView
+        android:id="@+id/song_four_writer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="모짜르트"
+        android:textColor="#B6B6B6"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_four_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_four_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_four_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_four_title"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_four_star"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_four_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_four_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_four_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_four_writer"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/one_star" />
+
+    <!--    song five-->
+
+    <ImageView
+        android:id="@+id/song_five_box"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/song_four_box"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageView
+        android:id="@+id/song_five_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_five_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_five_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/song_five_box"
+        app:layout_constraintTop_toTopOf="@+id/song_five_box"
+        app:srcCompat="@drawable/song_image_one" />
+
+    <TextView
+        android:id="@+id/song_five_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="Twinkle 1"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_five_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_five_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_five_img"
+        app:layout_constraintTop_toTopOf="@+id/song_five_box"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_five_play_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_five_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_five_box"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/song_five_box"
+        app:layout_constraintTop_toTopOf="@+id/song_five_box"
+        app:srcCompat="@drawable/player_icon" />
+
+    <TextView
+        android:id="@+id/song_five_writer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="모짜르트"
+        android:textColor="#B6B6B6"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_five_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_five_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_five_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_five_title"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_five_star"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_five_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_five_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_five_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_five_writer"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/one_star" />
+
+    <!--    song six-->
+
+    <ImageView
+        android:id="@+id/song_six_box"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/song_five_box"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/song_background" />
+
+    <ImageView
+        android:id="@+id/song_six_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_six_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_six_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/song_six_box"
+        app:layout_constraintTop_toTopOf="@+id/song_six_box"
+        app:srcCompat="@drawable/song_image_one" />
+
+    <TextView
+        android:id="@+id/song_six_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="Twinkle 1"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_six_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_six_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_six_img"
+        app:layout_constraintTop_toTopOf="@+id/song_six_box"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_six_play_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_six_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_six_box"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/song_six_box"
+        app:layout_constraintTop_toTopOf="@+id/song_six_box"
+        app:srcCompat="@drawable/player_icon" />
+
+    <TextView
+        android:id="@+id/song_six_writer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="모짜르트"
+        android:textColor="#B6B6B6"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_six_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_six_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_six_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_six_title"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/song_six_star"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/song_six_box"
+        app:layout_constraintEnd_toEndOf="@+id/song_six_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/song_six_img"
+        app:layout_constraintTop_toBottomOf="@+id/song_six_writer"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/one_star" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
