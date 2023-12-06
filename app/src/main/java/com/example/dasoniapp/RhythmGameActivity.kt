@@ -11,7 +11,6 @@ import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 
