@@ -25,33 +25,11 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private var scoreTracker = 0
     private var fadeOutMillis: Long = 400 // 400 up 부터 더블클릭 안됨 --> 간격은 무조건 설정된 fadeOutMillis 보다 크게
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rhythm_game_easy_play)
+        setContentView(R.layout.activity_rhythm_game_easy_start)
         showSongMenu()
-//        playGame()
-
-//        handler.postDelayed({
-////            pressAnswerOneFall()
-////            answerOneCopyThreeFall()
-//            answerOneFall()
-//            handler.postDelayed({
-////                pressAnswerTwoFall()
-////                answerTwoCopyThreeFall()
-//                answerTwoFall()
-//                handler.postDelayed({
-////                    pressAnswerThreeFall()
-////                    answerThreeCopyThreeFall()
-//                    answerThreeFall()
-//                    handler.postDelayed({
-////                        pressAnswerFourFall()
-////                        answerFourCopyThreeFall()
-//                        answerFourFall()
-//                    }, 1000)
-//                }, 1000)
-//
-//            }, 1000)
-//        }, 1000)
     }
 
     private fun showSongMenu() {
@@ -63,108 +41,101 @@ class RhythmGameActivity : AppCompatActivity() {
             finish()
         }
 
-        val songOne = findViewById<ImageView>(R.id.song_one_box)
+        val songClickBox = listOf<ImageView>(
+            findViewById<ImageView>(R.id.song_one_box),
+            findViewById<ImageView>(R.id.song_two_box),
+            findViewById<ImageView>(R.id.song_three_box),
+            findViewById<ImageView>(R.id.song_four_box),
+            findViewById<ImageView>(R.id.song_five_box),
+            findViewById<ImageView>(R.id.song_six_box)
+        )
+        val songNumString = listOf<String>("one", "two", "three", "four", "five", "six")
 
-        songOne.setOnClickListener {
-            setContentView(R.layout.activity_rhythm_game_easy_start)
+        for ((i, song) in songClickBox.withIndex()) {
+            val songNameId = "song_${songNumString[i]}_title"
+            val songWriterNameId = "song_${songNumString[i]}_title"
+            val songName =
+                findViewById<TextView>(resources.getIdentifier(songNameId, "id", packageName))
+            val songWriterName =
+                findViewById<TextView>(resources.getIdentifier(songWriterNameId, "id", packageName))
 
-            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
-            gameStartButton.setOnClickListener {
-                setContentView(R.layout.activity_rhythm_game_easy_play)
-                playGame()
-            }
-
-            val songBackButton = findViewById<ImageView>(R.id.back_btn)
-            songBackButton.setOnClickListener {
-                showSongMenu()
-            }
-        }
-
-        val songTwo = findViewById<ImageView>(R.id.song_two_box)
-
-        songTwo.setOnClickListener {
-            setContentView(R.layout.activity_rhythm_game_easy_start)
-
-            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
-            gameStartButton.setOnClickListener {
-                setContentView(R.layout.activity_rhythm_game_easy_play)
-                playGame()
-            }
-
-            val songBackButton = findViewById<ImageView>(R.id.back_btn)
-            songBackButton.setOnClickListener {
-                showSongMenu()
-            }
-        }
-
-        val songThree = findViewById<ImageView>(R.id.song_three_box)
-
-        songThree.setOnClickListener {
-            setContentView(R.layout.activity_rhythm_game_easy_start)
-
-            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
-            gameStartButton.setOnClickListener {
-                setContentView(R.layout.activity_rhythm_game_easy_play)
-                playGame()
-            }
-
-            val songBackButton = findViewById<ImageView>(R.id.back_btn)
-            songBackButton.setOnClickListener {
-                showSongMenu()
-            }
-        }
-
-        val songFour = findViewById<ImageView>(R.id.song_four_box)
-
-        songFour.setOnClickListener {
-            setContentView(R.layout.activity_rhythm_game_easy_start)
-
-            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
-            gameStartButton.setOnClickListener {
-                setContentView(R.layout.activity_rhythm_game_easy_play)
-                playGame()
-            }
-
-            val songBackButton = findViewById<ImageView>(R.id.back_btn)
-            songBackButton.setOnClickListener {
-                showSongMenu()
-            }
-        }
-
-        val songFive = findViewById<ImageView>(R.id.song_five_box)
-
-        songFive.setOnClickListener {
-            setContentView(R.layout.activity_rhythm_game_easy_start)
-
-            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
-            gameStartButton.setOnClickListener {
-                setContentView(R.layout.activity_rhythm_game_easy_play)
-                playGame()
-            }
-
-            val songBackButton = findViewById<ImageView>(R.id.back_btn)
-            songBackButton.setOnClickListener {
-                showSongMenu()
-            }
-        }
-
-        val songSix = findViewById<ImageView>(R.id.song_six_box)
-
-        songSix.setOnClickListener {
-            setContentView(R.layout.activity_rhythm_game_easy_start)
-
-            val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
-            gameStartButton.setOnClickListener {
-                setContentView(R.layout.activity_rhythm_game_easy_play)
-                playGame()
-            }
-
-            val songBackButton = findViewById<ImageView>(R.id.back_btn)
-            songBackButton.setOnClickListener {
-                showSongMenu()
+            // songBox clicked
+            song.setOnClickListener {
+                songStartWindow(songNumString[i], songName, songWriterName)
             }
         }
     }
+
+    private fun songStartWindow(
+        songNumString: String,
+        songName: TextView,
+        songWriterName: TextView
+    ) {
+        setContentView(R.layout.activity_rhythm_game_easy_start)
+        val startSongName = findViewById<TextView>(R.id.start_song_name)
+        val startSongWriterName = findViewById<TextView>(R.id.start_writer_name)
+
+        startSongName.text = songName.text
+        startSongWriterName.text = songWriterName.text
+
+        val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
+        gameStartButton.setOnClickListener {
+            setContentView(R.layout.activity_rhythm_game_easy_play)
+            when (songNumString) {
+                "one" -> songOnePlay()
+                "two" -> songTwoPlay()
+                "three" -> songThreePlay()
+                "four" -> songFourPlay()
+                "five" -> songFivePlay()
+                "six" -> songSixPlay()
+            }
+            playGame()
+
+            val gameBackButton = findViewById<ImageView>(R.id.game_back_btn)
+            gameBackButton.setOnClickListener{
+                showSongMenu()
+            }
+        }
+
+        val songBackButton = findViewById<ImageView>(R.id.back_btn)
+        songBackButton.setOnClickListener {
+            showSongMenu()
+        }
+    }
+
+    private fun songOnePlay() {
+//        handler.postDelayed({
+//            pressAnswerOneFall()
+//            handler.postDelayed({
+//                pressAnswerTwoFall()
+//                handler.postDelayed({
+//                    pressAnswerThreeFall()
+//                    handler.postDelayed({
+//                        pressAnswerFourFall()
+//                    }, 1000)
+//                }, 1000)
+//            }, 1000)
+//        }, 1000)
+    }
+    private fun songTwoPlay() {
+//        handler.postDelayed({
+//            answerOneFall()
+//            handler.postDelayed({
+//                answerTwoFall()
+//                handler.postDelayed({
+//                    answerThreeFall()
+//                    handler.postDelayed({
+//                        answerFourFall()
+//                    }, 1000)
+//                }, 1000)
+//            }, 1000)
+//        }, 1000)
+    }
+
+    private fun songThreePlay() {}
+    private fun songFourPlay() {}
+    private fun songFivePlay() {}
+    private fun songSixPlay() {}
 
     private fun playGame() {
         // initialization regular answer node
