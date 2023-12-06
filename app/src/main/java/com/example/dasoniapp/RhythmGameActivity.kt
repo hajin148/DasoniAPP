@@ -68,8 +68,8 @@ class RhythmGameActivity : AppCompatActivity() {
                 playGame()
             }
 
-            val backButton = findViewById<ImageView>(R.id.back_btn)
-            backButton.setOnClickListener {
+            val songBackButton = findViewById<ImageView>(R.id.back_btn)
+            songBackButton.setOnClickListener {
                 showSongMenu()
             }
         }
@@ -85,8 +85,8 @@ class RhythmGameActivity : AppCompatActivity() {
                 playGame()
             }
 
-            val backButton = findViewById<ImageView>(R.id.back_btn)
-            backButton.setOnClickListener {
+            val songBackButton = findViewById<ImageView>(R.id.back_btn)
+            songBackButton.setOnClickListener {
                 showSongMenu()
             }
         }
@@ -102,8 +102,8 @@ class RhythmGameActivity : AppCompatActivity() {
                 playGame()
             }
 
-            val backButton = findViewById<ImageView>(R.id.back_btn)
-            backButton.setOnClickListener {
+            val songBackButton = findViewById<ImageView>(R.id.back_btn)
+            songBackButton.setOnClickListener {
                 showSongMenu()
             }
         }
@@ -119,8 +119,8 @@ class RhythmGameActivity : AppCompatActivity() {
                 playGame()
             }
 
-            val backButton = findViewById<ImageView>(R.id.back_btn)
-            backButton.setOnClickListener {
+            val songBackButton = findViewById<ImageView>(R.id.back_btn)
+            songBackButton.setOnClickListener {
                 showSongMenu()
             }
         }
@@ -136,8 +136,8 @@ class RhythmGameActivity : AppCompatActivity() {
                 playGame()
             }
 
-            val backButton = findViewById<ImageView>(R.id.back_btn)
-            backButton.setOnClickListener {
+            val songBackButton = findViewById<ImageView>(R.id.back_btn)
+            songBackButton.setOnClickListener {
                 showSongMenu()
             }
         }
@@ -153,8 +153,8 @@ class RhythmGameActivity : AppCompatActivity() {
                 playGame()
             }
 
-            val backButton = findViewById<ImageView>(R.id.back_btn)
-            backButton.setOnClickListener {
+            val songBackButton = findViewById<ImageView>(R.id.back_btn)
+            songBackButton.setOnClickListener {
                 showSongMenu()
             }
         }
@@ -178,10 +178,10 @@ class RhythmGameActivity : AppCompatActivity() {
         val btnFour = findViewById<ImageView>(R.id.btn_four)
 
         // button pressing handler
-        btnPressHelper(btnOne, answerOne, pressAnsOne, "one")
-        btnPressHelper(btnTwo, answerTwo, pressAnsTwo, "two")
-        btnPressHelper(btnThree, answerThree, pressAnsThree, "three")
-        btnPressHelper(btnFour, answerFour, pressAnsFour, "four")
+        btnPressHelper(btnOne, answerOne, pressAnsOne, "one") // lane 1
+        btnPressHelper(btnTwo, answerTwo, pressAnsTwo, "two") // lane 2
+        btnPressHelper(btnThree, answerThree, pressAnsThree, "three") // lane 3
+        btnPressHelper(btnFour, answerFour, pressAnsFour, "four") // lane 4
     }
 
     // func gets called from constructor for each button to detect press
