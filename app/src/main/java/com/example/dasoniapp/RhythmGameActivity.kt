@@ -26,8 +26,26 @@ class RhythmGameActivity : AppCompatActivity() {
     private var scoreTracker = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_rhythm_game_easy_play)
+        playGame()
 
-        showSongMenu()
+//        handler.postDelayed({
+//            pressAnswerOneFall()
+//            answerOneFall()
+//            handler.postDelayed({
+//                pressAnswerTwoFall()
+//                answerTwoFall()
+//                handler.postDelayed({
+//                    pressAnswerThreeFall()
+//                    answerThreeFall()
+//                    handler.postDelayed({
+//                        pressAnswerFourFall()
+//                        answerFourFall()
+//                    }, 1000)
+//                }, 1000)
+//
+//            }, 1000)
+//        }, 1000)
     }
 
     private fun showSongMenu() {
@@ -373,8 +391,9 @@ class RhythmGameActivity : AppCompatActivity() {
         val displayMetrics = context.resources.displayMetrics
         return displayMetrics.heightPixels
     }
-    private fun fallAnimation(answerNode: ImageView, fallHeight: Int, currentScore: Int?) {
-        val screenHeight = (getWindowHeight(this) + fallHeight).toFloat()
+    private fun fallAnimation(answerNode: ImageView, currentScore: Int?) {
+        val pressTop = findViewById<ImageView>(R.id.press_one_top)
+        val screenHeight = (getWindowHeight(this) + pressTop.height).toFloat()
         val animator = answerNode.animate()
             .translationYBy(screenHeight) // 3000f - y length screen
             .setDuration(4000) // 4000 secs
@@ -419,33 +438,6 @@ class RhythmGameActivity : AppCompatActivity() {
         })
     }
 
-    // ------------ commented code for moving answer Top instead of setting margin ------
-//    private fun dpToPx(dp: Int, context: Context): Int {
-//        val density = context.resources.displayMetrics.density
-//        return (dp * density).toInt()
-//    }
-
-//    private fun moveNode(node: ImageView) {
-//        val layoutParams = node.layoutParams as ViewGroup.MarginLayoutParams
-//
-////        val parentViewTreeObserver = parent.viewTreeObserver
-////        parentViewTreeObserver.addOnGlobalLayoutListener(object :
-////            ViewTreeObserver.OnGlobalLayoutListener {
-////            override fun onGlobalLayout() {
-//////                parent.viewTreeObserver.removeOnGlobalLayoutListener(this)
-//////
-//////                val parentHeight = getWindowHeight(this)
-//////                val calMarginTop = (parentHeight * marginTopPx / parentHeight).toInt()
-//////
-//////                layoutParams.setMargins(0, calMarginTop, 0, 0)
-//////                node.layoutParams = layoutParams
-////            }
-////        })
-////        val height = node.height // getting 0 wtf
-////        val marginTopPx = dpToPx(node.height, this)
-////        layoutParams.setMargins(0, -marginTopPx, 0, 0)
-//    }
-
     // -------------- press answer node fall functions ----------------------
 
     private fun pressAnswerOneFall() {
@@ -455,12 +447,8 @@ class RhythmGameActivity : AppCompatActivity() {
         val pressAnsOneTop = findViewById<ImageView>(R.id.press_one_top)
 
         pressAnsOneTop.visibility = View.VISIBLE
-        fallAnimation(pressAnsOne, pressAnsOneTop.height,null)
-        fallAnimation(pressAnsOneTop, pressAnsOneTop.height, currentScore)
-
-//        handler.postDelayed({
-//            answerOneFall()
-//        }, 3000)
+        fallAnimation(pressAnsOne, null)
+        fallAnimation(pressAnsOneTop, currentScore)
     }
 
     private fun pressAnswerTwoFall() {
@@ -468,13 +456,8 @@ class RhythmGameActivity : AppCompatActivity() {
         val pressAnsTwo = findViewById<ImageView>(R.id.press_answer_two)
         val pressAnsTwoTop = findViewById<ImageView>(R.id.press_two_top)
 
-        fallAnimation(pressAnsTwo, pressAnsTwoTop.height,null)
-        fallAnimation(pressAnsTwoTop, pressAnsTwoTop.height, currentScore)
-
-
-//        handler.postDelayed({
-//            pressAnswerThreeFall()
-//        }, 3000)
+        fallAnimation(pressAnsTwo, null)
+        fallAnimation(pressAnsTwoTop, currentScore)
     }
 
     private fun pressAnswerThreeFall() {
@@ -482,12 +465,8 @@ class RhythmGameActivity : AppCompatActivity() {
         val pressAnsThree = findViewById<ImageView>(R.id.press_answer_three)
         val pressAnsThreeTop = findViewById<ImageView>(R.id.press_three_top)
 
-        fallAnimation(pressAnsThree, pressAnsThree.height,null)
-        fallAnimation(pressAnsThreeTop, pressAnsThree.height, currentScore)
-
-//        handler.postDelayed({
-//            pressAnswerFourFall()
-//        }, 3000)
+        fallAnimation(pressAnsThree, null)
+        fallAnimation(pressAnsThreeTop, currentScore)
     }
 
     private fun pressAnswerFourFall() {
@@ -495,12 +474,8 @@ class RhythmGameActivity : AppCompatActivity() {
         val pressAnsFour = findViewById<ImageView>(R.id.press_answer_four)
         val pressAnsFourTop = findViewById<ImageView>(R.id.press_four_top)
 
-        fallAnimation(pressAnsFour, pressAnsFour.height, null)
-        fallAnimation(pressAnsFourTop, pressAnsFour.height, currentScore)
-
-//        handler.postDelayed({
-//            answerOneFall()
-//        }, 4000)
+        fallAnimation(pressAnsFour, null)
+        fallAnimation(pressAnsFourTop, currentScore)
     }
 
     // ----------- regular answer node fall functions -----------------
@@ -508,7 +483,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun answerOneFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_one)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
 
 //        handler.postDelayed({
 //            answerOneCopyOneFall()
@@ -518,91 +493,91 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun answerOneCopyOneFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_one_copy_one)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerOneCopyTwoFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_one_copy_two)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerOneCopyThreeFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_one_copy_three)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerTwoFall() {
         val currentScore = score
         val answerTwo = findViewById<ImageView>(R.id.answer_two)
-        fallAnimation(answerTwo, 0, currentScore)
+        fallAnimation(answerTwo,  currentScore)
     }
 
     private fun answerTwoCopyOneFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_two_copy_one)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne,  currentScore)
     }
 
     private fun answerTwoCopyTwoFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_two_copy_two)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerTwoCopyThreeFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_two_copy_three)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerThreeFall() {
         val currentScore = score
         val answerThree = findViewById<ImageView>(R.id.answer_three)
-        fallAnimation(answerThree, 0, currentScore)
+        fallAnimation(answerThree, currentScore)
     }
 
     private fun answerThreeCopyOneFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_three_copy_one)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerThreeCopyTwoFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_three_copy_two)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne,  currentScore)
     }
 
     private fun answerThreeCopyThreeFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_three_copy_three)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerFourFall() {
         val currentScore = score
         val answerFour = findViewById<ImageView>(R.id.answer_four)
-        fallAnimation(answerFour, 0, currentScore)
+        fallAnimation(answerFour, currentScore)
     }
 
     private fun answerFourCopyOneFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_four_copy_one)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerFourCopyTwoFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_four_copy_two)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerFourCopyThreeFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_four_copy_three)
-        fallAnimation(answerOne, 0, currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
 }
