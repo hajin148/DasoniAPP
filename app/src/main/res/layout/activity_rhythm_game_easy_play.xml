@@ -15,11 +15,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rhythm_easy_play_background" />
 
     <ImageButton
-        android:id="@+id/pause_btn"
+        android:id="@+id/game_back_btn"
         android:layout_width="53dp"
         android:layout_height="53dp"
         android:layout_marginStart="20dp"
@@ -34,7 +34,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/game_stop_icon_white" />
+        app:srcCompat="@drawable/game_back_icon" />
 
     <ImageView
         android:id="@+id/bottom_background"
@@ -491,14 +491,11 @@
         android:id="@+id/press_one_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:visibility="invisible"
-        android:layout_marginTop="-110dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/press_answer_one"
         app:layout_constraintEnd_toEndOf="@+id/press_answer_one"
-        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="@+id/press_answer_one"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rhythm_long_touch_button" />
 
     <ImageView
@@ -518,14 +515,11 @@
         android:id="@+id/press_two_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-110dp"
+        android:layout_marginBottom="36dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/press_answer_two"
         app:layout_constraintEnd_toEndOf="@+id/press_answer_two"
-        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="@+id/press_answer_two"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rhythm_long_touch_button" />
 
     <ImageView
@@ -545,14 +539,11 @@
         android:id="@+id/press_three_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-110dp"
+        android:layout_marginBottom="36dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/press_answer_three"
         app:layout_constraintEnd_toEndOf="@+id/press_answer_three"
-        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="@+id/press_answer_three"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rhythm_long_touch_button" />
 
     <ImageView
@@ -572,14 +563,11 @@
         android:id="@+id/press_four_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-110dp"
+        android:layout_marginBottom="36dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/press_answer_four"
         app:layout_constraintEnd_toEndOf="@+id/press_answer_four"
-        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="@+id/press_answer_four"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rhythm_long_touch_button" />
 
     <ImageView

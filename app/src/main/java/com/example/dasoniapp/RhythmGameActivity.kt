@@ -24,22 +24,28 @@ class RhythmGameActivity : AppCompatActivity() {
     private val handler = Handler(Looper.getMainLooper())
 
     private var scoreTracker = 0
+    private var fadeOutMillis: Long = 400 // 400 up 부터 더블클릭 안됨 --> 간격은 무조건 설정된 fadeOutMillis 보다 크게
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rhythm_game_easy_play)
-        playGame()
+        showSongMenu()
+//        playGame()
 
 //        handler.postDelayed({
-//            pressAnswerOneFall()
+////            pressAnswerOneFall()
+////            answerOneCopyThreeFall()
 //            answerOneFall()
 //            handler.postDelayed({
-//                pressAnswerTwoFall()
+////                pressAnswerTwoFall()
+////                answerTwoCopyThreeFall()
 //                answerTwoFall()
 //                handler.postDelayed({
-//                    pressAnswerThreeFall()
+////                    pressAnswerThreeFall()
+////                    answerThreeCopyThreeFall()
 //                    answerThreeFall()
 //                    handler.postDelayed({
-//                        pressAnswerFourFall()
+////                        pressAnswerFourFall()
+////                        answerFourCopyThreeFall()
 //                        answerFourFall()
 //                    }, 1000)
 //                }, 1000)
@@ -161,12 +167,31 @@ class RhythmGameActivity : AppCompatActivity() {
     }
 
     private fun playGame() {
-        // initialization
+        // initialization regular answer node
         val answerOne = findViewById<ImageView>(R.id.answer_one)
         val answerTwo = findViewById<ImageView>(R.id.answer_two)
         val answerThree = findViewById<ImageView>(R.id.answer_three)
         val answerFour = findViewById<ImageView>(R.id.answer_four)
 
+        // copies
+        // lane 1
+        val answerOneCopyOne = findViewById<ImageView>(R.id.answer_one_copy_one)
+        val answerOneCopyTwo = findViewById<ImageView>(R.id.answer_one_copy_two)
+        val answerOneCopyThree = findViewById<ImageView>(R.id.answer_one_copy_three)
+        // lane 2
+        val answerTwoCopyOne = findViewById<ImageView>(R.id.answer_two_copy_one)
+        val answerTwoCopyTwo = findViewById<ImageView>(R.id.answer_two_copy_two)
+        val answerTwoCopyThree = findViewById<ImageView>(R.id.answer_two_copy_three)
+        // lane 3
+        val answerThreeCopyOne = findViewById<ImageView>(R.id.answer_three_copy_one)
+        val answerThreeCopyTwo = findViewById<ImageView>(R.id.answer_three_copy_two)
+        val answerThreeCopyThree = findViewById<ImageView>(R.id.answer_three_copy_three)
+        // lane 4
+        val answerFourCopyOne = findViewById<ImageView>(R.id.answer_four_copy_one)
+        val answerFourCopyTwo = findViewById<ImageView>(R.id.answer_four_copy_two)
+        val answerFourCopyThree = findViewById<ImageView>(R.id.answer_four_copy_three)
+
+        // initialization for long press answer node
         val pressAnsOne = findViewById<ImageView>(R.id.press_one_top)
         val pressAnsTwo = findViewById<ImageView>(R.id.press_two_top)
         val pressAnsThree = findViewById<ImageView>(R.id.press_three_top)
@@ -178,16 +203,51 @@ class RhythmGameActivity : AppCompatActivity() {
         val btnFour = findViewById<ImageView>(R.id.btn_four)
 
         // button pressing handler
-        btnPressHelper(btnOne, answerOne, pressAnsOne, "one") // lane 1
-        btnPressHelper(btnTwo, answerTwo, pressAnsTwo, "two") // lane 2
-        btnPressHelper(btnThree, answerThree, pressAnsThree, "three") // lane 3
-        btnPressHelper(btnFour, answerFour, pressAnsFour, "four") // lane 4
+        btnPressHelper(
+            btnOne,
+            answerOne,
+            answerOneCopyOne,
+            answerOneCopyTwo,
+            answerOneCopyThree,
+            pressAnsOne,
+            "one"
+        ) // lane 1
+        btnPressHelper(
+            btnTwo,
+            answerTwo,
+            answerTwoCopyOne,
+            answerTwoCopyTwo,
+            answerTwoCopyThree,
+            pressAnsTwo,
+            "two"
+        ) // lane 2
+        btnPressHelper(
+            btnThree,
+            answerThree,
+            answerThreeCopyOne,
+            answerThreeCopyTwo,
+            answerThreeCopyThree,
+            pressAnsThree,
+            "three"
+        ) // lane 3
+        btnPressHelper(
+            btnFour,
+            answerFour,
+            answerFourCopyOne,
+            answerFourCopyTwo,
+            answerFourCopyThree,
+            pressAnsFour,
+            "four"
+        ) // lane 4
     }
 
     // func gets called from constructor for each button to detect press
     private fun btnPressHelper(
         btnNode: ImageView,
-        ansClickNode: ImageView,
+        ansRegNode: ImageView,
+        ansRegNodeCopyOne: ImageView,
+        ansRegNodeCopyTwo: ImageView,
+        ansRegNodeCopyThree: ImageView,
         ansPressNode: ImageView,
         btnNumStr: String
     ) {
@@ -201,7 +261,14 @@ class RhythmGameActivity : AppCompatActivity() {
                 MotionEvent.ACTION_DOWN -> {
                     scoreTracker = score
                     isButtonPressed = true
-                    recursiveCheckAnswer(btnNode, ansClickNode, ansPressNode)
+                    recursiveCheckAnswer(
+                        btnNode,
+                        ansRegNode,
+                        ansRegNodeCopyOne,
+                        ansRegNodeCopyTwo,
+                        ansRegNodeCopyThree,
+                        ansPressNode
+                    )
                     // making button Animation visible
                     var delayCount: Long = 0
                     for (btn in btnAnimationList) {
@@ -219,10 +286,10 @@ class RhythmGameActivity : AppCompatActivity() {
                     // initialize answerText for conditional expression used in other function
                     if (scoreTracker != score) {
                         if (veryGoodText.visibility == View.VISIBLE) {
-                            fadeOutAnimationHelper(veryGoodText, 1000)
+                            fadeOutAnimationHelper(veryGoodText, fadeOutMillis)
                         }
                         if (answerText.visibility == View.VISIBLE) {
-                            fadeOutAnimationHelper(answerText, 1000)
+                            fadeOutAnimationHelper(answerText, fadeOutMillis)
                         }
                     }
 
@@ -240,6 +307,9 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun recursiveCheckAnswer(
         btnNode: ImageView,
         ansRegNode: ImageView,
+        ansRegNodeCopyOne: ImageView,
+        ansRegNodeCopyTwo: ImageView,
+        ansRegNodeCopyThree: ImageView,
         ansPressNode: ImageView
     ) {
         val veryGoodText = findViewById<ImageView>(R.id.very_good_text)
@@ -255,46 +325,87 @@ class RhythmGameActivity : AppCompatActivity() {
                 scoreText.text = "$score"
             }
             // if perfect-correct with short answer node
-            else if (isClickPerfectOverlap(btnNode, ansRegNode)) {
-                // if for displaying only one for short node
-                if (answerText.visibility != View.VISIBLE) {
-                    veryGoodText.visibility = View.VISIBLE
-                }
-
-                if (!isScoredAdded) {
-                    score += 10
-                    scoreText.text = "$score"
-                    isScoredAdded = true
-                }
+            else if (isClickPerfectOverlap(btnNode, ansRegNode) || isClickPerfectOverlap(
+                    btnNode,
+                    ansRegNodeCopyOne
+                ) || isClickPerfectOverlap(btnNode, ansRegNodeCopyTwo) || isClickPerfectOverlap(
+                    btnNode,
+                    ansRegNodeCopyThree
+                )
+            ) {
+                perfectScoreHelper(veryGoodText, answerText, scoreText)
+                return
             }
             // if semi-correct with short answer node
-            else if (isOverlap(btnNode, ansRegNode)) {
-                // if for displaying only one for short node
-                if (veryGoodText.visibility != View.VISIBLE) {
-                    answerText.text = "정말 잘했어요!!"
-                    answerText.visibility = View.VISIBLE
-                }
-
-                if (!isScoredAdded) {
-                    score += 5
-                    scoreText.text = "$score"
-                    isScoredAdded = true
-                }
+            else if (isOverlap(btnNode, ansRegNode) || isOverlap(
+                    btnNode,
+                    ansRegNodeCopyOne
+                ) || isOverlap(btnNode, ansRegNodeCopyTwo) || isOverlap(
+                    btnNode,
+                    ansRegNodeCopyThree
+                )
+            ) {
+                semiScoreHelper(veryGoodText, answerText, scoreText)
+                return
             } else if (scoreTracker != score) {
                 scoreTracker = score
                 if (veryGoodText.visibility == View.VISIBLE) {
-                    fadeOutAnimationHelper(veryGoodText, 500)
+                    fadeOutAnimationHelper(veryGoodText, fadeOutMillis)
                     return
                 }
                 if (answerText.visibility == View.VISIBLE) {
-                    fadeOutAnimationHelper(answerText, 500)
+                    fadeOutAnimationHelper(answerText, fadeOutMillis)
                     return
                 }
             }
 
             handler.postDelayed({
-                recursiveCheckAnswer(btnNode, ansRegNode, ansPressNode)
+                recursiveCheckAnswer(
+                    btnNode,
+                    ansRegNode,
+                    ansRegNodeCopyOne,
+                    ansRegNodeCopyTwo,
+                    ansRegNodeCopyThree,
+                    ansPressNode
+                )
             }, 100)
+        }
+    }
+
+    private fun semiScoreHelper(
+        veryGoodText: ImageView,
+        answerText: TextView,
+        scoreText: TextView
+    ) {
+        // if for displaying only one for short node
+        if (veryGoodText.visibility != View.VISIBLE && answerText.visibility != View.VISIBLE) {
+            answerText.text = "정말 잘했어요!!"
+            answerText.visibility = View.VISIBLE
+
+            if (!isScoredAdded) {
+                score += 5
+                scoreText.text = "$score"
+                isScoredAdded = true
+            }
+            fadeOutAnimationHelper(answerText, fadeOutMillis)
+        }
+
+    }
+
+    private fun perfectScoreHelper(
+        veryGoodText: ImageView,
+        answerText: TextView,
+        scoreText: TextView
+    ) {
+        // for displaying only one for reg node
+        if (answerText.visibility != View.VISIBLE && veryGoodText.visibility != View.VISIBLE) {
+            veryGoodText.visibility = View.VISIBLE
+            if (!isScoredAdded) {
+                score += 10
+                scoreText.text = "$score"
+                isScoredAdded = true
+            }
+            fadeOutAnimationHelper(veryGoodText, fadeOutMillis)
         }
     }
 
@@ -313,12 +424,12 @@ class RhythmGameActivity : AppCompatActivity() {
             answerLoc[1] + 2 * answerOffset
         )
 
-        val btnOffset = btnNode.height / 7
+        val btnOffset = btnNode.height / 3
         val btnRectForPerfect = Rect(
             btnLoc[0],
-            btnLoc[1] + 3 * btnOffset,
+            btnLoc[1] + btnOffset,
             btnLoc[0] + btnNode.width,
-            btnLoc[1] + 4 * btnOffset
+            btnLoc[1] + 2 * btnOffset
         )
 
         return answerRectForPerfect.intersect(btnRectForPerfect)
@@ -391,6 +502,7 @@ class RhythmGameActivity : AppCompatActivity() {
         val displayMetrics = context.resources.displayMetrics
         return displayMetrics.heightPixels
     }
+
     private fun fallAnimation(answerNode: ImageView, currentScore: Int?) {
         val pressTop = findViewById<ImageView>(R.id.press_one_top)
         val screenHeight = (getWindowHeight(this) + pressTop.height).toFloat()
@@ -412,7 +524,7 @@ class RhythmGameActivity : AppCompatActivity() {
                 // tracking for missed nodes
                 if (currentScore != null && currentScore == score) {
                     val answerText = findViewById<TextView>(R.id.ans_text)
-                    answerText.text = "Miss"
+                    answerText.text = "다시 도전해 보세요!"
                     answerText.visibility = View.VISIBLE
 
                     // life decrement when wrong
@@ -426,7 +538,7 @@ class RhythmGameActivity : AppCompatActivity() {
 //                        setContentView(R.layout.activity_rhythm_game_easy_start) ^
                         finish()
                     }
-                    fadeOutAnimationHelper(answerText, 1500)
+                    fadeOutAnimationHelper(answerText, 500)
                 }
             }
 
@@ -484,10 +596,6 @@ class RhythmGameActivity : AppCompatActivity() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_one)
         fallAnimation(answerOne, currentScore)
-
-//        handler.postDelayed({
-//            answerOneCopyOneFall()
-//        }, 3000)
     }
 
     private fun answerOneCopyOneFall() {
@@ -511,13 +619,13 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun answerTwoFall() {
         val currentScore = score
         val answerTwo = findViewById<ImageView>(R.id.answer_two)
-        fallAnimation(answerTwo,  currentScore)
+        fallAnimation(answerTwo, currentScore)
     }
 
     private fun answerTwoCopyOneFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_two_copy_one)
-        fallAnimation(answerOne,  currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerTwoCopyTwoFall() {
@@ -547,7 +655,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun answerThreeCopyTwoFall() {
         val currentScore = score
         val answerOne = findViewById<ImageView>(R.id.answer_three_copy_two)
-        fallAnimation(answerOne,  currentScore)
+        fallAnimation(answerOne, currentScore)
     }
 
     private fun answerThreeCopyThreeFall() {
