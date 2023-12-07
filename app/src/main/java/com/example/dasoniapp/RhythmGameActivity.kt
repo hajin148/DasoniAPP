@@ -32,7 +32,7 @@ class RhythmGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rhythm_game_easy_play)
         val gameBackBtn = findViewById<ImageView>(R.id.game_back_btn)
-        gameBackBtn.setOnClickListener{
+        gameBackBtn.setOnClickListener {
             mediaPlayer.let {
                 if (it.isPlaying) {
                     it.stop()
@@ -42,7 +42,7 @@ class RhythmGameActivity : AppCompatActivity() {
             finish()
         }
 
-        when(intent.getStringExtra("songNumber")) {
+        when (intent.getStringExtra("songNumber")) {
             "one" -> songOnePlay()
             "two" -> songTwoPlay()
             "three" -> songThreePlay()
@@ -56,67 +56,71 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun playMusic(musicResourceId: Int) {
         mediaPlayer.release()
         mediaPlayer = MediaPlayer.create(this, musicResourceId)
+        mediaPlayer.setOnCompletionListener {
+            val resultIntent = Intent()
+            setResult(RESULT_OK, resultIntent)
+            mediaPlayer.release()
+            finish()
+        }
         mediaPlayer.start()
     }
 
     private fun songOnePlay() {
         playMusic(R.raw.twinkle5)
-        fadeOutMillis = 850
-        songOnePlayHelperOne()
+        fadeOutMillis = 500
+        handler.postDelayed({
+            songOnePlayHelperOne()
+        }, 2650)
     }
 
     private fun songOnePlayHelperOne() {
+        answerOneFall()
         handler.postDelayed({
-            answerOneFall()
+            answerOneCopyOneFall()
             handler.postDelayed({
-                answerOneCopyOneFall()
+                answerTwoFall()
                 handler.postDelayed({
-                    answerTwoFall()
+                    answerTwoCopyOneFall()
                     handler.postDelayed({
-                        answerTwoCopyOneFall()
+                        answerThreeFall()
                         handler.postDelayed({
-                            answerThreeFall()
+                            answerThreeCopyOneFall()
                             handler.postDelayed({
-                                answerThreeCopyOneFall()
+                                pressAnswerFourFall()
                                 handler.postDelayed({
-                                    pressAnswerFourFall()
-                                    handler.postDelayed({
-                                        songOnePlayHelperTwo()
-                                    }, 1000)
-                                }, 1000)
+                                    songOnePlayHelperTwo()
+                                }, 2000)
                             }, 1000)
                         }, 1000)
                     }, 1000)
                 }, 1000)
             }, 1000)
-        }, 2550)
+        }, 1000)
     }
 
     private fun songOnePlayHelperTwo() {
+        answerFourFall()
         handler.postDelayed({
-            answerFourFall()
+            answerFourCopyOneFall()
             handler.postDelayed({
-                answerFourCopyOneFall()
+                answerThreeFall()
                 handler.postDelayed({
-                    answerThreeFall()
+                    answerThreeCopyOneFall()
                     handler.postDelayed({
-                        answerThreeCopyOneFall()
+                        answerTwoFall()
                         handler.postDelayed({
-                            answerTwoFall()
+                            answerTwoCopyOneFall()
                             handler.postDelayed({
-                                answerTwoCopyOneFall()
+                                pressAnswerOneFall()
                                 handler.postDelayed({
-                                    pressAnswerOneFall()
-                                    handler.postDelayed({
-                                        songOnePlayHelperOne()
-                                    }, 1000)
-                                }, 1000)
+                                    songOnePlayHelperOne()
+                                }, 2000)
                             }, 1000)
                         }, 1000)
                     }, 1000)
                 }, 1000)
             }, 1000)
-        }, 2550)
+        }, 1000)
     }
 
     private fun songTwoPlay() {
@@ -139,12 +143,15 @@ class RhythmGameActivity : AppCompatActivity() {
     private fun songThreePlay() {
         playMusic(R.raw.twinkle3)
     }
+
     private fun songFourPlay() {
         playMusic(R.raw.twinkle1)
     }
+
     private fun songFivePlay() {
         playMusic(R.raw.twinkle4)
     }
+
     private fun songSixPlay() {
         playMusic(R.raw.frenchfolksong)
     }
@@ -267,12 +274,12 @@ class RhythmGameActivity : AppCompatActivity() {
                     isButtonPressed = false
                     isScoredAdded = false
                     // initialize answerText for conditional expression used in other function
-                        if (veryGoodText.visibility == View.VISIBLE) {
-                            fadeOutAnimationHelper(veryGoodText, fadeOutMillis)
-                        }
-                        if (answerText.visibility == View.VISIBLE) {
-                            fadeOutAnimationHelper(answerText, fadeOutMillis)
-                        }
+                    if (veryGoodText.visibility == View.VISIBLE) {
+                        fadeOutAnimationHelper(veryGoodText, fadeOutMillis)
+                    }
+                    if (answerText.visibility == View.VISIBLE) {
+                        fadeOutAnimationHelper(answerText, fadeOutMillis)
+                    }
 
                     // for removing button animation
                     for (btn in btnAnimationList) {
@@ -334,7 +341,7 @@ class RhythmGameActivity : AppCompatActivity() {
                 veryGoodText.visibility = View.GONE
                 answerText.visibility = View.VISIBLE
                 // decrement heart by wrong
-                if(!isWrongCounted) {
+                if (!isWrongCounted) {
                     isWrongCounted = true
                     val heartLife = findViewById<ImageView>(R.id.heart_life)
                     wrongCount += 1
