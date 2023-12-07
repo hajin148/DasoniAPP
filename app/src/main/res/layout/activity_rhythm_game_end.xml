@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/rhythm_game_end_background" />
 
     <ImageView
-        android:id="@+id/imageView96"
+        android:id="@+id/end_star"
         android:layout_width="129dp"
         android:layout_height="58dp"
         android:layout_marginTop="50dp"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/rhythm_game_end_twostar" />
 
     <ImageView
-        android:id="@+id/imageView97"
+        android:id="@+id/song_menu_button"
         android:layout_width="152dp"
         android:layout_height="64dp"
         android:layout_marginBottom="45dp"
@@ -84,7 +84,7 @@
         android:fontFamily="@font/im_hyemin_regular"
         android:text="최고 점수"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView97"
+        app:layout_constraintBottom_toTopOf="@+id/song_menu_button"
         app:layout_constraintEnd_toEndOf="@+id/imageView95"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView95"
@@ -92,7 +92,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView128"
+        android:id="@+id/curr_score_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -116,7 +116,7 @@
         android:fontFamily="@font/im_hyemin_bold"
         android:text="320"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView97"
+        app:layout_constraintBottom_toTopOf="@+id/song_menu_button"
         app:layout_constraintEnd_toEndOf="@+id/imageView95"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView127"
