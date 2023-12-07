@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
 
         val rhythmGameBtn: ImageView = findViewById(R.id.rhythm_game_btn)
         rhythmGameBtn.setOnClickListener {
-            val intent = Intent(this, RhythmGameActivity::class.java)
+            val intent = Intent(this, RhythmMenuActivity::class.java)
             intent.putExtra("UserAccount", currentUser)
             startActivity(intent)
         }
