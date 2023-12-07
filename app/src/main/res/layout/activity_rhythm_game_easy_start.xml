@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/game_back_icon" />
 
     <TextView
-        android:id="@+id/textView123"
+        android:id="@+id/start_song_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView109"
+        android:id="@+id/start_writer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -55,7 +55,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView123"
+        app:layout_constraintTop_toBottomOf="@+id/start_song_name"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -66,7 +66,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView109"
+        app:layout_constraintTop_toBottomOf="@+id/start_writer_name"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rhythm_game_start_button" />
 

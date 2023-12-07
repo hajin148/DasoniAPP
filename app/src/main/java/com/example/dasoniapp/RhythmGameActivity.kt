@@ -2,6 +2,7 @@ package com.example.dasoniapp
 
 import android.content.Context
 import android.graphics.Rect
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -24,117 +25,84 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private var scoreTracker = 0
     private var fadeOutMillis: Long = 400 // 400 up 부터 더블클릭 안됨 --> 간격은 무조건 설정된 fadeOutMillis 보다 크게
+    private var mediaPlayer = MediaPlayer()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rhythm_game_easy_start)
-        showSongMenu()
-    }
-
-    private fun showSongMenu() {
-        setContentView(R.layout.activity_rhythm_game_song)
-
-        val backButton = findViewById<ImageView>(R.id.rhythm_back_btn)
-
-        backButton.setOnClickListener {
+        setContentView(R.layout.activity_rhythm_game_easy_play)
+        val gameBackBtn = findViewById<ImageView>(R.id.game_back_btn)
+        gameBackBtn.setOnClickListener{
+            mediaPlayer.let {
+                if (it.isPlaying) {
+                    it.stop()
+                }
+                it.release()
+            }
             finish()
         }
 
-        val songClickBox = listOf<ImageView>(
-            findViewById<ImageView>(R.id.song_one_box),
-            findViewById<ImageView>(R.id.song_two_box),
-            findViewById<ImageView>(R.id.song_three_box),
-            findViewById<ImageView>(R.id.song_four_box),
-            findViewById<ImageView>(R.id.song_five_box),
-            findViewById<ImageView>(R.id.song_six_box)
-        )
-        val songNumString = listOf<String>("one", "two", "three", "four", "five", "six")
-
-        for ((i, song) in songClickBox.withIndex()) {
-            val songNameId = "song_${songNumString[i]}_title"
-            val songWriterNameId = "song_${songNumString[i]}_title"
-            val songName =
-                findViewById<TextView>(resources.getIdentifier(songNameId, "id", packageName))
-            val songWriterName =
-                findViewById<TextView>(resources.getIdentifier(songWriterNameId, "id", packageName))
-
-            // songBox clicked
-            song.setOnClickListener {
-                songStartWindow(songNumString[i], songName, songWriterName)
-            }
+        when(intent.getStringExtra("songNumber")) {
+            "one" -> songOnePlay()
+            "two" -> songTwoPlay()
+            "three" -> songThreePlay()
+            "four" -> songFourPlay()
+            "five" -> songFivePlay()
+            "six" -> songSixPlay()
         }
+        playGame()
     }
 
-    private fun songStartWindow(
-        songNumString: String,
-        songName: TextView,
-        songWriterName: TextView
-    ) {
-        setContentView(R.layout.activity_rhythm_game_easy_start)
-        //val startSongName = findViewById<TextView>(R.id.start_song_name)
-        //val startSongWriterName = findViewById<TextView>(R.id.start_writer_name)
-
-        //startSongName.text = songName.text
-        //startSongWriterName.text = songWriterName.text
-
-        val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
-        gameStartButton.setOnClickListener {
-            setContentView(R.layout.activity_rhythm_game_easy_play)
-            when (songNumString) {
-                "one" -> songOnePlay()
-                "two" -> songTwoPlay()
-                "three" -> songThreePlay()
-                "four" -> songFourPlay()
-                "five" -> songFivePlay()
-                "six" -> songSixPlay()
-            }
-            playGame()
-
-            val gameBackButton = findViewById<ImageView>(R.id.game_back_btn)
-            gameBackButton.setOnClickListener{
-                showSongMenu()
-            }
-        }
-
-        val songBackButton = findViewById<ImageView>(R.id.back_btn)
-        songBackButton.setOnClickListener {
-            showSongMenu()
-        }
+    private fun playMusic(musicResourceId: Int) {
+        mediaPlayer.release()
+        mediaPlayer = MediaPlayer.create(this, musicResourceId)
+        mediaPlayer.start()
     }
 
     private fun songOnePlay() {
-//        handler.postDelayed({
-//            pressAnswerOneFall()
-//            handler.postDelayed({
-//                pressAnswerTwoFall()
-//                handler.postDelayed({
-//                    pressAnswerThreeFall()
-//                    handler.postDelayed({
-//                        pressAnswerFourFall()
-//                    }, 1000)
-//                }, 1000)
-//            }, 1000)
-//        }, 1000)
+        playMusic(R.raw.twinkle5)
+        // test
+        handler.postDelayed({
+            pressAnswerOneFall()
+            handler.postDelayed({
+                pressAnswerTwoFall()
+                handler.postDelayed({
+                    pressAnswerThreeFall()
+                    handler.postDelayed({
+                        pressAnswerFourFall()
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+        }, 1000)
     }
     private fun songTwoPlay() {
-//        handler.postDelayed({
-//            answerOneFall()
-//            handler.postDelayed({
-//                answerTwoFall()
-//                handler.postDelayed({
-//                    answerThreeFall()
-//                    handler.postDelayed({
-//                        answerFourFall()
-//                    }, 1000)
-//                }, 1000)
-//            }, 1000)
-//        }, 1000)
+        playMusic(R.raw.twinkle2)
+        // test
+        handler.postDelayed({
+            answerOneFall()
+            handler.postDelayed({
+                answerTwoFall()
+                handler.postDelayed({
+                    answerThreeFall()
+                    handler.postDelayed({
+                        answerFourFall()
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+        }, 1000)
     }
 
-    private fun songThreePlay() {}
-    private fun songFourPlay() {}
-    private fun songFivePlay() {}
-    private fun songSixPlay() {}
+    private fun songThreePlay() {
+        playMusic(R.raw.twinkle3)
+    }
+    private fun songFourPlay() {
+        playMusic(R.raw.twinkle1)
+    }
+    private fun songFivePlay() {
+        playMusic(R.raw.twinkle4)
+    }
+    private fun songSixPlay() {
+        playMusic(R.raw.frenchfolksong)
+    }
 
     private fun playGame() {
         // initialization regular answer node
@@ -359,7 +327,6 @@ class RhythmGameActivity : AppCompatActivity() {
             }
             fadeOutAnimationHelper(answerText, fadeOutMillis)
         }
-
     }
 
     private fun perfectScoreHelper(
