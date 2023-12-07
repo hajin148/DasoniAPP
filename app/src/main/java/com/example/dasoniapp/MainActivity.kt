@@ -41,6 +41,24 @@ class MainActivity : AppCompatActivity() {
         } else {
             setupMainPage()
         }
+
+        val goToSetupRankPage = intent.getBooleanExtra("goToSetupRankPage", false)
+
+        if (goToSetupRankPage) {
+            setupRankPage()
+        }
+
+        val goToSetupMyPage = intent.getBooleanExtra("goToSetupMyPage", false)
+
+        if (goToSetupMyPage) {
+            setupMyPage()
+        }
+
+        val goToSetupMainPage = intent.getBooleanExtra("goToSetupMainPage", false)
+
+        if (goToSetupMainPage) {
+            setupMainPage()
+        }
         /*
         val shouldSetupMyPage = intent.getBooleanExtra("shouldSetupMyPage", false)
         currentUser = intent.getSerializableExtra("UserAccount") as UserAccount?
@@ -108,6 +126,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupMainPage() {
+
         setContentView(R.layout.activity_mainpage)
 
         if(currentUser != null) {
@@ -157,17 +176,27 @@ class MainActivity : AppCompatActivity() {
 
         val myPageButton: ImageButton = findViewById(R.id.main_menu_mypage)
         myPageButton.setOnClickListener {
-            setupMyPage()
-            val nameView: TextView = findViewById(R.id.textView23)
-            nameView.text = currentUser?.name.toString()
+            if (currentUser?.name.isNullOrEmpty()) {
+                // User name is null or empty, navigate to LoginActivity
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            } else {
+                // User name is not null or empty, proceed to setupMyPage
+                setupMyPage()
 
-            val nameView1: TextView = findViewById(R.id.textView33)
-            nameView1.text = currentUser?.name.toString() + " " + nameView1.text
+                // Update the TextViews with the user's name
+                val nameView: TextView = findViewById(R.id.textView23)
+                nameView.text = currentUser?.name.toString()
 
-            val nameView2: TextView = findViewById(R.id.textView32)
-            nameView2.text = currentUser?.name.toString() + " " + nameView2.text
-            val nameView3: TextView = findViewById(R.id.textView36)
-            nameView3.text = currentUser?.name.toString() + " " + nameView3.text
+                val nameView1: TextView = findViewById(R.id.textView33)
+                nameView1.text = currentUser?.name.toString() + " " + nameView1.text
+
+                val nameView2: TextView = findViewById(R.id.textView32)
+                nameView2.text = currentUser?.name.toString() + " " + nameView2.text
+
+                val nameView3: TextView = findViewById(R.id.textView36)
+                nameView3.text = currentUser?.name.toString() + " " + nameView3.text
+            }
         }
 
         val rankPageButton: ImageButton = findViewById(R.id.main_menu_rank)
@@ -208,10 +237,10 @@ class MainActivity : AppCompatActivity() {
             setupMainPage()
         }
 
-        val myPageButton: ImageButton = findViewById(R.id.bottom_menu_mypage_selected)
-        myPageButton.setOnClickListener {
-            setupMyPage()
-        }
+        //val myPageButton: ImageButton = findViewById(R.id.bottom_menu_mypage_selected)
+        //myPageButton.setOnClickListener {
+        //    setupMyPage()
+        //}
 
         val rankPageButton: ImageButton = findViewById(R.id.main_menu_rank)
         rankPageButton.setOnClickListener {
@@ -268,10 +297,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupDefaultRankPage() {
         setContentView(R.layout.activity_rank_first)
 
+
         // Setup default UI or show error message
 
         setupRankPageListeners()
     }
+
+
 
     private fun setupRankPageListeners() {
         val homeButton: ImageButton = findViewById(R.id.main_menu_home)
@@ -287,6 +319,31 @@ class MainActivity : AppCompatActivity() {
         val rankPageButton: ImageButton = findViewById(R.id.main_menu_rank_selected)
         rankPageButton.setOnClickListener {
             setupRankPage()
+        }
+
+        val textView30: TextView = findViewById(R.id.textView30)
+        textView30.setOnClickListener {
+            // Click on textView30, switch to activity_rank_second
+            setContentView(R.layout.activity_rank_second)
+            setupRankSecondListeners()
+        }
+    }
+
+    private fun setupRankSecondListeners() {
+        val textView29 = findViewById<TextView>(R.id.textView29)
+        textView29.setOnClickListener {
+            // Click on textView29, switch back to activity_rank_first
+            setupRankPage()
+        }
+
+        val homeButton: ImageButton = findViewById(R.id.imageButton)
+        homeButton.setOnClickListener {
+            setupMainPage()
+        }
+
+        val myPageButton: ImageView = findViewById(R.id.imageView16)
+        myPageButton.setOnClickListener {
+            setupMyPage()
         }
     }
 

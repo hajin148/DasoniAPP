@@ -71,7 +71,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         if (task.isSuccessful()) {
                             // 로그인 성공시
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            //intent.putExtra("shouldSetupMyPage", true);
+
+                            // Put user account details as extras
+                            intent.putExtra("goToSetupMyPage", true);
+                            intent.putExtra("goToSetupMainPage", true);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                             finish();
@@ -81,6 +84,25 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         }
                     }
                 });
+            }
+        });
+
+        ImageButton imageButton17 = findViewById(R.id.imageButton17);
+        imageButton17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to go to MainActivity
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                // Add any extra data you want to pass to MainActivity here
+                // For example, you can put a boolean flag to indicate that you want to go to setupRankPage
+                intent.putExtra("goToSetupRankPage", true);
+
+                // Start MainActivity
+                startActivity(intent);
+
+                // Finish the current activity if needed
+                finish();
             }
         });
 

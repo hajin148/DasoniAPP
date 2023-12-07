@@ -576,7 +576,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/pretendard_semibold"
-        android:text="플레이어 21 (나)"
+        android:text="비로그인 회원"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView21"
         app:layout_constraintEnd_toEndOf="@+id/imageView21"
