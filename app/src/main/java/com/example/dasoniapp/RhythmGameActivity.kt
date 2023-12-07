@@ -24,7 +24,6 @@ class RhythmGameActivity : AppCompatActivity() {
     private var isButtonPressed = false
     private val handler = Handler(Looper.getMainLooper())
 
-    private var scoreTracker = 0
     private var fadeOutMillis: Long = 400 // 400 up 부터 더블클릭 안됨 --> 간격은 무조건 설정된 fadeOutMillis 보다 크게
     private var mediaPlayer = MediaPlayer()
     private var isWrongCounted = false
