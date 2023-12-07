@@ -73,7 +73,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
                             // Put user account details as extras
-                            intent.putExtra("goToSetupMyPage", true);
                             intent.putExtra("goToSetupMainPage", true);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();

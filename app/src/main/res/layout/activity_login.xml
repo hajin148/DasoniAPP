@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16000003"
+        app:layout_constraintVertical_bias="0.19"
         app:srcCompat="@drawable/splash_logo" />
 
     <ImageButton
@@ -129,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.19"
+        app:layout_constraintVertical_bias="0.23000002"
         app:srcCompat="@drawable/login_type_box" />
 
     <EditText
@@ -153,10 +153,10 @@
         android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_typebox_pw"
-        app:layout_constraintVertical_bias="0.098"
+        app:layout_constraintVertical_bias="0.100000024"
         app:srcCompat="@drawable/login_button" />
 
     <com.google.android.gms.common.SignInButton
@@ -164,6 +164,7 @@
         android:layout_width="306dp"
         android:layout_height="45dp"
         android:layout_marginTop="8dp"
+        android:visibility="gone"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/imageView38"
         app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +183,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961"
+        app:layout_constraintVertical_bias="0.90999997"
         app:srcCompat="@drawable/signin_button" />
 
     <TextView

@@ -206,6 +206,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupMyPage() {
+        if (currentUser?.name.isNullOrEmpty()) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        else {
+
+        }
         setContentView(R.layout.activity_mypage)
 
         // Initialize FirebaseAuth instance
