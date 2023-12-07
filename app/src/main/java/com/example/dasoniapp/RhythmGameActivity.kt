@@ -71,11 +71,11 @@ class RhythmGameActivity : AppCompatActivity() {
         songWriterName: TextView
     ) {
         setContentView(R.layout.activity_rhythm_game_easy_start)
-        val startSongName = findViewById<TextView>(R.id.start_song_name)
-        val startSongWriterName = findViewById<TextView>(R.id.start_writer_name)
+        //val startSongName = findViewById<TextView>(R.id.start_song_name)
+        //val startSongWriterName = findViewById<TextView>(R.id.start_writer_name)
 
-        startSongName.text = songName.text
-        startSongWriterName.text = songWriterName.text
+        //startSongName.text = songName.text
+        //startSongWriterName.text = songWriterName.text
 
         val gameStartButton = findViewById<ImageView>(R.id.game_start_btn)
         gameStartButton.setOnClickListener {

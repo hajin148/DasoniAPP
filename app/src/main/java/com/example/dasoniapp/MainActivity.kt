@@ -135,14 +135,12 @@ class MainActivity : AppCompatActivity() {
             val pianoPlayBtn: ImageView = findViewById(R.id.imageView98)
             pianoPlayBtn.setOnClickListener {
                 val intent = Intent(this, PlayMusicActivity::class.java)
-                intent.putExtra("UserAccount", currentUser)
                 startActivity(intent)
             }
 
             val drumPlayBtn: ImageView = findViewById(R.id.imageView101)
             drumPlayBtn.setOnClickListener {
                 val intent = Intent(this, PlayDrumActivity::class.java)
-                intent.putExtra("UserAccount", currentUser)
                 startActivity(intent)
             }
 

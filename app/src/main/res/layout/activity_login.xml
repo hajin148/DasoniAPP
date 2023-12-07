@@ -36,17 +36,16 @@
 
     <EditText
         android:id="@+id/et_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="298dp"
+        android:layout_height="31dp"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/pretendard_regular"
         android:hint="비밀번호"
         android:inputType="textPassword"
-        android:background="@android:color/transparent"
         android:textColor="#C4C4C4"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/login_typebox_pw"
         app:layout_constraintEnd_toEndOf="@+id/login_typebox_pw"
-        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="@+id/login_typebox_pw"
         app:layout_constraintTop_toTopOf="@+id/login_typebox_pw" />
 
@@ -173,17 +172,16 @@
 
     <EditText
         android:id="@+id/et_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="298dp"
+        android:layout_height="31dp"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/pretendard_regular"
         android:hint="아이디"
         android:inputType="textEmailAddress"
         android:textColor="#C4C4C4"
-        android:background="@android:color/transparent"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/login_typebox_id"
         app:layout_constraintEnd_toEndOf="@+id/login_typebox_id"
-        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="@+id/login_typebox_id"
         app:layout_constraintTop_toTopOf="@+id/login_typebox_id" />
 

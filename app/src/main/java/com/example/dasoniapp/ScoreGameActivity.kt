@@ -16,6 +16,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlin.random.Random
@@ -92,11 +93,19 @@ class ScoreGameActivity : AppCompatActivity() {
     private var timeRemaining: Long = timeCount
     private var score = 0
     private var countCorrect = 0
+    private lateinit var database: DatabaseReference
+    private lateinit var userID: String
+    private lateinit var userNoteScore: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_score_game_rank)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        userID = user?.uid ?: "Unknown"
+        userNoteScore = intent.getStringExtra("bestNoteScore") ?: "Unknown"
+        database = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
+
         countDownGamePlay()
     }
 
@@ -202,6 +211,8 @@ class ScoreGameActivity : AppCompatActivity() {
     private fun endGame(resultStr: String) {
         pauseTimer()
 
+        val userRef = database.child(userID)
+
         // disable buttons
         val btnList = listOf<ImageView>(
             findViewById(R.id.c_btn),
@@ -223,6 +234,15 @@ class ScoreGameActivity : AppCompatActivity() {
         blurLayout.visibility = View.VISIBLE
         resultBox.visibility = View.VISIBLE
 
+        // Send Score to database
+        userRef.child("bestNoteScore").get().addOnSuccessListener { dataSnapshot ->
+            val bestScore = dataSnapshot.getValue(Int::class.java) ?: 0
+            if (score > bestScore) {
+                userRef.child("bestNoteScore").setValue(score)
+            }
+        }.addOnFailureListener {
+            Log.e("firebase", "Error getting data", it)
+        }
 
         val resultText: TextView = findViewById(R.id.result_txt)
         resultText.visibility = View.VISIBLE

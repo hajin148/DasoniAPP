@@ -3,6 +3,7 @@ package com.example.dasoniapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -75,6 +76,14 @@ public class RegisterActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
+                                                // Create an intent to start the LoginActivity
+                                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+
+                                                // Start the LoginActivity
+                                                startActivity(intent);
+
+                                                finish();
+
                                             } else {
                                                 Toast.makeText(RegisterActivity.this, "데이터베이스 오류로 회원가입 실패", Toast.LENGTH_SHORT).show();
                                             }
