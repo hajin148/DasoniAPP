@@ -106,6 +106,9 @@ class ScoreGameActivity : AppCompatActivity() {
         userNoteScore = intent.getStringExtra("bestNoteScore") ?: "Unknown"
         database = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
 
+
+
+
         countDownGamePlay()
     }
 
@@ -213,6 +216,7 @@ class ScoreGameActivity : AppCompatActivity() {
 
         val userRef = database.child(userID)
 
+
         // disable buttons
         val btnList = listOf<ImageView>(
             findViewById(R.id.c_btn),
@@ -235,6 +239,7 @@ class ScoreGameActivity : AppCompatActivity() {
         resultBox.visibility = View.VISIBLE
 
         // Send Score to database
+
         userRef.child("bestNoteScore").get().addOnSuccessListener { dataSnapshot ->
             val bestScore = dataSnapshot.getValue(Int::class.java) ?: 0
             if (score > bestScore) {
@@ -243,6 +248,9 @@ class ScoreGameActivity : AppCompatActivity() {
         }.addOnFailureListener {
             Log.e("firebase", "Error getting data", it)
         }
+
+
+
 
         val resultText: TextView = findViewById(R.id.result_txt)
         resultText.visibility = View.VISIBLE

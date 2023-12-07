@@ -127,6 +127,10 @@ class MainActivity : AppCompatActivity() {
         val musicPracticeBtn: ImageView = findViewById(R.id.music_practice_btn)
         musicPracticeBtn.setOnClickListener {
             val intent = Intent(this, ReadNoteActivity::class.java)
+            if(currentUser == null) {
+                var a = UserAccount("test@gmail.com", "01011111234", "test", "123123")
+                currentUser = a
+            }
             intent.putExtra("UserAccount", currentUser)
             startActivity(intent)
         }
@@ -134,6 +138,10 @@ class MainActivity : AppCompatActivity() {
         val rhythmGameBtn: ImageView = findViewById(R.id.rhythm_game_btn)
         rhythmGameBtn.setOnClickListener {
             val intent = Intent(this, RhythmMenuActivity::class.java)
+            if(currentUser == null) {
+                var a = UserAccount("test@gmail.com", "01011111234", "test", "123123")
+                currentUser = a
+            }
             intent.putExtra("UserAccount", currentUser)
             startActivity(intent)
         }

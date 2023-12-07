@@ -88,8 +88,8 @@ class ReadNoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         openGameMenu()
+        currentUser =intent.getSerializableExtra("UserAccount") as UserAccount
 
-        currentUser = intent.getSerializableExtra("UserAccount") as UserAccount
     }
 
     private fun openGameMenu() {
