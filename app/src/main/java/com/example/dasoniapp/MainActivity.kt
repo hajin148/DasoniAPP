@@ -240,6 +240,11 @@ class MainActivity : AppCompatActivity() {
 
         val rankPageButton: ImageButton = findViewById(R.id.main_menu_rank)
         rankPageButton.setOnClickListener {
+            val logoutTextView: TextView = findViewById(R.id.textView31)
+            if(logoutTextView.text != "로그아웃") {
+                currentUser = null
+                intent.putExtra("UserAccount", currentUser)
+            }
             setupRankPage()
         }
 
