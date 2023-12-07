@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -46,6 +47,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private EditText mEtEmail, mEtPwd, mEtPhone, mEtName;
     private ImageView mBtnRegister;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("DasoniAPP");
+
 
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_pwd);
@@ -73,6 +76,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
                             // Put user account details as extras
+
                             intent.putExtra("goToSetupMainPage", true);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
