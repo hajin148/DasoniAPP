@@ -27,6 +27,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private var scoreTracker = 0
     private var fadeOutMillis: Long = 400 // 400 up 부터 더블클릭 안됨 --> 간격은 무조건 설정된 fadeOutMillis 보다 크게
     private var mediaPlayer = MediaPlayer()
+    private var isWrongCounted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,20 +62,64 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songOnePlay() {
         playMusic(R.raw.twinkle5)
-        // test
+        fadeOutMillis = 850
+        songOnePlayHelperOne()
+    }
+
+    private fun songOnePlayHelperOne() {
         handler.postDelayed({
-            pressAnswerOneFall()
+            answerOneFall()
             handler.postDelayed({
-                pressAnswerTwoFall()
+                answerOneCopyOneFall()
                 handler.postDelayed({
-                    pressAnswerThreeFall()
+                    answerTwoFall()
                     handler.postDelayed({
-                        pressAnswerFourFall()
+                        answerTwoCopyOneFall()
+                        handler.postDelayed({
+                            answerThreeFall()
+                            handler.postDelayed({
+                                answerThreeCopyOneFall()
+                                handler.postDelayed({
+                                    pressAnswerFourFall()
+                                    handler.postDelayed({
+                                        songOnePlayHelperTwo()
+                                    }, 1000)
+                                }, 1000)
+                            }, 1000)
+                        }, 1000)
                     }, 1000)
                 }, 1000)
             }, 1000)
-        }, 1000)
+        }, 2550)
     }
+
+    private fun songOnePlayHelperTwo() {
+        handler.postDelayed({
+            answerFourFall()
+            handler.postDelayed({
+                answerFourCopyOneFall()
+                handler.postDelayed({
+                    answerThreeFall()
+                    handler.postDelayed({
+                        answerThreeCopyOneFall()
+                        handler.postDelayed({
+                            answerTwoFall()
+                            handler.postDelayed({
+                                answerTwoCopyOneFall()
+                                handler.postDelayed({
+                                    pressAnswerOneFall()
+                                    handler.postDelayed({
+                                        songOnePlayHelperOne()
+                                    }, 1000)
+                                }, 1000)
+                            }, 1000)
+                        }, 1000)
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+        }, 2550)
+    }
+
     private fun songTwoPlay() {
         playMusic(R.raw.twinkle2)
         // test
@@ -86,10 +131,10 @@ class RhythmGameActivity : AppCompatActivity() {
                     answerThreeFall()
                     handler.postDelayed({
                         answerFourFall()
-                    }, 1000)
-                }, 1000)
-            }, 1000)
-        }, 1000)
+                    }, 2000)
+                }, 2000)
+            }, 2000)
+        }, 2000)
     }
 
     private fun songThreePlay() {
@@ -198,7 +243,6 @@ class RhythmGameActivity : AppCompatActivity() {
         btnNode.setOnTouchListener { _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    scoreTracker = score
                     isButtonPressed = true
                     recursiveCheckAnswer(
                         btnNode,
@@ -220,17 +264,16 @@ class RhythmGameActivity : AppCompatActivity() {
 
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                     // initialize again
+                    isWrongCounted = false
                     isButtonPressed = false
                     isScoredAdded = false
                     // initialize answerText for conditional expression used in other function
-                    if (scoreTracker != score) {
                         if (veryGoodText.visibility == View.VISIBLE) {
                             fadeOutAnimationHelper(veryGoodText, fadeOutMillis)
                         }
                         if (answerText.visibility == View.VISIBLE) {
                             fadeOutAnimationHelper(answerText, fadeOutMillis)
                         }
-                    }
 
                     // for removing button animation
                     for (btn in btnAnimationList) {
@@ -259,6 +302,7 @@ class RhythmGameActivity : AppCompatActivity() {
             // if semi-correct with pressing answer node
             // this will be considered as perfect correct for long press node
             if (isOverlap(btnNode, ansPressNode)) {
+                answerText.visibility = View.GONE
                 veryGoodText.visibility = View.VISIBLE
                 score += 1
                 scoreText.text = "$score"
@@ -286,36 +330,32 @@ class RhythmGameActivity : AppCompatActivity() {
             ) {
                 semiScoreHelper(veryGoodText, answerText, scoreText)
                 return
-//            } else if (scoreTracker != score) {
             } else {
-                scoreTracker = score
                 answerText.text = "다시 도전해 보세요!"
-                veryGoodText.visibility = View.INVISIBLE
+                veryGoodText.visibility = View.GONE
                 answerText.visibility = View.VISIBLE
                 // decrement heart by wrong
-                val heartLife = findViewById<ImageView>(R.id.heart_life)
-                wrongCount += 1
-                if (wrongCount == 5) {
-                    heartLife.setImageResource(R.drawable.heart_two)
-                }
-                else if(wrongCount == 10) {
-                    heartLife.setImageResource(R.drawable.heart_one)
-                }
-                else if(wrongCount == 15) {
-                    mediaPlayer.let {
-                        if (it.isPlaying) {
-                            it.stop()
+                if(!isWrongCounted) {
+                    isWrongCounted = true
+                    val heartLife = findViewById<ImageView>(R.id.heart_life)
+                    wrongCount += 1
+                    if (wrongCount == 5) {
+                        heartLife.setImageResource(R.drawable.heart_two)
+                    } else if (wrongCount == 10) {
+                        heartLife.setImageResource(R.drawable.heart_one)
+                    } else if (wrongCount == 15) {
+                        mediaPlayer.let {
+                            if (it.isPlaying) {
+                                it.stop()
+                            }
+                            it.release()
                         }
-                        it.release()
-                    }
 
-                    val resultIntent = Intent()
-                    resultIntent.putExtra("score", score)
-                    setResult(RESULT_OK, resultIntent)
-                    finish()
+                        val resultIntent = Intent()
+                        setResult(RESULT_OK, resultIntent)
+                        finish()
+                    }
                 }
-                fadeOutAnimationHelper(answerText, fadeOutMillis)
-                return
             }
 
             handler.postDelayed({
@@ -336,9 +376,9 @@ class RhythmGameActivity : AppCompatActivity() {
         answerText: TextView,
         scoreText: TextView
     ) {
+        answerText.text = "정말 잘했어요!!"
         // if for displaying only one for short node
         if (veryGoodText.visibility != View.VISIBLE && answerText.visibility != View.VISIBLE) {
-            answerText.text = "정말 잘했어요!!"
             answerText.visibility = View.VISIBLE
 
             if (!isScoredAdded) {
