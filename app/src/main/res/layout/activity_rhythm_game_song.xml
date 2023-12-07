@@ -186,7 +186,7 @@
         app:layout_constraintStart_toEndOf="@+id/song_two_img"
         app:layout_constraintTop_toBottomOf="@+id/song_two_writer"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/one_star" />
+        app:srcCompat="@drawable/two_star" />
 
     <!--    song three-->
 
@@ -271,7 +271,7 @@
         app:layout_constraintStart_toEndOf="@+id/song_three_img"
         app:layout_constraintTop_toBottomOf="@+id/song_three_writer"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/one_star" />
+        app:srcCompat="@drawable/two_star" />
 
     <!--    song four-->
 
@@ -356,7 +356,7 @@
         app:layout_constraintStart_toEndOf="@+id/song_four_img"
         app:layout_constraintTop_toBottomOf="@+id/song_four_writer"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/one_star" />
+        app:srcCompat="@drawable/three_star" />
 
     <!--    song five-->
 
@@ -441,7 +441,7 @@
         app:layout_constraintStart_toEndOf="@+id/song_five_img"
         app:layout_constraintTop_toBottomOf="@+id/song_five_writer"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/one_star" />
+        app:srcCompat="@drawable/three_star" />
 
     <!--    song six-->
 
