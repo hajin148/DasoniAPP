@@ -1,6 +1,7 @@
 package com.example.dasoniapp
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Rect
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
@@ -285,16 +286,36 @@ class RhythmGameActivity : AppCompatActivity() {
             ) {
                 semiScoreHelper(veryGoodText, answerText, scoreText)
                 return
-            } else if (scoreTracker != score) {
+//            } else if (scoreTracker != score) {
+            } else {
                 scoreTracker = score
-                if (veryGoodText.visibility == View.VISIBLE) {
-                    fadeOutAnimationHelper(veryGoodText, fadeOutMillis)
-                    return
+                answerText.text = "다시 도전해 보세요!"
+                veryGoodText.visibility = View.INVISIBLE
+                answerText.visibility = View.VISIBLE
+                // decrement heart by wrong
+                val heartLife = findViewById<ImageView>(R.id.heart_life)
+                wrongCount += 1
+                if (wrongCount == 5) {
+                    heartLife.setImageResource(R.drawable.heart_two)
                 }
-                if (answerText.visibility == View.VISIBLE) {
-                    fadeOutAnimationHelper(answerText, fadeOutMillis)
-                    return
+                else if(wrongCount == 10) {
+                    heartLife.setImageResource(R.drawable.heart_one)
                 }
+                else if(wrongCount == 15) {
+                    mediaPlayer.let {
+                        if (it.isPlaying) {
+                            it.stop()
+                        }
+                        it.release()
+                    }
+
+                    val resultIntent = Intent()
+                    resultIntent.putExtra("score", score)
+                    setResult(RESULT_OK, resultIntent)
+                    finish()
+                }
+                fadeOutAnimationHelper(answerText, fadeOutMillis)
+                return
             }
 
             handler.postDelayed({
@@ -457,26 +478,6 @@ class RhythmGameActivity : AppCompatActivity() {
             override fun onAnimationEnd(animation: android.animation.Animator) {
                 answerNode.visibility = View.INVISIBLE
                 answerNode.translationY = 0f
-
-                // tracking for missed nodes
-                if (currentScore != null && currentScore == score) {
-                    val answerText = findViewById<TextView>(R.id.ans_text)
-                    answerText.text = "다시 도전해 보세요!"
-                    answerText.visibility = View.VISIBLE
-
-                    // life decrement when wrong
-                    val heartLife = findViewById<ImageView>(R.id.heart_life)
-                    wrongCount += 1
-                    if (wrongCount == 3) {
-                        heartLife.setImageResource(R.drawable.heart_two)
-                    } else if (wrongCount == 6) {
-                        heartLife.setImageResource(R.drawable.heart_one)
-                    } else if (wrongCount >= 9) {
-//                        setContentView(R.layout.activity_rhythm_game_easy_start) ^
-                        finish()
-                    }
-                    fadeOutAnimationHelper(answerText, 500)
-                }
             }
 
             override fun onAnimationCancel(animation: android.animation.Animator) {
