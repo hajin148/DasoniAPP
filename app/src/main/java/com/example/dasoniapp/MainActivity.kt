@@ -273,6 +273,10 @@ class MainActivity : AppCompatActivity() {
         val edit_name: ImageView = findViewById(R.id.profile_edit_arrow_one)
         edit_name.setOnClickListener {
             setContentView(R.layout.activity_nickname_edit)
+            val backPageButton: ImageButton = findViewById(R.id.back_btn)
+            backPageButton.setOnClickListener {
+                setUpProfilePage()
+            }
             val nick_name_edit_view: TextView = findViewById(R.id.nick_name_edit)
             nick_name_edit_view.text = currentUser?.name.toString()
             val change_btn: ImageView = findViewById(R.id.change_btn)
@@ -298,6 +302,11 @@ class MainActivity : AppCompatActivity() {
         val edit_password: ImageView = findViewById(R.id.profile_edit_arrow_two)
         edit_password.setOnClickListener {
             setContentView(R.layout.activity_password_edit)
+            val backPageButton: ImageButton = findViewById(R.id.back_btn)
+            backPageButton.setOnClickListener {
+                setUpProfilePage()
+            }
+
             val edit_password: TextView = findViewById(R.id.password_edit)
             val change_btn: ImageView = findViewById(R.id.change_btn)
 
