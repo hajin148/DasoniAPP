@@ -7,10 +7,13 @@ import android.os.Looper
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
@@ -18,8 +21,12 @@ import com.google.firebase.database.ValueEventListener
 class MainActivity : AppCompatActivity() {
     private lateinit var mFirebaseAuth: FirebaseAuth
     private var currentUser: UserAccount? = null
+    private var accountName = null
     private var userName = "";
     private var rhythmScore = "";
+    private lateinit var database: DatabaseReference
+
+
     private companion object {
         const val SPLASH_TIME_OUT: Long = 3000
     }
@@ -29,12 +36,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
         mFirebaseAuth = FirebaseAuth.getInstance()
-
         // Initialize currentUser
         initializeCurrentUser()
-
 
 
         if (isFirstLaunch()) {
@@ -63,6 +67,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun initializeCurrentUser() {
+
+
         val userId = mFirebaseAuth.currentUser?.uid
         if (userId != null) {
             val databaseReference = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
@@ -111,7 +117,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupMainPage() {
-
         setContentView(R.layout.activity_mainpage)
 
         if(currentUser != null) {
@@ -179,6 +184,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupMyPage() {
         if (currentUser?.name.isNullOrEmpty()) {
+            val profileView: ImageView = findViewById(R.id.imageView8)
+            profileView.isVisible = false
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
@@ -211,6 +218,7 @@ class MainActivity : AppCompatActivity() {
             logoutTextView.setOnClickListener {
                 // Log out the user
                 mFirebaseAuth.signOut()
+                currentUser = null
 
                 // Update UI or go back to login page after logout
                 val LoginPage = Intent(this, LoginActivity::class.java)
@@ -225,10 +233,10 @@ class MainActivity : AppCompatActivity() {
             setupMainPage()
         }
 
-        //val myPageButton: ImageButton = findViewById(R.id.bottom_menu_mypage_selected)
-        //myPageButton.setOnClickListener {
-        //    setupMyPage()
-        //}
+        val profileBtn: ImageView = findViewById(R.id.imageView8)
+        profileBtn.setOnClickListener {
+            setUpProfilePage()
+        }
 
         val rankPageButton: ImageButton = findViewById(R.id.main_menu_rank)
         rankPageButton.setOnClickListener {
@@ -240,6 +248,89 @@ class MainActivity : AppCompatActivity() {
             val LoginPage = Intent(this, LoginActivity::class.java)
             startActivity(LoginPage)
         }
+    }
+
+    private fun setUpProfilePage() {
+        setContentView(R.layout.activity_profile_edit)
+        val backPageButton: ImageButton = findViewById(R.id.imageButton5)
+        backPageButton.setOnClickListener {
+            setupMyPage()
+        }
+        val nick_name_view: TextView = findViewById(R.id.nick_name)
+        nick_name_view.text = currentUser?.name.toString()
+
+        val phone_view: TextView = findViewById(R.id.phone)
+        phone_view.text = currentUser?.phone.toString()
+
+        val email_view: TextView = findViewById(R.id.email_address)
+        email_view.text = currentUser?.email.toString()
+
+        val user = FirebaseAuth.getInstance().currentUser
+        var userID = user?.uid ?: "Unknown"
+        database = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
+        var userRef = database.child(userID)
+
+        val edit_name: ImageView = findViewById(R.id.profile_edit_arrow_one)
+        edit_name.setOnClickListener {
+            setContentView(R.layout.activity_nickname_edit)
+            val backPageButton: ImageButton = findViewById(R.id.back_btn)
+            backPageButton.setOnClickListener {
+                setUpProfilePage()
+            }
+            val nick_name_edit_view: TextView = findViewById(R.id.nick_name_edit)
+            nick_name_edit_view.text = currentUser?.name.toString()
+            val change_btn: ImageView = findViewById(R.id.change_btn)
+            change_btn.setOnClickListener {
+                val newName = nick_name_edit_view.text.toString()
+                if (newName.isNotBlank()) {
+                    userRef.child("name").setValue(newName).addOnSuccessListener {
+                        // Handle successful update, e.g., show a confirmation message
+                        Toast.makeText(this, "닉네임 업데이트", Toast.LENGTH_SHORT).show()
+                        currentUser?.name = newName
+                        setupMyPage()
+                    }.addOnFailureListener {
+                        // Handle the failure, e.g., show an error message
+                        Toast.makeText(this, "닉네임 업데이트 실패", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Handle the case when the new name is blank
+                    Toast.makeText(this, "닉네임을 입력하세요", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        val edit_password: ImageView = findViewById(R.id.profile_edit_arrow_two)
+        edit_password.setOnClickListener {
+            setContentView(R.layout.activity_password_edit)
+            val backPageButton: ImageButton = findViewById(R.id.back_btn)
+            backPageButton.setOnClickListener {
+                setUpProfilePage()
+            }
+
+            val edit_password: TextView = findViewById(R.id.password_edit)
+            val change_btn: ImageView = findViewById(R.id.change_btn)
+
+            change_btn.setOnClickListener {
+                val newPassword = edit_password.text.toString()
+                if (newPassword.isNotBlank()) {
+                    FirebaseAuth.getInstance().currentUser?.updatePassword(newPassword)
+                        ?.addOnSuccessListener {
+                            // Handle successful password update
+                            Toast.makeText(this, "비밀번호 업데이트", Toast.LENGTH_SHORT).show()
+                            currentUser?.password = newPassword
+                            userRef.child("password").setValue(newPassword)
+                            setupMyPage()
+                        }
+                        ?.addOnFailureListener { e ->
+                            // Handle failure in password update
+                            Toast.makeText(this, "비밀번호 업데이트 실패: ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Toast.makeText(this, "비밀번호를 입력하세요", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
     }
 
 
@@ -323,10 +414,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupRankSecondListeners() {
         setContentView(R.layout.activity_rank_second)
 
-        val bestRhythmScoreTextView: TextView = findViewById(R.id.textView65)
-        bestRhythmScoreTextView.text = rhythmScore
-        val userNameTextView2: TextView = findViewById(R.id.textView63)
-        userNameTextView2.text = userName
+        if(currentUser != null) {
+            val bestRhythmScoreTextView: TextView = findViewById(R.id.textView65)
+            bestRhythmScoreTextView.text = rhythmScore
+            val userNameTextView2: TextView = findViewById(R.id.textView63)
+            userNameTextView2.text = userName
+        }
+
 
         val textView29 = findViewById<TextView>(R.id.textView29)
         textView29.setOnClickListener {
