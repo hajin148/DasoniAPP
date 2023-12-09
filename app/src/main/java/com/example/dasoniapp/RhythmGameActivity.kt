@@ -251,10 +251,71 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songFourPlay() {
         playMusic(R.raw.twinkle1)
+        fadeOutMillis = 50
+        fallDuration = 2500
+        handler.postDelayed({
+            songFourPlayHelperOne()
+        }, 2350)
+    }
+
+    private fun songFourPlayHelperOne(){
+        answerOneFall()
+        handler.postDelayed({
+            answerOneCopyOneFall()
+            handler.postDelayed({
+                answerOneCopyTwoFall()
+                handler.postDelayed({
+                    answerOneCopyThreeFall()
+                    handler.postDelayed({
+                        answerTwoFall()
+                        handler.postDelayed({
+                            answerTwoCopyTwoFall()
+                            handler.postDelayed({
+                                songFourPlayHelperTwo()
+                            }, 430)
+                        }, 400)
+                    }, 400)
+                }, 250)
+            }, 250)
+        },250)
+    }
+
+    private fun songFourPlayHelperTwo(){
+        answerThreeFall()
+        songLoopCount += 1
+        handler.postDelayed({
+            answerThreeCopyOneFall()
+            handler.postDelayed({
+                answerThreeCopyTwoFall()
+                handler.postDelayed({
+                    answerThreeCopyThreeFall()
+                    handler.postDelayed({
+                        answerFourFall()
+                        handler.postDelayed({
+                            answerFourCopyTwoFall()
+                            if (songLoopCount != 12) {
+                                handler.postDelayed({
+                                    songFourPlayHelperOne()
+                                }, 430)
+                            }
+                        }, 400)
+                    }, 400)
+                }, 250)
+            }, 250)
+        },250)
     }
 
     private fun songFivePlay() {
         playMusic(R.raw.twinkle4)
+        fadeOutMillis = 50
+        fallDuration = 2500
+        handler.postDelayed({
+            answerOneFall()
+        }, 4400)
+    }
+
+    private fun songFivePlayHelperOne() {
+
     }
 
     private fun songSixPlay() {
