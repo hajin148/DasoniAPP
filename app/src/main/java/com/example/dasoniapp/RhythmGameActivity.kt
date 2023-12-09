@@ -251,14 +251,14 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songFourPlay() {
         playMusic(R.raw.twinkle1)
-        fadeOutMillis = 50
+        fadeOutMillis = 100
         fallDuration = 2500
         handler.postDelayed({
             songFourPlayHelperOne()
         }, 2350)
     }
 
-    private fun songFourPlayHelperOne(){
+    private fun songFourPlayHelperOne() {
         answerOneFall()
         handler.postDelayed({
             answerOneCopyOneFall()
@@ -277,10 +277,10 @@ class RhythmGameActivity : AppCompatActivity() {
                     }, 400)
                 }, 250)
             }, 250)
-        },250)
+        }, 250)
     }
 
-    private fun songFourPlayHelperTwo(){
+    private fun songFourPlayHelperTwo() {
         answerThreeFall()
         songLoopCount += 1
         handler.postDelayed({
@@ -302,20 +302,71 @@ class RhythmGameActivity : AppCompatActivity() {
                     }, 400)
                 }, 250)
             }, 250)
-        },250)
+        }, 250)
     }
 
     private fun songFivePlay() {
         playMusic(R.raw.twinkle4)
-        fadeOutMillis = 50
+        fadeOutMillis = 100
         fallDuration = 2500
         handler.postDelayed({
-            answerOneFall()
+            songFivePlayHelperOne()
         }, 4400)
     }
 
     private fun songFivePlayHelperOne() {
-
+        answerOneFall()
+        songLoopCount += 1
+        handler.postDelayed({
+            answerOneCopyOneFall()
+            handler.postDelayed({
+                answerOneCopyTwoFall()
+                handler.postDelayed({
+                    answerOneCopyThreeFall()
+                    handler.postDelayed({
+                        answerTwoFall()
+                        handler.postDelayed({
+                            answerTwoCopyOneFall()
+                            handler.postDelayed({
+                                answerTwoCopyTwoFall()
+                                handler.postDelayed({
+                                    answerTwoCopyThreeFall()
+                                    handler.postDelayed({
+                                        answerThreeFall()
+                                        handler.postDelayed({
+                                            answerThreeCopyOneFall()
+                                            handler.postDelayed({
+                                                answerThreeCopyTwoFall()
+                                                handler.postDelayed({
+                                                    answerThreeCopyThreeFall()
+                                                    handler.postDelayed({
+                                                        answerFourFall()
+                                                        handler.postDelayed({
+                                                            answerFourCopyOneFall()
+                                                            handler.postDelayed({
+                                                                answerFourCopyTwoFall()
+                                                                handler.postDelayed({
+                                                                    answerFourCopyThreeFall()
+                                                                    if (songLoopCount != 12) {
+                                                                        handler.postDelayed({
+                                                                            songFivePlayHelperOne()
+                                                                        }, 249)
+                                                                    }
+                                                                }, 249)
+                                                            }, 249)
+                                                        }, 249)
+                                                    }, 249)
+                                                }, 249)
+                                            }, 249)
+                                        }, 249)
+                                    }, 249)
+                                }, 249)
+                            }, 249)
+                        }, 249)
+                    }, 249)
+                }, 249)
+            }, 249)
+        }, 249)
     }
 
     private fun songSixPlay() {
