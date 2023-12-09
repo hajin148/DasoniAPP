@@ -27,7 +27,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private var mediaPlayer = MediaPlayer()
     private var isWrongCounted = false
 
-    private var songOneEndCount = 0
+    private var songLoopCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +69,7 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songOnePlay() {
         playMusic(R.raw.twinkle5)
-        fadeOutMillis = 500
+        fadeOutMillis = 700
         handler.postDelayed({
             songOnePlayHelperOne()
         }, 3300)
@@ -102,6 +102,7 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songOnePlayHelperTwo() {
         answerFourFall()
+        songLoopCount += 1
         handler.postDelayed({
             answerFourCopyOneFall()
             handler.postDelayed({
@@ -114,23 +115,81 @@ class RhythmGameActivity : AppCompatActivity() {
                             answerTwoCopyOneFall()
                             handler.postDelayed({
                                 pressAnswerOneFall()
-                                handler.postDelayed({
-                                    if(songOneEndCount != 3) {
+                                if (songLoopCount != 3) {
+                                    handler.postDelayed({
                                         songOnePlayHelperOne()
-                                    }
-                                }, 2000)
+                                    }, 2000)
+                                }
                             }, 1000)
                         }, 1000)
                     }, 1000)
                 }, 1000)
             }, 1000)
         }, 1000)
-        songOneEndCount += 1
     }
 
     private fun songTwoPlay() {
         playMusic(R.raw.twinkle2)
+        fadeOutMillis = 200
+        handler.postDelayed({
+            songTwoPlayHandlerOne()
+        }, 1400)
+    }
 
+    private fun songTwoPlayHandlerOne() {
+        answerOneFall()
+        handler.postDelayed({
+            answerOneCopyOneFall()
+            handler.postDelayed({
+                pressAnswerTwoFall()
+                handler.postDelayed({
+                    songTwoPlayHandlerTwo()
+                },1040)
+            }, 490)
+        }, 440)
+    }
+
+    private fun songTwoPlayHandlerTwo() {
+        answerThreeFall()
+        handler.postDelayed({
+            answerThreeCopyOneFall()
+            handler.postDelayed({
+                pressAnswerFourFall()
+                handler.postDelayed({
+                    songTwoPlayHandlerThree()
+                }, 1040)
+            }, 490)
+        }, 440)
+    }
+
+    private fun songTwoPlayHandlerThree() {
+        answerFourFall()
+        handler.postDelayed({
+            answerFourCopyOneFall()
+            handler.postDelayed({
+                pressAnswerThreeFall()
+                handler.postDelayed({
+                    songTwoPlayHandlerFour()
+                }, 1040)
+            }, 490)
+        }, 440)
+    }
+
+    private fun songTwoPlayHandlerFour() {
+        answerTwoFall()
+        songLoopCount += 1
+        handler.postDelayed({
+            answerTwoCopyOneFall()
+            handler.postDelayed({
+                pressAnswerOneFall()
+                if(songLoopCount != 6) {
+                    handler.postDelayed({
+                        songTwoPlayHandlerOne()
+                    }, 1040)
+                }
+            }, 490)
+        }, 440)
+        songLoopCount
     }
 
     private fun songThreePlay() {
