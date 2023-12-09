@@ -191,12 +191,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupMyPage() {
-        if (currentUser?.name.isNullOrEmpty()) {
-            val profileView: ImageView = findViewById(R.id.imageView8)
-            profileView.isVisible = false
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
         setContentView(R.layout.activity_mypage)
         // Update the TextViews with the user's name
         val nameView: TextView = findViewById(R.id.textView23)
@@ -408,7 +402,14 @@ class MainActivity : AppCompatActivity() {
 
         val myPageButton: ImageButton = findViewById(R.id.main_menu_mypage)
         myPageButton.setOnClickListener {
-            setupMyPage()
+            if (currentUser?.name.isNullOrEmpty()) {
+                // User name is null or empty, navigate to LoginActivity
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            } else {
+                // User name is not null or empty, proceed to setupMyPage
+                setupMyPage()
+            }
         }
 
         val rankPageButton: ImageButton = findViewById(R.id.main_menu_rank_selected)
