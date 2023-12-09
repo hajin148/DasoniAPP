@@ -59,6 +59,7 @@ class RhythmGameActivity : AppCompatActivity() {
         mediaPlayer = MediaPlayer.create(this, musicResourceId)
         mediaPlayer.setOnCompletionListener {
             val resultIntent = Intent()
+            resultIntent.putExtra("score", score)
             setResult(RESULT_OK, resultIntent)
             mediaPlayer.release()
             finish()

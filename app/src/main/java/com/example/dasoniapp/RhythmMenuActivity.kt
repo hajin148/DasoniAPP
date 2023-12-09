@@ -25,9 +25,15 @@ class RhythmMenuActivity : AppCompatActivity() {
         if (requestCode == GAME_REQUEST_CODE && resultCode == RESULT_OK) {
             setContentView(R.layout.activity_rhythm_game_end)
 
+
+
             val scoreText = findViewById<TextView>(R.id.curr_score_txt)
             val endStar = findViewById<ImageView>(R.id.end_star)
 
+            data?.let {
+                val finalScore = it.getIntExtra("score", 0)
+                scoreText.text = finalScore.toString()
+            }
             when(songNumStr){
                 "one" -> endStar.setImageResource(R.drawable.rhythm_game_end_onestar)
                 "two" -> endStar.setImageResource(R.drawable.rhythm_game_end_twostar)
@@ -41,6 +47,8 @@ class RhythmMenuActivity : AppCompatActivity() {
             songMenuButton.setOnClickListener {
                 showSongMenu()
             }
+
+
         }
     }
 
@@ -95,6 +103,7 @@ class RhythmMenuActivity : AppCompatActivity() {
             val intent = Intent(this, RhythmGameActivity::class.java)
             intent.putExtra("songNumber", songNumString)
             startActivityForResult(intent, GAME_REQUEST_CODE)
+
         }
 
         val songBackButton = findViewById<ImageView>(R.id.back_btn)
