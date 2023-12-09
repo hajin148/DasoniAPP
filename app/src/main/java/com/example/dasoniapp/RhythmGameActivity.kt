@@ -195,7 +195,7 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songThreePlay() {
         playMusic(R.raw.twinkle3)
-        fadeOutMillis = 100
+        fadeOutMillis = 50
         fallDuration = 2500
         handler.postDelayed({
             songThreePlayHelperOne()
@@ -204,13 +204,49 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songThreePlayHelperOne() {
         pressAnswerOneFall()
-//        handler.postDelayed({
-//            answerTwoFall()
-//            handler.postDelayed({
-//                answerTwoCopyOneFall()
-//            }, 200)
-//        }, 600)
+        handler.postDelayed({
+            answerTwoFall()
+            handler.postDelayed({
+                answerTwoCopyOneFall()
+                handler.postDelayed({
+                    pressAnswerThreeFall()
+                    handler.postDelayed({
+                        answerFourFall()
+                        handler.postDelayed({
+                            answerFourCopyOneFall()
+                            handler.postDelayed({
+                                songThreePlayHelperTwo()
+                            }, 290)
+                        }, 200)
+                    }, 500)
+                }, 290)
+            }, 200)
+        }, 500)
+    }
 
+    private fun songThreePlayHelperTwo() {
+        pressAnswerFourFall()
+        songLoopCount += 1
+        handler.postDelayed({
+            answerThreeFall()
+            handler.postDelayed({
+                answerThreeCopyOneFall()
+                handler.postDelayed({
+                    pressAnswerTwoFall()
+                    handler.postDelayed({
+                        answerOneFall()
+                        handler.postDelayed({
+                            answerOneCopyOneFall()
+                            if (songLoopCount != 12) {
+                                handler.postDelayed({
+                                    songThreePlayHelperOne()
+                                }, 290)
+                            }
+                        }, 200)
+                    }, 500)
+                }, 290)
+            }, 200)
+        }, 500)
     }
 
     private fun songFourPlay() {
@@ -498,12 +534,11 @@ class RhythmGameActivity : AppCompatActivity() {
             answerLoc[1] + 3 * answerOffset
         )
 
-        val btnOffset = btnNode.height / 4
         val btnRectForPerfect = Rect(
             btnLoc[0],
-            btnLoc[1] + btnOffset,
+            btnLoc[1],
             btnLoc[0] + btnNode.width,
-            btnLoc[1] + 3 * btnOffset
+            btnLoc[1] + btnNode.height
         )
 
         return answerRectForPerfect.intersect(btnRectForPerfect)
