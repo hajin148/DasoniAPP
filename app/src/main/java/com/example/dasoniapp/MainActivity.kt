@@ -220,12 +220,14 @@ class MainActivity : AppCompatActivity() {
             logoutTextView.setOnClickListener {
                 // Log out the user
                 mFirebaseAuth.signOut()
-                currentUser = null
 
-                // Update UI or go back to login page after logout
-                val LoginPage = Intent(this, LoginActivity::class.java)
-                startActivity(LoginPage)
-                finish()
+                // Wait for a short delay or use a more sophisticated method to ensure logout completion
+                Handler(Looper.getMainLooper()).postDelayed({
+                    // Update UI or go back to login page after logout
+                    val LoginPage = Intent(this, LoginActivity::class.java)
+                    startActivity(LoginPage)
+                    finish()
+                }, 500) // 500ms delay, adjust as necessary
             }
         }
 
@@ -245,7 +247,6 @@ class MainActivity : AppCompatActivity() {
             val logoutTextView: TextView = findViewById(R.id.textView31)
             if(logoutTextView.text != "로그아웃") {
                 currentUser = null
-                intent.putExtra("UserAccount", currentUser)
             }
             setupRankPage()
         }
@@ -342,29 +343,42 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setupRankPage() {
-        val userId = mFirebaseAuth.currentUser?.uid
-        if (userId != null) {
-            val databaseReference = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
-            databaseReference.child(userId).addListenerForSingleValueEvent(object :
-                ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val userAccount = dataSnapshot.getValue(UserAccount::class.java)
-                    if (userAccount != null) {
-                        updateRankPageUI(userAccount)
-                    } else {
-                        // Handle the case where user data is not found
+        if (currentUser == null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        else if (FirebaseAuth.getInstance().currentUser != null) {
+            val userId = mFirebaseAuth.currentUser?.uid
+            if (userId != null) {
+                val databaseReference = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
+                databaseReference.child(userId).addListenerForSingleValueEvent(object :
+                    ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        val userAccount = dataSnapshot.getValue(UserAccount::class.java)
+                        if (userAccount != null) {
+                            updateRankPageUI(userAccount)
+                        } else {
+                            // Handle the case where user data is not found
+                            setupDefaultRankPage()
+                        }
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        // Handle possible errors.
                         setupDefaultRankPage()
                     }
-                }
-
-                override fun onCancelled(databaseError: DatabaseError) {
-                    // Handle possible errors.
-                    setupDefaultRankPage()
-                }
-            })
+                })
+            } else {
+                // Handle case where user ID is null (user not logged in or other reasons)
+                setupDefaultRankPage()
+            }
         } else {
-            // Handle case where user ID is null (user not logged in or other reasons)
-            setupDefaultRankPage()
+            // User is not logged in, redirect to login activity
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
