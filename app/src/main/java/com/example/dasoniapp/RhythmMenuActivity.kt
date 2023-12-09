@@ -31,9 +31,11 @@ class RhythmMenuActivity : AppCompatActivity() {
             val endStar = findViewById<ImageView>(R.id.end_star)
 
             data?.let {
+                // end score
                 val finalScore = it.getIntExtra("score", 0)
                 scoreText.text = finalScore.toString()
             }
+
             when(songNumStr){
                 "one" -> endStar.setImageResource(R.drawable.rhythm_game_end_onestar)
                 "two" -> endStar.setImageResource(R.drawable.rhythm_game_end_twostar)
