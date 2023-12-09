@@ -27,6 +27,7 @@ class RhythmGameActivity : AppCompatActivity() {
     private var mediaPlayer = MediaPlayer()
     private var isWrongCounted = false
 
+    private var fallDuration: Long = 4000
     private var songLoopCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -130,7 +131,7 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songTwoPlay() {
         playMusic(R.raw.twinkle2)
-        fadeOutMillis = 200
+        fadeOutMillis = 250
         handler.postDelayed({
             songTwoPlayHandlerOne()
         }, 1400)
@@ -194,7 +195,56 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songThreePlay() {
         playMusic(R.raw.twinkle3)
+        fadeOutMillis = 100
+        fallDuration = 3000
+        handler.postDelayed({
+            songThreePlayHelperOne()
+        }, 2000)
     }
+
+    private fun songThreePlayHelperOne() {
+        pressAnswerOneFall()
+//        handler.postDelayed({
+//            answerOneFall()
+//            handler.postDelayed({
+//                answerOneCopyOneFall()
+//                // two
+//                handler.postDelayed({
+//                    pressAnswerTwoFall()
+//                    handler.postDelayed({
+//                        answerTwoFall()
+//                        handler.postDelayed({
+//                            answerTwoCopyTwoFall()
+//                            // three
+//                            handler.postDelayed({
+//                                pressAnswerThreeFall()
+//                                handler.postDelayed({
+//                                    answerThreeFall()
+//                                    handler.postDelayed({
+//                                        answerThreeCopyOneFall()
+//                                        // four
+//                                        handler.postDelayed({
+//                                            pressAnswerFourFall()
+//                                            handler.postDelayed({
+//                                                answerFourFall()
+//                                                handler.postDelayed({
+//                                                    answerFourCopyOneFall()
+//                                                }, 200)
+//                                            }, 800)
+//                                        }, 200)
+//                                    }, 200)
+//                                }, 800)
+//                            }, 200)
+//                            //
+//                        }, 200)
+//                    }, 800)
+//                }, 200)
+//                //
+//            }, 200)
+//        }, 800)
+    }
+
+
 
     private fun songFourPlay() {
         playMusic(R.raw.twinkle1)
@@ -564,7 +614,7 @@ class RhythmGameActivity : AppCompatActivity() {
         val screenHeight = (getWindowHeight(this) + pressTop.height).toFloat()
         val animator = answerNode.animate()
             .translationYBy(screenHeight) // 3000f - y length screen
-            .setDuration(4000) // 4000 secs
+            .setDuration(fallDuration) // 4000 secs
 
         animator.interpolator = LinearInterpolator()
 
