@@ -17,7 +17,6 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class RhythmGameActivity : AppCompatActivity() {
-
     private var score = 0
     private var wrongCount = 0
     private var isScoredAdded = false
@@ -27,6 +26,8 @@ class RhythmGameActivity : AppCompatActivity() {
     private var fadeOutMillis: Long = 400 // 400 up 부터 더블클릭 안됨 --> 간격은 무조건 설정된 fadeOutMillis 보다 크게
     private var mediaPlayer = MediaPlayer()
     private var isWrongCounted = false
+
+    private var songOneEndCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +71,7 @@ class RhythmGameActivity : AppCompatActivity() {
         fadeOutMillis = 500
         handler.postDelayed({
             songOnePlayHelperOne()
-        }, 2650)
+        }, 3300)
     }
 
     private fun songOnePlayHelperOne() {
@@ -113,7 +114,9 @@ class RhythmGameActivity : AppCompatActivity() {
                             handler.postDelayed({
                                 pressAnswerOneFall()
                                 handler.postDelayed({
-                                    songOnePlayHelperOne()
+                                    if(songOneEndCount != 3) {
+                                        songOnePlayHelperOne()
+                                    }
                                 }, 2000)
                             }, 1000)
                         }, 1000)
@@ -121,23 +124,12 @@ class RhythmGameActivity : AppCompatActivity() {
                 }, 1000)
             }, 1000)
         }, 1000)
+        songOneEndCount += 1
     }
 
     private fun songTwoPlay() {
         playMusic(R.raw.twinkle2)
-        // test
-        handler.postDelayed({
-            answerOneFall()
-            handler.postDelayed({
-                answerTwoFall()
-                handler.postDelayed({
-                    answerThreeFall()
-                    handler.postDelayed({
-                        answerFourFall()
-                    }, 2000)
-                }, 2000)
-            }, 2000)
-        }, 2000)
+
     }
 
     private fun songThreePlay() {
@@ -420,12 +412,12 @@ class RhythmGameActivity : AppCompatActivity() {
         val btnLoc = IntArray(2)
         btnNode.getLocationOnScreen(btnLoc)
 
-        val answerOffset = answerNode.height / 3
+        val answerOffset = answerNode.height / 4
         val answerRectForPerfect = Rect(
             answerLoc[0],
             answerLoc[1] + answerOffset,
             answerLoc[0] + answerNode.width,
-            answerLoc[1] + 2 * answerOffset
+            answerLoc[1] + 3 * answerOffset
         )
 
         val btnOffset = btnNode.height / 3
