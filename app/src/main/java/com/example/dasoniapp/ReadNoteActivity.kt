@@ -112,6 +112,7 @@ class ReadNoteActivity : AppCompatActivity() {
         scoreGameView.setOnClickListener {
             val scoreGameIntent = Intent(this, ScoreGameActivity::class.java)
             scoreGameIntent.putExtra("UserAccount", currentUser)
+            scoreGameIntent.putExtra("userName", currentUser?.name ?: "Unknown")
             startActivity(scoreGameIntent)
         }
     }

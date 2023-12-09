@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/rank_frame_large" />
 
     <TextView
-        android:id="@+id/textView94"
+        android:id="@+id/rank10_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -25,10 +25,10 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 10"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView95"
+        app:layout_constraintEnd_toStartOf="@+id/rank10_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView91" />
+        app:layout_constraintTop_toBottomOf="@+id/rank9_name" />
 
     <TextView
         android:id="@+id/textView93"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView90" />
 
     <TextView
-        android:id="@+id/textView95"
+        android:id="@+id/rank10_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -55,11 +55,11 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView18"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView92"
+        app:layout_constraintTop_toBottomOf="@+id/rank9_score"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView91"
+        android:id="@+id/rank9_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -67,10 +67,10 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 9"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView92"
+        app:layout_constraintEnd_toStartOf="@+id/rank9_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView88" />
+        app:layout_constraintTop_toBottomOf="@+id/rank8_name" />
 
     <TextView
         android:id="@+id/textView90"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView87" />
 
     <TextView
-        android:id="@+id/textView92"
+        android:id="@+id/rank9_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -96,10 +96,10 @@
         android:textColor="#4896FF"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView89" />
+        app:layout_constraintTop_toBottomOf="@+id/rank8_score" />
 
     <TextView
-        android:id="@+id/textView89"
+        android:id="@+id/rank8_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -109,7 +109,7 @@
         android:textColor="#4896FF"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView85" />
+        app:layout_constraintTop_toBottomOf="@+id/rank7_score" />
 
     <TextView
         android:id="@+id/textView87"
@@ -125,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView86" />
 
     <TextView
-        android:id="@+id/textView88"
+        android:id="@+id/rank8_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -133,13 +133,13 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 8"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView89"
+        app:layout_constraintEnd_toStartOf="@+id/rank8_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView84" />
+        app:layout_constraintTop_toBottomOf="@+id/rank7_name" />
 
     <TextView
-        android:id="@+id/textView84"
+        android:id="@+id/rank7_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -147,10 +147,10 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 7"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView85"
+        app:layout_constraintEnd_toStartOf="@+id/rank7_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView81" />
+        app:layout_constraintTop_toBottomOf="@+id/rank6_name" />
 
     <TextView
         android:id="@+id/textView86"
@@ -166,7 +166,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView83" />
 
     <TextView
-        android:id="@+id/textView85"
+        android:id="@+id/rank7_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -176,10 +176,10 @@
         android:textColor="#4896FF"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView82" />
+        app:layout_constraintTop_toBottomOf="@+id/rank6_score" />
 
     <TextView
-        android:id="@+id/textView81"
+        android:id="@+id/rank6_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -187,10 +187,10 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 6"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView82"
+        app:layout_constraintEnd_toStartOf="@+id/rank6_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView78" />
+        app:layout_constraintTop_toBottomOf="@+id/rank5_name" />
 
     <TextView
         android:id="@+id/textView83"
@@ -206,7 +206,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView80" />
 
     <TextView
-        android:id="@+id/textView82"
+        android:id="@+id/rank6_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -216,10 +216,10 @@
         android:textColor="#4896FF"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView79" />
+        app:layout_constraintTop_toBottomOf="@+id/rank5_score" />
 
     <TextView
-        android:id="@+id/textView78"
+        android:id="@+id/rank5_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -227,10 +227,10 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 5"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView79"
+        app:layout_constraintEnd_toStartOf="@+id/rank5_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView75" />
+        app:layout_constraintTop_toBottomOf="@+id/rank4_name" />
 
     <TextView
         android:id="@+id/textView80"
@@ -246,7 +246,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView76" />
 
     <TextView
-        android:id="@+id/textView79"
+        android:id="@+id/rank5_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -256,10 +256,10 @@
         android:textColor="#4896FF"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView77" />
+        app:layout_constraintTop_toBottomOf="@+id/rank4_score" />
 
     <TextView
-        android:id="@+id/textView75"
+        android:id="@+id/rank4_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -267,13 +267,13 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 4"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView77"
+        app:layout_constraintEnd_toStartOf="@+id/rank4_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView69" />
+        app:layout_constraintTop_toBottomOf="@+id/rank3_name" />
 
     <TextView
-        android:id="@+id/textView77"
+        android:id="@+id/rank4_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -283,7 +283,7 @@
         android:textColor="#4896FF"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView71" />
+        app:layout_constraintTop_toBottomOf="@+id/rank3_score" />
 
     <TextView
         android:id="@+id/textView76"
@@ -300,7 +300,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView70" />
 
     <TextView
-        android:id="@+id/textView72"
+        android:id="@+id/rank2_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -308,10 +308,10 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 2"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView74"
+        app:layout_constraintEnd_toStartOf="@+id/rank2_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+        app:layout_constraintTop_toBottomOf="@+id/rank1_name" />
 
     <TextView
         android:id="@+id/textView73"
@@ -327,7 +327,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
     <TextView
-        android:id="@+id/textView74"
+        android:id="@+id/rank2_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -337,10 +337,10 @@
         android:textColor="#FF4A98"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+        app:layout_constraintTop_toBottomOf="@+id/rank1_score" />
 
     <TextView
-        android:id="@+id/textView69"
+        android:id="@+id/rank3_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -348,13 +348,13 @@
         android:fontFamily="@font/pretendard_semibold"
         android:text="플레이어 3"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView71"
+        app:layout_constraintEnd_toStartOf="@+id/rank3_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView72" />
+        app:layout_constraintTop_toBottomOf="@+id/rank2_name" />
 
     <TextView
-        android:id="@+id/textView71"
+        android:id="@+id/rank3_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -364,7 +364,7 @@
         android:textColor="#FF4A98"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView74" />
+        app:layout_constraintTop_toBottomOf="@+id/rank2_score" />
 
     <TextView
         android:id="@+id/textView70"
@@ -396,7 +396,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView20" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/rank1_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -521,7 +521,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:fontFamily="@font/pretendard_bold"
-        android:text="21"
+        android:text="나"
         android:textColor="#4896FF"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView21"
@@ -564,7 +564,7 @@
         app:srcCompat="@drawable/bottom_menu_mypage" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/rank1_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -573,7 +573,7 @@
         android:text="플레이어 1"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/main_menu_rank_selected"
-        app:layout_constraintEnd_toStartOf="@+id/textView35"
+        app:layout_constraintEnd_toStartOf="@+id/rank1_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
         app:layout_constraintTop_toBottomOf="@+id/imageView20"

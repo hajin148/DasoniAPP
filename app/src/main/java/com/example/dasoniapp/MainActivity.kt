@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -66,9 +67,9 @@ class MainActivity : AppCompatActivity() {
             setupMainPage()
         }
     }
+
+
     private fun initializeCurrentUser() {
-
-
         val userId = mFirebaseAuth.currentUser?.uid
         if (userId != null) {
             val databaseReference = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
@@ -91,9 +92,12 @@ class MainActivity : AppCompatActivity() {
         if (isFirstLaunch) {
             // If it's the first launch, update the flag
             prefs.edit().putBoolean("isFirstLaunch", false).apply()
+
         }
         return isFirstLaunch
     }
+
+
 
     private fun setOnboardingView() {
         when (onboardingStep) {
@@ -132,6 +136,7 @@ class MainActivity : AppCompatActivity() {
                 currentUser = a
             }
             intent.putExtra("UserAccount", currentUser)
+            intent.putExtra("userName", currentUser?.name ?: "Unknown")
             startActivity(intent)
         }
 
@@ -142,6 +147,7 @@ class MainActivity : AppCompatActivity() {
                 var a = UserAccount("test@gmail.com", "01011111234", "test", "123123")
                 currentUser = a
             }
+            intent.putExtra("userName", currentUser?.name ?: "Unknown")
             intent.putExtra("UserAccount", currentUser)
             startActivity(intent)
         }
@@ -186,7 +192,14 @@ class MainActivity : AppCompatActivity() {
 
         val rankPageButton: ImageButton = findViewById(R.id.main_menu_rank)
         rankPageButton.setOnClickListener {
-            setupRankPage()
+            if (currentUser?.name.isNullOrEmpty()) {
+                // User name is null or empty, navigate to LoginActivity
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            } else {
+                // User name is not null or empty, proceed to setupRankPage
+                setupRankPage()
+            }
         }
     }
 
