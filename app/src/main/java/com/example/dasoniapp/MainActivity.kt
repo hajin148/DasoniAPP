@@ -397,6 +397,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateRankPageUI(userAccount: UserAccount) {
         setContentView(R.layout.activity_rank_first)
+        updateScoreboardUI("note")
+
 
         // Update UI elements with user data
         val bestNoteScoreTextView: TextView = findViewById(R.id.textView65)
@@ -409,6 +411,29 @@ class MainActivity : AppCompatActivity() {
 
         setupRankPageListeners()
     }
+
+    private fun updateScoreboardUI(scoreboardType: String) {
+        val scoreboardRef = FirebaseDatabase.getInstance().getReference("DasoniAPP/scoreboard/$scoreboardType")
+        scoreboardRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val scores = snapshot.children.mapNotNull { it.getValue(ScoreEntry::class.java) }
+
+                for ((index, scoreEntry) in scores.withIndex()) {
+                    val nameTextViewId = resources.getIdentifier("rank${index + 1}_name", "id", packageName)
+                    val scoreTextViewId = resources.getIdentifier("rank${index + 1}_score", "id", packageName)
+
+                    findViewById<TextView>(nameTextViewId).text = scoreEntry.name
+                    findViewById<TextView>(scoreTextViewId).text = scoreEntry.score.toString()
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle possible errors
+            }
+        })
+    }
+
+    data class ScoreEntry(val name: String = "", val score: Int = 0)
 
     private fun setupDefaultRankPage() {
         setContentView(R.layout.activity_rank_first)
@@ -454,6 +479,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRankSecondListeners() {
         setContentView(R.layout.activity_rank_second)
+        updateScoreboardUI("rhythm")
 
         if(currentUser != null) {
             val bestRhythmScoreTextView: TextView = findViewById(R.id.textView65)
