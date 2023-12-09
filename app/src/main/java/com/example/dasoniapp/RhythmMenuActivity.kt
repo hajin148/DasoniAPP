@@ -144,7 +144,7 @@ class RhythmMenuActivity : AppCompatActivity() {
 
         for ((i, song) in songClickBox.withIndex()) {
             val songNameId = "song_${songNumString[i]}_title"
-            val songWriterNameId = "song_${songNumString[i]}_title"
+            val songWriterNameId = "song_${songNumString[i]}_writer"
             val songName =
                 findViewById<TextView>(resources.getIdentifier(songNameId, "id", packageName))
             val songWriterName =
