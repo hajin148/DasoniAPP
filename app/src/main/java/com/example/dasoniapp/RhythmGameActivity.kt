@@ -369,6 +369,54 @@ class RhythmGameActivity : AppCompatActivity() {
         }, 249)
     }
 
+    private fun playSequence(sequence: String) {
+        var delay = 0L
+        val lastFall = mutableMapOf<Char, Int>()
+
+        sequence.forEach { number ->
+            handler.postDelayed({
+                when (number) {
+                    '1' -> {
+                        when (lastFall.getOrDefault(number, 0) % 4) {
+                            0 -> answerOneFall()
+                            1 -> answerOneCopyOneFall()
+                            2 -> answerOneCopyTwoFall()
+                            else -> answerOneCopyThreeFall()
+                        }
+                    }
+                    '2' -> {
+                        when (lastFall.getOrDefault(number, 0) % 4) {
+                            0 -> answerTwoFall()
+                            1 -> answerTwoCopyOneFall()
+                            2 -> answerTwoCopyTwoFall()
+                            else -> answerTwoCopyThreeFall()
+                        }
+                    }
+                    '3' -> {
+                        when (lastFall.getOrDefault(number, 0) % 4) {
+                            0 -> answerThreeFall()
+                            1 -> answerThreeCopyOneFall()
+                            2 -> answerThreeCopyTwoFall()
+                            else -> answerThreeCopyThreeFall()
+                        }
+                    }
+                    '4' -> {
+                        when (lastFall.getOrDefault(number, 0) % 4) {
+                            0 -> answerFourFall()
+                            1 -> answerFourCopyOneFall()
+                            2 -> answerFourCopyTwoFall()
+                            else -> answerFourCopyThreeFall()
+                        }
+                    }
+                }
+                // Increment or reset the fall count
+                lastFall[number] = lastFall.getOrDefault(number, 0) + 1
+            }, delay)
+            delay += 1000 // Adjust the interval as needed
+        }
+    }
+
+
     private fun songSixPlay() {
         playMusic(R.raw.frenchfolksong)
         fadeOutMillis = 700
@@ -377,29 +425,31 @@ class RhythmGameActivity : AppCompatActivity() {
         }, 3300)
     }
 
+    private var songLoopCount2 = 0
+    private val lastFall = mutableMapOf<Char, Int>()
+
     private fun songSixPlayHelperOne() {
-        answerOneFall()
+        playSequence("123432123444")
+        val totalDelayForSequenceOne = "123432123444".length * 1000
         handler.postDelayed({
-            answerOneCopyOneFall()
+            songSixPlayHelperTwo()
+        }, totalDelayForSequenceOne.toLong())
+    }
+
+    private fun songSixPlayHelperTwo() {
+        if (songLoopCount2 < 2) {
+            playSequence("432123432111")
+        }
+        val totalDelayForSequenceTwo = "432123432111".length * 1000
+
+        songLoopCount2++
+        if (songLoopCount2 < 3) {
             handler.postDelayed({
-                answerTwoFall()
-                handler.postDelayed({
-                    answerTwoCopyOneFall()
-                    handler.postDelayed({
-                        answerThreeFall()
-                        handler.postDelayed({
-                            answerThreeCopyOneFall()
-                            handler.postDelayed({
-                                pressAnswerFourFall()
-                                handler.postDelayed({
-                                    songOnePlayHelperTwo()
-                                }, 2000)
-                            }, 1000)
-                        }, 1000)
-                    }, 1000)
-                }, 1000)
-            }, 1000)
-        }, 1000)
+                songSixPlayHelperOne()
+            }, totalDelayForSequenceTwo.toLong())
+        } else {
+            songLoopCount2 = 0
+        }
     }
 
 
