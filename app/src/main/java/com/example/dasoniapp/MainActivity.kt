@@ -240,7 +240,7 @@ class MainActivity : AppCompatActivity() {
                     val LoginPage = Intent(this, LoginActivity::class.java)
                     startActivity(LoginPage)
                     finish()
-                }, 500) // 500ms delay, adjust as necessary
+                }, 1000)
             }
         }
 

@@ -150,18 +150,6 @@
         app:srcCompat="@drawable/main_logo" />
 
     <ImageView
-        android:id="@+id/main_alarm_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/main_profile_background"
-        app:layout_constraintEnd_toEndOf="@+id/main_background"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="@+id/main_background"
-        app:layout_constraintTop_toTopOf="@+id/main_background"
-        app:layout_constraintVertical_bias="0.828"
-        app:srcCompat="@drawable/main_alarm" />
-
-    <ImageView
         android:id="@+id/music_practice_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

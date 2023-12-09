@@ -371,7 +371,37 @@ class RhythmGameActivity : AppCompatActivity() {
 
     private fun songSixPlay() {
         playMusic(R.raw.frenchfolksong)
+        fadeOutMillis = 700
+        handler.postDelayed({
+            songSixPlayHelperOne()
+        }, 3300)
     }
+
+    private fun songSixPlayHelperOne() {
+        answerOneFall()
+        handler.postDelayed({
+            answerOneCopyOneFall()
+            handler.postDelayed({
+                answerTwoFall()
+                handler.postDelayed({
+                    answerTwoCopyOneFall()
+                    handler.postDelayed({
+                        answerThreeFall()
+                        handler.postDelayed({
+                            answerThreeCopyOneFall()
+                            handler.postDelayed({
+                                pressAnswerFourFall()
+                                handler.postDelayed({
+                                    songOnePlayHelperTwo()
+                                }, 2000)
+                            }, 1000)
+                        }, 1000)
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+        }, 1000)
+    }
+
 
     private fun playGame() {
         // initialization regular answer node
@@ -594,6 +624,8 @@ class RhythmGameActivity : AppCompatActivity() {
             }, 100)
         }
     }
+
+
 
     private fun semiScoreHelper(
         veryGoodText: ImageView,
