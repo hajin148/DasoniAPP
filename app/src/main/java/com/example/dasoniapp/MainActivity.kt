@@ -447,9 +447,16 @@ class MainActivity : AppCompatActivity() {
             setupMainPage()
         }
 
-        val myPageButton: ImageView = findViewById(R.id.imageView16)
+        val myPageButton: ImageButton = findViewById(R.id.main_menu_mypage)
         myPageButton.setOnClickListener {
-            setupMyPage()
+            if (currentUser?.name.isNullOrEmpty()) {
+                // User name is null or empty, navigate to LoginActivity
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            } else {
+                // User name is not null or empty, proceed to setupMyPage
+                setupMyPage()
+            }
         }
     }
 
