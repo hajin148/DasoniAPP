@@ -7,14 +7,26 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class RhythmMenuActivity : AppCompatActivity() {
+    //added
+    private lateinit var database: DatabaseReference
+    private lateinit var userID: String
+    private lateinit var userNoteScore: String
+
     private var songNumStr = ""
     companion object {
         const val GAME_REQUEST_CODE = 123
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val user = FirebaseAuth.getInstance().currentUser
+        userID = user?.uid ?: "Unknown"
+        userNoteScore = intent.getStringExtra("bestNoteScore") ?: "Unknown"
+        database = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
         showSongMenu()
     }
 
@@ -25,14 +37,23 @@ class RhythmMenuActivity : AppCompatActivity() {
         if (requestCode == GAME_REQUEST_CODE && resultCode == RESULT_OK) {
             setContentView(R.layout.activity_rhythm_game_end)
 
-
+            val userRef = database.child(userID)
 
             val scoreText = findViewById<TextView>(R.id.curr_score_txt)
+            val highscoreText = findViewById<TextView>(R.id.textView129)
             val endStar = findViewById<ImageView>(R.id.end_star)
 
             data?.let {
                 // end score
                 val finalScore = it.getIntExtra("score", 0)
+                userRef.child("bestRhythmScore").get().addOnSuccessListener { dataSnapshot ->
+                    val bestScore = dataSnapshot.getValue(Int::class.java) ?: 0
+                    highscoreText.text = bestScore.toString()
+                    if (finalScore > bestScore) {
+                        userRef.child("bestRhythmScore").setValue(finalScore)
+                    }
+                }.addOnFailureListener {
+                }
                 scoreText.text = finalScore.toString()
             }
 
