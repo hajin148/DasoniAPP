@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "56283139512",
+    "firebase_url": "https://dasoniapp-default-rtdb.firebaseio.com",
     "project_id": "dasoniapp",
     "storage_bucket": "dasoniapp.appspot.com"
   },
@@ -12,7 +13,12 @@
           "package_name": "com.example.dasoniapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "56283139512-nuv7e1o7eftdtpqllibj5cv6dhftr92n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCUwIK_uxBU4KNn8eDvoCNYhI5Kj2GoxiU"
@@ -20,7 +26,41 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56283139512-nuv7e1o7eftdtpqllibj5cv6dhftr92n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56283139512:android:bff68fd40e65d79199534d",
+        "android_client_info": {
+          "package_name": "com.musicmate.dasoniapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56283139512-nuv7e1o7eftdtpqllibj5cv6dhftr92n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUwIK_uxBU4KNn8eDvoCNYhI5Kj2GoxiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56283139512-nuv7e1o7eftdtpqllibj5cv6dhftr92n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

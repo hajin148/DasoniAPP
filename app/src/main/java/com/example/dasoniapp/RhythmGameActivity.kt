@@ -15,8 +15,16 @@ import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
+import com.example.dasoniapp.databinding.ActivityRhythmGameEasyPlayBinding
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class RhythmGameActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRhythmGameEasyPlayBinding
+
+
     private var score = 0
     private var wrongCount = 0
     private var isScoredAdded = false
@@ -44,7 +52,12 @@ class RhythmGameActivity : AppCompatActivity() {
             finish()
         }
 
-        when (intent.getStringExtra("songNumber")) {
+        playGameBasedOnSong(intent.getStringExtra("songNumber"))
+        playGame()
+    }
+
+    private fun playGameBasedOnSong(songNumber: String?) {
+        when (songNumber) {
             "one" -> songOnePlay()
             "two" -> songTwoPlay()
             "three" -> songThreePlay()
@@ -52,22 +65,31 @@ class RhythmGameActivity : AppCompatActivity() {
             "five" -> songFivePlay()
             "six" -> songSixPlay()
         }
-        playGame()
     }
-
-    private fun playMusic(musicResourceId: Int) {
-        mediaPlayer.release()
-        mediaPlayer = MediaPlayer.create(this, musicResourceId)
-        mediaPlayer.setOnCompletionListener {
-            val resultIntent = Intent()
-            resultIntent.putExtra("score", score)
-            setResult(RESULT_OK, resultIntent)
-            mediaPlayer.release()
-            finish()
+    private fun releaseMediaPlayer() {
+        mediaPlayer.apply {
+            if (isPlaying) stop()
+            release()
         }
-        mediaPlayer.start()
+        mediaPlayer = MediaPlayer()
     }
+    private fun playMusic(musicResourceId: Int) {
+        releaseMediaPlayer()
+        mediaPlayer = MediaPlayer.create(this, musicResourceId).apply {
+            setOnCompletionListener {
+                Intent().also { resultIntent ->
+                    resultIntent.putExtra("score", score)
+                    setResult(RESULT_OK, resultIntent)
+                    releaseMediaPlayer()
+                    finish()
+                }
+            }
+            start()
+        }
+    }
+    private var songLoopCount1 = 0 // Assuming you're using a different counter for song one
 
+    // Initiates the sequence for song one play
     private fun songOnePlay() {
         playMusic(R.raw.twinkle5)
         fadeOutMillis = 700
@@ -76,178 +98,204 @@ class RhythmGameActivity : AppCompatActivity() {
         }, 3300)
     }
 
+    // Handles the first part of the sequence for song one
     private fun songOnePlayHelperOne() {
-        answerOneFall()
-        handler.postDelayed({
-            answerOneCopyOneFall()
+        if (songLoopCount1 < 3) {
+            playSequence("1122338")
+            val totalDelayForSequenceOne = "1122338".length * 1000 + 1000 // Adding 1000ms delay
             handler.postDelayed({
-                answerTwoFall()
-                handler.postDelayed({
-                    answerTwoCopyOneFall()
-                    handler.postDelayed({
-                        answerThreeFall()
-                        handler.postDelayed({
-                            answerThreeCopyOneFall()
-                            handler.postDelayed({
-                                pressAnswerFourFall()
-                                handler.postDelayed({
-                                    songOnePlayHelperTwo()
-                                }, 2000)
-                            }, 1000)
-                        }, 1000)
-                    }, 1000)
-                }, 1000)
-            }, 1000)
-        }, 1000)
+                songOnePlayHelperTwo()
+            }, totalDelayForSequenceOne.toLong())
+        }
     }
 
+    // Handles the second part of the sequence for song one
     private fun songOnePlayHelperTwo() {
-        answerFourFall()
-        songLoopCount += 1
+        playSequence("4433225")
+        val totalDelayForSequenceTwo = "4433225".length * 1000 + 1000 // Adding 1000ms delay
         handler.postDelayed({
-            answerFourCopyOneFall()
-            handler.postDelayed({
-                answerThreeFall()
-                handler.postDelayed({
-                    answerThreeCopyOneFall()
-                    handler.postDelayed({
-                        answerTwoFall()
-                        handler.postDelayed({
-                            answerTwoCopyOneFall()
-                            handler.postDelayed({
-                                pressAnswerOneFall()
-                                if (songLoopCount != 3) {
-                                    handler.postDelayed({
-                                        songOnePlayHelperOne()
-                                    }, 2000)
-                                }
-                            }, 1000)
-                        }, 1000)
-                    }, 1000)
-                }, 1000)
-            }, 1000)
-        }, 1000)
+            songLoopCount1++
+            if (songLoopCount1 < 3) {
+                handler.postDelayed({ // Additional delay before repeating the sequence
+                    songOnePlayHelperOne()
+                }, 0)
+            } else {
+                songLoopCount1 = 0 // Reset after completing the loop
+            }
+        }, totalDelayForSequenceTwo.toLong())
     }
 
+
+
+
+    // Initiates the sequence for song two play
     private fun songTwoPlay() {
         playMusic(R.raw.twinkle2)
         fadeOutMillis = 250
         handler.postDelayed({
-            songTwoPlayHandlerOne()
-        }, 3200)
+            songTwoPlayHelperOne()
+        }, 3300)
     }
 
-    private fun songTwoPlayHandlerOne() {
-        answerOneFall()
-        handler.postDelayed({
-            answerOneCopyOneFall()
+    // Handles the first part of the sequence for song two
+    private fun songTwoPlayHelperOne() {
+        if (songLoopCount2 < 6) {
+            playSongTwoSequence("116338")
+            val totalDelayForSequenceOne = calculateTotalDelay("116338")
             handler.postDelayed({
-                pressAnswerTwoFall()
-                handler.postDelayed({
-                    songTwoPlayHandlerTwo()
-                }, 1050)
-            }, 480)
-        }, 470)
+                songTwoPlayHelperTwo()
+            }, totalDelayForSequenceOne)
+        }
     }
 
-    private fun songTwoPlayHandlerTwo() {
-        answerThreeFall()
+    // Initiates the second part of the sequence for song two
+    private fun songTwoPlayHelperTwo() {
+        playSongTwoSequence("447225")
+        val totalDelayForSequenceTwo = calculateTotalDelay("447225")
         handler.postDelayed({
-            answerThreeCopyOneFall()
-            handler.postDelayed({
-                pressAnswerFourFall()
-                handler.postDelayed({
-                    songTwoPlayHandlerThree()
-                }, 1050)
-            }, 480)
-        }, 470)
+            songLoopCount2++
+            if (songLoopCount2 < 6) {
+                songTwoPlayHelperOne() // Repeat the sequence
+            } else {
+                songLoopCount2 = 0 // Reset after completing the loop
+            }
+        }, totalDelayForSequenceTwo)
     }
 
-    private fun songTwoPlayHandlerThree() {
-        answerFourFall()
-        handler.postDelayed({
-            answerFourCopyOneFall()
-            handler.postDelayed({
-                pressAnswerThreeFall()
-                handler.postDelayed({
-                    songTwoPlayHandlerFour()
-                }, 1050)
-            }, 480)
-        }, 470)
+    // Calculate the total delay for a given sequence
+    private fun calculateTotalDelay(sequence: String): Long {
+        var totalDelay = 0L
+        for (i in sequence.indices) {
+            totalDelay += if (i % 3 == 2) 1000L else 490L
+        }
+        return totalDelay
     }
 
-    private fun songTwoPlayHandlerFour() {
-        answerTwoFall()
-        songLoopCount += 1
-        handler.postDelayed({
-            answerTwoCopyOneFall()
-            handler.postDelayed({
-                pressAnswerOneFall()
-                if (songLoopCount != 6) {
-                    handler.postDelayed({
-                        songTwoPlayHandlerOne()
-                    }, 1050)
-                }
-            }, 480)
-        }, 470)
-        songLoopCount
+    // Handles playing a sequence with specific timing
+    private fun playSongTwoSequence(sequence: String) {
+        var cumulativeDelay = 0L
+
+        sequence.forEachIndexed { i, char ->
+            val actionDelay = if (i % 3 == 2) 1000L else 490L
+
+            // Update last fall count here
+            val currentFallCount = lastFall.getOrDefault(char, 0)
+            lastFall[char] = currentFallCount + 1
+
+            // Fetch the action based on the updated count
+            val action: () -> Unit = when (char) {
+                '1', '2', '3', '4' -> getFallAction(char, currentFallCount)
+                '5' -> { { pressAnswerOneFall() } }
+                '6' -> { { pressAnswerTwoFall() } }
+                '7' -> { { pressAnswerThreeFall() } }
+                '8' -> { { pressAnswerFourFall() } }
+                else -> { {} }
+            }
+
+            handler.postDelayed(action, cumulativeDelay)
+            cumulativeDelay += actionDelay
+        }
     }
+
+    private fun getFallAction(char: Char, fallCount: Int): () -> Unit {
+        val index = fallCount % 4
+        return when (char) {
+            '1' -> when (index) {
+                0 -> ::answerOneFall
+                1 -> ::answerOneCopyOneFall
+                2 -> ::answerOneCopyTwoFall
+                else -> ::answerOneCopyThreeFall
+            }
+            '2' -> when (index) {
+                0 -> ::answerTwoFall
+                1 -> ::answerTwoCopyOneFall
+                2 -> ::answerTwoCopyTwoFall
+                else -> ::answerTwoCopyThreeFall
+            }
+            '3' -> when (index) {
+                0 -> ::answerThreeFall
+                1 -> ::answerThreeCopyOneFall
+                2 -> ::answerThreeCopyTwoFall
+                else -> ::answerThreeCopyThreeFall
+            }
+            '4' -> when (index) {
+                0 -> ::answerFourFall
+                1 -> ::answerFourCopyOneFall
+                2 -> ::answerFourCopyTwoFall
+                else -> ::answerFourCopyThreeFall
+            }
+            else -> { {} } // Return an empty lambda for any other character
+        }
+    }
+
+
+
+    private var songLoopCount3 = 0 // Counter for song three
+    private val sequencePartOne = "144233"
+    private val sequencePartTwo = "411322"
 
     private fun songThreePlay() {
         playMusic(R.raw.twinkle3)
-        fadeOutMillis = 50
-        fallDuration = 2500
+        fadeOutMillis = 0
         handler.postDelayed({
-            songThreePlayHelperOne()
-        }, 4400)
+            playSongThreeSequence()
+        }, 3300)
     }
 
-    private fun songThreePlayHelperOne() {
-        pressAnswerOneFall()
+    private fun playSongThreeSequence() {
+        val sequence = if (songLoopCount3 % 2 == 0) sequencePartOne else sequencePartTwo
+        var cumulativeDelay = 0L
+
+        sequence.forEachIndexed { i, char ->
+            val actionDelay = when (i % 3) {
+                0 -> 480L // First note in each group of three
+                1 -> 200L // Second note
+                2 -> 290L // Third note
+                else -> 400L // Default case, should not be needed
+            }
+
+            val currentFallCount = lastFall.getOrDefault(char, 0)
+            lastFall[char] = currentFallCount + 1
+
+            val action: () -> Unit = when (char) {
+                '1', '2', '3', '4' -> getFallAction(char, currentFallCount)
+                '5' -> { { pressAnswerOneFall() } }
+                '6' -> { { pressAnswerTwoFall() } }
+                '7' -> { { pressAnswerThreeFall() } }
+                '8' -> { { pressAnswerFourFall() } }
+                else -> { {} }
+            }
+
+            handler.postDelayed(action, cumulativeDelay)
+            cumulativeDelay += actionDelay
+        }
+
         handler.postDelayed({
-            answerTwoFall()
-            handler.postDelayed({
-                answerTwoCopyOneFall()
-                handler.postDelayed({
-                    pressAnswerThreeFall()
-                    handler.postDelayed({
-                        answerFourFall()
-                        handler.postDelayed({
-                            answerFourCopyOneFall()
-                            handler.postDelayed({
-                                songThreePlayHelperTwo()
-                            }, 290)
-                        }, 200)
-                    }, 500)
-                }, 290)
-            }, 200)
-        }, 500)
+            songLoopCount3++
+            if (songLoopCount3 < 24) {
+                playSongThreeSequence()
+            } else {
+                songLoopCount3 = 0
+            }
+        }, calculateTotalDelay3(sequence))
     }
 
-    private fun songThreePlayHelperTwo() {
-        pressAnswerFourFall()
-        songLoopCount += 1
-        handler.postDelayed({
-            answerThreeFall()
-            handler.postDelayed({
-                answerThreeCopyOneFall()
-                handler.postDelayed({
-                    pressAnswerTwoFall()
-                    handler.postDelayed({
-                        answerOneFall()
-                        handler.postDelayed({
-                            answerOneCopyOneFall()
-                            if (songLoopCount != 12) {
-                                handler.postDelayed({
-                                    songThreePlayHelperOne()
-                                }, 290)
-                            }
-                        }, 200)
-                    }, 500)
-                }, 290)
-            }, 200)
-        }, 500)
+
+    private fun calculateTotalDelay3(sequence: String): Long {
+        var totalDelay = 0L
+        sequence.forEachIndexed { i, _ ->
+            totalDelay += when (i % 3) {
+                0 -> 480L
+                1 -> 200L
+                2 -> 290L
+                else -> 400L
+            }
+        }
+        return totalDelay
     }
+
+
+
 
     private fun songFourPlay() {
         playMusic(R.raw.twinkle1)
@@ -369,6 +417,8 @@ class RhythmGameActivity : AppCompatActivity() {
         }, 249)
     }
 
+
+
     private fun playSequence(sequence: String) {
         var delay = 0L
         val lastFall = mutableMapOf<Char, Int>()
@@ -408,6 +458,11 @@ class RhythmGameActivity : AppCompatActivity() {
                             else -> answerFourCopyThreeFall()
                         }
                     }
+                    '5' -> pressAnswerOneFall()
+                    '6' -> pressAnswerTwoFall()
+                    '7' -> pressAnswerThreeFall()
+                    '8' -> pressAnswerFourFall()
+
                 }
                 // Increment or reset the fall count
                 lastFall[number] = lastFall.getOrDefault(number, 0) + 1
@@ -970,5 +1025,4 @@ class RhythmGameActivity : AppCompatActivity() {
         val answerOne = findViewById<ImageView>(R.id.answer_four_copy_three)
         fallAnimation(answerOne, currentScore)
     }
-
 }

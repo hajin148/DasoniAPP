@@ -277,7 +277,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="C"
+            android:text="도"
             android:textColor="#383838"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/c_btn"
@@ -287,12 +287,27 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="C"
+            android:textColor="#383838"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/c_btn"
+            app:layout_constraintEnd_toEndOf="@+id/c_btn"
+            app:layout_constraintStart_toStartOf="@+id/c_btn"
+            app:layout_constraintTop_toTopOf="@+id/c_btn"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
             android:id="@+id/textView110"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="D"
+            android:text="레"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/d_btn"
             app:layout_constraintEnd_toEndOf="@+id/d_btn"
@@ -301,12 +316,26 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="D"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/d_btn"
+            app:layout_constraintEnd_toEndOf="@+id/d_btn"
+            app:layout_constraintStart_toStartOf="@+id/d_btn"
+            app:layout_constraintTop_toTopOf="@+id/d_btn"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
             android:id="@+id/textView111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="E"
+            android:text="미"
             android:textColor="#383838"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/e_btn"
@@ -316,12 +345,27 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="E"
+            android:textColor="#383838"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/e_btn"
+            app:layout_constraintEnd_toEndOf="@+id/e_btn"
+            app:layout_constraintStart_toStartOf="@+id/e_btn"
+            app:layout_constraintTop_toTopOf="@+id/e_btn"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
             android:id="@+id/textView112"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="F"
+            android:text="파"
             android:textColor="#383838"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/f_btn"
@@ -331,12 +375,27 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
+            android:id="@+id/textView44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="F"
+            android:textColor="#383838"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/f_btn"
+            app:layout_constraintEnd_toEndOf="@+id/f_btn"
+            app:layout_constraintStart_toStartOf="@+id/f_btn"
+            app:layout_constraintTop_toTopOf="@+id/f_btn"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
             android:id="@+id/textView113"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="G"
+            android:text="솔"
             android:textColor="#383838"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/g_btn"
@@ -346,12 +405,27 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="G"
+            android:textColor="#383838"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/g_btn"
+            app:layout_constraintEnd_toEndOf="@+id/g_btn"
+            app:layout_constraintStart_toStartOf="@+id/g_btn"
+            app:layout_constraintTop_toTopOf="@+id/g_btn"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
             android:id="@+id/textView114"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="A"
+            android:text="라"
             android:textColor="#383838"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/a_btn"
@@ -361,12 +435,27 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
+            android:id="@+id/textView69"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="A"
+            android:textColor="#383838"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/a_btn"
+            app:layout_constraintEnd_toEndOf="@+id/a_btn"
+            app:layout_constraintStart_toStartOf="@+id/a_btn"
+            app:layout_constraintTop_toTopOf="@+id/a_btn"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
             android:id="@+id/textView115"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="B"
+            android:text="시"
             android:textColor="#383838"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/b_btn"
@@ -374,6 +463,21 @@
             app:layout_constraintStart_toStartOf="@+id/b_btn"
             app:layout_constraintTop_toTopOf="@+id/b_btn"
             app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView71"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="B"
+            android:textColor="#383838"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/b_btn"
+            app:layout_constraintEnd_toEndOf="@+id/b_btn"
+            app:layout_constraintStart_toStartOf="@+id/b_btn"
+            app:layout_constraintTop_toTopOf="@+id/b_btn"
+            app:layout_constraintVertical_bias="0.8" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -334,7 +334,8 @@ class ReadNoteActivity : AppCompatActivity() {
         } else {
             playSound("high", noteStr)
             answerNoteImg.setImageResource(R.drawable.note_wrong)
-            answerTxt.text = "$noteStr, 틀렸습니다!"
+            var correctAnswer = noteList[currNoteIndex]
+            answerTxt.text = "$noteStr, 틀렸습니다! 정답은 $correctAnswer 입니다"
             moveNote(answerNoteImg, ansNoteMarginTop[noteStr] as Int, 0)
 
             // if user pressed C, then show line on answer note
@@ -378,7 +379,8 @@ class ReadNoteActivity : AppCompatActivity() {
         } else {
             playSound("low", noteStr)
             answerNoteImg.setImageResource(R.drawable.note_wrong)
-            answerTxt.text = "$noteStr, 틀렸습니다!"
+            var correctAnswer = lowNoteList[currNoteIndex]
+            answerTxt.text = "$noteStr, 틀렸습니다! 정답은 $correctAnswer 입니다"
             moveNote(answerNoteImg, 0, ansLowNoteMarginTop[noteStr] as Int)
         }
 

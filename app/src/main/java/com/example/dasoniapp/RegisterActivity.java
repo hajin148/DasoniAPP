@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseRef; // 실시간 DB
     private EditText mEtEmail, mEtPwd, mEtPhone, mEtName;
     private ImageView mBtnRegister;
+    private ImageButton backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +43,20 @@ public class RegisterActivity extends AppCompatActivity {
         mEtPhone = findViewById(R.id.et_phone);
         mEtName = findViewById(R.id.et_name);
         mBtnRegister = findViewById(R.id.signin_button2); // Replace with your actual button ID
+        backBtn = findViewById(R.id.imageButton12);
 
         // Set the button click listener
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerUser();
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -90,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         }
                                     });
                         } else {
-                            Toast.makeText(RegisterActivity.this, "회원가입 실패: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "회원가입 실패: " + "존재하는 이메일 입니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
