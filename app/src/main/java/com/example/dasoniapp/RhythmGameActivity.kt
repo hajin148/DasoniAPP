@@ -227,71 +227,65 @@ class RhythmGameActivity : AppCompatActivity() {
             else -> { {} } // Return an empty lambda for any other character
         }
     }
-
-
-
-    private var songLoopCount3 = 0 // Counter for song three
-    private val sequencePartOne = "144233"
-    private val sequencePartTwo = "411322"
+    private val lastFall3 = mutableMapOf<Char, Int>()
 
     private fun songThreePlay() {
         playMusic(R.raw.twinkle3)
         fadeOutMillis = 0
+        fallDuration = 2500
+        songLoopCount = 0
         handler.postDelayed({
-            playSongThreeSequence()
-        }, 3300)
+            lastFall3.clear()
+            playSongThreeSequence("522744833611")
+        }, 4400)
     }
 
-    private fun playSongThreeSequence() {
-        val sequence = if (songLoopCount3 % 2 == 0) sequencePartOne else sequencePartTwo
+    private fun playSongThreeSequence(sequence: String) {
         var cumulativeDelay = 0L
 
-        sequence.forEachIndexed { i, char ->
-            val actionDelay = when (i % 3) {
-                0 -> 480L // First note in each group of three
-                1 -> 200L // Second note
-                2 -> 290L // Third note
-                else -> 400L // Default case, should not be needed
-            }
+        sequence.forEachIndexed { index, char ->
+            val action = getFallAction3(char, lastFall3.getOrDefault(char, 0))
 
-            val currentFallCount = lastFall.getOrDefault(char, 0)
-            lastFall[char] = currentFallCount + 1
 
-            val action: () -> Unit = when (char) {
-                '1', '2', '3', '4' -> getFallAction(char, currentFallCount)
-                '5' -> { { pressAnswerOneFall() } }
-                '6' -> { { pressAnswerTwoFall() } }
-                '7' -> { { pressAnswerThreeFall() } }
-                '8' -> { { pressAnswerFourFall() } }
-                else -> { {} }
+            val actionDelay = when (char) {
+                '2', '4', '3', '1' -> {
+                    val count = lastFall3.getOrDefault(char, 0)
+                    if (count % 2 == 0) 200L else 290L
+                }
+                else -> 500L
             }
 
             handler.postDelayed(action, cumulativeDelay)
             cumulativeDelay += actionDelay
+
+            lastFall3[char] = lastFall3.getOrDefault(char, 0) + 1
         }
+
 
         handler.postDelayed({
-            songLoopCount3++
-            if (songLoopCount3 < 24) {
-                playSongThreeSequence()
+            songLoopCount++
+            if (songLoopCount < 12) {
+                lastFall3.clear()
+                playSongThreeSequence(sequence)
             } else {
-                songLoopCount3 = 0
+                songLoopCount = 0 
             }
-        }, calculateTotalDelay3(sequence))
+        }, cumulativeDelay)
     }
 
-
-    private fun calculateTotalDelay3(sequence: String): Long {
-        var totalDelay = 0L
-        sequence.forEachIndexed { i, _ ->
-            totalDelay += when (i % 3) {
-                0 -> 480L
-                1 -> 200L
-                2 -> 290L
-                else -> 400L
-            }
+    private fun getFallAction3(char: Char, fallCount: Int): () -> Unit {
+        val index = fallCount % 4 // Cycle through the original and three copies
+        return when (char) {
+            '5' -> ::pressAnswerOneFall
+            '2' -> listOf(::answerTwoFall, ::answerTwoCopyOneFall, ::answerTwoCopyTwoFall, ::answerTwoCopyThreeFall)[index]
+            '7' -> ::pressAnswerThreeFall
+            '4' -> listOf(::answerFourFall, ::answerFourCopyOneFall, ::answerFourCopyTwoFall, ::answerFourCopyThreeFall)[index]
+            '8' -> ::pressAnswerFourFall
+            '3' -> listOf(::answerThreeFall, ::answerThreeCopyOneFall, ::answerThreeCopyTwoFall, ::answerThreeCopyThreeFall)[index]
+            '6' -> ::pressAnswerTwoFall
+            '1' -> listOf(::answerOneFall, ::answerOneCopyOneFall, ::answerOneCopyTwoFall, ::answerOneCopyThreeFall)[index]
+            else -> { {} } // No operation for unmapped characters
         }
-        return totalDelay
     }
 
     private var songLoopCount4 = 0
@@ -392,9 +386,9 @@ class RhythmGameActivity : AppCompatActivity() {
         handler.postDelayed({
             if (songLoopCount < 11) {
                 playSequence5(sequenceForSongFive)
-                scheduleNextRound(delayForNextRound) // Keep using the correct delay for each round
+                scheduleNextRound(delayForNextRound)
             } else {
-                songLoopCount = 0 // Reset for potential future plays
+                songLoopCount = 0
             }
             songLoopCount++
         }, delayForNextRound)
