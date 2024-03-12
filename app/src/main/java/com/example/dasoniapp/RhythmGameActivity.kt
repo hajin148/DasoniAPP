@@ -294,127 +294,110 @@ class RhythmGameActivity : AppCompatActivity() {
         return totalDelay
     }
 
-
-
+    private var songLoopCount4 = 0
 
     private fun songFourPlay() {
         playMusic(R.raw.twinkle1)
-        fadeOutMillis = 100
+        fadeOutMillis = 0
         fallDuration = 2500
-        handler.postDelayed({
-            songFourPlayHelperOne()
-        }, 2350)
+        handler.postDelayed({ songFourPlayHelperOne() }, 2400)
     }
 
     private fun songFourPlayHelperOne() {
-        answerOneFall()
-        handler.postDelayed({
-            answerOneCopyOneFall()
-            handler.postDelayed({
-                answerOneCopyTwoFall()
-                handler.postDelayed({
-                    answerOneCopyThreeFall()
-                    handler.postDelayed({
-                        answerTwoFall()
-                        handler.postDelayed({
-                            answerTwoCopyTwoFall()
-                            handler.postDelayed({
-                                songFourPlayHelperTwo()
-                            }, 430)
-                        }, 400)
-                    }, 400)
-                }, 250)
-            }, 250)
-        }, 250)
+        val actions = listOf(
+            Pair({ answerOneFall() }, 0L),
+            Pair({ answerOneCopyOneFall() }, 250L),
+            Pair({ answerOneCopyTwoFall() }, 500L),
+            Pair({ answerOneCopyThreeFall() }, 750L),
+            Pair({ answerTwoFall() }, 1150L),
+            Pair({ answerTwoCopyTwoFall() }, 1550L),
+            Pair({ songFourPlayHelperTwo() }, 1980L)
+        )
+        executeActionsSequentially(actions)
     }
 
     private fun songFourPlayHelperTwo() {
-        answerThreeFall()
-        songLoopCount += 1
-        handler.postDelayed({
-            answerThreeCopyOneFall()
-            handler.postDelayed({
-                answerThreeCopyTwoFall()
-                handler.postDelayed({
-                    answerThreeCopyThreeFall()
-                    handler.postDelayed({
-                        answerFourFall()
-                        handler.postDelayed({
-                            answerFourCopyTwoFall()
-                            if (songLoopCount != 12) {
-                                handler.postDelayed({
-                                    songFourPlayHelperOne()
-                                }, 430)
-                            }
-                        }, 400)
-                    }, 400)
-                }, 250)
-            }, 250)
-        }, 250)
+        val actions = listOf(
+            Pair({ answerThreeFall() }, 0L),
+            Pair({ answerThreeCopyOneFall() }, 250L),
+            Pair({ answerThreeCopyTwoFall() }, 500L),
+            Pair({ answerThreeCopyThreeFall() }, 750L),
+            Pair({ answerFourFall() }, 1150L),
+            Pair({ answerFourCopyTwoFall() }, 1550L),
+            Pair({ checkAndLoopOrEnd() }, 1950L)
+        )
+        executeActionsSequentially(actions)
     }
+
+    private fun checkAndLoopOrEnd() {
+        songLoopCount4 += 1
+        if (songLoopCount4 < 12) {
+            songFourPlayHelperOne()
+        }
+    }
+
+    private fun executeActionsSequentially(actions: List<Pair<() -> Unit, Long>>) {
+        actions.forEach { action ->
+            handler.postDelayed(action.first, action.second)
+        }
+    }
+
+
+    private val sequenceForSongFive = buildSequenceForSongFive()
+    private val lastFall5 = mutableMapOf<Char, Int>()
 
     private fun songFivePlay() {
         playMusic(R.raw.twinkle4)
-        fadeOutMillis = 100
+        fadeOutMillis = 0
         fallDuration = 2500
+        songLoopCount = 0
         handler.postDelayed({
-            songFivePlayHelperOne()
-        }, 4400)
+            playSequence5(sequenceForSongFive)
+            // Calculate the delay based on the sequence and individual delay, not a fixed 1000L
+            val delayForNextRound = sequenceForSongFive.length * 249L // Adjust if your actions' timing changes
+            scheduleNextRound(delayForNextRound)
+        }, 4405)
     }
 
-    private fun songFivePlayHelperOne() {
-        answerOneFall()
-        songLoopCount += 1
-        handler.postDelayed({
-            answerOneCopyOneFall()
+    private fun buildSequenceForSongFive(): String {
+        return "1111222233334444"
+    }
+
+    private fun playSequence5(sequence: String) {
+        lastFall5.clear() // Reset for each loop iteration
+        var delay = 0L
+
+        sequence.forEach { number ->
             handler.postDelayed({
-                answerOneCopyTwoFall()
-                handler.postDelayed({
-                    answerOneCopyThreeFall()
-                    handler.postDelayed({
-                        answerTwoFall()
-                        handler.postDelayed({
-                            answerTwoCopyOneFall()
-                            handler.postDelayed({
-                                answerTwoCopyTwoFall()
-                                handler.postDelayed({
-                                    answerTwoCopyThreeFall()
-                                    handler.postDelayed({
-                                        answerThreeFall()
-                                        handler.postDelayed({
-                                            answerThreeCopyOneFall()
-                                            handler.postDelayed({
-                                                answerThreeCopyTwoFall()
-                                                handler.postDelayed({
-                                                    answerThreeCopyThreeFall()
-                                                    handler.postDelayed({
-                                                        answerFourFall()
-                                                        handler.postDelayed({
-                                                            answerFourCopyOneFall()
-                                                            handler.postDelayed({
-                                                                answerFourCopyTwoFall()
-                                                                handler.postDelayed({
-                                                                    answerFourCopyThreeFall()
-                                                                    if (songLoopCount != 12) {
-                                                                        handler.postDelayed({
-                                                                            songFivePlayHelperOne()
-                                                                        }, 249)
-                                                                    }
-                                                                }, 249)
-                                                            }, 249)
-                                                        }, 249)
-                                                    }, 249)
-                                                }, 249)
-                                            }, 249)
-                                        }, 249)
-                                    }, 249)
-                                }, 249)
-                            }, 249)
-                        }, 249)
-                    }, 249)
-                }, 249)
-            }, 249)
-        }, 249)
+                when (number) {
+                    '1', '2', '3', '4' -> manageFallAction(number)
+                }
+                lastFall5[number] = lastFall5.getOrDefault(number, 0) + 1
+            }, delay)
+            delay += 250L
+        }
+    }
+
+    private fun manageFallAction(number: Char) {
+        val count = lastFall5.getOrDefault(number, 0) % 4
+        when (number) {
+            '1' -> listOf(::answerOneFall, ::answerOneCopyOneFall, ::answerOneCopyTwoFall, ::answerOneCopyThreeFall)[count]()
+            '2' -> listOf(::answerTwoFall, ::answerTwoCopyOneFall, ::answerTwoCopyTwoFall, ::answerTwoCopyThreeFall)[count]()
+            '3' -> listOf(::answerThreeFall, ::answerThreeCopyOneFall, ::answerThreeCopyTwoFall, ::answerThreeCopyThreeFall)[count]()
+            '4' -> listOf(::answerFourFall, ::answerFourCopyOneFall, ::answerFourCopyTwoFall, ::answerFourCopyThreeFall)[count]()
+        }
+    }
+
+    private fun scheduleNextRound(delayForNextRound: Long) {
+        handler.postDelayed({
+            if (songLoopCount < 11) {
+                playSequence5(sequenceForSongFive)
+                scheduleNextRound(delayForNextRound) // Keep using the correct delay for each round
+            } else {
+                songLoopCount = 0 // Reset for potential future plays
+            }
+            songLoopCount++
+        }, delayForNextRound)
     }
 
 
@@ -626,7 +609,7 @@ class RhythmGameActivity : AppCompatActivity() {
                     isButtonPressed = false
                     isScoredAdded = false
                     // initialize answerText for conditional expression used in other function
-                    if (veryGoodText.visibility == View.VISIBLE) {
+                    if (veryGoodText.visibility == View.VISIBLE ) {
                         fadeOutAnimationHelper(veryGoodText, fadeOutMillis)
                     }
                     if (answerText.visibility == View.VISIBLE) {
