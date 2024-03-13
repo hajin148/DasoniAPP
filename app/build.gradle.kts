@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.dasoniapp"
+    namespace = "com.dasoniapp.musicmate"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.dasoniapp"
+        applicationId = "com.dasoniapp.musicmate"
         minSdk = 24
         targetSdk = 33
         versionCode = 2
@@ -20,8 +20,11 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+
+            //isDebuggable = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+
         }
     }
     compileOptions {
@@ -32,6 +35,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
     dependenciesInfo {
         includeInApk = true

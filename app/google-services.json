@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:56283139512:android:47bc2da45d06b7c299534d",
+        "mobilesdk_app_id": "1:56283139512:android:62f08165e58f22d899534d",
         "android_client_info": {
-          "package_name": "com.example.dasoniapp"
+          "package_name": "com.dasoniapp.musicmate"
         }
       },
       "oauth_client": [
@@ -37,9 +37,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:56283139512:android:bff68fd40e65d79199534d",
+        "mobilesdk_app_id": "1:56283139512:android:47bc2da45d06b7c299534d",
         "android_client_info": {
-          "package_name": "com.musicmate.dasoniapp"
+          "package_name": "com.example.dasoniapp"
         }
       },
       "oauth_client": [
