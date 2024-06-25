@@ -17,20 +17,6 @@
         app:srcCompat="@drawable/rank_frame_large" />
 
     <TextView
-        android:id="@+id/rank10_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="123"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView93"
-        app:layout_constraintEnd_toStartOf="@+id/rank10_score"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView93" />
-
-    <TextView
         android:id="@+id/textView93"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,20 +42,6 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
         app:layout_constraintTop_toTopOf="@+id/rank10_name"
         app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/rank9_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="123"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView90"
-        app:layout_constraintEnd_toStartOf="@+id/rank9_score"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView90" />
 
     <TextView
         android:id="@+id/textView90"
@@ -122,34 +94,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView86" />
 
     <TextView
-        android:id="@+id/rank8_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="123"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView87"
-        app:layout_constraintEnd_toStartOf="@+id/rank8_score"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView87" />
-
-    <TextView
-        android:id="@+id/rank7_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="123"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView86"
-        app:layout_constraintEnd_toStartOf="@+id/rank7_score"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView86" />
-
-    <TextView
         android:id="@+id/textView86"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -173,20 +117,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/rank7_name"
         app:layout_constraintEnd_toEndOf="@+id/rank8_score"
         app:layout_constraintTop_toTopOf="@+id/rank7_name" />
-
-    <TextView
-        android:id="@+id/rank6_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="123"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView83"
-        app:layout_constraintEnd_toStartOf="@+id/rank6_score"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView83" />
 
     <TextView
         android:id="@+id/textView83"
@@ -214,20 +144,6 @@
         app:layout_constraintTop_toTopOf="@+id/rank6_name" />
 
     <TextView
-        android:id="@+id/rank5_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="123"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView80"
-        app:layout_constraintEnd_toStartOf="@+id/rank5_score"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView80" />
-
-    <TextView
         android:id="@+id/textView80"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -251,20 +167,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/rank5_name"
         app:layout_constraintEnd_toEndOf="@+id/rank6_score"
         app:layout_constraintTop_toTopOf="@+id/rank5_name" />
-
-    <TextView
-        android:id="@+id/rank4_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="123"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView76"
-        app:layout_constraintEnd_toStartOf="@+id/rank4_score"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView76" />
 
     <TextView
         android:id="@+id/rank4_score"
@@ -304,7 +206,128 @@
         app:layout_constraintEnd_toStartOf="@+id/rank2_score"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView73" />
+        app:layout_constraintTop_toTopOf="@+id/textView73"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rank4_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="123"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView76"
+        app:layout_constraintEnd_toStartOf="@+id/rank4_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toTopOf="@+id/textView76"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rank5_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="123"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView80"
+        app:layout_constraintEnd_toStartOf="@+id/rank5_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toTopOf="@+id/textView80"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rank6_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="123"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView83"
+        app:layout_constraintEnd_toStartOf="@+id/rank6_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toTopOf="@+id/textView83"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rank7_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="123"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView86"
+        app:layout_constraintEnd_toStartOf="@+id/rank7_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toTopOf="@+id/textView86"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rank8_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="123"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView87"
+        app:layout_constraintEnd_toStartOf="@+id/rank8_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toTopOf="@+id/textView87"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rank9_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="123"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView90"
+        app:layout_constraintEnd_toStartOf="@+id/rank9_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toTopOf="@+id/textView90"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rank10_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="123"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView93"
+        app:layout_constraintEnd_toStartOf="@+id/rank10_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toTopOf="@+id/textView93"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rank3_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="123"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView70"
+        app:layout_constraintEnd_toStartOf="@+id/rank3_score"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toTopOf="@+id/textView70"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView73"
@@ -330,20 +353,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/rank2_name"
         app:layout_constraintEnd_toEndOf="@+id/rank3_score"
         app:layout_constraintTop_toTopOf="@+id/rank2_name" />
-
-    <TextView
-        android:id="@+id/rank3_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:text="123"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView70"
-        app:layout_constraintEnd_toStartOf="@+id/rank3_score"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/textView70" />
 
     <TextView
         android:id="@+id/rank3_score"
@@ -415,7 +424,6 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/pretendard_semibold"
@@ -423,6 +431,8 @@
         android:textColor="#B6B6B6"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
@@ -452,7 +462,7 @@
         android:text="뮤직메이트 랭킹"
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

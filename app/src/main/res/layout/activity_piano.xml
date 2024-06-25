@@ -15,8 +15,8 @@
 
     <ImageView
         android:id="@+id/imageView103"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="1282dp"
+        android:layout_height="143dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,8 +28,8 @@
 
     <ImageButton
         android:id="@+id/imageButton23"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
+        android:layout_width="104dp"
+        android:layout_height="88dp"
         android:layout_marginStart="32dp"
         android:backgroundTint="#00707070"
         app:layout_constraintBottom_toBottomOf="@+id/imageView103"
@@ -39,8 +39,8 @@
 
     <ImageView
         android:id="@+id/imageView104"
-        android:layout_width="238dp"
-        android:layout_height="46dp"
+        android:layout_width="398dp"
+        android:layout_height="130dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView103"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -50,8 +50,8 @@
 
     <ImageView
         android:id="@+id/imageView105"
-        android:layout_width="108dp"
-        android:layout_height="46dp"
+        android:layout_width="173dp"
+        android:layout_height="119dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView103"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,8 +122,8 @@
 
     <ImageView
         android:id="@+id/imageView122"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView108"
         app:layout_constraintStart_toEndOf="@+id/imageView106"
@@ -284,8 +284,8 @@
 
     <ImageView
         android:id="@+id/imageView121"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView107"
         app:layout_constraintStart_toStartOf="@+id/imageView106"
@@ -295,8 +295,8 @@
 
     <ImageView
         android:id="@+id/imageView123"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView110"
         app:layout_constraintStart_toEndOf="@+id/imageView108"
@@ -306,8 +306,8 @@
 
     <ImageView
         android:id="@+id/imageView135"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView111"
         app:layout_constraintHorizontal_bias="0.507"
@@ -318,8 +318,8 @@
 
     <ImageView
         android:id="@+id/imageView138"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView112"
         app:layout_constraintStart_toEndOf="@+id/imageView110"
@@ -329,8 +329,8 @@
 
     <ImageView
         android:id="@+id/imageView139"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView114"
         app:layout_constraintStart_toEndOf="@+id/imageView112"
@@ -340,8 +340,8 @@
 
     <ImageView
         android:id="@+id/imageView140"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView115"
         app:layout_constraintStart_toEndOf="@+id/imageView113"
@@ -351,8 +351,8 @@
 
     <ImageView
         android:id="@+id/imageView141"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView117"
         app:layout_constraintStart_toEndOf="@+id/imageView115"
@@ -362,8 +362,8 @@
 
     <ImageView
         android:id="@+id/imageView142"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView118"
         app:layout_constraintStart_toEndOf="@+id/imageView116"
@@ -373,8 +373,8 @@
 
     <ImageView
         android:id="@+id/imageView143"
-        android:layout_width="34dp"
-        android:layout_height="178dp"
+        android:layout_width="120dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView119"
         app:layout_constraintStart_toEndOf="@+id/imageView117"
@@ -725,7 +725,7 @@
         android:fontFamily="@font/pretendard_bold"
         android:text="피아노"
         android:textColor="#707070"
-        android:textSize="22sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView105"
         app:layout_constraintEnd_toEndOf="@+id/imageView105"
         app:layout_constraintStart_toStartOf="@+id/imageView105"

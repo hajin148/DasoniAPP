@@ -8,8 +8,8 @@
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
+        android:layout_width="94dp"
+        android:layout_height="97dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#00707070"
@@ -23,11 +23,10 @@
 
     <ImageView
         android:id="@+id/imageView98"
-        android:layout_width="336dp"
-        android:layout_height="294dp"
+        android:layout_width="467dp"
+        android:layout_height="302dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.217"
@@ -35,13 +34,12 @@
 
     <ImageView
         android:id="@+id/imageView101"
-        android:layout_width="336dp"
-        android:layout_height="294dp"
+        android:layout_width="559dp"
+        android:layout_height="310dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView98"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.281"
         app:srcCompat="@drawable/drum2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

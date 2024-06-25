@@ -7,28 +7,28 @@
 
     <ImageView
         android:id="@+id/main_background"
-        android:layout_width="411dp"
-        android:layout_height="230dp"
+        android:layout_width="1139dp"
+        android:layout_height="224dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="529dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.061"
         app:srcCompat="@drawable/main_background" />
 
     <ImageView
         android:id="@+id/main_profile_background"
-        android:layout_width="370dp"
-        android:layout_height="190dp"
+        android:layout_width="387dp"
+        android:layout_height="188dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127"
+        app:layout_constraintVertical_bias="0.117"
         app:srcCompat="@drawable/main_profile_background" />
 
     <TextView
@@ -91,7 +91,6 @@
         android:layout_height="110dp"
         app:layout_constraintBottom_toTopOf="@+id/main_menu_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_game_two"
         app:srcCompat="@drawable/main_game_three" />
@@ -143,7 +142,6 @@
         android:layout_height="40dp"
         app:layout_constraintBottom_toTopOf="@+id/main_profile_background"
         app:layout_constraintEnd_toEndOf="@+id/main_background"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/main_background"
         app:layout_constraintTop_toTopOf="@+id/main_background"
         app:layout_constraintVertical_bias="0.828"
@@ -408,10 +406,9 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/main_game_one"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_profile_background"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/main_game_one"
+        app:layout_constraintTop_toBottomOf="@+id/main_profile_background" />
 
     <ImageButton
         android:id="@+id/main_menu_mypage"

@@ -17,7 +17,7 @@
         <activity
             android:name=".RhythmMenuActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
@@ -30,7 +30,7 @@
         <activity
             android:name=".RhythmGameActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name=".PlayDrumActivity"
             android:exported="false"
@@ -38,7 +38,7 @@
         <activity
             android:name=".ScoreGameActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name=".PlayMusicActivity"
             android:exported="false"
@@ -47,12 +47,12 @@
             android:name=".ReadNoteActivity"
             android:exported="false"
             android:label="@string/title_activity_read_note"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.DasoniAPP" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
