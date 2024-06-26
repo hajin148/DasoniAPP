@@ -131,7 +131,12 @@ class MainActivity : AppCompatActivity() {
         musicPracticeBtn.setOnClickListener {
             val intent = Intent(this, ReadNoteActivity::class.java)
             if(currentUser == null) {
-                var a = UserAccount("test@gmail.com", "01011111234", "test", "123123")
+                var a = com.dasoniapp.musicmate.UserAccount(
+                    "test@gmail.com",
+                    "01011111234",
+                    "test",
+                    "123123"
+                )
                 currentUser = a
             }
             intent.putExtra("UserAccount", currentUser)
@@ -143,7 +148,12 @@ class MainActivity : AppCompatActivity() {
         rhythmGameBtn.setOnClickListener {
             val intent = Intent(this, RhythmMenuActivity::class.java)
             if(currentUser == null) {
-                var a = UserAccount("test@gmail.com", "01011111234", "test", "123123")
+                var a = com.dasoniapp.musicmate.UserAccount(
+                    "test@gmail.com",
+                    "01011111234",
+                    "test",
+                    "123123"
+                )
                 currentUser = a
             }
             intent.putExtra("userName", currentUser?.name ?: "Unknown")
