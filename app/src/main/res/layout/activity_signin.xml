@@ -100,11 +100,11 @@
         android:id="@+id/textView67"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="130dp"
         android:fontFamily="@font/pretendard_semibold"
         android:text="회원가입"
         android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -140,10 +140,9 @@
         android:id="@+id/imageView36"
         android:layout_width="20dp"
         android:layout_height="16dp"
-        android:layout_marginStart="42dp"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView35"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView35"
         app:layout_constraintTop_toBottomOf="@+id/textView67"
         app:srcCompat="@drawable/email_icon" />
 
@@ -167,10 +166,9 @@
         android:id="@+id/imageView39"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="42dp"
         android:layout_marginTop="15dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView24"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView24"
         app:layout_constraintTop_toBottomOf="@+id/imageView35"
         app:layout_constraintVertical_bias="0.39"
         app:srcCompat="@drawable/lock_icon" />
@@ -194,11 +192,9 @@
         android:id="@+id/imageView40"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="42dp"
         android:layout_marginTop="18dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView33"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView33"
         app:layout_constraintTop_toBottomOf="@+id/imageView24"
         app:layout_constraintVertical_bias="0.23000002"
         app:srcCompat="@drawable/profile_icon" />
@@ -207,11 +203,9 @@
         android:id="@+id/imageView41"
         android:layout_width="20dp"
         android:layout_height="22dp"
-        android:layout_marginStart="42dp"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView23"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView23"
         app:layout_constraintTop_toBottomOf="@+id/imageView33"
         app:srcCompat="@drawable/phone_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
