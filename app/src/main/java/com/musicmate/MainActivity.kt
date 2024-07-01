@@ -40,31 +40,32 @@ class MainActivity : AppCompatActivity() {
         // Initialize currentUser
         initializeCurrentUser()
 
+        setContentView(R.layout.activity_score_game_rank)
 
-        if (isFirstLaunch()) {
-            setContentView(R.layout.activity_splash)
-            Handler(Looper.getMainLooper()).postDelayed({ setOnboardingView() }, SPLASH_TIME_OUT)
-        } else {
-            setupMainPage()
-        }
-
-        val goToSetupRankPage = intent.getBooleanExtra("goToSetupRankPage", false)
-
-        if (goToSetupRankPage) {
-            setupRankPage()
-        }
-
-        val goToSetupMyPage = intent.getBooleanExtra("goToSetupMyPage", false)
-
-        if (goToSetupMyPage) {
-            setupMyPage()
-        }
-
-        val goToSetupMainPage = intent.getBooleanExtra("goToSetupMainPage", false)
-
-        if (goToSetupMainPage) {
-            setupMainPage()
-        }
+//        if (isFirstLaunch()) {
+//            setContentView(R.layout.activity_splash)
+//            Handler(Looper.getMainLooper()).postDelayed({ setOnboardingView() }, SPLASH_TIME_OUT)
+//        } else {
+//            setupMainPage()
+//        }
+//
+//        val goToSetupRankPage = intent.getBooleanExtra("goToSetupRankPage", false)
+//
+//        if (goToSetupRankPage) {
+//            setupRankPage()
+//        }
+//
+//        val goToSetupMyPage = intent.getBooleanExtra("goToSetupMyPage", false)
+//
+//        if (goToSetupMyPage) {
+//            setupMyPage()
+//        }
+//
+//        val goToSetupMainPage = intent.getBooleanExtra("goToSetupMainPage", false)
+//
+//        if (goToSetupMainPage) {
+//            setupMainPage()
+//        }
     }
 
 
