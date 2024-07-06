@@ -6,6 +6,10 @@ public class UserAccount implements Serializable {
     private int bestRhythmScore;
     private int bestNoteScore;
 
+    private String model;
+    private boolean admin, accountStatus;
+    private String dateSignUp, dateAccess, timeFirstAccess, timeExit;
+
     public UserAccount() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
@@ -33,6 +37,13 @@ public class UserAccount implements Serializable {
         this.password = password;
         this.bestRhythmScore = 0;
         this.bestNoteScore = 0;
+        this.model = "";
+        this.admin = false;
+        this.accountStatus = true;
+        this.dateSignUp = "";
+        this.dateAccess = "";
+        this.timeFirstAccess = "";
+        this.timeExit = "";
     }
 
     public String getIdToken() {
@@ -60,6 +71,14 @@ public class UserAccount implements Serializable {
         return password;
     }
 
+    public String getModel() { return model; }
+    public boolean isAdmin() { return admin; }
+    public boolean isAccountStatus() { return accountStatus; }
+    public String getDateSignUp() { return dateSignUp; }
+    public String getDateAccess() { return dateAccess; }
+    public String getTimeFirstAccess() { return timeFirstAccess; }
+    public String getTimeExit() { return timeExit; }
+
     // Setters
     public void setEmail(String email) {
         this.email = email;
@@ -76,6 +95,21 @@ public class UserAccount implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    // Build.MODEL, use Library to get market name
+    public void setModel(String model) { this.model = model; }
+    public void setAdmin(boolean admin) { this.admin = admin; }
+    public void setAccountStatus(boolean accountStatus) { this.accountStatus = accountStatus; }
+
+    // Implement serverTimestamp() within RegisterActivity
+    public void setDateSignUp(String dateSignUp) { this.dateSignUp = dateSignUp; }
+
+    // Implement serverTimestamp() within MainActivity
+    public void setDateAccess(String dateAccess) { this.dateAccess = dateAccess; }
+    // Implement serverTimestamp() within MainActivity
+    public void setTimeFirstAccess(String timeFirstAccess) { this.timeFirstAccess = timeFirstAccess; }
+    // Implement serverTimestamp() within MainActivity, override onStop()
+    public void setTimeExit(String timeExit) { this.timeExit = timeExit; }
 
 
     public void updateBestRhythmScore(int newScore) {
