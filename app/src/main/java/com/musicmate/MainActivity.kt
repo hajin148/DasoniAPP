@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         // Initialize currentUser
         initializeCurrentUser()
 
-        setContentView(R.layout.activity_score_game_rank)
+        setContentView(R.layout.admin_dashboard)
 
 //        if (isFirstLaunch()) {
 //            setContentView(R.layout.activity_splash)

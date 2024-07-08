@@ -527,13 +527,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView106"
-        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="@+id/imageView106"
         app:layout_constraintTop_toBottomOf="@+id/imageView104"
         app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintWidth_percent="0.05"
         app:srcCompat="@drawable/rhythm_target_circle_green" />
 
     <ImageView
