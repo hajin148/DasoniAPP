@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/admin_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_shadow_start_color"
+        android:padding="8dp"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/toolbar_logo"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="2dp"
+            android:contentDescription="@string/admin_mainlogo"
+            android:src="@drawable/main_logo"
+            android:layout_centerVertical="true" />
+
+        <ImageButton
+            android:id="@+id/toolbar_profile"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="56dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/admin_profile_button"
+            android:src="@drawable/icon_profile"
+            android:layout_centerVertical="true" />
+
+        <ImageButton
+            android:id="@+id/toolbar_exit"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/admin_exit_button"
+            android:src="@drawable/icon_exit" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/admin_menu_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/admin_toolbar"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/admin_menu_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_admin_dashboard"
+                style="@style/SquareButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="대시보드" />
+
+            <Button
+                android:id="@+id/btn_admin_user_management"
+                style="@style/SquareButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="사용자 관리" />
+
+            <Button
+                android:id="@+id/btn_admin_setting"
+                style="@style/SquareButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="관리자 설정" />
+        </LinearLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:name="com.musicmate.AdminDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_below="@id/admin_menu_container"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_admin_dashboard" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--admin_toolbar.xml안에 메뉴바를 위한 스타일가이드 -->
+<resources>
+    <!-- Base style for square buttons with transparent background -->
+    <style name="SquareButtonBase">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textColor">@color/black_main</item>
+    </style>
+
+    <!-- Style for square buttons with a bottom line when selected -->
+    <style name="SquareButton" parent="SquareButtonBase">
+        <item name="android:background">@drawable/button_background_selector</item>
+    </style>
+
+    <!-- Selector for the button background -->
+    <drawable name="button_background_selector">
+        <selector xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:state_selected="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/transparent" />
+                    <size android:height="28dp" android:width="28dp" />
+                    <stroke android:width="2dp" android:color="@color/black_main" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/transparent" />
+                    <size android:height="28dp" android:width="28dp" />
+                    <stroke android:width="2dp" android:color="@android:color/transparent" />
+                </shape>
+            </item>
+        </selector>
+    </drawable>
+</resources>
+
+
