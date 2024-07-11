@@ -19,6 +19,9 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity

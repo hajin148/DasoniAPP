@@ -233,8 +233,11 @@ class MainActivity : AppCompatActivity() {
 
         val adminBtn: ImageView = findViewById(R.id.adminBtn)
         adminBtn.setOnClickListener {
-            //setUpAdminPage()
+            val intent = Intent(this, AdminActivity::class.java)
+            intent.putExtra("UserAccount", currentUser)
+            startActivity(intent)
         }
+
         // Initialize FirebaseAuth instance
         mFirebaseAuth = FirebaseAuth.getInstance()
 
@@ -253,6 +256,8 @@ class MainActivity : AppCompatActivity() {
                     if (isAdmin) {
                         adminBtn.visibility = View.VISIBLE
                         adminText.visibility = View.VISIBLE
+
+
                     }
                 }
 
@@ -261,6 +266,9 @@ class MainActivity : AppCompatActivity() {
                     Log.w("Firebase", "loadAdminStatus:onCancelled", databaseError.toException())
                 }
             })
+
+
+
             logoutTextView.text = "로그아웃"
 
             // Set OnClickListener to log out
@@ -277,6 +285,8 @@ class MainActivity : AppCompatActivity() {
                 }, 1000)
             }
         }
+
+
 
         // Other setup code for your MyPage
         val homeButton: ImageButton = findViewById(R.id.main_menu_home)
