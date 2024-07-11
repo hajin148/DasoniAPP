@@ -23,25 +23,6 @@
         <item name="android:background">@drawable/button_background_selector</item>
     </style>
 
-
-    <drawable name="button_background_selector">
-        <selector xmlns:android="http://schemas.android.com/apk/res/android">
-            <item android:state_selected="true">
-                <shape android:shape="rectangle">
-                    <solid android:color="@android:color/transparent" />
-                    <size android:height="28dp" android:width="28dp" />
-                    <stroke android:width="2dp" android:color="@color/black_main" />
-                </shape>
-            </item>
-            <item>
-                <shape android:shape="rectangle">
-                    <solid android:color="@android:color/transparent" />
-                    <size android:height="28dp" android:width="28dp" />
-                    <stroke android:width="2dp" android:color="@android:color/transparent" />
-                </shape>
-            </item>
-        </selector>
-    </drawable>
 </resources>
 
 
