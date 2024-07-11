@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.002" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView60"
@@ -86,16 +86,14 @@
         android:id="@+id/textView69"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="42dp"
         android:fontFamily="@font/pretendard_regular"
         android:text="355HF356F11"
         android:textColor="@color/subColor"
-        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar"
+        app:layout_constraintBottom_toBottomOf="@+id/textview101"
         app:layout_constraintEnd_toEndOf="@+id/materialToolbar"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toEndOf="@+id/textview65"
-        app:layout_constraintTop_toTopOf="@+id/materialToolbar"
+        app:layout_constraintTop_toTopOf="@+id/textview101"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -212,16 +210,14 @@
         android:id="@+id/textView77"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="42dp"
         android:fontFamily="@font/pretendard_regular"
         android:text="4839FH37473"
         android:textColor="@color/subColor"
-        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar5"
+        app:layout_constraintBottom_toBottomOf="@+id/textview65"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toEndOf="@+id/textview65"
-        app:layout_constraintTop_toTopOf="@+id/materialToolbar5"
+        app:layout_constraintTop_toTopOf="@+id/textview65"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -338,18 +334,15 @@
         android:id="@+id/textView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginBottom="18dp"
         android:fontFamily="@font/pretendard_regular"
         android:text="2839TD38294"
         android:textColor="@color/subColor"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar4"
+        app:layout_constraintBottom_toBottomOf="@+id/textView44"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toEndOf="@+id/textView44"
-        app:layout_constraintTop_toTopOf="@+id/materialToolbar3"
+        app:layout_constraintTop_toTopOf="@+id/textView44"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
