@@ -368,6 +368,20 @@
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <TextView
+        android:id="@+id/adminText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="관리자 모드"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/adminBtn"
+        app:layout_constraintEnd_toEndOf="@+id/adminBtn"
+        app:layout_constraintStart_toStartOf="@+id/adminBtn"
+        app:layout_constraintTop_toTopOf="@+id/adminBtn" />
+
+    <TextView
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -379,5 +393,16 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+    <ImageView
+        android:id="@+id/adminBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:srcCompat="@drawable/login_type_box" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

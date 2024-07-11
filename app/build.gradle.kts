@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.dasoniapp.musicmate"
+    namespace = "com.example.dasoniapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.dasoniapp.musicmate"
+        applicationId = "com.example.dasoniapp"
         minSdk = 24
         targetSdk = 33
         versionCode = 2
