@@ -89,4 +89,17 @@
                 android:text="관리자 설정" />
         </LinearLayout>
     </LinearLayout>
+    <fragment
+        android:layout_marginTop="130dp"
+        android:layout_width="match_parent"
+        android:layout_height="205dp">
+
+    </fragment>
+    <fragment
+        android:layout_marginTop="335dp"
+        android:layout_width="match_parent"
+        android:layout_height="405dp">
+
+    </fragment>
+
 </RelativeLayout>
