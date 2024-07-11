@@ -9,7 +9,6 @@
         android:id="@+id/admin_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cardview_shadow_start_color"
         android:padding="8dp"
         tools:layout_editor_absoluteX="0dp">
 
@@ -28,11 +27,11 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="56dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/admin_profile_button"
-            android:src="@drawable/icon_profile"
-            android:layout_centerVertical="true" />
+            android:src="@drawable/icon_profile" />
 
         <ImageButton
             android:id="@+id/toolbar_exit"
@@ -50,7 +49,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/admin_toolbar"
-        android:layout_marginTop="4dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -94,7 +92,7 @@
             android:layout_height="700dp"
             android:layout_below="@id/admin_menu_container"
             android:layout_weight="1"
-            tools:layout="@layout/fragment_admin_dashboard" />
+            tools:layout="@layout/fragment_admin_user_management" />
 
     </LinearLayout>
 </RelativeLayout>
