@@ -20,6 +20,6 @@ import com.google.firebase.database.ValueEventListener
 class AdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drum)
+        setContentView(R.layout.admin_main)
     }
 }
