@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--admin_main.xml안에 메뉴바를 위한 스타일가이드 -->
+<resources>
+
+    <!-- 대시보드 카드모듈 기본 스타일-->
+    <style name="CardViewBase">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="cardBackgroundColor">@color/card_container</item>
+    </style>
+
+    <!-- 기본 버튼 스타일 -->
+    <style name="SquareButtonBase">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textColor">@color/black_main</item>
+    </style>
+
+    <!-- 선택했을때 버튼 아래 stroke 설정하기 -->
+    <style name="SquareButton" parent="SquareButtonBase">
+        <item name="android:background">@drawable/button_background_selector</item>
+    </style>
+
+
+    <drawable name="button_background_selector">
+        <selector xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:state_selected="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/transparent" />
+                    <size android:height="28dp" android:width="28dp" />
+                    <stroke android:width="2dp" android:color="@color/black_main" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/transparent" />
+                    <size android:height="28dp" android:width="28dp" />
+                    <stroke android:width="2dp" android:color="@android:color/transparent" />
+                </shape>
+            </item>
+        </selector>
+    </drawable>
+</resources>
+
+
