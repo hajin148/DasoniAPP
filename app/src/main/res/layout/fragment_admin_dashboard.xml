@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pretendard_medium"
-                android:text="오늘 평균사용시간"
+                android:text="평균사용시간"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/average_time_card"
                 app:layout_constraintEnd_toEndOf="parent"
