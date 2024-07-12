@@ -89,17 +89,13 @@
                 android:text="관리자 설정" />
         </LinearLayout>
     </LinearLayout>
-<!--    <fragment-->
-<!--        android:layout_marginTop="115dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="155dp">-->
-
-<!--    </fragment>-->
-<!--    <fragment-->
-<!--        android:layout_marginTop="270dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-
-<!--    </fragment>-->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.dasoniapp.AdminDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_below="@id/admin_menu_container"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_admin_user_management" />
 
 </RelativeLayout>
