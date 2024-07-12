@@ -91,7 +91,7 @@
     </LinearLayout>
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.dasoniapp.AdminDashboard"
+        android:name="com.example.dasoniapp.AdminUserMangement"
         android:layout_width="match_parent"
         android:layout_height="700dp"
         android:layout_below="@id/admin_menu_container"
