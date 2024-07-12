@@ -1,0 +1,229 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dasoniapp.AdminActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/title_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:text="대시보드"
+                    android:textColor="@color/black_main"
+                    android:textSize="26sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.05" />
+
+
+                <TextView
+                    android:id="@+id/title_average_time_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:text="평균사용시간"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/average_time_card"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.059"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_dashboard"
+                    app:layout_constraintVertical_bias="0.775" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/average_time_card"
+                    style="@style/CardViewBase"
+                    android:layout_width="175dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="64dp"
+                    app:layout_constraintBottom_toTopOf="@+id/daily_user_count_card"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontalWeight="1"
+                    app:layout_constraintHorizontal_bias="0.068"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_dashboard"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/average_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/pretendard_semibold"
+                        android:gravity="center"
+                        android:text="7시간 20분"
+                        android:textColor="@color/subColor"
+                        android:textSize="24sp" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/title_new_registered_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:text="새로가입한사용자"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/new_registered_card"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.787"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_dashboard"
+                    app:layout_constraintVertical_bias="0.775" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/new_registered_card"
+                    style="@style/CardViewBase"
+                    android:layout_width="175dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/average_time_card"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.934"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/average_time_card"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/new_registered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/pretendard_semibold"
+                        android:gravity="center"
+                        android:text="100명"
+                        android:textColor="@color/subColor"
+                        android:textSize="24sp" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/title_daily_user_count_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:text="일일사용자접속"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/daily_user_count_card"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.056"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/average_time_card"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/daily_user_count_card"
+                    style="@style/CardViewBase"
+                    android:layout_width="363dp"
+                    android:layout_height="140dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/new_registered_card"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/average_time_card"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.887">
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/title_module"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_semibold"
+                    android:text="선택된 사용자"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_countPeople"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.045"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView_countPeople"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:text="총 3명"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.045"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+
+                <TextView
+                    android:id="@+id/textView117"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:text="지우기"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.948"
+                    app:layout_constraintStart_toEndOf="@+id/textView_countPeople"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+                app:layout_constraintVertical_bias="0.0"
+                tools:listitem="@layout/item_dashboard" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</FrameLayout>
+
