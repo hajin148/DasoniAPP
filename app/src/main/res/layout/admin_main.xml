@@ -5,11 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sendToDashboard_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:elevation="1000dp"
+        android:padding="16dp"
+        android:visibility="invisible"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        tools:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="24dp"
+                android:text="취소"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_selected_item_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/button_send_to_dashboard"
+                android:layout_alignBottom="@+id/button_send_to_dashboard"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="총 0개 선택됨"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/button_send_to_dashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/TextButton"
+                android:text="대시보드로 보내기"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
     <RelativeLayout
         android:id="@+id/admin_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:padding="12dp"
         tools:layout_editor_absoluteX="0dp">
 
         <ImageView
@@ -17,10 +73,10 @@
             android:layout_width="65dp"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:layout_marginStart="2dp"
             android:contentDescription="@string/admin_mainlogo"
-            android:src="@drawable/main_logo"
-            android:layout_centerVertical="true" />
+            android:src="@drawable/main_logo" />
 
         <ImageButton
             android:id="@+id/toolbar_profile"
@@ -42,7 +98,6 @@
             android:contentDescription="@string/admin_exit_button"
             android:src="@drawable/icon_exit" />
     </RelativeLayout>
-
 
     <LinearLayout
         android:id="@+id/admin_menu_container"
@@ -94,5 +149,8 @@
             android:layout_weight="1"
             tools:layout="@layout/fragment_admin_user_management" />
 
+
     </LinearLayout>
+
+
 </RelativeLayout>
