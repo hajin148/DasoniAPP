@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -17,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
 
     <ImageView
         android:id="@+id/imageView60"
@@ -63,7 +63,8 @@
         app:layout_constraintStart_toStartOf="@+id/materialToolbar"
         app:layout_constraintTop_toTopOf="@+id/materialToolbar"
         app:layout_constraintVertical_bias="0.0"
-        app:lineHeight="22sp" />
+        app:lineHeight="22sp" />\
+
 
     <TextView
         android:id="@+id/textview101"
@@ -97,7 +98,7 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar2"
-        android:layout_width="393dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/mod_line"
         android:minHeight="?attr/actionBarSize"
@@ -108,7 +109,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
         app:layout_constraintVertical_bias="1.0" />
-
 
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -194,8 +194,9 @@
         android:fontFamily="@font/pretendard_regular"
         android:text="4839FH37473"
         android:textColor="@color/subColor"
+
         app:layout_constraintBottom_toBottomOf="@+id/textview65"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/materialToolbar5"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toEndOf="@+id/textview65"
         app:layout_constraintTop_toTopOf="@+id/textview65"
@@ -214,6 +215,124 @@
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar5" />
 
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar5" />
+
+    <TextView
+        android:id="@+id/textView140"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="사용자 이름"
+        android:textColor="@color/black_main"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar3"
+        app:layout_constraintEnd_toEndOf="@+id/materialToolbar3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/materialToolbar3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView141"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="42dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="아이디"
+        android:textColor="@color/subColor"
+        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar3"
+        app:layout_constraintEnd_toEndOf="@+id/materialToolbar3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/materialToolbar3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView142"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="4839FH37473"
+        android:textColor="@color/subColor"
+        app:layout_constraintBottom_toBottomOf="@+id/textView141"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toEndOf="@+id/textView141"
+        app:layout_constraintTop_toTopOf="@+id/textView141"
+        app:layout_constraintVertical_bias="0.0" />
 
 
+    <ImageView
+        android:id="@+id/imageView160"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="20dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/materialToolbar3"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/status_active" />
+
+    <TextView
+        android:id="@+id/textView161"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="활성화"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView160"
+        app:layout_constraintEnd_toEndOf="@+id/imageView160"
+        app:layout_constraintStart_toStartOf="@+id/imageView160"
+        app:layout_constraintTop_toTopOf="@+id/imageView160" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar8"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mod_line"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar3" />
+
+    <RelativeLayout
+        android:id="@+id/selected_grayBox"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/gray_transparent"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/materialToolbar5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" >
+
+        <ImageView
+            android:id="@+id/imageView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="@drawable/icon_selected" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
