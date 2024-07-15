@@ -8,4 +8,5 @@
     <color name="subColor2">#505050</color>
     <color name="TextButton">#FF489BFF</color>
     <color name="card_container">#EEEEEE</color>
+    <color name="gray_transparent">#33000000</color>
 </resources>
