@@ -104,7 +104,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/admin_toolbar"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:visibility="visible">
 
         <LinearLayout
             android:id="@+id/admin_menu_bar"
@@ -147,10 +149,44 @@
             android:layout_height="700dp"
             android:layout_below="@id/admin_menu_container"
             android:layout_weight="1"
-            tools:layout="@layout/fragment_admin_user_management" />
-
+            tools:layout="@layout/fragment_admin_dashboard" />
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="-2dp"
+        android:visibility="invisible"
+        tools:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/bg_toast_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.95"
+            app:srcCompat="@drawable/toast_popup" />
+
+        <TextView
+            android:id="@+id/pomessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대시보드로 이동되었습니다."
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_toast_popup"
+            app:layout_constraintEnd_toEndOf="@+id/bg_toast_popup"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="@+id/bg_toast_popup"
+            app:layout_constraintTop_toTopOf="@+id/bg_toast_popup" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>
