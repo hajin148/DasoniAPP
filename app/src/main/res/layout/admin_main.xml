@@ -57,6 +57,7 @@
                 android:backgroundTint="@color/TextButton"
                 android:text="대시보드로 보내기"
                 android:textColor="@android:color/white" />
+
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -117,13 +118,29 @@
             android:orientation="horizontal">
 
 
-            <Button
-                android:id="@+id/btn_admin_dashboard"
-                style="@style/SquareButton"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="대시보드" />
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_admin_dashboard"
+                    style="@style/SquareButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="대시보드" />
+
+                <ImageView
+                    android:id="@+id/icon_notification"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_alignTop="@+id/btn_admin_dashboard"
+                    android:layout_alignEnd="@+id/btn_admin_dashboard"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/icon_notification"
+                    android:visibility="visible" />
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/btn_admin_user_management"
@@ -151,42 +168,40 @@
             android:layout_weight="1"
             tools:layout="@layout/fragment_admin_dashboard" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="-2dp"
+            android:visibility="invisible"
+            tools:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/bg_toast_popup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.95"
+                app:srcCompat="@drawable/toast_popup" />
+
+            <TextView
+                android:id="@+id/pomessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="대시보드로 이동되었습니다."
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/bg_toast_popup"
+                app:layout_constraintEnd_toEndOf="@+id/bg_toast_popup"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="@+id/bg_toast_popup"
+                app:layout_constraintTop_toTopOf="@+id/bg_toast_popup" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="-2dp"
-        android:visibility="invisible"
-        tools:visibility="invisible">
-
-        <ImageView
-            android:id="@+id/bg_toast_popup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.95"
-            app:srcCompat="@drawable/toast_popup" />
-
-        <TextView
-            android:id="@+id/pomessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="대시보드로 이동되었습니다."
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/bg_toast_popup"
-            app:layout_constraintEnd_toEndOf="@+id/bg_toast_popup"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="@+id/bg_toast_popup"
-            app:layout_constraintTop_toTopOf="@+id/bg_toast_popup" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>
