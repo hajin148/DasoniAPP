@@ -6,7 +6,8 @@
     <color name="subColor">#767676</color>
     <color name="mod_line">#d9d9d9</color>
     <color name="subColor2">#505050</color>
-    <color name="TextButton">#FF489BFF</color>
+    <color name="TextButton">#489BFF</color>
+    <color name="bgButton">#006CF0</color>
     <color name="card_container">#EEEEEE</color>
     <color name="gray_transparent">#33000000</color>
 </resources>

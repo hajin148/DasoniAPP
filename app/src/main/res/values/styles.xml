@@ -2,7 +2,28 @@
 <!--admin_main.xml안에 메뉴바를 위한 스타일가이드 -->
 <resources>
 
-    <!-- 대시보드 카드모듈 기본 스타일-->
+    <!-- admin_popup_exit_confirmation Button(btn) style -->
+    <style name="confirmModule_Cancel">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/black_main</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <style name="confirmModule_Confirm">
+        <item name="backgroundTint">@color/TextButton</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <!-- fragment_admin_dashboard.xml dashboard cardModule default style-->
     <style name="CardViewBase">
         <item name="cardCornerRadius">12dp</item>
         <item name="cardElevation">4dp</item>
@@ -23,25 +44,6 @@
         <item name="android:background">@drawable/button_background_selector</item>
     </style>
 
-
-    <drawable name="button_background_selector">
-        <selector xmlns:android="http://schemas.android.com/apk/res/android">
-            <item android:state_selected="true">
-                <shape android:shape="rectangle">
-                    <solid android:color="@android:color/transparent" />
-                    <size android:height="28dp" android:width="28dp" />
-                    <stroke android:width="2dp" android:color="@color/black_main" />
-                </shape>
-            </item>
-            <item>
-                <shape android:shape="rectangle">
-                    <solid android:color="@android:color/transparent" />
-                    <size android:height="28dp" android:width="28dp" />
-                    <stroke android:width="2dp" android:color="@android:color/transparent" />
-                </shape>
-            </item>
-        </selector>
-    </drawable>
 </resources>
 
 

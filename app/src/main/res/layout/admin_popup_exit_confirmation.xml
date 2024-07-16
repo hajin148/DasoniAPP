@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33000000">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/module_exit_confirmation"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:text="나가시겠습니까?"
+                android:textColor="@color/black_main"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
+                android:gravity="center"
+                android:paddingBottom="26dp"
+                android:text="'확인'을 누르면 '내 계정'으로 돌아갑니다"
+                android:textColor="@color/black_main"
+                android:textSize="14sp" />
+
+            <!-- Buttons LinearLayout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    style="@style/confirmModule_Cancel"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:text="취소" />
+
+                <Button
+                    android:id="@+id/btn_confirm"
+                    style="@style/confirmModule_Confirm"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/bgButton"
+                    android:text="확인" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
