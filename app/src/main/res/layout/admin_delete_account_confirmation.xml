@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fui_transparent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/module_exit_confirmation"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="16dp"
+        style="@style/BlurBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:text="계정을 영구 삭제하시겠습니까?"
+                android:textColor="@color/subColor"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
+                android:gravity="center"
+                android:paddingBottom="26dp"
+                android:lineHeight="22sp"
+                android:text="삭제 버튼 선택시, 이 계정은 영구적으로 \n 삭제되며 복구할 수 없습니다."
+                android:textColor="@color/subColor"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                style="@style/confirmModule_Delete"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="나가기"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                style="@style/confirmModule_Cancel"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="취소" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
