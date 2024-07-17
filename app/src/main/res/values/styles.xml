@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--admin_main.xml안에 메뉴바를 위한 스타일가이드 -->
+<?xml version="1.0" encoding="utf-8"?><!--admin_main.xml안에 메뉴바를 위한 스타일가이드 -->
 <resources>
 
-    <!-- admin_popup_exit_confirmation Button(btn) style -->
+    <!-- admin_popup_exit_confirmation Button(btn) style + background blur-->
     <style name="confirmModule_Cancel">
-        <item name="backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
         <item name="android:textColor">@color/black_main</item>
         <item name="android:textSize">14sp</item>
         <item name="android:layout_width">0dp</item>
@@ -14,13 +15,20 @@
     </style>
 
     <style name="confirmModule_Confirm">
-        <item name="backgroundTint">@color/TextButton</item>
+        <item name="android:backgroundTint">@color/TextButton</item>
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
         <item name="android:textSize">14sp</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <style name="BlurBackground" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/blur_background</item>
+        <item name="android:windowIsFloating">true</item>
     </style>
 
     <!-- fragment_admin_dashboard.xml dashboard cardModule default style-->
