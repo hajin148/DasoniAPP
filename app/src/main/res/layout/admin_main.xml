@@ -69,14 +69,27 @@
                 android:background="@drawable/button_background_selector"
                 android:text="대시보드" />
 
-            <Button
-                android:id="@+id/btn_admin_user_management"
-                style="@style/SquareButton"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/button_background_selector"
-                android:text="사용자 관리" />
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_admin_user_management"
+                    style="@style/SquareButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background_selector"
+                    android:text="사용자 관리" />
+
+                <View
+                    android:id="@+id/indicator_user_management"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/black"
+                    android:visibility="gone" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_admin_setting"
