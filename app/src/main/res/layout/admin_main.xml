@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    tools:context=".AdminActivity">
 
     <RelativeLayout
         android:id="@+id/admin_toolbar"
@@ -43,7 +43,6 @@
             android:contentDescription="@string/admin_exit_button"
             android:src="@drawable/icon_exit" />
     </RelativeLayout>
-
 
     <LinearLayout
         android:id="@+id/admin_menu_container"
@@ -89,13 +88,11 @@
                 android:text="관리자 설정" />
         </LinearLayout>
     </LinearLayout>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.dasoniapp.AdminUserMangement"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="match_parent"
         android:layout_below="@id/admin_menu_container"
-        android:layout_weight="1"
         tools:layout="@layout/fragment_admin_user_management" />
-
 </RelativeLayout>
