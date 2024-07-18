@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?><!--admin_main.xml안에 메뉴바를 위한 스타일가이드 -->
 <resources>
 
+    <style name="regular_font">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/subColor</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
     <!-- admin_popup_delete_confirmation Button(btn) style-->
 
     <style name="confirmModule_Delete">
         <item name="android:backgroundTint">@color/Red</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">10dp</item>
         <item name="android:textSize">14sp</item>
