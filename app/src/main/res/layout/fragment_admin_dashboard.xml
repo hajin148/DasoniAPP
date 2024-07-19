@@ -208,7 +208,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -220,7 +219,6 @@
                 tools:listitem="@layout/item_dashboard" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </ScrollView>
 
