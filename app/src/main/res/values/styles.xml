@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?><!--admin_main.xml안에 메뉴바를 위한 스타일가이드 -->
 <resources>
 
+    <style name="font_title2">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black_main</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
+    <style name="font_blue">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+    </style>
+
+    <style name="font_card_inside_body">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black_main</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+    
+    <style name="font_card_inside">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/card_inside_title</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+    
+    <style name="font_title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black_main</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
     <style name="regular_font">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/subColor</item>
