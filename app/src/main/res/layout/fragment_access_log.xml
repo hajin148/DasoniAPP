@@ -1,0 +1,141 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.musicmate.AccessLog">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="38dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_all"
+                    style="@style/regular_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/rectangle_button_selector"
+                    android:gravity="center"
+                    android:selected="true"
+                    android:text="전체"
+                    android:textColor="@color/button_text_selector" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_game1"
+                    style="@style/regular_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/rectangle_button_selector"
+                    android:gravity="center"
+                    android:selected="false"
+                    android:text="박자게임"
+                    android:textColor="@color/button_text_selector" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_game2"
+                    style="@style/regular_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/rectangle_button_selector"
+                    android:gravity="center"
+                    android:selected="false"
+                    android:text="악기연주"
+                    android:textColor="@color/button_text_selector" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_game3"
+                    style="@style/regular_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/rectangle_button_selector"
+                    android:gravity="center"
+                    android:selected="false"
+                    android:text="악기연주"
+                    android:textColor="@color/button_text_selector" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_game4"
+                    style="@style/regular_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/rectangle_button_selector"
+                    android:gravity="center"
+                    android:selected="false"
+                    android:text="악보게임"
+                    android:textColor="@color/button_text_selector" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/card_container"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                style="@style/regular_font"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="목록"
+                android:textColor="@color/black_main" />
+
+            <TextView
+                android:layout_width="0dp"
+                style="@style/regular_font"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="접속상태"
+                android:textColor="@color/black_main" />
+
+            <TextView
+                android:layout_width="0dp"
+                style="@style/regular_font"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="접속날짜"
+                android:textColor="@color/black_main" />
+
+            <TextView
+                android:layout_width="0dp"
+                style="@style/regular_font"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="접속시간"
+                android:textColor="@color/black_main" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            tools:listitem="@layout/item_user_access_log"/>
+
+    </LinearLayout>
+
+</FrameLayout>
