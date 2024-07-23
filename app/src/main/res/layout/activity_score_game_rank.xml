@@ -86,6 +86,7 @@
         android:backgroundTint="#DBEAFE"
         android:scaleX="1"
         android:scaleY="1"
+        android:contentDescription="@string/stop"
         app:layout_constraintBottom_toTopOf="@+id/imageView46"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -207,7 +208,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.457"
-            app:srcCompat="@drawable/key_c" />
+            app:srcCompat="@drawable/piano_key_short_c" />
 
         <ImageView
             android:id="@+id/e_btn"
@@ -220,7 +221,7 @@
             app:layout_constraintStart_toEndOf="@+id/d_btn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.457"
-            app:srcCompat="@drawable/key_e" />
+            app:srcCompat="@drawable/piano_key_short_e" />
 
         <ImageView
             android:id="@+id/f_btn"
@@ -233,7 +234,7 @@
             app:layout_constraintStart_toEndOf="@+id/e_btn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.457"
-            app:srcCompat="@drawable/key_f" />
+            app:srcCompat="@drawable/piano_key_short_f" />
 
         <ImageView
             android:id="@+id/g_btn"
@@ -246,7 +247,7 @@
             app:layout_constraintStart_toEndOf="@+id/f_btn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.457"
-            app:srcCompat="@drawable/key_g" />
+            app:srcCompat="@drawable/piano_key_short_g" />
 
         <ImageView
             android:id="@+id/a_btn"
@@ -259,7 +260,7 @@
             app:layout_constraintStart_toEndOf="@+id/g_btn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.457"
-            app:srcCompat="@drawable/key_a" />
+            app:srcCompat="@drawable/piano_key_short_a" />
 
         <ImageView
             android:id="@+id/b_btn"
@@ -273,7 +274,7 @@
             app:layout_constraintStart_toEndOf="@+id/a_btn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.457"
-            app:srcCompat="@drawable/key_b" />
+            app:srcCompat="@drawable/piano_key_short_b" />
 
         <ImageView
             android:id="@+id/d_btn"
@@ -286,7 +287,7 @@
             app:layout_constraintStart_toEndOf="@+id/c_btn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.457"
-            app:srcCompat="@drawable/key_d" />
+            app:srcCompat="@drawable/piano_key_short_d" />
 
         <ImageView
             android:id="@+id/imageView68"
@@ -354,7 +355,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="도"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/c_btn"
             app:layout_constraintEnd_toEndOf="@+id/c_btn"
@@ -369,7 +370,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="C"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/c_btn"
             app:layout_constraintEnd_toEndOf="@+id/c_btn"
@@ -384,6 +385,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="레"
+            android:textColor="#111111"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/d_btn"
             app:layout_constraintEnd_toEndOf="@+id/d_btn"
@@ -398,6 +400,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="D"
+            android:textColor="#111111"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/d_btn"
             app:layout_constraintEnd_toEndOf="@+id/d_btn"
@@ -412,7 +415,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="미"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/e_btn"
             app:layout_constraintEnd_toEndOf="@+id/e_btn"
@@ -427,7 +430,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="E"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/e_btn"
             app:layout_constraintEnd_toEndOf="@+id/e_btn"
@@ -442,7 +445,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="파"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/f_btn"
             app:layout_constraintEnd_toEndOf="@+id/f_btn"
@@ -457,7 +460,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="F"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/f_btn"
             app:layout_constraintEnd_toEndOf="@+id/f_btn"
@@ -472,7 +475,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="솔"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/g_btn"
             app:layout_constraintEnd_toEndOf="@+id/g_btn"
@@ -487,7 +490,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="G"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/g_btn"
             app:layout_constraintEnd_toEndOf="@+id/g_btn"
@@ -502,7 +505,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="라"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/a_btn"
             app:layout_constraintEnd_toEndOf="@+id/a_btn"
@@ -517,7 +520,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="A"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/a_btn"
             app:layout_constraintEnd_toEndOf="@+id/a_btn"
@@ -532,7 +535,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="시"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/b_btn"
             app:layout_constraintEnd_toEndOf="@+id/b_btn"
@@ -547,7 +550,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="B"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/b_btn"
             app:layout_constraintEnd_toEndOf="@+id/b_btn"
@@ -561,7 +564,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.8"
-        android:background="#DCEBFF"
+        android:background="#111111"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
