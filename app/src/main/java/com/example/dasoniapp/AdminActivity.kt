@@ -11,16 +11,42 @@ class AdminActivity : AppCompatActivity() {
         setContentView(R.layout.admin_main)
 
         val btnUserManagement: Button = findViewById(R.id.btn_admin_user_management)
+        val btnDashboard: Button = findViewById(R.id.btn_admin_dashboard)
         val indicatorUserManagement: View = findViewById(R.id.indicator_user_management)
+        val indicatorDashboard: View = findViewById(R.id.indicator_dasboard)
 
-        // Show the indicator when the button is selected
         indicatorUserManagement.visibility = View.VISIBLE
 
-        // Add the fragment if it's not already added
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView, AdminUserManagement.newInstance())
                 .commitNow()
         }
+
+        btnDashboard.setOnClickListener {
+            indicatorUserManagement.visibility = View.GONE
+            indicatorDashboard.visibility = View.VISIBLE
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView, AdminDashboard.newInstance())
+                .commitNow()
+        }
+
+        btnUserManagement.setOnClickListener {
+            indicatorUserManagement.visibility = View.VISIBLE
+            indicatorDashboard.visibility = View.GONE
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView, AdminUserManagement.newInstance())
+                .commitNow()
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
     }
 }

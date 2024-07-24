@@ -10,9 +10,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
-class AdminUserManagement : Fragment(), AdminUserManagementAdapter.OnUserClickListener {
+class AdminDashboard : Fragment(), AdminUserManagementAdapter.OnUserClickListener {
 
     private lateinit var adapter: AdminUserManagementAdapter
     private lateinit var database: DatabaseReference
@@ -27,10 +31,10 @@ class AdminUserManagement : Fragment(), AdminUserManagementAdapter.OnUserClickLi
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_admin_user_management, container, false)
+        val view = inflater.inflate(R.layout.fragment_admin_dashboard, container, false)
 
         countTextView = view.findViewById(R.id.textView_countPeople)
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewUserManagement)
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewDashBoard)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         val usernames = mutableListOf<UserName>()
@@ -69,7 +73,6 @@ class AdminUserManagement : Fragment(), AdminUserManagementAdapter.OnUserClickLi
 
     companion object {
         @JvmStatic
-        fun newInstance() = AdminUserManagement()
+        fun newInstance() = AdminDashboard()
     }
 }
-

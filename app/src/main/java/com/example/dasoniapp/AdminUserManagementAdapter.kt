@@ -6,8 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdminUserManagementAdapter(private var dataList: List<UserName>) :
+class AdminUserManagementAdapter(private var dataList: List<UserName>, private val listener: OnUserClickListener) :
     RecyclerView.Adapter<AdminUserManagementAdapter.ViewHolder>() {
+
+    interface OnUserClickListener {
+        fun onUserClick(user: UserName)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user_management, parent, false)
@@ -18,6 +22,9 @@ class AdminUserManagementAdapter(private var dataList: List<UserName>) :
         val data = dataList[position]
         holder.textView.text = data.text
         holder.emailTextView.text = data.email
+        holder.itemView.setOnClickListener {
+            listener.onUserClick(data)
+        }
     }
 
     override fun getItemCount(): Int = dataList.size
@@ -32,5 +39,6 @@ class AdminUserManagementAdapter(private var dataList: List<UserName>) :
         val emailTextView: TextView = itemView.findViewById(R.id.textView69)
     }
 }
+
 
 data class UserName(val text: String, val email: String)

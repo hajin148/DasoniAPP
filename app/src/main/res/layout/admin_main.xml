@@ -59,15 +59,27 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_admin_dashboard"
-                style="@style/SquareButton"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/button_background_selector"
-                android:text="대시보드" />
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_admin_dashboard"
+                    style="@style/SquareButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background_selector"
+                    android:text="대시보드" />
+
+                <View
+                    android:id="@+id/indicator_dasboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/black"
+                    android:visibility="gone" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -91,14 +103,28 @@
                     android:visibility="gone" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_admin_setting"
-                style="@style/SquareButton"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/button_background_selector"
-                android:text="관리자 설정" />
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_admin_setting"
+                    style="@style/SquareButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background_selector"
+                    android:text="관리자 설정" />
+
+                <View
+                    android:id="@+id/indicator_admin_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/black"
+                    android:visibility="gone" />
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 
