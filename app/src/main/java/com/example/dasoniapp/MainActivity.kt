@@ -77,7 +77,12 @@ class MainActivity : AppCompatActivity() {
             databaseReference.child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     currentUser = dataSnapshot.getValue(UserAccount::class.java)
-                    if (currentUser == null) {
+                    if (currentUser != null) {
+                        // Update dateAccess and timeFirstAccess
+                        currentUser?.setDateAccess()
+                        currentUser?.setTimeFirstAccess()
+                        // Save updated user data to the database
+                        databaseReference.child(userId).setValue(currentUser)
                     }
                 }
                 override fun onCancelled(databaseError: DatabaseError) {
@@ -556,8 +561,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    override fun onStop() {
+        super.onStop()
 
-
-
-
+        // Update timeExit and save it to the database
+        currentUser?.let {
+            it.setTimeExit()
+            val userId = mFirebaseAuth.currentUser?.uid
+            if (userId != null) {
+                val databaseReference = FirebaseDatabase.getInstance().getReference("DasoniAPP/users")
+                databaseReference.child(userId).setValue(it)
+            }
+        }
+    }
 }
+

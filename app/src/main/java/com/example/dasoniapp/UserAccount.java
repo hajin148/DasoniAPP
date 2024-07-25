@@ -1,5 +1,9 @@
 package com.example.dasoniapp;
+import android.os.Build;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class UserAccount implements Serializable {
     private String email, phone, name, password, idToken;
@@ -37,13 +41,27 @@ public class UserAccount implements Serializable {
         this.password = password;
         this.bestRhythmScore = 0;
         this.bestNoteScore = 0;
-        this.model = "";
+        this.model = Build.MODEL;
         this.admin = false;
         this.accountStatus = true;
-        this.dateSignUp = "";
+        this.dateSignUp = getCurrentDate();
         this.dateAccess = "";
         this.timeFirstAccess = "";
         this.timeExit = "";
+    }
+
+    // Method to get the current date in the required format
+    // Use it for dateSignUp and call for dateAccess
+    private String getCurrentDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        return sdf.format(new Date());
+    }
+
+    // Method to get the current time in the required format
+    // Call for timeFirstAccess timeExit
+    private String getCurrentTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        return sdf.format(new Date());
     }
 
     public String getIdToken() {
@@ -104,12 +122,16 @@ public class UserAccount implements Serializable {
     // Implement serverTimestamp() within RegisterActivity
     public void setDateSignUp(String dateSignUp) { this.dateSignUp = dateSignUp; }
 
-    // Implement serverTimestamp() within MainActivity
-    public void setDateAccess(String dateAccess) { this.dateAccess = dateAccess; }
-    // Implement serverTimestamp() within MainActivity
-    public void setTimeFirstAccess(String timeFirstAccess) { this.timeFirstAccess = timeFirstAccess; }
-    // Implement serverTimestamp() within MainActivity, override onStop()
-    public void setTimeExit(String timeExit) { this.timeExit = timeExit; }
+    public void setDateAccess() {
+        this.dateAccess = getCurrentDate();
+    }
+
+    public void setTimeFirstAccess() {
+        this.timeFirstAccess = getCurrentTime();
+    }
+    public void setTimeExit() {
+        this.timeExit = getCurrentTime();
+    }
 
 
     public void updateBestRhythmScore(int newScore) {
