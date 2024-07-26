@@ -12,8 +12,10 @@ class AdminActivity : AppCompatActivity() {
 
         val btnUserManagement: Button = findViewById(R.id.btn_admin_user_management)
         val btnDashboard: Button = findViewById(R.id.btn_admin_dashboard)
+        val btnAdminSetting: Button = findViewById(R.id.btn_admin_setting)
         val indicatorUserManagement: View = findViewById(R.id.indicator_user_management)
         val indicatorDashboard: View = findViewById(R.id.indicator_dasboard)
+        val indicatorSetting: View = findViewById(R.id.indicator_admin_setting)
 
         indicatorUserManagement.visibility = View.VISIBLE
 
@@ -25,6 +27,7 @@ class AdminActivity : AppCompatActivity() {
 
         btnDashboard.setOnClickListener {
             indicatorUserManagement.visibility = View.GONE
+            indicatorSetting.visibility = View.GONE
             indicatorDashboard.visibility = View.VISIBLE
 
             supportFragmentManager.beginTransaction()
@@ -35,9 +38,20 @@ class AdminActivity : AppCompatActivity() {
         btnUserManagement.setOnClickListener {
             indicatorUserManagement.visibility = View.VISIBLE
             indicatorDashboard.visibility = View.GONE
+            indicatorSetting.visibility = View.GONE
+
 
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView, AdminUserManagement.newInstance())
+                .commitNow()
+        }
+        btnAdminSetting.setOnClickListener {
+            indicatorUserManagement.visibility = View.GONE
+            indicatorDashboard.visibility = View.GONE
+            indicatorSetting.visibility = View.VISIBLE
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView, AdminSettings.newInstance())
                 .commitNow()
         }
     }

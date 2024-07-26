@@ -258,11 +258,12 @@ class MainActivity : AppCompatActivity() {
             userRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     val isAdmin = dataSnapshot.getValue(Boolean::class.java) ?: false
+                    Log.d("AdminCheck", "Is Admin1: $isAdmin");
+
                     if (isAdmin) {
                         adminBtn.visibility = View.VISIBLE
                         adminText.visibility = View.VISIBLE
-
-
+                        Log.d("AdminCheck", "Is Admin2: $isAdmin");
                     }
                 }
 

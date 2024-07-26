@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.musicmate.AdminSettings">
+    tools:context="com.example.dasoniapp.AdminSettings">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,6 +61,7 @@
             app:layout_constraintTop_toBottomOf="@+id/scrollview_privacy_policy" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewAdminSettings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -68,8 +69,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_user_activation"
-            app:layout_constraintVertical_bias="0.0"
-            tools:listitem="@layout/item_user_activation" />
+            app:layout_constraintVertical_bias="0.0"/>
+<!--            tools:listitem="@layout/item_user_activation" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
