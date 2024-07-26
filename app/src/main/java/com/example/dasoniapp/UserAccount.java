@@ -19,7 +19,6 @@ public class UserAccount implements Serializable {
 
     public UserAccount() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
-        this.managedUsers = new ArrayList<>();
     }
 
     public int getBestRhythmScore() {
@@ -52,7 +51,6 @@ public class UserAccount implements Serializable {
         this.dateAccess = "";
         this.timeFirstAccess = "";
         this.timeExit = "";
-        this.managedUsers = new ArrayList<>();
     }
 
     // Method to get the current date in the required format

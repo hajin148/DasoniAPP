@@ -51,10 +51,11 @@ class AdminDashboard : Fragment(), AdminUserManagementAdapter.OnUserClickListene
             override fun onDataChange(snapshot: DataSnapshot) {
                 val users = mutableListOf<UserName>()
                 for (userSnapshot in snapshot.children) {
+                    val uid = userSnapshot.key
                     val name = userSnapshot.child("name").getValue(String::class.java)
                     val email = userSnapshot.child("email").getValue(String::class.java)
-                    if (name != null && email != null) {
-                        users.add(UserName(name, email))
+                    if (uid != null && name != null && email != null) {
+                        users.add(UserName(uid, name, email))
                     }
                 }
                 adapter.updateData(users)

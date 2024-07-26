@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -43,26 +44,42 @@ class AdminSettings : Fragment() {
     }
 
     private fun fetchUserData() {
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
+        val currentUserUid = FirebaseAuth.getInstance().currentUser?.uid
+        if (currentUserUid == null) {
+            return
+        }
+
+        database.child(currentUserUid).child("managedUsers").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val managedUsers = dataSnapshot.children.map { it.value.toString() }.toSet()
                 val users = mutableListOf<UserSettings>()
-                for (userSnapshot in snapshot.children) {
-                    val uid = userSnapshot.key
-                    val name = userSnapshot.child("name").getValue(String::class.java)
-                    val email = userSnapshot.child("email").getValue(String::class.java)
-                    val accountStatus = userSnapshot.child("accountStatus").getValue(Boolean::class.java)
-                    if (uid != null && name != null && email != null && accountStatus != null) {
-                        users.add(UserSettings(uid, name, email, accountStatus))
+
+                database.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (userSnapshot in snapshot.children) {
+                            val uid = userSnapshot.key
+                            val name = userSnapshot.child("name").getValue(String::class.java)
+                            val email = userSnapshot.child("email").getValue(String::class.java)
+                            val accountStatus = userSnapshot.child("accountStatus").getValue(Boolean::class.java)
+                            if (uid != null && name != null && email != null && accountStatus != null && managedUsers.contains(uid)) {
+                                users.add(UserSettings(uid, name, email, accountStatus))
+                            }
+                        }
+                        adapter.updateData(users)
                     }
-                }
-                adapter.updateData(users)
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.e("AdminSettings", "Failed to read value.", error.toException())
+                    }
+                })
             }
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("AdminSettings", "Failed to read value.", error.toException())
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("AdminSettings", "Failed to read managed users.", databaseError.toException())
             }
         })
     }
+
 
 //    override fun onUserClick(user: UserSettings) {
 //        Toast.makeText(context, "User clicked: ${user.text}", Toast.LENGTH_SHORT).show()
