@@ -2,7 +2,9 @@ package com.example.dasoniapp;
 import android.os.Build;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class UserAccount implements Serializable {
@@ -13,9 +15,11 @@ public class UserAccount implements Serializable {
     private String model;
     private boolean admin, accountStatus;
     private String dateSignUp, dateAccess, timeFirstAccess, timeExit;
+    private List<String> managedUsers;
 
     public UserAccount() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
+        this.managedUsers = new ArrayList<>();
     }
 
     public int getBestRhythmScore() {
@@ -48,6 +52,7 @@ public class UserAccount implements Serializable {
         this.dateAccess = "";
         this.timeFirstAccess = "";
         this.timeExit = "";
+        this.managedUsers = new ArrayList<>();
     }
 
     // Method to get the current date in the required format
@@ -133,6 +138,22 @@ public class UserAccount implements Serializable {
         this.timeExit = getCurrentTime();
     }
 
+    public void setManagedUsers(List<String> managedUsers) {
+        this.managedUsers = managedUsers;
+    }
+
+    public void addManagedUser(String uid) {
+        if (this.managedUsers == null) {
+            this.managedUsers = new ArrayList<>();
+        }
+        this.managedUsers.add(uid);
+    }
+
+    public void removeManagedUser(String uid) {
+        if (this.managedUsers != null) {
+            this.managedUsers.remove(uid);
+        }
+    }
 
     public void updateBestRhythmScore(int newScore) {
         if (newScore > this.bestRhythmScore) {
