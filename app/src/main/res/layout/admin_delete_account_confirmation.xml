@@ -44,7 +44,7 @@
                 style="@style/confirmModule_Delete"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="나가기"
+                android:text="삭제하기"
                 android:textColor="@color/white" />
 
             <Button
