@@ -81,16 +81,24 @@ class MainActivity : AppCompatActivity() {
                         // Update dateAccess and timeFirstAccess
                         currentUser?.setDateAccess()
                         currentUser?.setTimeFirstAccess()
+
                         // Save updated user data to the database
-                        databaseReference.child(userId).setValue(currentUser)
+                        databaseReference.child(userId).updateChildren(mapOf(
+                            "dateAccess" to currentUser?.dateAccess,
+                            "timeFirstAccess" to currentUser?.timeFirstAccess
+                        ))
                     }
                 }
+
                 override fun onCancelled(databaseError: DatabaseError) {
+                    Log.e("MainActivity", "Failed to initialize current user", databaseError.toException())
                 }
             })
         } else {
+            Log.e("MainActivity", "User ID is null")
         }
     }
+
 
     private fun isFirstLaunch(): Boolean {
         val prefs = getSharedPreferences("com.example.dasoniapp", MODE_PRIVATE)

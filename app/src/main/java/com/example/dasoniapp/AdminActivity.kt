@@ -4,11 +4,24 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
+import com.google.firebase.auth.FirebaseAuth
 
 class AdminActivity : AppCompatActivity() {
+    private lateinit var mFirebaseAuth: FirebaseAuth
+    private lateinit var currentUserUid: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_main)
+
+        mFirebaseAuth = FirebaseAuth.getInstance()
+        val currentUser = mFirebaseAuth.currentUser
+        if (currentUser != null) {
+            currentUserUid = currentUser.uid
+        } else {
+            finish()
+            return
+        }
 
         val btnUserManagement: Button = findViewById(R.id.btn_admin_user_management)
         val btnDashboard: Button = findViewById(R.id.btn_admin_dashboard)
@@ -40,11 +53,11 @@ class AdminActivity : AppCompatActivity() {
             indicatorDashboard.visibility = View.GONE
             indicatorSetting.visibility = View.GONE
 
-
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView, AdminUserManagement.newInstance())
                 .commitNow()
         }
+
         btnAdminSetting.setOnClickListener {
             indicatorUserManagement.visibility = View.GONE
             indicatorDashboard.visibility = View.GONE
